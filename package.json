@@ -1,7 +1,7 @@
 {
-  "name": "@YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME",
+  "name": "@ionpe/template-react-component-library",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/YOUR_REPOSITORY_NAME"
+    "registry": "https://npm.pkg.github.com/ionpe"
   },
   "version": "0.1.0",
   "description": "A simple template for a custom React component library",
@@ -38,6 +38,7 @@
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^2.60.0",
