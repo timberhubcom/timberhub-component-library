@@ -1,9 +1,6 @@
 {
-  "name": "@ionpetro/template-react-component-library",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ionpe"
-  },
-  "version": "0.1.2",
+  "name": "@ipetro/template-react-component-library",
+  "version": "1.0.0",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -11,7 +8,15 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "author": "YOUR_NAME",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionpe/template-react-component-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionpe/template-react-component-library/issues"
+  },
+  "homepage": "https://github.com/ionpe/template-react-component-library#readme",
+  "author": "ionpetro",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
