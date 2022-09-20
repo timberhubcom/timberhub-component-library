@@ -1,5 +1,5 @@
 {
-  "name": "@ionpe/template-react-component-library",
+  "name": "@ionpetro/template-react-component-library",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ionpe"
   },
