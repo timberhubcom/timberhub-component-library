@@ -1,4 +1,72 @@
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+
 .button {
-  font-size: 60px;
-  background-color: pink;
+  border: 0;
+  cursor: pointer;
+  box-shadow: none;
+  outline: none;
+  display: inline-block;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary {
+  @include text-14-b;
+  background: $green;
+  border: 2px solid $green;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  transition: $transition;
+  font-weight: bold;
+
+  &:not(.disabled):hover {
+    transition: $transition;
+    color: $green;
+    background: $black;
+    border: 2px solid $black;
+  }
+}
+
+.secondary {
+  @include text-14-b;
+  background: $white;
+  border: 2px solid $green;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  transition: $transition;
+  font-weight: bold;
+
+  &:not(.disabled):hover {
+    transition: $transition;
+    color: $green;
+    background: $black;
+    border: 2px solid $black;
+  }
+}
+
+.plain {
+  @include text-14-b;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 2px 5px;
+  display: flex;
+  color: $green;
+  align-items: center;
+  transition: $transition;
+  font-weight: bold;
+
+  &:not(.disabled):hover {
+    transition: $transition;
+    color: $black;
+    background: transparent;
+    border: 2px solid transparent;
+    text-decoration: underline;
+  }
 }
