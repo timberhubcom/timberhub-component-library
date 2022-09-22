@@ -1,0 +1,80 @@
+@mixin text-10 {
+  font-size: 10px;
+  line-height: 15px;
+}
+@mixin text-10-sb {
+  font-size: 10px;
+  line-height: 15px;
+  font-weight: 600;
+}
+@mixin text-12 {
+  font-size: 12px;
+  line-height: 15px;
+}
+@mixin text-12-sb {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 600;
+}
+@mixin text-12-b {
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+}
+@mixin text-14 {
+  font-size: 14px;
+  line-height: 18px;
+}
+@mixin text-14-b {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: bold;
+}
+@mixin text-15 {
+  font-size: 15px;
+  line-height: 19px;
+}
+@mixin text-15-b {
+  font-size: 15px;
+  line-height: 19px;
+  font-weight: bold;
+}
+@mixin text-17 {
+  font-size: 17px;
+  line-height: 21px;
+}
+@mixin text-17-b {
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: bold;
+}
+@mixin text-19 {
+  font-size: 19px;
+  line-height: 24px;
+}
+@mixin text-19-b {
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: bold;
+}
+@mixin text-21 {
+  font-size: 21px;
+  line-height: 26px;
+}
+@mixin text-21-b {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: bold;
+}
+@mixin text-23 {
+  font-size: 23px;
+  line-height: 26px;
+}
+@mixin text-23-b {
+  font-size: 23px;
+  line-height: 26px;
+  font-weight: bold;
+}
+@mixin underline {
+  text-decoration: underline;
+}

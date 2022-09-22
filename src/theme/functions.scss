@@ -1,0 +1,24 @@
+$sidebar_width: 270px;
+
+$input_border_radius: 5px;
+$border_radius: 5px;
+
+$transition: all 0.2s;
+
+$box_shadow: 0px 0px 24px rgba(0, 0, 0, 0.13);
+
+$wide: 1920px;
+$desk: 980px;
+$tab: 670px;
+$mob: 360px;
+
+// xs: '480px',
+$mobile: 'only screen and (max-width: ${screen-xs})';
+// sm: '576px',
+$tablet: 'only screen and (max-width: ${screen-sm})';
+// md: '768px',
+$desktop-medium: 'only screen and (max-width: ${screen-md})';
+// lg: '992px',
+$desktop-large: 'only screen and (max-width: ${screen-lg})';
+// xl: '1200px',
+$desktop-xlarge: 'only screen and (max-width: ${screen-xl})';

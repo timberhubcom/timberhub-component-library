@@ -2,11 +2,12 @@ module.exports = {
   parser: 'babel-eslint',
   root: true,
   parserOptions: {
+    parser: '@typescript-eslint/parser',
     jsx: true,
     useJSXTextNode: true,
     allowImportExportEverywhere: true,
   },
-  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   rules: {
     'react/jsx-props-no-spreading': 'off',
     'react/react-in-jsx-scope': 'off',
