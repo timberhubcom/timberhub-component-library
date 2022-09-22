@@ -8,9 +8,14 @@ export interface ButtonProps {
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, type = 'primary', disabled = false, children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ type = 'primary', onClick, disabled = false, children, ...rest }) => {
   return (
-    <button className={`${styles.button} ${styles[type]} ${disabled && styles.disabled}`} disabled={disabled} {...rest}>
+    <button
+      className={`${styles.button} ${styles[type]} ${disabled && styles.disabled}`}
+      disabled={disabled}
+      onClick={onClick}
+      {...rest}
+    >
       {children}
     </button>
   );
