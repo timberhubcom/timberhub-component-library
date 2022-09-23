@@ -1,0 +1,52 @@
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  @include text-15-b;
+}
+
+.label:first-letter {
+  text-transform: capitalize;
+}
+
+.input {
+  @include text-14;
+  padding: 8px 12px;
+  border-radius: $input_border_radius;
+  border: 1px solid $back_dark_grey;
+  min-width: 320px;
+
+  &:focus {
+    border: 1px solid $green;
+    outline: none;
+  }
+}
+
+.required {
+  color: $green;
+  margin-left: 3px;
+}
+
+.disabled {
+  background-color: $back_grey;
+  border: 1px solid $back_dark_grey;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+.errorDescription {
+  @include text-12;
+  color: $red;
+  margin-top: 5px;
+}
+
+.description {
+  margin-top: 2px;
+  color: $color_grey;
+  @include text-12-b;
+}
