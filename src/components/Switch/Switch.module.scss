@@ -1,0 +1,77 @@
+@import './src/theme/shared';
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+
+.label {
+  display: flex;
+  & > :nth-child(1) {
+    display: block;
+    margin-bottom: 5px;
+    @include text-15-b;
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.toggle {
+  span {
+    @include text-14;
+    padding-left: 38px;
+    display: flex;
+    position: relative;
+    line-height: 21px;
+    font-weight: 300;
+  }
+
+  input + span:before {
+    content: '';
+    width: 32px;
+    height: 19px;
+    display: block;
+    border: 1px solid $back_dark_grey;
+    border-radius: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  input + span:after {
+    content: '';
+    width: 13px;
+    height: 13px;
+    display: block;
+    background-color: $back_dark_grey;
+    border-radius: 20px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: $transition;
+  }
+
+  input:checked + span:before {
+    background: $green;
+    border: 1px solid $green;
+  }
+
+  input:checked + span:after {
+    transition: $transition;
+    background-color: $white;
+    transform: translateX(100%);
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.required {
+  @include required;
+}
+
+.errorDescription {
+  @include text-12;
+  color: $red;
+  margin-top: 5px;
+}
