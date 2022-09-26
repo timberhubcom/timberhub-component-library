@@ -11,11 +11,11 @@ const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {
-  option: { name: 'option' },
+  option: { name: 'option', value: 'option' },
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  option: { name: 'option' },
+  option: { name: 'option', value: 'option' },
   disabled: true,
 };

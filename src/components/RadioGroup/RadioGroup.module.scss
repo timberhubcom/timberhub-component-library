@@ -1,0 +1,22 @@
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+@import './src/theme/shared';
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  @include text-15-b;
+}
+
+.label:first-letter {
+  text-transform: capitalize;
+}
+
+.required {
+  @include required;
+}
+
+.disabled {
+  text-transform: capitalize;
+}
