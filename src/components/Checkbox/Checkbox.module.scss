@@ -1,0 +1,81 @@
+@import './src/theme/shared';
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+
+.checkboxLabel {
+  & > :nth-child(1) {
+    display: block;
+    margin-bottom: 5px;
+    @include text-15-b;
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.checkbox {
+  span:not(.required) {
+    @include text-14;
+    padding-left: 28px;
+    display: flex;
+    position: relative;
+    line-height: 20px;
+  }
+
+  input + span:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    display: block;
+    border: 1px solid $back_dark_grey;
+    border-radius: $border-radius;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  input:checked + span:before {
+    border: 1px solid $green;
+    background-color: $green;
+  }
+
+  input:checked + span:after {
+    content: '';
+    width: 8px;
+    height: 4px;
+    display: block;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    transform: rotate(-45deg);
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.checkboxDisabled {
+  span:before {
+    background-color: $back_grey !important;
+    border: 1px solid $back_dark_grey !important;
+  }
+
+  span:after {
+    border-left: 2px solid $back_dark_grey !important;
+    border-bottom: 2px solid $back_dark_grey !important;
+  }
+}
+
+.required {
+  @include required;
+}
+
+.checkboxLabelName {
+  @include text-14;
+  display: inline-block;
+  margin-bottom: 5px;
+}

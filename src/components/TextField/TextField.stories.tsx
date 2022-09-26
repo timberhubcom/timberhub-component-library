@@ -3,7 +3,7 @@ import { ComponentStory } from '@storybook/react';
 import TextField from './TextField';
 
 export default {
-  title: 'Lib/TextField',
+  title: 'Components/TextField',
   component: TextField,
 };
 
