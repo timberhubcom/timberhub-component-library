@@ -36,8 +36,6 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
     setSelectedValue(null);
   };
 
-  console.log(selectedValue);
-
   return (
     <>
       {label && (
