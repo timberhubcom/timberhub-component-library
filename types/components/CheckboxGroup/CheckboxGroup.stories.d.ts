@@ -6,12 +6,14 @@ declare const _default: {
         name?: string | undefined;
         label?: string | undefined;
         labelClass?: string | undefined;
-        option: import("./Checkbox").CheckboxOptionType;
+        options: import("../Checkbox/Checkbox").CheckboxOptionType[];
         description?: string | undefined;
-        defaultValue?: boolean | undefined;
+        defaultValues?: {
+            [key: string]: string;
+        } | undefined;
         disabled?: boolean | undefined;
-        onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
         required?: boolean | undefined;
+        error?: string | undefined;
     }>;
 };
 export default _default;
@@ -19,54 +21,51 @@ export declare const Base: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option: import("./Checkbox").CheckboxOptionType;
+    options: import("../Checkbox/Checkbox").CheckboxOptionType[];
     description?: string | undefined;
-    defaultValue?: boolean | undefined;
+    defaultValues?: {
+        [key: string]: string;
+    } | undefined;
     disabled?: boolean | undefined;
-    onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
 }>>;
 export declare const Label: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option: import("./Checkbox").CheckboxOptionType;
+    options: import("../Checkbox/Checkbox").CheckboxOptionType[];
     description?: string | undefined;
-    defaultValue?: boolean | undefined;
+    defaultValues?: {
+        [key: string]: string;
+    } | undefined;
     disabled?: boolean | undefined;
-    onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
 }>>;
 export declare const Disabled: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option: import("./Checkbox").CheckboxOptionType;
+    options: import("../Checkbox/Checkbox").CheckboxOptionType[];
     description?: string | undefined;
-    defaultValue?: boolean | undefined;
+    defaultValues?: {
+        [key: string]: string;
+    } | undefined;
     disabled?: boolean | undefined;
-    onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
 }>>;
 export declare const Required: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option: import("./Checkbox").CheckboxOptionType;
+    options: import("../Checkbox/Checkbox").CheckboxOptionType[];
     description?: string | undefined;
-    defaultValue?: boolean | undefined;
+    defaultValues?: {
+        [key: string]: string;
+    } | undefined;
     disabled?: boolean | undefined;
-    onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     required?: boolean | undefined;
-}>>;
-export declare const ChildComponent: ComponentStory<React.FC<{
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option: import("./Checkbox").CheckboxOptionType;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
-    required?: boolean | undefined;
+    error?: string | undefined;
 }>>;

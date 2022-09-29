@@ -11,31 +11,31 @@ const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} 
 
 export const Base = Template.bind({});
 Base.args = {
-  option: { name: 'Option' },
+  option: { name: 'Option', value: 'Option' },
   defaultValue: true,
 };
 
 export const Label = Template.bind({});
 Label.args = {
   label: 'Final step',
-  option: { name: 'Agree with the t&cs' },
+  option: { name: 'Agree with the t&cs', value: 'Agree with the t&cs' },
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   defaultValue: true,
-  option: { name: 'Disabled' },
+  option: { name: 'Disabled', value: 'Disabled' },
   disabled: true,
 };
 
 export const Required = Template.bind({});
 Required.args = {
   defaultValue: true,
-  option: { name: 'Option' },
+  option: { name: 'Option', value: 'Option' },
   required: true,
 };
 
 export const ChildComponent = Template.bind({});
 ChildComponent.args = {
-  option: { name: 'Option', children: <div>child</div> },
+  option: { name: 'Option', value: 'Option', children: <div>child</div> },
 };

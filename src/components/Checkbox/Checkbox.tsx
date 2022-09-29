@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Checkbox.module.scss';
 
-type CheckboxOptionType = {
+export type CheckboxOptionType = {
   name: string;
+  value: string;
   children?: React.ReactNode;
 };
 

@@ -1,0 +1,9 @@
+.cols {
+  display: flex;
+
+  @for $i from 0 to 100 {
+    .col-#{$i} {
+      flex: $i 1 0;
+    }
+  }
+}

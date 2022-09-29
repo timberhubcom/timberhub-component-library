@@ -1,0 +1,18 @@
+import React from 'react';
+import styles from './Chip.module.scss';
+
+type ChipProps = {
+  text: string;
+  prefix?: string;
+};
+
+const Chip: React.FC<ChipProps> = ({ text, prefix }) => {
+  return (
+    <div className={styles['chip']}>
+      {prefix && <span className={styles['prefix']}>{prefix}</span>}
+      <span className={styles['text']}>{text}</span>
+    </div>
+  );
+};
+
+export default Chip;

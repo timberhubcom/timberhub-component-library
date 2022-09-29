@@ -1,0 +1,65 @@
+@import './src/theme/shared';
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+@import './src/theme/grid';
+
+.table {
+  width: 100%;
+  @include text-14;
+}
+
+.tableColumn {
+  &:first-child {
+    padding-left: 20px;
+  }
+}
+
+.tableColumnText {
+  float: left;
+  color: $light_grey;
+  @include text-12;
+}
+
+.tableHeader {
+  padding: 19px 0 11px;
+}
+
+.tableEmpty {
+  color: $color_grey;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.tableRow {
+  padding: 14px 0 14px 0;
+  border-bottom: 1px solid $border;
+
+  &:hover {
+    background: rgba($green, 0.13);
+  }
+}
+
+.textRow {
+  height: 100%;
+  overflow-wrap: anywhere;
+  padding-right: 10px;
+
+  small {
+    line-height: 15px;
+  }
+
+  ol {
+    flex-wrap: wrap;
+  }
+}
+
+.cols {
+  display: flex;
+}
+
+@for $i from 0 to 100 {
+  .col-#{$i} {
+    flex: $i 1 0;
+  }
+}

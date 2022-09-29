@@ -1,6 +1,7 @@
 import React from 'react';
-declare type CheckboxOptionType = {
+export declare type CheckboxOptionType = {
     name: string;
+    value: string;
     children?: React.ReactNode;
 };
 declare type CheckboxProps = {
