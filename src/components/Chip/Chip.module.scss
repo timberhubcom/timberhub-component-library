@@ -1,0 +1,22 @@
+@import './src/theme/shared';
+@import './src/theme/pallete';
+@import './src/theme/functions';
+@import './src/theme/typography';
+
+.chip {
+  @include text-12;
+  background-color: $back_grey;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.text {
+  color: $dark_blue;
+}
+
+.prefix {
+  padding-right: 6px;
+  color: $light_grey;
+  opacity: 0.3;
+}
