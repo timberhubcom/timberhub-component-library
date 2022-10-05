@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import Table from './Table';
 import { rows, structure } from './data';
@@ -21,5 +21,13 @@ describe('Table', () => {
 
     // renders child components
     expect(screen.getByText('React node')).toBeVisible();
+  });
+  it('should call the onClick callback when a row is clicked', () => {
+    const mockOnClick = jest.fn();
+    render(<Table rows={rows} structure={structure} onClick={mockOnClick} />);
+
+    fireEvent.click(screen.getByTestId('row-0'));
+
+    expect(mockOnClick).toHaveBeenCalledWith(rows[0]);
   });
 });

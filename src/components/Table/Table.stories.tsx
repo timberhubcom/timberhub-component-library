@@ -21,3 +21,10 @@ Empty.args = {
   structure,
   rows: [],
 };
+
+export const Row = Template.bind({});
+Row.args = {
+  structure,
+  rows,
+  onClick: (row) => console.log(row),
+};

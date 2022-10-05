@@ -18,6 +18,7 @@
 .tableColumnText {
   float: left;
   color: $light_grey;
+  font-weight: 400;
   @include text-12;
 }
 
@@ -34,6 +35,7 @@
 .tableRow {
   padding: 14px 0 14px 0;
   border-bottom: 1px solid $border;
+  cursor: pointer;
 
   &:hover {
     background: rgba($green, 0.13);

@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from './Table.module.scss';
-import { HeaderItem, TableProps } from './types';
+import { HeaderItem, TableProps, TableRowItem } from './types';
 
-const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No data' }) => {
+const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No data', onClick }) => {
+  const handleRowClick = (row: TableRowItem) => {
+    if (onClick) onClick(row);
+  };
+
   return (
     <table className={styles['table']}>
       <thead>
@@ -22,7 +26,12 @@ const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No dat
         {rows.length > 0 ? (
           <tr>
             {rows.map((row, position) => (
-              <td className={`${styles['cols']} ${styles['tableRow']}`} key={position}>
+              <td
+                className={`${styles['cols']} ${styles['tableRow']}`}
+                key={position}
+                onClick={() => handleRowClick(row)}
+                data-testid={`row-${position}`}
+              >
                 {structure.header.map((column, index) => (
                   <div
                     className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}

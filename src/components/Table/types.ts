@@ -17,5 +17,6 @@ export type TableStructure = {
 export type TableProps = {
   structure: TableStructure;
   rows: TableRowItem[];
+  onClick?: (row: TableRowItem) => void;
   emptyText?: string;
 };
