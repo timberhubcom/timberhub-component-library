@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -14,9 +15,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "paths": {
+      "@assets/*": ["src/assets/*"]
+    }
   },
-  "include": [
-    "types/modules.d.ts", "src/"],
+  "include": ["types/modules.d.ts", "types/svg.d.ts", "src/"],
   "exclude": ["node_modules/"]
 }

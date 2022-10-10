@@ -2,8 +2,9 @@ import babel from 'rollup-plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
+const postcss = require('rollup-plugin-postcss');
+const url = require('postcss-url');
 import dts from 'rollup-plugin-dts';
 
 const packageJson = require('./package.json');
@@ -28,7 +29,11 @@ export default [
       commonjs(),
       babel({ exclude: 'node_modules/**' }),
       typescript({ tsconfig: './tsconfig.json' }),
-      postcss({ modules: true, use: ['sass'] }),
+      postcss({
+        modules: true,
+        use: ['sass'],
+        plugins: [url({ url: 'inline' })],
+      }),
       terser(),
     ],
   },
