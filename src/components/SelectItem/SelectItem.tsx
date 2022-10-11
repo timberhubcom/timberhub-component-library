@@ -9,44 +9,33 @@ type SelectOption = {
 };
 
 type SelectItemProps = {
-  label?: string;
   name: string;
-  options: SelectOption[];
+  label?: string;
+  options?: SelectOption[];
   placeholder?: string;
   labelClass?: string;
-  onChange: (opt: SingleValue<SelectOption>) => void;
+  onChange?: (opt: SingleValue<SelectOption>) => void;
   defaultValue?: SelectOption;
   searchable?: boolean;
   required?: boolean;
 };
 
 const SelectItem: React.FC<SelectItemProps> = ({
-  label,
   name,
-  options,
+  label,
+  options = [],
+  placeholder = 'select an option',
   labelClass,
   onChange,
-  placeholder = 'select an option',
-  defaultValue = undefined,
+  defaultValue = null,
   searchable = true,
   required = false,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SelectOption | undefined>(defaultValue);
-  const [requiredInput, setRequiredInput] = useState<boolean>(required);
-  const [currentRef, setCurrentRef] = useState(null);
-
-  if (selectedOption != null && requiredInput !== false) {
-    setRequiredInput(false);
-  }
+  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
   const _onChange = (option: SingleValue<SelectOption>, _: any) => {
     setSelectedOption(option);
-    setRequiredInput(false);
     if (onChange) onChange(option);
-  };
-
-  const setSelectRef = (ref: any) => {
-    setCurrentRef(ref);
   };
 
   if (defaultValue != null && selectedOption == null) {
@@ -55,41 +44,22 @@ const SelectItem: React.FC<SelectItemProps> = ({
 
   return (
     <>
-      {label ? (
+      {label && (
         <label className={`${labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
-          {required ? <span className={'requiredItem'}>*</span> : ''}
+          {required && <span className={styles['required']}>*</span>}
         </label>
-      ) : (
-        ''
       )}
       <Select
         className={styles['reactSelect']}
         classNamePrefix={'react-select'}
         name={name}
         options={options}
-        ref={setSelectRef}
         placeholder={placeholder}
         onChange={_onChange}
         isSearchable={searchable}
         value={selectedOption}
       />
-
-      {requiredInput && (
-        <input
-          tabIndex={-1}
-          autoComplete="off"
-          style={{
-            opacity: 0,
-            width: '100%',
-            height: 0,
-            position: 'absolute',
-          }}
-          value={selectedOption?.value}
-          onFocus={() => currentRef.focus()}
-          required={required}
-        />
-      )}
     </>
   );
 };
