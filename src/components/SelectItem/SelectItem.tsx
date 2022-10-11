@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import styles from './SelectItem.module.scss';
 
@@ -31,16 +30,12 @@ const SelectItem: React.FC<SelectItemProps> = ({
   searchable = true,
   required = false,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue || null);
+  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
   const _onChange = (option: SingleValue<SelectOption>, _: any) => {
     setSelectedOption(option);
     if (onChange) onChange(option);
   };
-
-  if (defaultValue != null && selectedOption == null) {
-    setSelectedOption(defaultValue);
-  }
 
   return (
     <>

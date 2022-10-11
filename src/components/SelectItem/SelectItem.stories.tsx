@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import Select from './SelectItem';
+import SelectItem from './SelectItem';
 
 const options = [
   { value: 'option 1', label: 'option 1' },
@@ -9,10 +9,10 @@ const options = [
 
 export default {
   title: 'Components/SelectItem',
-  component: Select,
+  component: SelectItem,
 };
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
+const Template: ComponentStory<typeof SelectItem> = (args) => <SelectItem {...args} />;
 export const Base = Template.bind({});
 
 Base.args = {
