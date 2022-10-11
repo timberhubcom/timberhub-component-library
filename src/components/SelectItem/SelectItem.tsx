@@ -31,7 +31,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   searchable = true,
   required = false,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
+  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue || null);
 
   const _onChange = (option: SingleValue<SelectOption>, _: any) => {
     setSelectedOption(option);
