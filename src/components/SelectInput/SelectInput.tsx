@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
-import styles from './SelectItem.module.scss';
+import TextField from '../TextField';
+import styles from './SelectInput.module.scss';
+import { SelectOption } from '../SelectItem/SelectItem';
 
-export type SelectOption = {
-  value: string;
-  label: string;
-};
-
-type SelectItemProps = {
+type SelectInputProps = {
   name: string;
   label?: string;
   options?: SelectOption[];
@@ -17,18 +14,22 @@ type SelectItemProps = {
   defaultValue?: SelectOption;
   searchable?: boolean;
   required?: boolean;
+  disabled?: boolean;
+  reverse?: boolean;
 };
 
-const SelectItem: React.FC<SelectItemProps> = ({
+const SelectInput: React.FC<SelectInputProps> = ({
   name,
   label,
-  options = [],
-  placeholder = 'select an option',
   labelClass,
+  options,
+  placeholder,
   onChange,
   defaultValue = null,
   searchable = true,
   required = false,
+  disabled = false,
+  reverse = false,
 }) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
@@ -45,18 +46,21 @@ const SelectItem: React.FC<SelectItemProps> = ({
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
-      <Select
-        className={styles['reactSelect']}
-        classNamePrefix={'react-select'}
-        name={name}
-        options={options}
-        placeholder={placeholder}
-        onChange={_onChange}
-        isSearchable={searchable}
-        value={selectedOption}
-      />
+      <div className={`${reverse && styles['reverse']} ${styles['container']}`}>
+        <Select
+          className={styles['reactSelect']}
+          classNamePrefix={'react-select'}
+          name={name}
+          options={options}
+          placeholder={placeholder}
+          onChange={_onChange}
+          isSearchable={searchable}
+          value={selectedOption}
+        />
+        <TextField disabled={disabled} />
+      </div>
     </>
   );
 };
 
-export default SelectItem;
+export default SelectInput;

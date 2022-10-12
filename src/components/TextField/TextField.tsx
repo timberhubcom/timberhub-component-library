@@ -19,8 +19,8 @@ type TextFieldProps = {
 };
 
 const TextField: React.FC<TextFieldProps> = ({
-  label,
   name,
+  label,
   placeholder,
   labelClass,
   description = null,
