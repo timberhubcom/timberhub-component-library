@@ -38,7 +38,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   };
 
   return (
-    <>
+    <div>
       {label && (
         <label className={`${labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -55,7 +55,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
         isSearchable={searchable}
         value={selectedOption}
       />
-    </>
+    </div>
   );
 };
 
