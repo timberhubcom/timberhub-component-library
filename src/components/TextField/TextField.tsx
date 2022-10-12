@@ -51,7 +51,7 @@ const TextField: React.FC<TextFieldProps> = ({
   };
 
   return (
-    <>
+    <div>
       {label && (
         <label className={`${labelClass && labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -75,7 +75,7 @@ const TextField: React.FC<TextFieldProps> = ({
       />
       {error && <div className={styles['errorDescription']}>{error}</div>}
       {description && <div className={styles['description']}>{description}</div>}
-    </>
+    </div>
   );
 };
 

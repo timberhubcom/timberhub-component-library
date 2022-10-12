@@ -39,7 +39,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   };
 
   return (
-    <>
+    <div>
       {label && (
         <label className={`${labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -59,7 +59,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
         />
         <TextField disabled={disabled} />
       </div>
-    </>
+    </div>
   );
 };
 
