@@ -63,7 +63,6 @@ const TextField: React.FC<TextFieldProps> = ({
         type={type}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
-        onKeyDown={(evt: React.KeyboardEvent<HTMLInputElement>) => evt.key === 'e' && evt.preventDefault()}
         id={name}
         name={name}
         placeholder={placeholder}
