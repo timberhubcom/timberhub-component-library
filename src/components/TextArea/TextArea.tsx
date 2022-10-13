@@ -29,7 +29,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   error = '',
 }) => {
   return (
-    <>
+    <div>
       {label && (
         <label className={`${labelClass && labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -47,7 +47,7 @@ const TextArea: React.FC<TextAreaProps> = ({
       />
       {error && <div className={styles['errorDescription']}>{error}</div>}
       {description && <div className={styles['description']}>{description}</div>}
-    </>
+    </div>
   );
 };
 
