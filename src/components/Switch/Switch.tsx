@@ -30,7 +30,7 @@ const Switch: React.FC<SwitchProps> = ({
   error = '',
 }) => {
   return (
-    <>
+    <div>
       {label ? (
         <label className={`${styles['label']} ${labelClass}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
@@ -47,7 +47,7 @@ const Switch: React.FC<SwitchProps> = ({
         </label>
         {error && <div className={styles['errorDescription']}>{error}</div>}
       </div>
-    </>
+    </div>
   );
 };
 
