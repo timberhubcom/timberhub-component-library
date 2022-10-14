@@ -46,7 +46,6 @@
 
 .tableRow {
   padding: 14px 0 14px 0;
-  border-bottom: 1px solid $border;
   visibility: visible;
 
   .showOnHover {
@@ -69,11 +68,12 @@
 }
 
 .tableRowDefault {
+  border-bottom: 1px solid $border;
   padding: 14px 0 14px 0;
 }
 
 .tableRowSmall {
-  padding: 6px 0 6px 0;
+  padding: 4px 0 4px 0;
 }
 
 .textRow {
