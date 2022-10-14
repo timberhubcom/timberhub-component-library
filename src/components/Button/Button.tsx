@@ -5,10 +5,11 @@ export interface ButtonProps {
   type?: 'primary' | 'secondary' | 'plain';
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ type = 'primary', onClick, disabled = false, children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ type = 'primary', onClick, disabled = false, children, icon, ...rest }) => {
   return (
     <button
       className={`${styles.button} ${styles[type]} ${disabled && styles.disabled}`}
@@ -16,6 +17,7 @@ const Button: React.FC<ButtonProps> = ({ type = 'primary', onClick, disabled = f
       onClick={onClick}
       {...rest}
     >
+      {icon}
       {children}
     </button>
   );

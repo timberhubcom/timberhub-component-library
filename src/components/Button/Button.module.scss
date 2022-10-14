@@ -11,11 +11,19 @@
   padding: 12px 16px;
   display: flex;
   align-items: center;
-  transition: $transition;
   font-weight: bold;
+  transition: $transition;
 
   &:not(.disabled):hover {
     transition: $transition;
+  }
+
+  svg {
+    flex-shrink: 0;
+    margin-right: 8px;
+    path {
+      transition: fill 0.2s;
+    }
   }
 }
 
@@ -28,6 +36,15 @@
     background: $black;
     border: 2px solid $black;
   }
+
+  &:hover {
+    svg {
+      path {
+        transition: fill 0.2s;
+        fill: $green;
+      }
+    }
+  }
 }
 
 .secondary {
@@ -39,6 +56,14 @@
     background: $black;
     border: 2px solid $black;
   }
+
+  &:hover {
+    svg {
+      path {
+        fill: $green;
+      }
+    }
+  }
 }
 
 .plain {
@@ -47,11 +72,25 @@
   border: 2px solid transparent;
   padding: 2px 5px;
 
+  svg {
+    path {
+      fill: $green;
+    }
+  }
+
   &:not(.disabled):hover {
     color: $black;
     background: transparent;
     border: 2px solid transparent;
     text-decoration: underline;
+  }
+
+  &:hover {
+    svg {
+      path {
+        fill: $black;
+      }
+    }
   }
 }
 

@@ -27,6 +27,7 @@
   float: left;
   color: $light_grey;
   font-weight: 400;
+  text-transform: capitalize;
   @include text-12;
 }
 
