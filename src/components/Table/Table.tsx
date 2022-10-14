@@ -2,7 +2,14 @@ import React from 'react';
 import styles from './Table.module.scss';
 import { HeaderItem, TableProps, TableRowItem } from './types';
 
-const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No data', onClick }) => {
+const Table: React.FC<TableProps> = ({
+  structure,
+  rows = [],
+  emptyText = 'No data',
+  size = 'default',
+  clickableRow = false,
+  onClick,
+}) => {
   const handleRowClick = (row: TableRowItem) => {
     if (onClick) onClick(row);
   };
@@ -10,7 +17,11 @@ const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No dat
   return (
     <table className={styles['table']}>
       <thead>
-        <tr className={`${styles['cols']} ${styles['tableHeader']}`}>
+        <tr
+          className={`${styles['cols']} ${styles['tableHeader']} ${
+            size === 'default' ? styles['tableHeaderDefault'] : styles['tableHeaderSmall']
+          }`}
+        >
           {structure.header.map((column: HeaderItem, index: number) => (
             <th
               className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}
@@ -27,14 +38,18 @@ const Table: React.FC<TableProps> = ({ structure, rows = [], emptyText = 'No dat
           <tr>
             {rows.map((row, position) => (
               <td
-                className={`${styles['cols']} ${styles['tableRow']}`}
+                className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']} ${
+                  size === 'default' ? styles['tableRowDefault'] : styles['tableRowSmall']
+                }`}
                 key={position}
                 onClick={() => handleRowClick(row)}
                 data-testid={`row-${position}`}
               >
                 {structure.header.map((column, index) => (
                   <div
-                    className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}
+                    className={`${styles['tableColumn']} ${styles[`col-${column.width}`]} ${
+                      column.show_on_hover && styles['showOnHover']
+                    }`}
                     data-key={column.name}
                     key={index}
                   >

@@ -1,9 +1,6 @@
 import React from 'react';
 import { SingleValue } from 'react-select';
-declare type SelectOption = {
-    value: string;
-    label: string;
-};
+import { SelectOption } from '../SelectItem/SelectItem';
 declare type SelectInputProps = {
     name: string;
     label?: string;
@@ -14,6 +11,8 @@ declare type SelectInputProps = {
     defaultValue?: SelectOption;
     searchable?: boolean;
     required?: boolean;
+    disabled?: boolean;
+    reverse?: boolean;
 };
 declare const SelectInput: React.FC<SelectInputProps>;
 export default SelectInput;

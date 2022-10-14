@@ -1,6 +1,6 @@
 import React from 'react';
 import { SingleValue } from 'react-select';
-declare type SelectOption = {
+export declare type SelectOption = {
     value: string;
     label: string;
 };

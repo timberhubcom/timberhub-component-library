@@ -8,6 +8,7 @@ export declare type HeaderItem = {
     key: string;
     width: number;
     show_title: boolean;
+    show_on_hover: boolean;
 };
 export declare type TableStructure = {
     header: HeaderItem[];
@@ -15,6 +16,8 @@ export declare type TableStructure = {
 export declare type TableProps = {
     structure: TableStructure;
     rows: TableRowItem[];
+    clickableRow?: boolean;
+    size?: 'default' | 'small';
     onClick?: (row: TableRowItem) => void;
     emptyText?: string;
 };

@@ -9,6 +9,7 @@ export const structure: TableStructure = {
       key: 'col_1',
       width: 2,
       show_title: true,
+      show_on_hover: true,
     },
     {
       title: 'Col 2',
@@ -16,6 +17,7 @@ export const structure: TableStructure = {
       key: 'col_2',
       width: 1,
       show_title: true,
+      show_on_hover: false,
     },
     {
       title: 'Col 3',
@@ -23,6 +25,7 @@ export const structure: TableStructure = {
       key: 'col_3',
       width: 1,
       show_title: true,
+      show_on_hover: false,
     },
     {
       title: 'Col 4',
@@ -30,6 +33,7 @@ export const structure: TableStructure = {
       key: 'col_4',
       width: 1,
       show_title: true,
+      show_on_hover: false,
     },
   ],
 };

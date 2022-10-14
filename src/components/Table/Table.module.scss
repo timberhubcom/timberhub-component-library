@@ -15,6 +15,14 @@
   }
 }
 
+.tableColumnShowOnHover {
+  visibility: hidden;
+
+  &:hover {
+    display: block;
+  }
+}
+
 .tableColumnText {
   float: left;
   color: $light_grey;
@@ -22,8 +30,12 @@
   @include text-12;
 }
 
-.tableHeader {
+.tableHeaderDefault {
   padding: 19px 0 11px;
+}
+
+.tableHeaderSmall {
+  padding: 8px 0 8px;
 }
 
 .tableEmpty {
@@ -35,11 +47,33 @@
 .tableRow {
   padding: 14px 0 14px 0;
   border-bottom: 1px solid $border;
+  visibility: visible;
+
+  .showOnHover {
+    visibility: hidden;
+  }
+
+  &:hover {
+    .showOnHover {
+      visibility: visible;
+    }
+  }
+}
+
+.tableRowClickable {
   cursor: pointer;
 
   &:hover {
-    background: rgba($green, 0.13);
+    background: rgba($color_grey, 0.13);
   }
+}
+
+.tableRowDefault {
+  padding: 14px 0 14px 0;
+}
+
+.tableRowSmall {
+  padding: 6px 0 6px 0;
 }
 
 .textRow {
