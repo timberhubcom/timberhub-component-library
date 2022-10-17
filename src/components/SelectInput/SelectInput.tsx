@@ -6,10 +6,11 @@ import { SelectOption } from '../SelectItem/SelectItem';
 
 type SelectInputProps = {
   name: string;
+  className?: string;
   label?: string;
+  labelClass?: string;
   options?: SelectOption[];
   placeholder?: string;
-  labelClass?: string;
   onChange?: (opt: SingleValue<SelectOption>) => void;
   defaultValue?: SelectOption;
   searchable?: boolean;
@@ -20,6 +21,7 @@ type SelectInputProps = {
 
 const SelectInput: React.FC<SelectInputProps> = ({
   name,
+  className = '',
   label,
   labelClass,
   options,
@@ -39,7 +41,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   };
 
   return (
-    <div>
+    <div className={className}>
       {label && (
         <label className={`${labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />

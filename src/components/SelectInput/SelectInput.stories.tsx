@@ -18,5 +18,6 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'label',
   options,
+  defaultValue: options[0],
   reverse: true,
 };
