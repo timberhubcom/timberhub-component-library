@@ -10,6 +10,9 @@
 }
 
 .tableColumn {
+  display: flex;
+  align-items: center;
+
   &:first-child {
     padding-left: 20px;
   }
