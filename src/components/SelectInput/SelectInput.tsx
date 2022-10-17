@@ -11,8 +11,11 @@ type SelectInputProps = {
   labelClass?: string;
   options?: SelectOption[];
   placeholder?: string;
-  onChange?: (opt: SingleValue<SelectOption>) => void;
+  inputPlaceholder?: string;
+  onSelectChange?: (opt: SingleValue<SelectOption>) => void;
+  onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   defaultValue?: SelectOption;
+  inputDefaultValue?: string;
   searchable?: boolean;
   required?: boolean;
   disabled?: boolean;
@@ -26,8 +29,11 @@ const SelectInput: React.FC<SelectInputProps> = ({
   labelClass,
   options,
   placeholder,
-  onChange,
+  inputPlaceholder,
+  onSelectChange,
+  onInputChange,
   defaultValue = null,
+  inputDefaultValue,
   searchable = true,
   required = false,
   disabled = false,
@@ -35,9 +41,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
-  const _onChange = (option: SingleValue<SelectOption>, _: any) => {
+  const _onSelectChange = (option: SingleValue<SelectOption>, _: any) => {
     setSelectedOption(option);
-    if (onChange) onChange(option);
+    if (onSelectChange) onSelectChange(option);
   };
 
   return (
@@ -55,11 +61,17 @@ const SelectInput: React.FC<SelectInputProps> = ({
           name={name}
           options={options}
           placeholder={placeholder}
-          onChange={_onChange}
+          onChange={_onSelectChange}
           isSearchable={searchable}
           value={selectedOption}
         />
-        <TextField disabled={disabled} />
+        <TextField
+          name={name}
+          onChange={onInputChange}
+          disabled={disabled}
+          defaultValue={inputDefaultValue}
+          placeholder={inputPlaceholder}
+        />
       </div>
     </div>
   );
