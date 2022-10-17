@@ -9,6 +9,7 @@ export type SelectOption = {
 
 type SelectItemProps = {
   name: string;
+  className?: string;
   label?: string;
   options?: SelectOption[];
   placeholder?: string;
@@ -21,6 +22,7 @@ type SelectItemProps = {
 
 const SelectItem: React.FC<SelectItemProps> = ({
   name,
+  className,
   label,
   options = [],
   placeholder = 'select an option',
@@ -38,7 +40,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   };
 
   return (
-    <div>
+    <div className={className}>
       {label && (
         <label className={`${labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
