@@ -6,6 +6,7 @@ export declare type SelectOption = {
 };
 declare type SelectItemProps = {
     name: string;
+    className?: string;
     label?: string;
     options?: SelectOption[];
     placeholder?: string;

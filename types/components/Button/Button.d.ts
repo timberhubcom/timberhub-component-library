@@ -3,6 +3,7 @@ export interface ButtonProps {
     type?: 'primary' | 'secondary' | 'plain';
     disabled?: boolean;
     onClick?: React.MouseEventHandler<HTMLElement>;
+    icon?: React.ReactNode;
     children: React.ReactNode;
 }
 declare const Button: React.FC<ButtonProps>;

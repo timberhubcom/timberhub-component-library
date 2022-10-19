@@ -3,12 +3,16 @@ import { SingleValue } from 'react-select';
 import { SelectOption } from '../SelectItem/SelectItem';
 declare type SelectInputProps = {
     name: string;
+    className?: string;
     label?: string;
+    labelClass?: string;
     options?: SelectOption[];
     placeholder?: string;
-    labelClass?: string;
-    onChange?: (opt: SingleValue<SelectOption>) => void;
+    inputPlaceholder?: string;
+    onSelectChange?: (opt: SingleValue<SelectOption>) => void;
+    onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     defaultValue?: SelectOption;
+    inputDefaultValue?: string;
     searchable?: boolean;
     required?: boolean;
     disabled?: boolean;

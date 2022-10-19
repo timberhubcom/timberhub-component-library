@@ -4,6 +4,7 @@ declare const _default: {
     title: string;
     component: React.FC<{
         name: string;
+        className?: string | undefined;
         label?: string | undefined;
         options?: import("./SelectItem").SelectOption[] | undefined;
         placeholder?: string | undefined;
@@ -17,6 +18,7 @@ declare const _default: {
 export default _default;
 export declare const Base: ComponentStory<React.FC<{
     name: string;
+    className?: string | undefined;
     label?: string | undefined;
     options?: import("./SelectItem").SelectOption[] | undefined;
     placeholder?: string | undefined;
@@ -28,6 +30,7 @@ export declare const Base: ComponentStory<React.FC<{
 }>>;
 export declare const Empty: ComponentStory<React.FC<{
     name: string;
+    className?: string | undefined;
     label?: string | undefined;
     options?: import("./SelectItem").SelectOption[] | undefined;
     placeholder?: string | undefined;
@@ -39,6 +42,7 @@ export declare const Empty: ComponentStory<React.FC<{
 }>>;
 export declare const Default: ComponentStory<React.FC<{
     name: string;
+    className?: string | undefined;
     label?: string | undefined;
     options?: import("./SelectItem").SelectOption[] | undefined;
     placeholder?: string | undefined;

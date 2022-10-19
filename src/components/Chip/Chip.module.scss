@@ -5,14 +5,26 @@
 
 .chip {
   @include text-12;
-  background-color: $back_grey;
   width: fit-content;
-  padding: 4px 10px;
-  border-radius: 5px;
+  padding: 5px 8px;
+  border-radius: 40px;
+}
+
+.grey {
+  background-color: $back_grey;
+}
+
+.green {
+  background-color: $light_green;
+}
+
+.orange {
+  background-color: $light_orange;
 }
 
 .text {
-  color: $dark_blue;
+  @include text-10;
+  text-transform: uppercase;
 }
 
 .prefix {

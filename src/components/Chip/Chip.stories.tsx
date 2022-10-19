@@ -8,14 +8,36 @@ export default {
 };
 
 const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;
+const MultipleTemplate: ComponentStory<any> = (args) => (
+  <div style={{ display: 'flex', gap: '20px' }}>
+    <Chip {...args[0]} />
+    <Chip {...args[1]} />
+    <Chip {...args[2]} />
+  </div>
+);
 
 export const Base = Template.bind({});
 Base.args = {
-  text: '16x1050',
+  text: 'offer',
 };
+
+export const Color = MultipleTemplate.bind({});
+Color.args = [
+  {
+    text: 'open',
+  },
+  {
+    text: 'dimensions unavailable',
+    color: 'orange',
+  },
+  {
+    text: 'offer',
+    color: 'green',
+  },
+];
 
 export const Prefix = Template.bind({});
 Prefix.args = {
-  text: '16x1050',
+  text: 'offer',
   prefix: '1',
 };

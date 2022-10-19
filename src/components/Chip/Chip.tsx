@@ -3,12 +3,13 @@ import styles from './Chip.module.scss';
 
 type ChipProps = {
   text: string;
+  color?: 'green' | 'orange' | 'grey';
   prefix?: string;
 };
 
-const Chip: React.FC<ChipProps> = ({ text, prefix }) => {
+const Chip: React.FC<ChipProps> = ({ text, color = 'grey', prefix }) => {
   return (
-    <div className={styles['chip']}>
+    <div className={`${styles['chip']} ${styles[color]}`}>
       {prefix && <span className={styles['prefix']}>{prefix}</span>}
       <span className={styles['text']}>{text}</span>
     </div>
