@@ -6,7 +6,6 @@ const Table: React.FC<TableProps> = ({
   structure,
   rows = [],
   emptyText = 'No data',
-  size = 'default',
   clickableRow = false,
   onClick,
 }) => {
@@ -17,11 +16,7 @@ const Table: React.FC<TableProps> = ({
   return (
     <table className={styles['table']}>
       <thead>
-        <tr
-          className={`${styles['cols']} ${styles['tableHeader']} ${
-            size === 'default' ? styles['tableHeaderDefault'] : styles['tableHeaderSmall']
-          }`}
-        >
+        <tr className={`${styles['cols']} ${styles['tableHeader']}`}>
           {structure.header.map((column: HeaderItem, index: number) => (
             <th
               className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}
@@ -38,9 +33,7 @@ const Table: React.FC<TableProps> = ({
           <tr>
             {rows.map((row, position) => (
               <td
-                className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']} ${
-                  size === 'default' ? styles['tableRowDefault'] : styles['tableRowSmall']
-                }`}
+                className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']}`}
                 key={position}
                 onClick={() => handleRowClick(row)}
                 data-testid={`row-${position}`}

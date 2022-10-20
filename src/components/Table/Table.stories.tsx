@@ -22,19 +22,10 @@ Empty.args = {
   rows: [],
 };
 
-export const Row = Template.bind({});
-Row.args = {
+export const ClickableRow = Template.bind({});
+ClickableRow.args = {
   structure,
   rows,
-  clickableRow: true,
-  onClick: (row) => console.log(row),
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  structure,
-  rows,
-  size: 'small',
   clickableRow: true,
   onClick: (row) => console.log(row),
 };
