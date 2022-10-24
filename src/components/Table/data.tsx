@@ -9,7 +9,7 @@ export const structure: TableStructure = {
       key: 'col_1',
       width: 2,
       show_title: true,
-      show_on_hover: true,
+      show_on_hover: false,
     },
     {
       title: 'Col 2',

@@ -15,7 +15,7 @@ type SelectItemProps = {
   placeholder?: string;
   labelClass?: string;
   onChange?: (opt: SingleValue<SelectOption>) => void;
-  defaultValue?: SelectOption;
+  value?: SelectOption;
   searchable?: boolean;
   required?: boolean;
 };
@@ -28,11 +28,11 @@ const SelectItem: React.FC<SelectItemProps> = ({
   placeholder = 'select an option',
   labelClass,
   onChange,
-  defaultValue = null,
+  value = null,
   searchable = true,
   required = false,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
+  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(value);
 
   const _onChange = (option: SingleValue<SelectOption>, _: any) => {
     setSelectedOption(option);
