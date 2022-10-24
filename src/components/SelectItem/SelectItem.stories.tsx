@@ -29,6 +29,6 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'label',
   required: true,
-  value: options[0],
+  defaultValue: options[0],
   options,
 };

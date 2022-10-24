@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select, { SingleValue } from 'react-select';
 import styles from './SelectItem.module.scss';
 
@@ -16,6 +16,7 @@ type SelectItemProps = {
   labelClass?: string;
   onChange?: (opt: SingleValue<SelectOption>) => void;
   value?: SelectOption;
+  defaultValue?: SelectOption;
   searchable?: boolean;
   required?: boolean;
 };
@@ -28,17 +29,11 @@ const SelectItem: React.FC<SelectItemProps> = ({
   placeholder = 'select an option',
   labelClass,
   onChange,
-  value = null,
+  value,
+  defaultValue = null,
   searchable = true,
   required = false,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(value);
-
-  const _onChange = (option: SingleValue<SelectOption>, _: any) => {
-    setSelectedOption(option);
-    if (onChange) onChange(option);
-  };
-
   return (
     <div className={className}>
       {label && (
@@ -50,12 +45,13 @@ const SelectItem: React.FC<SelectItemProps> = ({
       <Select
         className={styles['reactSelect']}
         classNamePrefix={'react-select'}
+        defaultValue={defaultValue}
         name={name}
         options={options}
         placeholder={placeholder}
-        onChange={_onChange}
+        onChange={onChange}
         isSearchable={searchable}
-        value={selectedOption}
+        value={value}
       />
     </div>
   );
