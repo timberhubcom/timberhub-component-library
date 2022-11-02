@@ -20,3 +20,9 @@
 .reactSelect {
   @include text-14;
 }
+
+.errorDescription {
+  @include text-12;
+  color: $red;
+  margin-top: 5px;
+}

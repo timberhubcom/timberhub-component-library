@@ -14,6 +14,7 @@ declare const _default: {
         defaultValue?: import("./SelectItem").SelectOption | undefined;
         searchable?: boolean | undefined;
         required?: boolean | undefined;
+        error?: string | undefined;
     }>;
 };
 export default _default;
@@ -29,6 +30,7 @@ export declare const Base: ComponentStory<React.FC<{
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
 }>>;
 export declare const Empty: ComponentStory<React.FC<{
     name: string;
@@ -42,6 +44,21 @@ export declare const Empty: ComponentStory<React.FC<{
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
+}>>;
+export declare const Error: ComponentStory<React.FC<{
+    name: string;
+    className?: string | undefined;
+    label?: string | undefined;
+    options?: import("./SelectItem").SelectOption[] | undefined;
+    placeholder?: string | undefined;
+    labelClass?: string | undefined;
+    onChange?: ((opt: import("react-select").SingleValue<import("./SelectItem").SelectOption>) => void) | undefined;
+    value?: import("./SelectItem").SelectOption | undefined;
+    defaultValue?: import("./SelectItem").SelectOption | undefined;
+    searchable?: boolean | undefined;
+    required?: boolean | undefined;
+    error?: string | undefined;
 }>>;
 export declare const Default: ComponentStory<React.FC<{
     name: string;
@@ -55,4 +72,5 @@ export declare const Default: ComponentStory<React.FC<{
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;
+    error?: string | undefined;
 }>>;

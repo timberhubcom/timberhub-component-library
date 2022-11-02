@@ -3,6 +3,7 @@ declare type TextFieldProps = {
     name?: string;
     label?: string;
     placeholder?: string;
+    className?: string;
     labelClass?: string;
     description?: string;
     defaultValue?: string;

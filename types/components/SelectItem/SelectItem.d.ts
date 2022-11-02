@@ -16,6 +16,7 @@ declare type SelectItemProps = {
     defaultValue?: SelectOption;
     searchable?: boolean;
     required?: boolean;
+    error?: string;
 };
 declare const SelectItem: React.FC<SelectItemProps>;
 export default SelectItem;

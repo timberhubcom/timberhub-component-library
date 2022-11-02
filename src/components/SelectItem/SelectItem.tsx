@@ -19,6 +19,7 @@ type SelectItemProps = {
   defaultValue?: SelectOption;
   searchable?: boolean;
   required?: boolean;
+  error?: string;
 };
 
 const SelectItem: React.FC<SelectItemProps> = ({
@@ -33,6 +34,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   defaultValue = null,
   searchable = true,
   required = false,
+  error,
 }) => {
   return (
     <div className={className}>
@@ -53,6 +55,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
         isSearchable={searchable}
         value={value}
       />
+      {error && <div className={styles['errorDescription']}>{error}</div>}
     </div>
   );
 };

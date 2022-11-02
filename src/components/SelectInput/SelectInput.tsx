@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import TextField from '../TextField';
-import styles from './SelectInput.module.scss';
 import { SelectOption } from '../SelectItem/SelectItem';
+import styles from './SelectInput.module.scss';
 
 type SelectInputProps = {
   name: string;
@@ -20,6 +20,7 @@ type SelectInputProps = {
   required?: boolean;
   disabled?: boolean;
   reverse?: boolean;
+  error?: string;
 };
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -38,6 +39,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   required = false,
   disabled = false,
   reverse = false,
+  error,
 }) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
@@ -54,7 +56,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
-      <div className={`${styles['container']} ${reverse ? styles['reverse'] : ''}`}>
+      <div className={`${styles['container']}`}>
         {!reverse && (
           <TextField
             name={name}
@@ -86,6 +88,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
           />
         )}
       </div>
+      {error && <div className={styles['errorDescription']}>{error}</div>}
     </div>
   );
 };

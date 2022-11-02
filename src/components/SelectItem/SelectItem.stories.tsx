@@ -25,6 +25,12 @@ Empty.args = {
   label: 'label',
 };
 
+export const Error = Template.bind({});
+Error.args = {
+  label: 'label',
+  error: 'error',
+};
+
 export const Default = Template.bind({});
 Default.args = {
   label: 'label',
