@@ -10,6 +10,7 @@ declare const _default: {
         placeholder?: string | undefined;
         labelClass?: string | undefined;
         onChange?: ((opt: import("react-select").SingleValue<import("./SelectItem").SelectOption>) => void) | undefined;
+        value?: import("./SelectItem").SelectOption | undefined;
         defaultValue?: import("./SelectItem").SelectOption | undefined;
         searchable?: boolean | undefined;
         required?: boolean | undefined;
@@ -24,6 +25,7 @@ export declare const Base: ComponentStory<React.FC<{
     placeholder?: string | undefined;
     labelClass?: string | undefined;
     onChange?: ((opt: import("react-select").SingleValue<import("./SelectItem").SelectOption>) => void) | undefined;
+    value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;
@@ -36,6 +38,7 @@ export declare const Empty: ComponentStory<React.FC<{
     placeholder?: string | undefined;
     labelClass?: string | undefined;
     onChange?: ((opt: import("react-select").SingleValue<import("./SelectItem").SelectOption>) => void) | undefined;
+    value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;
@@ -48,6 +51,7 @@ export declare const Default: ComponentStory<React.FC<{
     placeholder?: string | undefined;
     labelClass?: string | undefined;
     onChange?: ((opt: import("react-select").SingleValue<import("./SelectItem").SelectOption>) => void) | undefined;
+    value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
     required?: boolean | undefined;

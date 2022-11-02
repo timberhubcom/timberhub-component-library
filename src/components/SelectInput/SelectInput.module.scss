@@ -22,11 +22,6 @@
   align-items: center;
 }
 
-.reverse {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
 .reactSelect {
   @include text-14;
 }

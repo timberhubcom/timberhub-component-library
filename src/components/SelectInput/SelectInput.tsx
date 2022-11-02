@@ -54,7 +54,16 @@ const SelectInput: React.FC<SelectInputProps> = ({
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
-      <div className={`${reverse && styles['reverse']} ${styles['container']}`}>
+      <div className={styles['container']}>
+        {!reverse && (
+          <TextField
+            name={name}
+            onChange={onInputChange}
+            disabled={disabled}
+            defaultValue={inputDefaultValue}
+            placeholder={inputPlaceholder}
+          />
+        )}
         <Select
           className={styles['reactSelect']}
           classNamePrefix={'react-select'}
@@ -65,13 +74,15 @@ const SelectInput: React.FC<SelectInputProps> = ({
           isSearchable={searchable}
           value={selectedOption}
         />
-        <TextField
-          name={name}
-          onChange={onInputChange}
-          disabled={disabled}
-          defaultValue={inputDefaultValue}
-          placeholder={inputPlaceholder}
-        />
+        {reverse && (
+          <TextField
+            name={name}
+            onChange={onInputChange}
+            disabled={disabled}
+            defaultValue={inputDefaultValue}
+            placeholder={inputPlaceholder}
+          />
+        )}
       </div>
     </div>
   );

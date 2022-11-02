@@ -12,6 +12,7 @@ declare type SelectItemProps = {
     placeholder?: string;
     labelClass?: string;
     onChange?: (opt: SingleValue<SelectOption>) => void;
+    value?: SelectOption;
     defaultValue?: SelectOption;
     searchable?: boolean;
     required?: boolean;
