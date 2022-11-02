@@ -1,6 +1,6 @@
 {
   "name": "@ipetro/template-react-component-library",
-  "version": "1.1.42",
+  "version": "1.1.43",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
