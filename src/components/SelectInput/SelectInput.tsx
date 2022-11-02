@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { HTMLInputTypeAttribute, useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import TextField from '../TextField';
 import { SelectOption } from '../SelectItem/SelectItem';
@@ -16,6 +16,9 @@ type SelectInputProps = {
   onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   defaultValue?: SelectOption;
   inputDefaultValue?: string;
+  inputType?: HTMLInputTypeAttribute;
+  inputMin?: number;
+  inputMax?: number;
   searchable?: boolean;
   required?: boolean;
   disabled?: boolean;
@@ -35,6 +38,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
   onInputChange,
   defaultValue = null,
   inputDefaultValue,
+  inputType = 'text',
+  inputMin,
+  inputMax,
   searchable = true,
   required = false,
   disabled = false,
@@ -64,6 +70,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            type={inputType}
+            min={inputMin}
+            max={inputMax}
             className={'border-right-none'}
           />
         )}
@@ -84,6 +93,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            type={inputType}
+            min={inputMin}
+            max={inputMax}
             className={'border-left-none'}
           />
         )}

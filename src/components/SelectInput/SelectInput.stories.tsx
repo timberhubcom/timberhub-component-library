@@ -29,6 +29,17 @@ Reverse.args = {
   defaultValue: options[0],
   reverse: true,
 };
+
+export const Number = Template.bind({});
+Number.args = {
+  label: 'label',
+  options,
+  defaultValue: options[0],
+  inputType: 'number',
+  inputMin: 0,
+  inputMax: 100,
+};
+
 export const Error = Template.bind({});
 Error.args = {
   label: 'label',

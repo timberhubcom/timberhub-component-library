@@ -61,7 +61,9 @@ const TextField: React.FC<TextFieldProps> = ({
         </label>
       )}
       <input
-        className={`${styles['input']} ${disabled && styles['disabled']} ${styles[className]}`}
+        className={`${styles['input']} ${disabled && styles['disabled']} ${type === 'number' && styles['number']} ${
+          styles[className]
+        }`}
         type={type}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
