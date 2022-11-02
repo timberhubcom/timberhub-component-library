@@ -5,6 +5,7 @@ type TextFieldProps = {
   name?: string;
   label?: string;
   placeholder?: string;
+  className?: string;
   labelClass?: string;
   description?: string;
   defaultValue?: string;
@@ -22,6 +23,7 @@ const TextField: React.FC<TextFieldProps> = ({
   name,
   label,
   placeholder,
+  className = '',
   labelClass,
   description = null,
   defaultValue,
@@ -59,7 +61,7 @@ const TextField: React.FC<TextFieldProps> = ({
         </label>
       )}
       <input
-        className={`${styles['input']} ${disabled && styles['disabled']}`}
+        className={`${styles['input']} ${disabled && styles['disabled']} ${styles[className]}`}
         type={type}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}

@@ -54,7 +54,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
-      <div className={styles['container']}>
+      <div className={`${styles['container']} ${reverse ? styles['reverse'] : ''}`}>
         {!reverse && (
           <TextField
             name={name}
@@ -62,10 +62,11 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            className={'border-right-none'}
           />
         )}
         <Select
-          className={styles['reactSelect']}
+          className={`${styles['reactSelect']} ${reverse ? styles['border-right-none'] : styles['border-left-none']}`}
           classNamePrefix={'react-select'}
           name={name}
           options={options}
@@ -81,6 +82,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            className={'border-left-none'}
           />
         )}
       </div>
