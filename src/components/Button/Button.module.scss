@@ -3,6 +3,8 @@
 @import './src/theme/typography';
 
 .button {
+  display: flex;
+  justify-content: center;
   border: 0;
   cursor: pointer;
   box-shadow: none;
@@ -14,7 +16,7 @@
   font-weight: bold;
   transition: $transition;
   max-height: 45px;
-  min-width: 100px;
+  min-width: 80px;
 
   &:not(.disabled):hover {
     transition: $transition;

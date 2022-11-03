@@ -7,7 +7,7 @@ export default {
   component: Button,
 };
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Timberhub</Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>test</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {};
