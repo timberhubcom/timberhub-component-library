@@ -9,6 +9,10 @@
   @include text-15-b;
 }
 
+.textFieldWrapper {
+  width: 100%;
+}
+
 .label:first-letter {
   text-transform: capitalize;
 }

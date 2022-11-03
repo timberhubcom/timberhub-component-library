@@ -53,7 +53,7 @@ const TextField: React.FC<TextFieldProps> = ({
   };
 
   return (
-    <div>
+    <div className={styles['textFieldWrapper']}>
       {label && (
         <label className={`${labelClass && labelClass} ${styles['label']}`}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
