@@ -6,6 +6,7 @@ declare const _default: {
         name?: string | undefined;
         label?: string | undefined;
         placeholder?: string | undefined;
+        className?: string | undefined;
         labelClass?: string | undefined;
         description?: string | undefined;
         defaultValue?: string | undefined;
@@ -24,6 +25,7 @@ export declare const Base: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
+    className?: string | undefined;
     labelClass?: string | undefined;
     description?: string | undefined;
     defaultValue?: string | undefined;
@@ -40,6 +42,7 @@ export declare const Required: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
+    className?: string | undefined;
     labelClass?: string | undefined;
     description?: string | undefined;
     defaultValue?: string | undefined;
@@ -56,6 +59,7 @@ export declare const Disabled: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
+    className?: string | undefined;
     labelClass?: string | undefined;
     description?: string | undefined;
     defaultValue?: string | undefined;
@@ -72,6 +76,7 @@ export declare const Description: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
+    className?: string | undefined;
     labelClass?: string | undefined;
     description?: string | undefined;
     defaultValue?: string | undefined;
@@ -88,6 +93,7 @@ export declare const Error: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
+    className?: string | undefined;
     labelClass?: string | undefined;
     description?: string | undefined;
     defaultValue?: string | undefined;

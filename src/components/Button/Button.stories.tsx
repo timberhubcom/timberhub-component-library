@@ -7,7 +7,7 @@ export default {
   component: Button,
 };
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Timberhub</Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>test</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {};
@@ -20,6 +20,11 @@ Secondary.args = {
 export const Plain = Template.bind({});
 Plain.args = {
   type: 'plain',
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
 };
 
 export const Icon = Template.bind({});

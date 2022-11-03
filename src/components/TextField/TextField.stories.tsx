@@ -36,6 +36,15 @@ Description.args = {
   placeholder: 'placeholder',
 };
 
+export const Number = Template.bind({});
+Number.args = {
+  label: 'label',
+  placeholder: 'placeholder',
+  type: 'number',
+  min: 0,
+  max: 100,
+};
+
 export const Error = Template.bind({});
 Error.args = {
   label: 'label',

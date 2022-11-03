@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { HTMLInputTypeAttribute, useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import TextField from '../TextField';
-import styles from './SelectInput.module.scss';
 import { SelectOption } from '../SelectItem/SelectItem';
+import styles from './SelectInput.module.scss';
 
 type SelectInputProps = {
   name: string;
@@ -16,10 +16,14 @@ type SelectInputProps = {
   onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   defaultValue?: SelectOption;
   inputDefaultValue?: string;
+  inputType?: HTMLInputTypeAttribute;
+  inputMin?: number;
+  inputMax?: number;
   searchable?: boolean;
   required?: boolean;
   disabled?: boolean;
   reverse?: boolean;
+  error?: string;
 };
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -34,10 +38,14 @@ const SelectInput: React.FC<SelectInputProps> = ({
   onInputChange,
   defaultValue = null,
   inputDefaultValue,
+  inputType = 'text',
+  inputMin,
+  inputMax,
   searchable = true,
   required = false,
   disabled = false,
   reverse = false,
+  error,
 }) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
 
@@ -54,7 +62,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
-      <div className={`${styles['container']} ${reverse ? styles['reverse'] : ''}`}>
+      <div className={`${styles['container']}`}>
         {!reverse && (
           <TextField
             name={name}
@@ -62,6 +70,9 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            type={inputType}
+            min={inputMin}
+            max={inputMax}
             className={'border-right-none'}
           />
         )}
@@ -82,10 +93,14 @@ const SelectInput: React.FC<SelectInputProps> = ({
             disabled={disabled}
             defaultValue={inputDefaultValue}
             placeholder={inputPlaceholder}
+            type={inputType}
+            min={inputMin}
+            max={inputMax}
             className={'border-left-none'}
           />
         )}
       </div>
+      {error && <div className={styles['errorDescription']}>{error}</div>}
     </div>
   );
 };

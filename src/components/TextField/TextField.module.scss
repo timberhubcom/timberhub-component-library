@@ -41,6 +41,11 @@
   }
 }
 
+.number {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
 .required {
   @include required;
 }
