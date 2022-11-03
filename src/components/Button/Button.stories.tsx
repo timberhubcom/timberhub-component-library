@@ -22,6 +22,11 @@ Plain.args = {
   type: 'plain',
 };
 
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
 export const Icon = Template.bind({});
 Icon.args = {
   type: 'plain',

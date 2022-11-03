@@ -13,6 +13,8 @@
   align-items: center;
   font-weight: bold;
   transition: $transition;
+  max-height: 45px;
+  min-width: 100px;
 
   &:not(.disabled):hover {
     transition: $transition;
@@ -91,6 +93,18 @@
         fill: $black;
       }
     }
+  }
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 0;
   }
 }
 
