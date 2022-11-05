@@ -23,7 +23,7 @@ const Table: React.FC<TableProps> = ({
               data-key={column.name}
               key={index}
             >
-              <span className={styles['tableColumnText']}>{column.show_title && column.title}</span>
+              <span className={styles['tableHeaderText']}>{column.show_title && column.title}</span>
             </th>
           ))}
         </tr>
