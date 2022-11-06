@@ -4,11 +4,3 @@
   color: $green;
   margin-left: 3px;
 }
-
-:global(.react-select__control) {
-  min-height: 0 !important;
-
-  :global(.react-select__dropdown-indicator) {
-    padding: 7px;
-  }
-}

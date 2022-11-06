@@ -15,16 +15,12 @@
   padding: 15px;
 }
 
-.tableColumnShowOnHover {
-  visibility: hidden;
-
-  &:hover {
-    display: block;
-  }
-}
-
 .tableHeader {
   border-bottom: 1px solid $border;
+
+  .tableColumn {
+    padding: 10px 15px;
+  }
 }
 
 .tableHeaderText {
@@ -60,7 +56,7 @@
   cursor: pointer;
 
   &:hover {
-    background: rgba($color_grey, 0.13);
+    background: rgba($color_grey, 0.1);
   }
 }
 

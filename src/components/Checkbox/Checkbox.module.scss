@@ -6,7 +6,7 @@
 .checkboxLabel {
   & > :nth-child(1) {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     @include text-15-b;
     &:first-letter {
       text-transform: capitalize;
@@ -17,7 +17,7 @@
 .checkbox {
   span:not(.required) {
     @include text-14;
-    padding-left: 28px;
+    padding-left: 26px;
     display: flex;
     position: relative;
     line-height: 20px;

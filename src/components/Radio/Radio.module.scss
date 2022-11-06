@@ -5,11 +5,15 @@
 .radio {
   &:not(:last-child) {
     margin-right: 40px;
+
+    span {
+      margin-bottom: 3px;
+    }
   }
 
   span {
     @include text-14;
-    padding-left: 28px;
+    padding-left: 26px;
     display: flex;
     position: relative;
     line-height: 20px;

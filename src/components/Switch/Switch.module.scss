@@ -7,7 +7,7 @@
   display: flex;
   & > :nth-child(1) {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     @include text-15-b;
     &:first-letter {
       text-transform: capitalize;
@@ -18,7 +18,7 @@
 .toggle {
   span {
     @include text-14;
-    padding-left: 38px;
+    padding-left: 40px;
     display: flex;
     position: relative;
     line-height: 21px;

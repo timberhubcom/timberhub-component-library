@@ -6,8 +6,8 @@
 .chip {
   @include text-12;
   width: fit-content;
-  padding: 5px 8px;
-  border-radius: 40px;
+  padding: 5px 10px;
+  border-radius: 10 * $border_radius;
 }
 
 .grey {
