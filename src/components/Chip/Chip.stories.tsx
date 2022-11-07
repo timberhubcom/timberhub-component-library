@@ -24,14 +24,18 @@ Base.args = {
 export const Color = MultipleTemplate.bind({});
 Color.args = [
   {
-    text: 'open',
-  },
-  {
-    text: 'dimensions unavailable',
+    text: 'pending',
     color: 'orange',
   },
   {
+    text: 'closed',
+  },
+  {
     text: 'offer',
+    color: 'blue',
+  },
+  {
+    text: 'approved',
     color: 'green',
   },
 ];
