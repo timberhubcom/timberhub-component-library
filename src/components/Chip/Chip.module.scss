@@ -22,6 +22,11 @@
   background-color: $light_orange;
 }
 
+.blue {
+  background-color: $blue;
+  color: $white;
+}
+
 .text {
   @include text-10;
   text-transform: uppercase;
