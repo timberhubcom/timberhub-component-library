@@ -1,4 +1,4 @@
-import React, { HTMLInputTypeAttribute, useState } from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import Select, { SingleValue } from 'react-select';
 import TextField from '../TextField';
 import { SelectOption } from '../SelectItem/SelectItem';
@@ -14,8 +14,10 @@ type SelectInputProps = {
   inputPlaceholder?: string;
   onSelectChange?: (opt: SingleValue<SelectOption>) => void;
   onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  defaultValue?: SelectOption;
+  selectDefaultValue?: SelectOption;
+  selectValue?: SelectOption;
   inputDefaultValue?: string;
+  inputValue?: string;
   inputType?: HTMLInputTypeAttribute;
   inputMin?: number;
   inputMax?: number;
@@ -36,8 +38,10 @@ const SelectInput: React.FC<SelectInputProps> = ({
   inputPlaceholder,
   onSelectChange,
   onInputChange,
-  defaultValue = null,
+  selectDefaultValue,
+  selectValue,
   inputDefaultValue,
+  inputValue,
   inputType = 'text',
   inputMin,
   inputMax,
@@ -47,13 +51,6 @@ const SelectInput: React.FC<SelectInputProps> = ({
   reverse = false,
   error,
 }) => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<SelectOption>>(defaultValue);
-
-  const _onSelectChange = (option: SingleValue<SelectOption>, _: any) => {
-    setSelectedOption(option);
-    if (onSelectChange) onSelectChange(option);
-  };
-
   return (
     <div className={className}>
       {label && (
@@ -69,6 +66,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
             onChange={onInputChange}
             disabled={disabled}
             defaultValue={inputDefaultValue}
+            value={inputValue}
             placeholder={inputPlaceholder}
             type={inputType}
             min={inputMin}
@@ -82,9 +80,10 @@ const SelectInput: React.FC<SelectInputProps> = ({
           name={name}
           options={options}
           placeholder={placeholder}
-          onChange={_onSelectChange}
+          onChange={onSelectChange}
           isSearchable={searchable}
-          value={selectedOption}
+          value={selectValue}
+          defaultValue={selectDefaultValue}
         />
         {reverse && (
           <TextField
@@ -92,6 +91,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
             onChange={onInputChange}
             disabled={disabled}
             defaultValue={inputDefaultValue}
+            value={inputValue}
             placeholder={inputPlaceholder}
             type={inputType}
             min={inputMin}

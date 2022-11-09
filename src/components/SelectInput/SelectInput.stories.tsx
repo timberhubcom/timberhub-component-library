@@ -17,8 +17,9 @@ const Template: ComponentStory<typeof SelectInput> = (args) => <SelectInput {...
 export const Base = Template.bind({});
 Base.args = {
   label: 'label',
+  inputDefaultValue: 'test',
   options,
-  defaultValue: options[0],
+  selectDefaultValue: options[0],
   reverse: false,
 };
 
@@ -26,7 +27,7 @@ export const Reverse = Template.bind({});
 Reverse.args = {
   label: 'label',
   options,
-  defaultValue: options[0],
+  selectDefaultValue: options[0],
   reverse: true,
 };
 
@@ -34,7 +35,7 @@ export const Number = Template.bind({});
 Number.args = {
   label: 'label',
   options,
-  defaultValue: options[0],
+  selectDefaultValue: options[0],
   inputType: 'number',
   inputMin: 0,
   inputMax: 100,
@@ -44,6 +45,6 @@ export const Error = Template.bind({});
 Error.args = {
   label: 'label',
   options,
-  defaultValue: options[0],
+  selectDefaultValue: options[0],
   error: 'error',
 };
