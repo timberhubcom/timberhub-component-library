@@ -32,20 +32,42 @@
 }
 
 .primary {
-  background: $green;
-  border: 2px solid $green;
+  &.positive {
+    background: $green;
+    border: 2px solid $green;
 
-  &:not(.disabled):hover {
-    color: $green;
-    background: $black;
-    border: 2px solid $black;
+    &:not(.disabled):hover {
+      color: $green;
+      background: $black;
+      border: 2px solid $black;
+    }
+
+    &:hover {
+      svg {
+        path {
+          transition: fill 0.2s;
+          fill: $green;
+        }
+      }
+    }
   }
 
-  &:hover {
-    svg {
-      path {
-        transition: fill 0.2s;
-        fill: $green;
+  &.negative {
+    background: $red;
+    border: 2px solid $red;
+
+    &:not(.disabled):hover {
+      color: $red;
+      background: $black;
+      border: 2px solid $black;
+    }
+
+    &:hover {
+      svg {
+        path {
+          transition: fill 0.2s;
+          fill: $red;
+        }
       }
     }
   }
@@ -53,46 +75,94 @@
 
 .secondary {
   background: $white;
-  border: 2px solid $green;
+  &.positive {
+    border: 2px solid $green;
 
-  &:not(.disabled):hover {
-    color: $green;
-    background: $black;
-    border: 2px solid $black;
+    &:not(.disabled):hover {
+      color: $green;
+      background: $black;
+      border: 2px solid $black;
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $green;
+        }
+      }
+    }
   }
 
-  &:hover {
-    svg {
-      path {
-        fill: $green;
+  &.negative {
+    border: 2px solid $red;
+
+    &:not(.disabled):hover {
+      color: $red;
+      background: $black;
+      border: 2px solid $black;
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $red;
+        }
       }
     }
   }
 }
 
 .plain {
-  color: $green;
   background: transparent;
-  border: 2px solid transparent;
   padding: 2px 5px;
+  border: 2px solid transparent;
 
-  svg {
-    path {
-      fill: $green;
+  &.positive {
+    color: $green;
+
+    svg {
+      path {
+        fill: $green;
+      }
+    }
+
+    &:not(.disabled):hover {
+      color: $black;
+      background: transparent;
+      border: 2px solid transparent;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $black;
+        }
+      }
     }
   }
 
-  &:not(.disabled):hover {
-    color: $black;
-    background: transparent;
-    border: 2px solid transparent;
-    text-decoration: underline;
-  }
+  &.negative {
+    color: $red;
 
-  &:hover {
     svg {
       path {
-        fill: $black;
+        fill: $red;
+      }
+    }
+
+    &:not(.disabled):hover {
+      color: $black;
+      background: transparent;
+      border: 2px solid transparent;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      svg {
+        path {
+          fill: $black;
+        }
       }
     }
   }
@@ -104,8 +174,8 @@
   align-items: center;
   justify-content: center;
   svg {
-    width: 25px;
-    height: 25px;
+    width: 18px;
+    height: 18px;
     margin-right: 0;
   }
 }

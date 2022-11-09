@@ -22,6 +22,11 @@ Plain.args = {
   type: 'plain',
 };
 
+export const Negative = Template.bind({});
+Negative.args = {
+  variant: 'negative',
+};
+
 export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
