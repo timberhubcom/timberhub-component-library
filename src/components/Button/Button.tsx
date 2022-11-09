@@ -5,7 +5,7 @@ import Loader from '../Icons/Loader';
 
 export interface ButtonProps {
   type?: 'primary' | 'secondary' | 'plain';
-  variant?: 'positive' | 'negative';
+  variant?: 'positive' | 'negative' | 'neutral';
   loading?: boolean;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -23,6 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   ...rest
 }) => {
+  const variantColor = variant === 'positive' ? '#23d899' : variant === 'negative' ? '#fda4af' : '#d5d5d5';
   return (
     <button
       className={`${styles.button} ${styles[type]} ${disabled && styles.disabled} ${styles[variant]}`}
@@ -31,9 +32,7 @@ const Button: React.FC<ButtonProps> = ({
       {...rest}
     >
       {loading ? (
-        <div className={styles.loader}>
-          {type === 'primary' ? <LoaderWhite /> : <Loader color={variant === 'positive' ? '#23d899' : '#fda4af'} />}
-        </div>
+        <div className={styles.loader}>{type === 'primary' ? <LoaderWhite /> : <Loader color={variantColor} />}</div>
       ) : (
         <>
           {icon}
