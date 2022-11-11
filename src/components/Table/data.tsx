@@ -39,10 +39,10 @@ export const structure: TableStructure = {
 };
 
 export const rows = [
-  { col_1: <div>React node</div>, col_3: 'data 3' },
-  { col_1: 'data 1', col_2: 'data 2', col_4: <div>data 4</div> },
-  { col_1: 'data 1', col_3: 'data 3' },
-  { col_1: 'data 1', col_3: 'data 3' },
-  { col_1: 'data 1', col_4: 'data 4' },
-  { col_1: 'data 1', col_2: 'data 2' },
+  { key: '1', col_1: <div>React node</div>, col_3: 'data 3' },
+  { key: '2', col_1: 'data 1', col_2: 'data 2', col_4: <div>data 4</div> },
+  { key: '3', col_1: 'data 1', col_3: 'data 3' },
+  { key: '4', col_1: 'data 1', col_3: 'data 3' },
+  { key: '5', col_1: 'data 1', col_4: 'data 4' },
+  { key: '6', col_1: 'data 1', col_2: 'data 2' },
 ];

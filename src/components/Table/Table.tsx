@@ -56,9 +56,9 @@ const Table: React.FC<TableProps> = ({
           </>
         ) : (
           <tr>
-            <div className={styles['tableEmpty']} data-testid={'empty-table'}>
+            <td className={styles['tableEmpty']} data-testid={'empty-table'}>
               {emptyText}
-            </div>
+            </td>
           </tr>
         )}
       </tbody>
