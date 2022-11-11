@@ -32,7 +32,7 @@ const Table: React.FC<TableProps> = ({
         {rows.length > 0 ? (
           <>
             {rows.map((row, position) => (
-              <tr>
+              <tr key={`${row.key}`}>
                 <td
                   className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']}`}
                   key={position}
