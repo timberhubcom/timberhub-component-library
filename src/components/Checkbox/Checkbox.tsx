@@ -14,6 +14,7 @@ type CheckboxProps = {
   option: CheckboxOptionType;
   description?: string;
   defaultValue?: boolean;
+  value?: boolean;
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
@@ -25,6 +26,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   labelClass,
   disabled,
   defaultValue,
+  value,
   onChange,
   required,
 }) => {
@@ -38,6 +40,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           onChange={onChange}
           required={required}
           defaultChecked={defaultValue}
+          checked={value}
           disabled={disabled}
         />
         <span className={styles['checkboxLabelName']}>
