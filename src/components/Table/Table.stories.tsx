@@ -26,7 +26,7 @@ export const Loading = Template.bind({});
 Loading.args = {
   structure,
   loading: true,
-  rows: [],
+  rows,
 };
 
 export const ClickableRow = Template.bind({});

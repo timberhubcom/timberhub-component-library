@@ -6,7 +6,7 @@ import { colors } from '../../theme/colors.enum';
 
 const Table: React.FC<TableProps> = ({
   structure,
-  loading,
+  loading = false,
   rows = [],
   emptyText = 'No data',
   clickableRow = false,
