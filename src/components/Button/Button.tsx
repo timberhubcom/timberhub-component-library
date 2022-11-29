@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Button.module.scss';
 import LoaderWhite from '../Icons/LoaderWhite';
 import Loader from '../Icons/Loader';
+import { colors } from '../../theme/colors.enum';
 
 export interface ButtonProps {
   type?: 'primary' | 'secondary' | 'plain';
@@ -23,7 +24,9 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   ...rest
 }) => {
-  const variantColor = variant === 'positive' ? '#23d899' : variant === 'negative' ? '#fda4af' : '#d5d5d5';
+  const variantColor =
+    variant === 'positive' ? colors.POSITIVE : variant === 'negative' ? colors.NEGATIVE : colors.NEUTRAL;
+
   return (
     <button
       className={`${styles.button} ${styles[type]} ${disabled && styles.disabled} ${styles[variant]}`}

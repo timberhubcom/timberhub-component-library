@@ -32,6 +32,18 @@
   @include text-12;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px;
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 .tableEmpty {
   color: $color_grey;
   text-align: center;

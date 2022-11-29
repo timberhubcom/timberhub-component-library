@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './Table.module.scss';
+import Loader from '../Icons/Loader';
 import { HeaderItem, TableProps, TableRowItem } from './types';
+import { colors } from '../../theme/colors.enum';
 
 const Table: React.FC<TableProps> = ({
   structure,
+  loading,
   rows = [],
   emptyText = 'No data',
   clickableRow = false,
@@ -28,40 +31,50 @@ const Table: React.FC<TableProps> = ({
           ))}
         </tr>
       </thead>
-      <tbody>
-        {rows.length > 0 ? (
-          <>
-            {rows.map((row, position) => (
-              <tr key={`${row.key}`}>
-                <td
-                  className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']}`}
-                  key={position}
-                  onClick={() => handleRowClick(row)}
-                  data-testid={`row-${position}`}
-                >
-                  {structure.header.map((column, index) => (
-                    <div
-                      className={`${styles['tableColumn']} ${styles[`col-${column.width}`]} ${
-                        column.show_on_hover && styles['showOnHover']
-                      }`}
-                      data-key={column.name}
-                      key={index}
-                    >
-                      {row[column.name] && row[column.name]}
-                    </div>
-                  ))}
-                </td>
-              </tr>
-            ))}
-          </>
-        ) : (
+      {loading ? (
+        <tbody>
           <tr>
-            <td className={styles['tableEmpty']} data-testid={'empty-table'}>
-              {emptyText}
+            <td className={styles.loading}>
+              <Loader color={colors.POSITIVE} />
             </td>
           </tr>
-        )}
-      </tbody>
+        </tbody>
+      ) : (
+        <tbody>
+          {rows.length > 0 ? (
+            <>
+              {rows.map((row, position) => (
+                <tr key={`${row.key}`}>
+                  <td
+                    className={`${styles['cols']} ${styles['tableRow']} ${clickableRow && styles['tableRowClickable']}`}
+                    key={position}
+                    onClick={() => handleRowClick(row)}
+                    data-testid={`row-${position}`}
+                  >
+                    {structure.header.map((column, index) => (
+                      <div
+                        className={`${styles['tableColumn']} ${styles[`col-${column.width}`]} ${
+                          column.show_on_hover && styles['showOnHover']
+                        }`}
+                        data-key={column.name}
+                        key={index}
+                      >
+                        {row[column.name] && row[column.name]}
+                      </div>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </>
+          ) : (
+            <tr>
+              <td className={styles['tableEmpty']} data-testid={'empty-table'}>
+                {emptyText}
+              </td>
+            </tr>
+          )}
+        </tbody>
+      )}
     </table>
   );
 };
