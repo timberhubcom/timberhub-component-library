@@ -17,6 +17,7 @@ export type TableStructure = {
 
 export type TableProps = {
   structure: TableStructure;
+  loading?: boolean;
   rows: TableRowItem[];
   clickableRow?: boolean;
   size?: 'default' | 'small';

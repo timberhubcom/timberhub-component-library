@@ -9,6 +9,7 @@ type TextFieldProps = {
   labelClass?: string;
   description?: string;
   defaultValue?: string;
+  value?: string;
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -27,6 +28,7 @@ const TextField: React.FC<TextFieldProps> = ({
   labelClass,
   description = null,
   defaultValue,
+  value,
   disabled = false,
   onChange,
   onBlur,
@@ -75,6 +77,7 @@ const TextField: React.FC<TextFieldProps> = ({
         disabled={disabled}
         required={required}
         defaultValue={defaultValue}
+        value={value}
       />
       {error && <div className={styles['errorDescription']}>{error}</div>}
       {description && <div className={styles['description']}>{description}</div>}

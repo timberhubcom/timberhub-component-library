@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} 
 export const Base = Template.bind({});
 Base.args = {
   option: { name: 'Option', value: 'Option' },
-  defaultValue: true,
+  value: true,
 };
 
 export const Label = Template.bind({});

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loader = () => {
+const Loader = ({ color }: { color: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,7 +13,7 @@ const Loader = () => {
         cx="50"
         cy="50"
         fill="none"
-        stroke="#23d899"
+        stroke={color}
         strokeWidth="10"
         r="35"
         strokeDasharray="164.93361431346415 56.97787143782138"

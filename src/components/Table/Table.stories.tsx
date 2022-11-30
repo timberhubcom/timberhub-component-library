@@ -22,6 +22,13 @@ Empty.args = {
   rows: [],
 };
 
+export const Loading = Template.bind({});
+Loading.args = {
+  structure,
+  loading: true,
+  rows,
+};
+
 export const ClickableRow = Template.bind({});
 ClickableRow.args = {
   structure,
