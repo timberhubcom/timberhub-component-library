@@ -24,6 +24,7 @@ type SelectInputProps = {
   searchable?: boolean;
   required?: boolean;
   disabled?: boolean;
+  disabledSelect?: boolean;
   reverse?: boolean;
   error?: string;
 };
@@ -48,6 +49,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   searchable = true,
   required = false,
   disabled = false,
+  disabledSelect = false,
   reverse = false,
   error,
 }) => {
@@ -83,6 +85,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
           onChange={onSelectChange}
           isSearchable={searchable}
           value={selectValue}
+          isDisabled={disabledSelect}
           defaultValue={selectDefaultValue}
         />
         {reverse && (

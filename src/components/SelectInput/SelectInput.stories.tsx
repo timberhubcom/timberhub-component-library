@@ -23,6 +23,16 @@ Base.args = {
   reverse: false,
 };
 
+export const DisabledSelect = Template.bind({});
+DisabledSelect.args = {
+  label: 'label',
+  inputDefaultValue: 'test',
+  options,
+  disabledSelect: true,
+  selectDefaultValue: options[0],
+  reverse: false,
+};
+
 export const Reverse = Template.bind({});
 Reverse.args = {
   label: 'label',
