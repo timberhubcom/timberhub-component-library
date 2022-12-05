@@ -44,7 +44,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           disabled={disabled}
         />
         <span className={styles['checkboxLabelName']}>
-          {option.name}
+          <span dangerouslySetInnerHTML={{ __html: option.name }} />
           {required ? <span className={styles['required']}>*</span> : ''}
         </span>
         {option.children !== undefined && <>{option.children}</>}
