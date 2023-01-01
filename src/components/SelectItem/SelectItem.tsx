@@ -34,6 +34,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   defaultValue = null,
   searchable = true,
   required = false,
+  isClearable = false,
   error,
 }) => {
   return (
@@ -53,6 +54,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
         placeholder={placeholder}
         onChange={onChange}
         isSearchable={searchable}
+        isClearable={isClearable}
         value={value}
       />
       {error && <div className={styles['errorDescription']}>{error}</div>}
