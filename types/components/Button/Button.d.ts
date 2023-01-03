@@ -1,6 +1,8 @@
 import React from 'react';
 export interface ButtonProps {
     type?: 'primary' | 'secondary' | 'plain';
+    variant?: 'positive' | 'negative' | 'neutral';
+    loading?: boolean;
     disabled?: boolean;
     onClick?: React.MouseEventHandler<HTMLElement>;
     icon?: React.ReactNode;

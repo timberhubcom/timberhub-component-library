@@ -7,6 +7,7 @@ declare type TextFieldProps = {
     labelClass?: string;
     description?: string;
     defaultValue?: string;
+    value?: string;
     disabled?: boolean;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;

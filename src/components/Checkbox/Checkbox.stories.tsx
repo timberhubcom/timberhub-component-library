@@ -7,12 +7,18 @@ export default {
   component: Checkbox,
 };
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
+const Template: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox
+    {...args}
+    onClick={(e: any) => {
+      console.log(e.target.checked);
+    }}
+  />
+);
 
 export const Base = Template.bind({});
 Base.args = {
-  option: { name: 'Option', value: 'Option' },
-  value: true,
+  option: { name: '', value: 'checked' },
 };
 
 export const Label = Template.bind({});

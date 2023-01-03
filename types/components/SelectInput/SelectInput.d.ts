@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLInputTypeAttribute } from 'react';
 import { SingleValue } from 'react-select';
 import { SelectOption } from '../SelectItem/SelectItem';
 declare type SelectInputProps = {
@@ -11,12 +11,19 @@ declare type SelectInputProps = {
     inputPlaceholder?: string;
     onSelectChange?: (opt: SingleValue<SelectOption>) => void;
     onInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    defaultValue?: SelectOption;
+    selectDefaultValue?: SelectOption;
+    selectValue?: SelectOption;
     inputDefaultValue?: string;
+    inputValue?: string;
+    inputType?: HTMLInputTypeAttribute;
+    inputMin?: number;
+    inputMax?: number;
     searchable?: boolean;
     required?: boolean;
     disabled?: boolean;
+    disabledSelect?: boolean;
     reverse?: boolean;
+    error?: string;
 };
 declare const SelectInput: React.FC<SelectInputProps>;
 export default SelectInput;

@@ -9,18 +9,18 @@ describe('Checkbox', () => {
     expect(screen.getByText('option')).toBeVisible();
   });
   it('should trigger the on change function on click', () => {
-    const mockOnChange = jest.fn();
-    render(<Checkbox option={{ name: 'option', value: 'option' }} onChange={mockOnChange} />);
+    const mockClick = jest.fn();
+    render(<Checkbox option={{ name: 'option', value: 'option' }} onClick={mockClick} />);
 
     fireEvent.click(screen.getByRole('checkbox'));
-    expect(mockOnChange).toHaveBeenCalled();
+    expect(mockClick).toHaveBeenCalled();
   });
   it('should render the children options when provided', () => {
-    const mockOnChange = jest.fn();
+    const mockClick = jest.fn();
     render(
       <Checkbox
         option={{ name: 'option', value: 'option', children: <div>Children option</div> }}
-        onChange={mockOnChange}
+        onClick={mockClick}
       />,
     );
 

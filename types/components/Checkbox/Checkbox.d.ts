@@ -8,11 +8,12 @@ declare type CheckboxProps = {
     name?: string;
     label?: string;
     labelClass?: string;
-    option: CheckboxOptionType;
+    option?: CheckboxOptionType;
     description?: string;
     defaultValue?: boolean;
+    value?: boolean;
     disabled?: boolean;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onClick?: React.MouseEventHandler<HTMLElement>;
     required?: boolean;
 };
 declare const Checkbox: React.FC<CheckboxProps>;

@@ -15,6 +15,7 @@ declare type SelectItemProps = {
     value?: SelectOption;
     defaultValue?: SelectOption;
     searchable?: boolean;
+    clearable?: boolean;
     required?: boolean;
     error?: string;
 };

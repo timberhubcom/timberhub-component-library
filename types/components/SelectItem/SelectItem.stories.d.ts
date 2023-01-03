@@ -13,6 +13,7 @@ declare const _default: {
         value?: import("./SelectItem").SelectOption | undefined;
         defaultValue?: import("./SelectItem").SelectOption | undefined;
         searchable?: boolean | undefined;
+        clearable?: boolean | undefined;
         required?: boolean | undefined;
         error?: string | undefined;
     }>;
@@ -29,6 +30,7 @@ export declare const Base: ComponentStory<React.FC<{
     value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
+    clearable?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
 }>>;
@@ -43,6 +45,7 @@ export declare const Empty: ComponentStory<React.FC<{
     value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
+    clearable?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
 }>>;
@@ -57,6 +60,7 @@ export declare const Error: ComponentStory<React.FC<{
     value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
+    clearable?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
 }>>;
@@ -71,6 +75,7 @@ export declare const Default: ComponentStory<React.FC<{
     value?: import("./SelectItem").SelectOption | undefined;
     defaultValue?: import("./SelectItem").SelectOption | undefined;
     searchable?: boolean | undefined;
+    clearable?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
 }>>;

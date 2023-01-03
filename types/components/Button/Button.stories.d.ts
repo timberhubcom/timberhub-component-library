@@ -8,5 +8,7 @@ export default _default;
 export declare const Primary: ComponentStory<React.FC<import("./Button").ButtonProps>>;
 export declare const Secondary: ComponentStory<React.FC<import("./Button").ButtonProps>>;
 export declare const Plain: ComponentStory<React.FC<import("./Button").ButtonProps>>;
+export declare const Negative: ComponentStory<React.FC<import("./Button").ButtonProps>>;
+export declare const Loading: ComponentStory<React.FC<import("./Button").ButtonProps>>;
 export declare const Icon: ComponentStory<React.FC<import("./Button").ButtonProps>>;
 export declare const Disabled: ComponentStory<React.FC<import("./Button").ButtonProps>>;

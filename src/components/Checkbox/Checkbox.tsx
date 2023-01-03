@@ -11,12 +11,12 @@ type CheckboxProps = {
   name?: string;
   label?: string;
   labelClass?: string;
-  option: CheckboxOptionType;
+  option?: CheckboxOptionType;
   description?: string;
   defaultValue?: boolean;
   value?: boolean;
   disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   required?: boolean;
 };
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -27,7 +27,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   disabled,
   defaultValue,
   value,
-  onChange,
+  onClick,
   required,
 }) => {
   return (
@@ -37,17 +37,19 @@ const Checkbox: React.FC<CheckboxProps> = ({
         <input
           type="checkbox"
           name={name}
-          onChange={onChange}
+          onClick={onClick}
           required={required}
           defaultChecked={defaultValue}
           checked={value}
           disabled={disabled}
         />
-        <span className={styles['checkboxLabelName']}>
-          <span dangerouslySetInnerHTML={{ __html: option.name }} />
-          {required ? <span className={styles['required']}>*</span> : ''}
-        </span>
-        {option.children !== undefined && <>{option.children}</>}
+        {option && (
+          <span className={styles['checkboxLabelName']}>
+            <span dangerouslySetInnerHTML={{ __html: option?.name || '' }} />
+            {required ? <span className={styles['required']}>*</span> : ''}
+          </span>
+        )}
+        {option?.children && <>{option?.children}</>}
       </label>
     </div>
   );
