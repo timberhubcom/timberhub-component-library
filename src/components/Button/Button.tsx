@@ -14,6 +14,12 @@ export interface ButtonProps {
   children: React.ReactNode;
 }
 
+const variantColorMap = {
+  positive: colors.POSITIVE,
+  negative: colors.NEGATIVE,
+  neutral: colors.NEUTRAL,
+}
+
 const Button: React.FC<ButtonProps> = ({
   type = 'primary',
   variant = 'positive',
@@ -24,8 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   icon,
   ...rest
 }) => {
-  const variantColor =
-    variant === 'positive' ? colors.POSITIVE : variant === 'negative' ? colors.NEGATIVE : colors.NEUTRAL;
+  const variantColor = variantColorMap[variant] ?? colors.NEUTRAL;
 
   return (
     <button

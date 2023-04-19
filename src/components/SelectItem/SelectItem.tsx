@@ -41,7 +41,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
   return (
     <div className={className}>
       {label && (
-        <label className={`${labelClass} ${styles['label']}`}>
+        <label className={`${labelClass} ${styles['label']}`} htmlFor={name}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
           {required && <span className={styles['required']}>*</span>}
         </label>
@@ -57,6 +57,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
         isSearchable={searchable}
         isClearable={clearable}
         value={value}
+        inputId={name}
       />
       {error && <div className={styles['errorDescription']}>{error}</div>}
     </div>

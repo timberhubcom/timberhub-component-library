@@ -19,7 +19,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   label,
   name,
   placeholder,
-  labelClass,
+  labelClass='',
   description = null,
   defaultValue,
   disabled = false,
@@ -31,13 +31,14 @@ const TextArea: React.FC<TextAreaProps> = ({
   return (
     <div>
       {label && (
-        <label className={`${labelClass && labelClass} ${styles['label']}`}>
+        <label className={`${labelClass} ${styles['label']}`} htmlFor={name}>
           <span dangerouslySetInnerHTML={{ __html: label }} />
           {required && <span className={styles['required']}>*</span>}
         </label>
       )}
       <textarea
         name={name}
+        id={name}
         className={`${styles['textarea']} ${disabled && styles['disabled']}`}
         onChange={onChange}
         onBlur={onBlur}
