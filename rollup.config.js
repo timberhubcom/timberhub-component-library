@@ -31,6 +31,7 @@ export default [
       babel({ exclude: 'node_modules/**' }),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss({
+        extract: true,
         modules: true,
         use: ['sass'],
         plugins: [url({ url: 'inline' })],
