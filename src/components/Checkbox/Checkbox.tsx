@@ -16,7 +16,7 @@ type CheckboxProps = {
   defaultValue?: boolean;
   value?: boolean;
   disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.ChangeEventHandler<HTMLInputElement>;
   required?: boolean;
 };
 const Checkbox: React.FC<CheckboxProps> = ({
@@ -37,7 +37,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         <input
           type="checkbox"
           name={name}
-          onClick={onClick}
+          onChange={onClick}
           required={required}
           defaultChecked={defaultValue}
           checked={value}
