@@ -9,22 +9,27 @@ export default {
 
 const Template: ComponentStory<typeof Alert> = (args) => <Alert title="You have 5 offers available for review" {...args}></Alert>;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const Green = Template.bind({});
+Green.args = {};
 
-export const Error = Template.bind({});
-Error.args = {
-  variant: 'error',
+export const Red = Template.bind({});
+Red.args = {
+  variant: 'red',
 };
 
-export const Info = Template.bind({});
-Info.args = {
-  variant: 'info',
+export const Blue = Template.bind({});
+Blue.args = {
+  variant: 'blue',
 };
 
-export const Warning = Template.bind({});
-Warning.args = {
-  variant: 'warning',
+export const Yellow = Template.bind({});
+Yellow.args = {
+  variant: 'yellow',
+};
+
+export const WithButton = Template.bind({});
+WithButton.args = {
+  buttonTitle: 'Go to offers',
 };
 
 export const Multiline = Template.bind({});
