@@ -1,0 +1,63 @@
+@import "./src/theme/pallete";
+@import "./src/theme/functions";
+@import "./src/theme/typography";
+
+$default: #23d899;
+$info: #7ed6df;
+$warning: #f0932b;
+$error: #ee5253;
+
+$alerts: (
+  "default": (
+    "backgroundColor": scale-color($default, $lightness: 80%),
+    "titleColor": #555,
+    "buttonColor": $default,
+  ),
+  "info": (
+    "backgroundColor": scale-color($info, $lightness: 60%),
+    "titleColor": #555,
+    "buttonColor": $info,
+  ),
+  "warning": (
+    "backgroundColor": scale-color($warning, $lightness: 80%),
+    "titleColor": #555,
+    "buttonColor": $warning,
+  ),
+  "error": (
+    "backgroundColor": scale-color($error, $lightness: 80%),
+    "titleColor": #555,
+    "buttonColor": $error,
+  ),
+);
+
+.alert {
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 8px;
+
+  @each $alertType in map-keys($alerts) {
+    &-#{$alertType} {
+      background-color: map-get(map-get($alerts, $alertType), backgroundColor);
+
+      .alertAction > button {
+        background-color: map-get(map-get($alerts, $alertType), buttonColor) !important;
+        border: 0 !important;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        min-width: auto !important;
+      }
+
+      .alert-title {
+        color: map-get(map-get($alerts, $alertType), titleColor);
+        @include text-14-b;
+      }
+
+      .alert-close {
+        border-color: map-get(map-get($alerts, $alertType), backgroundColor);
+      }
+    }
+  }
+}
