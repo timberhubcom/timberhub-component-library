@@ -1,5 +1,5 @@
 {
-  "name": "@ipetro/template-react-component-library",
+  "name": "@timberhubcom/timberhub-component-library",
   "version": "1.1.76",
   "description": "A simple template for a custom React component library",
   "scripts": {
@@ -8,14 +8,17 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/timberhubcom"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dimpagk/template-react-component-library.git"
+    "url": "git+https://github.com/timberhubcom/timberhub-component-library.git"
   },
   "bugs": {
-    "url": "https://github.com/dimpagk/template-react-component-library/issues"
+    "url": "https://github.com/timberhubcom/timberhub-component-library/issues"
   },
-  "homepage": "https://github.com/dimpagk/template-react-component-library#readme",
+  "homepage": "https://github.com/timberhubcom/timberhub-component-library#readme",
   "author": "ionpetro",
   "license": "ISC",
   "devDependencies": {
