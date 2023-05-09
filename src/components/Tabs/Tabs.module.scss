@@ -1,0 +1,83 @@
+@import "src/theme/abstractions";
+
+.flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabsList {
+  border-bottom: 1px solid $border;
+  margin: 0 0 4px;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+
+    & > button {
+      @include u-button-reset;
+
+      cursor: pointer;
+
+      &.disabled {
+        color: $color_grey;
+        cursor: not-allowed;
+      }
+    }
+
+    .count {
+      background: $back_dark_grey;
+      width: 22px;
+      height: 22px;
+      border-radius: 22px;
+      @include text-10-sb;
+      margin-left: 5px;
+    }
+
+    div {
+      position: relative;
+      color: $color_grey;
+      transition: $transition;
+      padding: 0 1px 12px;
+      @include text-15-b;
+
+      &:hover {
+        color: $black;
+      }
+
+      &:after {
+        display: none;
+        content: "";
+        background: $green;
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &.active {
+      div {
+        color: $black;
+
+        .count {
+          background: rgba($green, 0.3);
+        }
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
+}
