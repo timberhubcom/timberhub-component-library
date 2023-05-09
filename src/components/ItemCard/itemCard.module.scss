@@ -1,0 +1,13 @@
+@import "src/theme/abstractions";
+
+.itemCardWrapper {
+  border-radius: $border_radius;
+  border: 1px solid $border;
+  padding: 20px;
+  background-color: $white;
+  position: relative;
+
+  &:hover {
+    border: 1px solid $back_dark_grey;
+  }
+}
