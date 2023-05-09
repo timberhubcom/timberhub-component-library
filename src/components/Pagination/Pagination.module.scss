@@ -2,6 +2,7 @@
 
 .pagerWrapper {
   @include text-15-b();
+  cursor: pointer;
   display: flex;
   align-items: center;
   margin-top: 20px;
@@ -20,6 +21,7 @@
 
   .currentPage,
   button {
+    @include u-button-reset();
     display: flex;
     justify-content: center;
     align-items: center;
