@@ -1,0 +1,52 @@
+@import "src/theme/abstractions";
+
+.pagerWrapper {
+  @include text-15-b();
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  svg {
+    height: 13px;
+    width: auto;
+    display: table;
+  }
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 4px;
+    }
+  }
+
+  .currentPage,
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $green;
+    width: 20px;
+    height: 20px;
+    border-radius: $border_radius;
+  }
+
+  .currentPage {
+    color: $black;
+    border: 1px solid $border;
+    width: 34px;
+    height: 34px;
+  }
+
+  .first,
+  .previous {
+    width: 34px;
+    height: 34px;
+    background: $back_grey;
+  }
+
+  .next,
+  .last {
+    width: 34px;
+    height: 34px;
+    background: rgba($green, 0.1);
+  }
+}
