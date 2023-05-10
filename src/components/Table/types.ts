@@ -1,4 +1,5 @@
 import React from 'react';
+import { PaginationProps } from '../Pagination/Pagination';
 
 export type TableRowItem = { [key: string]: string | React.ReactNode };
 
@@ -23,4 +24,6 @@ export type TableProps = {
   size?: 'default' | 'small';
   onClick?: (row: TableRowItem) => void;
   emptyText?: string;
+  pagination?: boolean;
+  paginationData?: PaginationProps;
 };

@@ -4,17 +4,17 @@ import React, { useMemo } from 'react';
 import styles from './Pagination.module.scss';
 
 export interface PaginationProps {
-  activePage: number;
-  totalPages: number;
+  activePage?: number;
+  totalPages?: number;
   visiblePages?: number; // Number of visible page buttons
   ellipsisThreshold?: number; // Minimum number of pages required to display ellipses
-  onPageChange: (page?: number) => void;
+  onPageChange?: (page?: number) => void;
 }
 
 const Pagination = ({
-  activePage,
-  onPageChange,
-  totalPages,
+  activePage = 1,
+  onPageChange: _onPageChange,
+  totalPages = 0,
   visiblePages = 5,
   ellipsisThreshold = 2,
 }: PaginationProps) => {
@@ -34,6 +34,10 @@ const Pagination = ({
 
     return Array.from({ length: visiblePages }, (_, i) => i + startPage);
   }, [activePage, totalPages, visiblePages]);
+
+  const onPageChange = (page?: number) => {
+   _onPageChange && _onPageChange(page)
+  }
 
   return (
     <>
