@@ -1,16 +1,39 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import styles from './Pagination.module.scss';
 
 export interface PaginationProps {
   activePage: number;
   totalPages: number;
+  visiblePages?: number; // Number of visible page buttons
+  ellipsisThreshold?: number; // Minimum number of pages required to display ellipses
   onPageChange: (page?: number) => void;
 }
 
-const Pagination = ({ activePage, onPageChange, totalPages }: PaginationProps) => {
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+const Pagination = ({
+  activePage,
+  onPageChange,
+  totalPages,
+  visiblePages = 5,
+  ellipsisThreshold = 2,
+}: PaginationProps) => {
+  const pageRange = useMemo(() => {
+    if (totalPages <= visiblePages) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    const currentPage = activePage || 1;
+    let startPage = currentPage - Math.floor(visiblePages / 2);
+
+    if (startPage < 1) {
+      startPage = 1;
+    } else if (startPage + visiblePages > totalPages) {
+      startPage = totalPages - visiblePages + 1;
+    }
+
+    return Array.from({ length: visiblePages }, (_, i) => i + startPage);
+  }, [activePage, totalPages, visiblePages]);
 
   return (
     <>
@@ -40,8 +63,8 @@ const Pagination = ({ activePage, onPageChange, totalPages }: PaginationProps) =
               </button>
             </>
           )}
-
-          {pages.map((item) => (
+          {pageRange[0] > ellipsisThreshold && <button onClick={() => onPageChange(pageRange[0] - 1)}>&hellip;</button>}
+          {pageRange.map((item) => (
             <div className={styles.pageWrapper} key={'paginate-key-' + item}>
               {activePage === undefined ? (
                 <>
@@ -66,6 +89,10 @@ const Pagination = ({ activePage, onPageChange, totalPages }: PaginationProps) =
               )}
             </div>
           ))}
+
+          {pageRange[pageRange.length - 1] < totalPages - ellipsisThreshold && (
+            <button onClick={() => onPageChange(pageRange[pageRange.length - 1] + 1)}>&hellip;</button>
+          )}
 
           {(activePage === undefined || activePage !== totalPages) && (
             <>
