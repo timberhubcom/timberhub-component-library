@@ -1,0 +1,4 @@
+@mixin u-button-reset() {
+  all: unset;
+  outline: revert;
+}

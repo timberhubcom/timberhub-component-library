@@ -2,16 +2,11 @@
 @import "./src/theme/functions";
 @import "./src/theme/typography";
 
-$default: #23d899;
-$info: #7ed6df;
-$warning: #f0932b;
-$error: #ee5253;
-
 $alerts: (
   "default": (
-    "backgroundColor": scale-color($default, $lightness: 80%),
+    "backgroundColor": scale-color($green, $lightness: 80%),
     "titleColor": #555,
-    "buttonColor": $default,
+    "buttonColor": $green,
   ),
   "info": (
     "backgroundColor": scale-color($info, $lightness: 60%),
@@ -24,9 +19,9 @@ $alerts: (
     "buttonColor": $warning,
   ),
   "error": (
-    "backgroundColor": scale-color($error, $lightness: 80%),
+    "backgroundColor": scale-color($alert_error, $lightness: 80%),
     "titleColor": #555,
-    "buttonColor": $error,
+    "buttonColor": $alert_error,
   ),
 );
 
