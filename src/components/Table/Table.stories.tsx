@@ -36,3 +36,17 @@ ClickableRow.args = {
   clickableRow: true,
   onClick: (row) => console.log(row),
 };
+
+export const WithPagination = Template.bind({});
+WithPagination.args = {
+  structure,
+  rows,
+  clickableRow: true,
+  onClick: (row) => console.log(row),
+  pagination: true,
+  paginationData: {
+    activePage: 1,
+    totalPages: 10,
+    onPageChange: (page) => console.log(page),
+  },
+};
