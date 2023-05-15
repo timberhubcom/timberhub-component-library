@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { PaginationProps } from '../Pagination/Pagination';
 
 export type TableRowItem = { [key: string]: string | React.ReactNode };
 
 export type HeaderItem = {
-  title: string;
+  title: ReactNode;
   name: string;
-  key: string;
+  key?: string;
   width: number;
   show_title: boolean;
-  show_on_hover: boolean;
+  show_on_hover?: boolean;
 };
 
 export type TableStructure = {
@@ -23,7 +23,7 @@ export type TableProps = {
   clickableRow?: boolean;
   size?: 'default' | 'small';
   onClick?: (row: TableRowItem) => void;
-  emptyText?: string;
+  emptyText?: ReactNode;
   pagination?: boolean;
   paginationData?: PaginationProps;
 };

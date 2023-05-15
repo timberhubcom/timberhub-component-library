@@ -28,7 +28,7 @@ const Table: React.FC<TableProps> = ({
               <th
                 className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}
                 data-key={column.name}
-                key={index}
+                key={`header-${column.name}-${index}`}
               >
                 <span className={styles['tableHeaderText']}>{column.show_title && column.title}</span>
               </th>
@@ -63,7 +63,7 @@ const Table: React.FC<TableProps> = ({
                             column.show_on_hover && styles['showOnHover']
                           }`}
                           data-key={column.name}
-                          key={index}
+                          key={`row-${row[column.name] ?? ''}-${index}`}
                         >
                           {row[column.name] && row[column.name]}
                         </div>
