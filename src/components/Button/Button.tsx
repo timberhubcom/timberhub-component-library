@@ -11,14 +11,16 @@ export interface ButtonProps {
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLElement>;
   icon?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  className?: string;
+  name?: string;
 }
 
 const variantColorMap = {
   positive: colors.POSITIVE,
   negative: colors.NEGATIVE,
   neutral: colors.NEUTRAL,
-}
+};
 
 const Button: React.FC<ButtonProps> = ({
   type = 'primary',
@@ -28,15 +30,18 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   children,
   icon,
+  className = '',
+  name,
   ...rest
 }) => {
   const variantColor = variantColorMap[variant] ?? colors.NEUTRAL;
 
   return (
     <button
-      className={`${styles.button} ${styles[type]} ${disabled && styles.disabled} ${styles[variant]}`}
+      className={className || `${styles.button} ${styles[type]} ${disabled && styles.disabled} ${styles[variant]}`}
       disabled={disabled}
       onClick={onClick}
+      name={name}
       {...rest}
     >
       {loading ? (
