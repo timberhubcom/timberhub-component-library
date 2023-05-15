@@ -1,6 +1,6 @@
 {
   "name": "@timberhubcom/timberhub-component-library",
-  "version": "1.2.7",
+  "version": "1.2.10",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -9,7 +9,7 @@
     "build-storybook": "storybook build"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/timberhubcom"
   },
   "repository": {
     "type": "git",
