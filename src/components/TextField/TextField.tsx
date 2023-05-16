@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import React, { HTMLInputTypeAttribute } from 'react';
 import styles from './TextField.module.scss';
 
 type TextFieldProps = {
   name?: string;
+  id?: string;
   label?: string;
   placeholder?: string;
   className?: string;
@@ -22,6 +24,7 @@ type TextFieldProps = {
 
 const TextField: React.FC<TextFieldProps> = ({
   name,
+  id,
   label,
   placeholder,
   className = '',
@@ -63,13 +66,16 @@ const TextField: React.FC<TextFieldProps> = ({
         </label>
       )}
       <input
-        className={`${styles['input']} ${disabled && styles['disabled']} ${type === 'number' && styles['number']} ${
-          styles[className]
-        }`}
+        className={clsx(
+          styles['input'],
+          disabled && styles['disabled'],
+          type === 'number' && styles['number'],
+          styles[className],
+        )}
         type={type}
         onChange={onChangeHandler}
         onBlur={onBlurHandler}
-        id={name}
+        id={id || name}
         name={name}
         placeholder={placeholder}
         max={max}

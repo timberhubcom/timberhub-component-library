@@ -13,6 +13,7 @@ const MultipleTemplate: ComponentStory<any> = (args) => (
     <Chip {...args[0]} />
     <Chip {...args[1]} />
     <Chip {...args[2]} />
+    <Chip {...args[3]} />
   </div>
 );
 
