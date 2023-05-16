@@ -7,11 +7,15 @@ export type CheckboxOptionType = {
   children?: React.ReactNode;
 };
 
+type CheckboxOptionTypeOptionalValue = Omit<CheckboxOptionType, 'value'> & {
+  value?: string;
+}
+
 type CheckboxProps = {
   name?: string;
   label?: string;
   labelClass?: string;
-  option?:CheckboxOptionType & {value?: string};
+  option?: CheckboxOptionTypeOptionalValue;
   description?: string;
   defaultValue?: boolean;
   value?: boolean;

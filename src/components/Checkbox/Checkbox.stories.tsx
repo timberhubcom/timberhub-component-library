@@ -24,7 +24,7 @@ Base.args = {
 export const Label = Template.bind({});
 Label.args = {
   label: 'Final step',
-  option: { name: 'Agree with the t&cs', value: 'Agree with the t&cs' },
+  option: { name: 'Agree with the t&cs' },
 };
 
 export const Disabled = Template.bind({});
