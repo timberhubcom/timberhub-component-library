@@ -1,13 +1,6 @@
 import React from 'react';
 import styles from './Chip.module.scss';
 
-// export enum ChipColorEnum {
-//   GREEN = 'green',
-//   ORANGE = 'orange',
-//   GREY = 'grey',
-//   Blue = 'blue'
-// }
-
 export const ChipColorEnum = {
   GREEN : 'green',
   ORANGE : 'orange',
