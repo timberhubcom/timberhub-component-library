@@ -1,9 +1,20 @@
 import React from 'react';
 import styles from './Chip.module.scss';
 
+export const ChipColorEnum = {
+  GREEN : 'green',
+  ORANGE : 'orange',
+  GREY : 'grey',
+  Blue : 'blue'
+} as const;
+
+// intentionally naming the variable the same as the type
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export type ChipColorEnum = typeof ChipColorEnum[keyof typeof ChipColorEnum];
+
 type ChipProps = {
   text: string;
-  color?: 'green' | 'orange' | 'grey' | 'blue';
+  color?: ChipColorEnum;
   prefix?: string;
 };
 
