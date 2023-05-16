@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 export declare type TableRowItem = {
     [key: string]: string | React.ReactNode;
 };
@@ -8,7 +8,7 @@ export declare type HeaderItem = {
     key: string;
     width: number;
     show_title: boolean;
-    show_on_hover: boolean;
+    show_on_hover?: boolean;
 };
 export declare type TableStructure = {
     header: HeaderItem[];
@@ -20,5 +20,5 @@ export declare type TableProps = {
     clickableRow?: boolean;
     size?: 'default' | 'small';
     onClick?: (row: TableRowItem) => void;
-    emptyText?: string;
+    emptyText?: ReactNode;
 };
