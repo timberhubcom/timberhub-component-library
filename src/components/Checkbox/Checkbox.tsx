@@ -11,7 +11,7 @@ type CheckboxProps = {
   name?: string;
   label?: string;
   labelClass?: string;
-  option?: CheckboxOptionType;
+  option?:CheckboxOptionType & {value?: string};
   description?: string;
   defaultValue?: boolean;
   value?: boolean;
