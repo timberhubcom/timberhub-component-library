@@ -1,5 +1,5 @@
 import { clsx } from 'clsx';
-import React, { ReactComponentElement, ReactElement, ReactNode } from 'react';
+import React from 'react';
 
 
 import styles from './Tabs.module.scss';

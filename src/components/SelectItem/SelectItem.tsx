@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Select, { SingleValue } from 'react-select';
 import styles from './SelectItem.module.scss';
 
 export type SelectOption = {
   value: string;
-  label: string;
+  label: ReactNode;
 };
 
 type SelectItemProps = {
