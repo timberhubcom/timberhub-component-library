@@ -3,7 +3,7 @@ import styles from './Chip.module.scss';
 
 type ChipProps = {
   text: string;
-  color?: 'green' | 'orange' | 'grey';
+  color?: 'green' | 'orange' | 'grey' | 'blue';
   prefix?: string;
 };
 
