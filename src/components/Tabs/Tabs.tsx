@@ -29,8 +29,7 @@ const Tabs: React.FC<TabsProp> = ({ items, activeTab, counts, onClick }) => {
             className={activeTab === name ? styles.active : ''}
             data-testid={activeTab === name ? `active-${name}-tab` : null}
           >
-            <button onClick={() => onClick(value)} disabled={disabled} className={clsx(disabled && styles.disabled)}>
-              <div className={styles.flexAlignCenter}>
+            <button onClick={() => onClick(value)} disabled={disabled} className={clsx(disabled && styles.disabled, styles.flexAlignCenter)}>
                 {title}
                 {counts && counts[name] ? (
                   <span className={clsx(styles.count, styles.flexCenter)}>
@@ -39,7 +38,6 @@ const Tabs: React.FC<TabsProp> = ({ items, activeTab, counts, onClick }) => {
                 ) : (
                   ''
                 )}
-              </div>
             </button>
           </li>
         ))}

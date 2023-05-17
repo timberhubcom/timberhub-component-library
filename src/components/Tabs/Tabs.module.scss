@@ -43,7 +43,7 @@
       margin-left: 5px;
     }
 
-    div {
+    & > button {
       position: relative;
       color: $color_grey;
       transition: $transition;
@@ -68,7 +68,7 @@
     }
 
     &.active {
-      div {
+      button {
         color: $black;
 
         .count {
