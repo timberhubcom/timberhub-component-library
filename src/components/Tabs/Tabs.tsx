@@ -22,7 +22,7 @@ const Tabs: React.FC<TabsProp> = ({ items, activeTab, counts, onClick }) => {
 
   return (
     <div className={styles.tabsWrapper}>
-      <ul className={clsx(styles.tabsList,styles.flexAlignCenter)}>
+      <ul className={clsx(styles.tabsList, styles.flexAlignCenter)}>
         {items.map(({name, value, title, disabled=false}) => (
           <li
             key={name}

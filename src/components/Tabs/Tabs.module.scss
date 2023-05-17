@@ -18,9 +18,12 @@
 
   li {
     list-style-type: none;
+    display: flex;
+    align-self: stretch;
 
     & > button {
       @include u-button-reset;
+      flex: 1;
 
       cursor: pointer;
 
@@ -45,6 +48,7 @@
       transition: $transition;
       padding: 0 1px 12px;
       @include text-15-b;
+      height: 100%;
 
       &:hover {
         color: $black;

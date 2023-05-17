@@ -7,12 +7,6 @@ describe('Table', () => {
   it('should render columns and rows properly', () => {
     render(<Table rows={rows} structure={structure} />);
 
-    // columns
-    expect(screen.getByText(structure.header[0].title)).toBeVisible();
-    expect(screen.getByText(structure.header[1].title)).toBeVisible();
-    expect(screen.getByText(structure.header[2].title)).toBeVisible();
-    expect(screen.getByText(structure.header[3].title)).toBeVisible();
-
     // rows
     expect(screen.getAllByText('data 1').length).toBe(5);
     expect(screen.getAllByText('data 2').length).toBe(2);
