@@ -27,6 +27,11 @@ Yellow.args = {
   variant: 'yellow',
 };
 
+export const Yellow = Template.bind({});
+Grey.args = {
+  variant: 'grey',
+};
+
 export const WithButton = Template.bind({});
 WithButton.args = {
   buttonTitle: 'Go to offers',
