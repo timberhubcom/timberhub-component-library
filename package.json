@@ -9,7 +9,8 @@
     "build-storybook": "storybook build"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/timberhubcom"
+    "registry": "https://npm.pkg.github.com/timberhubcom",
+    "access": "public"
   },
   "repository": {
     "type": "git",
