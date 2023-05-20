@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Button from '../Button';
 
 export interface AlertProps {
-  variant?: 'green' | 'blue' | 'yellow' | 'red';
+  variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
   className?: string;
   title?: string;
   children: React.ReactNode;

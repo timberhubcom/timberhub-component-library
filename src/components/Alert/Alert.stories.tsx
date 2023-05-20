@@ -27,7 +27,7 @@ Yellow.args = {
   variant: 'yellow',
 };
 
-export const Yellow = Template.bind({});
+export const Grey = Template.bind({});
 Grey.args = {
   variant: 'grey',
 };
