@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Button from '../Button';
 
 export interface AlertProps {
-  variant?: 'green' | 'blue' | 'yellow' | 'red';
+  variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
   className?: string;
   title?: string;
   children: React.ReactNode;
@@ -17,6 +17,7 @@ const variantColorMap = {
   blue: styles['alert-info'],
   yellow: styles['alert-warning'],
   red: styles['alert-error'],
+  grey: styles['alert-text'],
 };
 
 const Alert: React.FC<AlertProps> = ({ variant = 'green', children, className = '', onClick, title = '', buttonTitle = '' }) => {

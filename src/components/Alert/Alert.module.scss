@@ -23,6 +23,11 @@ $alerts: (
     "titleColor": #555,
     "buttonColor": $alert_error,
   ),
+  "text": (
+    "backgroundColor": $light_grey,
+    "titleColor": #000,
+    "buttonColor": $light_grey,
+  ),
 );
 
 .alert {
