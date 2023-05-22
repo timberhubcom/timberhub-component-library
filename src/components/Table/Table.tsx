@@ -35,12 +35,11 @@ const Table: React.FC<TableProps> = ({
                 className={clsx(
                   styles['tableColumn'],
                   styles[`col-${column.width}`],
-                  column.mobile_width ? styles['sm'] + ' ' + styles[`sm-col-${column.mobile_width}`] : ''
+                  styles[`sm-col-${column.mobile_width}`]
                 )}
                 data-key={column.name}
                 key={`header-${column.name}-${index}`}
               >
-                {console.log(column.mobile_width)}
                 <span className={styles['tableHeaderText']}>{column.show_title && column.title}</span>
               </div>
             ))}

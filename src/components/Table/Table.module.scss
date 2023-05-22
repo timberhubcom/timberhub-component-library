@@ -111,20 +111,14 @@
 
 @for $i from 0 to 100 {
   .col-#{$i} {
-    &:not(.sm) {
+    @media screen and (min-width: 521px) {
       flex: $i 1 0;
     }
   }
 
-  .sm {
-    @media screen and (min-width: 521px) {
-      flex: $i 1 0;
-    }
-
-    &.sm-col-#{$i} {
-      @media screen and (max-width: 520px) {
-        grid-column: span #{$i};
-      }
+  .sm-col-#{$i} {
+    @media screen and (max-width: 520px) {
+      grid-column: span #{$i};
     }
   }
 }
