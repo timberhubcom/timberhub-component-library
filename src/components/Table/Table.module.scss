@@ -115,10 +115,12 @@
       flex: $i 1 0;
     }
   }
+}
 
+@for $i from 0 to 100 {
   .sm-col-#{$i} {
     @media screen and (max-width: 520px) {
-      grid-column: span #{$i};
+      grid-column: span $i;
     }
   }
 }
