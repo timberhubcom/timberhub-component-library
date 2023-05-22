@@ -1,8 +1,9 @@
+import clsx from 'clsx';
 import React from 'react';
-import styles from './Button.module.scss';
-import LoaderWhite from '../Icons/LoaderWhite';
-import Loader from '../Icons/Loader';
 import { colors } from '../../theme/colors.enum';
+import Loader from '../Icons/Loader';
+import LoaderWhite from '../Icons/LoaderWhite';
+import styles from './Button.module.scss';
 
 export interface ButtonProps {
   type?: 'primary' | 'secondary' | 'plain';
@@ -38,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={className || `${styles.button} ${styles[type]} ${disabled && styles.disabled} ${styles[variant]}`}
+      className={className || clsx(styles.button, styles[type], disabled && styles.disabled, styles[variant])}
       disabled={disabled}
       onClick={onClick}
       name={name}
