@@ -29,6 +29,14 @@ Loading.args = {
   rows,
 };
 
+
+export const HiddenHeader = Template.bind({});
+HiddenHeader.args = {
+  structure,
+  rows,
+  mobileHeader: 'hidden',
+};
+
 export const ClickableRow = Template.bind({});
 ClickableRow.args = {
   structure,

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import styles from './Table.module.scss';
 import Loader from '../Icons/Loader';
@@ -11,6 +12,7 @@ const Table: React.FC<TableProps> = ({
   rows = [],
   emptyText = 'No data',
   clickableRow = false,
+  mobileHeader = 'visible',
   onClick,
   pagination,
   paginationData,
@@ -21,35 +23,43 @@ const Table: React.FC<TableProps> = ({
 
   return (
     <>
-      <table className={styles['table']}>
-        <thead>
-          <tr className={`${styles['cols']} ${styles['tableHeader']}`}>
+      <div className={styles['table']}>
+        <div>
+          <div className={clsx(
+            styles['cols'],
+            styles['tableHeader'],
+            styles[`mobileHeader-${mobileHeader}`],
+          )}>
             {structure.header.map((column: HeaderItem, index: number) => (
-              <th
-                className={`${styles['tableColumn']} ${styles[`col-${column.width}`]}`}
+              <div
+                className={clsx(
+                  styles['tableColumn'],
+                  styles[`col-${column.width}`],
+                  column.mobile_width ? styles['sm'] + ' ' + styles[`sm-col-${column.mobile_width}`] : ''
+                )}
                 data-key={column.name}
                 key={`header-${column.name}-${index}`}
               >
                 <span className={styles['tableHeaderText']}>{column.show_title && column.title}</span>
-              </th>
+              </div>
             ))}
-          </tr>
-        </thead>
+          </div>
+        </div>
         {loading ? (
-          <tbody>
-            <tr>
-              <td className={styles.loading}>
+          <div>
+            <div>
+              <div className={styles.loading}>
                 <Loader color={colors.POSITIVE} />
-              </td>
-            </tr>
-          </tbody>
+              </div>
+            </div>
+          </div>
         ) : (
-          <tbody>
+          <div>
             {rows.length > 0 ? (
               <>
                 {rows.map((row, position) => (
-                  <tr key={`${row.key}`}>
-                    <td
+                  <div key={`${row.key}`}>
+                    <div
                       className={`${styles['cols']} ${styles['tableRow']} ${
                         clickableRow && styles['tableRowClickable']
                       }`}
@@ -68,20 +78,20 @@ const Table: React.FC<TableProps> = ({
                           {row[column.name] && row[column.name]}
                         </div>
                       ))}
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 ))}
               </>
             ) : (
-              <tr>
-                <td className={styles['tableEmpty']} data-testid={'empty-table'}>
+              <div>
+                <div className={styles['tableEmpty']} data-testid={'empty-table'}>
                   {emptyText}
-                </td>
-              </tr>
+                </div>
+              </div>
             )}
-          </tbody>
+          </div>
         )}
-      </table>
+      </div>
       {pagination ? <Pagination {...paginationData} /> : null}
     </>
   );
