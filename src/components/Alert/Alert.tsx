@@ -8,7 +8,7 @@ export interface AlertProps {
   className?: string;
   title?: string;
   children: React.ReactNode;
-  buttonTitle: string;
+  buttonTitle?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
