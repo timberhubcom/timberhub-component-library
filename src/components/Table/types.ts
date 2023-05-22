@@ -8,6 +8,7 @@ export type HeaderItem = {
   name: string;
   key?: string;
   width: number;
+  mobile_width: number;
   show_title: boolean;
   show_on_hover?: boolean;
 };
@@ -22,6 +23,7 @@ export type TableProps = {
   rows: TableRowItem[];
   clickableRow?: boolean;
   size?: 'default' | 'small';
+  mobileHeader?: 'vissible' | 'hidden';
   onClick?: (row: TableRowItem) => void;
   emptyText?: ReactNode;
   pagination?: boolean;
