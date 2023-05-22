@@ -8,7 +8,7 @@ export type HeaderItem = {
   name: string;
   key?: string;
   width: number;
-  mobile_width: number;
+  mobile_width?: number;
   show_title: boolean;
   show_on_hover?: boolean;
 };
