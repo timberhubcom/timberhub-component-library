@@ -31,6 +31,7 @@ const Table: React.FC<TableProps> = ({
             styles[`mobileHeader-${mobileHeader}`],
           )}>
             {structure.header.map((column: HeaderItem, index: number) => (
+              {console.log(column.mobile_width)}
               <div
                 className={clsx(
                   styles['tableColumn'],
