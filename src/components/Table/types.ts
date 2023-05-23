@@ -23,7 +23,7 @@ export type TableProps = {
   rows: TableRowItem[];
   clickableRow?: boolean;
   size?: 'default' | 'small';
-  mobileHeader?: string;
+  mobileHeader?: 'visible' | 'hidden';
   onClick?: (row: TableRowItem) => void;
   emptyText?: ReactNode;
   pagination?: boolean;
