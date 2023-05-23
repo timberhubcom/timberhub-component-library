@@ -6,7 +6,8 @@
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build-publish": "npm run rollup && npm version patch && npm publish"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/timberhubcom",
