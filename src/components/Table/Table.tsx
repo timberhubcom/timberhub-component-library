@@ -25,17 +25,13 @@ const Table: React.FC<TableProps> = ({
     <>
       <div className={styles['table']}>
         <div>
-          <div className={clsx(
-            styles['cols'],
-            styles['tableHeader'],
-            styles[`mobileHeader-${mobileHeader}`],
-          )}>
+          <div className={clsx(styles['cols'], styles['tableHeader'], styles[`mobileHeader-${mobileHeader}`])}>
             {structure.header.map((column: HeaderItem, index: number) => (
               <div
                 className={clsx(
-                  styles['tableColumn'],
+                  styles.tableColumn,
                   styles[`col-${column.width}`],
-                  styles[`sm-col-${column.mobile_width}`]
+                  styles[`sm-col-${column.mobile_width}`],
                 )}
                 data-key={column.name}
                 key={`header-${column.name}-${index}`}
@@ -58,20 +54,20 @@ const Table: React.FC<TableProps> = ({
             {rows.length > 0 ? (
               <>
                 {rows.map((row, position) => (
-                  <div key={`${row.key}`}>
+                  <div key={`column-${row.key}`}>
                     <div
-                      className={`${styles['cols']} ${styles['tableRow']} ${
-                        clickableRow && styles['tableRowClickable']
-                      }`}
-                      key={position}
+                      className={clsx(styles.cols, styles.tableRow, clickableRow && styles.tableRowClickable)}
                       onClick={() => handleRowClick(row)}
                       data-testid={`row-${position}`}
                     >
                       {structure.header.map((column, index) => (
                         <div
-                          className={`${styles['tableColumn']} ${styles[`col-${column.width}`]} ${
-                            column.show_on_hover && styles['showOnHover']
-                          }`}
+                          className={clsx(
+                            styles.tableColumn,
+                            styles[`col-${column.width}`],
+                            styles[`sm-col-${column.mobile_width}`],
+                            column.show_on_hover && styles.showOnHover,
+                          )}
                           data-key={column.name}
                           key={`row-${row[column.name] ?? ''}-${index}`}
                         >
