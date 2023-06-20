@@ -98,3 +98,13 @@
   font-family: "Inter", sans-serif;
   text-decoration: underline;
 }
+
+@mixin text-16 {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+}
+@mixin text-16-b {
+  @include text-16;
+  font-weight: bold;
+}

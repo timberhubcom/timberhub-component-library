@@ -7,3 +7,18 @@ export const parameters = {
     },
   },
 };
+
+import React from "react"
+import { ThemeProvider } from "@mui/system"
+
+import { muiTheme } from "../src/config/mui-theme"
+
+export const decorators = [
+  (Story) => {
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <Story />
+    </ThemeProvider>
+  )
+  }
+]
