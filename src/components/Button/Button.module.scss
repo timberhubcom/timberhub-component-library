@@ -32,12 +32,13 @@
 }
 
 .primary {
+  color: $white;
   &.positive {
     background: $green;
     border: 2px solid $green;
 
     &:not(.disabled):hover {
-      color: $green;
+      color: $white;
       background: $black;
       border: 2px solid $black;
     }
