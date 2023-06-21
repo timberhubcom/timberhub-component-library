@@ -21,7 +21,7 @@
     "url": "https://github.com/timberhubcom/timberhub-component-library/issues"
   },
   "homepage": "https://github.com/timberhubcom/timberhub-component-library#readme",
-  "author": "dimpagk",
+  "author": "timberhubcom",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
