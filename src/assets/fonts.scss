@@ -1,9 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
-
 @font-face {
   font-family: "GT Super Text";
   src: local("GT Super Text"), url("./fonts/GT-Super/GT-Super-Text-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./fonts/Inter/Inter-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/Inter/Inter-Medium.ttf") format("truetype");
 }
