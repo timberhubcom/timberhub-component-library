@@ -1,5 +1,5 @@
 export declare enum colors {
-    POSITIVE = "#23d899",
-    NEGATIVE = "#fda4af",
+    POSITIVE = "#006646",
+    NEGATIVE = "#db271a",
     NEUTRAL = "#d5d5d5"
 }
