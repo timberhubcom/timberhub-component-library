@@ -1,3 +1,3 @@
-export * from './components';
+import './assets/fonts/fonts.scss'
 
-import './fonts/global.scss'
+export * from './components';

@@ -8,5 +8,5 @@ module.exports = {
   docs: {
     autodocs: true
   },
-  staticDirs: ['../src/fonts'],
+  staticDirs: ['../src/assets'],
 };
