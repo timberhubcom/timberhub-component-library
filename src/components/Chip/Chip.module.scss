@@ -5,8 +5,8 @@
 
 .chip {
   @include text-12;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: -moz-max-content;
+  width: max-content;
   padding: 5px 10px;
   border-radius: 10 * $border_radius;
 }
@@ -38,7 +38,6 @@
 
 .text {
   @include text-10;
-  text-transform: uppercase;
 }
 
 .prefix {
