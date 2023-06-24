@@ -7,5 +7,6 @@ module.exports = {
   },
   docs: {
     autodocs: true
-  }
+  },
+  staticDirs: ['../src/assets'],
 };

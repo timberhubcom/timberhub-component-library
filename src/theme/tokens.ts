@@ -84,6 +84,14 @@ export const lightTheme = {
     white600: '#9E9E9E',
     white700: '#C4C4C4',
     white800: '#DBDBDB',
+    // info
+    info100: '#EDF3F9',
+    info200: '#A6C6DE',
+    info300: '#6A9FC8',
+    info400: '#3D77A4',
+    info500: '#376C95',
+    info600: '#274C68',
+    info700: '#11202D',
   },
   ...sharedThemeValues,
 };

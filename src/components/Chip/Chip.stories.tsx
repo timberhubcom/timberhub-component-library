@@ -14,6 +14,7 @@ const MultipleTemplate: ComponentStory<any> = (args) => (
     <Chip {...args[1]} />
     <Chip {...args[2]} />
     <Chip {...args[3]} />
+    <Chip {...args[4]} />
   </div>
 );
 
@@ -38,6 +39,10 @@ Color.args = [
   {
     text: 'approved',
     color: 'green',
+  },
+  {
+    text: 'rejected',
+    color: 'red',
   },
 ];
 

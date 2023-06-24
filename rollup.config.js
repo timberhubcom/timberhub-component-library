@@ -8,9 +8,14 @@ import postcss from 'rollup-plugin-postcss';
 const url = require('postcss-url');
 import dts from 'rollup-plugin-dts';
 
+import copy from 'rollup-plugin-copy';
+
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
+const path = require('path');
+
+const copyPaths = ['esm', 'cjs'].map((basePath) => ({ src: 'src/assets/fonts', dest: path.join('dist', basePath) }));
 
 export default [
   {
@@ -42,10 +47,13 @@ export default [
       }),
       terser(),
       svgr(),
+      copy({
+        targets: copyPaths,
+      }),
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/esm/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.(css|scss)$/],
