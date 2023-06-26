@@ -44,6 +44,14 @@ declare module '@mui/material/styles' {
       xl?: number;
     };
   }
+
+  interface Palette {
+    accent: Palette['primary'];
+  }
+
+  interface PaletteOptions {
+    accent: PaletteOptions['primary'];
+  }
 }
 
 // Update the Typography's variant prop options

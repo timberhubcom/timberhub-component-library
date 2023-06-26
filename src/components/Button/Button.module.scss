@@ -9,7 +9,7 @@
   cursor: pointer;
   box-shadow: none;
   outline: none;
-  @include text-14-b;
+  @include text-16-b;
   padding: 8px 16px;
   align-items: center;
   transition: $transition;
@@ -34,20 +34,21 @@
 .primary {
   color: $white;
   &.positive {
-    background: $green;
-    border: 2px solid $green;
+    color: $green;
+    background: $accent;
+    border: 2px solid $accent;
 
     &:not(.disabled):hover {
-      color: $white;
-      background: $black;
-      border: 2px solid $black;
+      color: $accent;
+      background: $green;
+      border: 2px solid $green;
     }
 
     &:hover {
       svg {
         path {
           transition: fill 0.2s;
-          fill: $green;
+          fill: $accent;
         }
       }
     }

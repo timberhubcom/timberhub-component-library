@@ -9,7 +9,7 @@ export const parameters = {
 };
 
 import React from "react"
-import { ThemeProvider } from "@mui/system"
+import { ThemeProvider } from "@mui/material/styles"
 
 import { muiTheme } from "../src/config/mui-theme"
 

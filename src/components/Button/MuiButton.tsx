@@ -83,6 +83,10 @@ const MuiButton: React.FC<ButtonProps> = ({
       // size={size}
       sx={{
         ...sizeToStyle[size ?? 'md'],
+        backgroundColor: (theme) => theme.palette?.accent?.main,
+        '&:hover': {
+          backgroundColor: (theme) => theme.palette.primary.main,
+        },
       }}
       {...rest}
     >

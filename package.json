@@ -93,8 +93,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.5",
-    "@mui/material-next": "^6.0.0-alpha.89",
+    "@mui/material": "^5.13.6",
+    "@mui/material-next": "^6.0.0-alpha.90",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addons": "^7.0.7",
     "@storybook/theming": "^7.0.7",
