@@ -28,36 +28,42 @@ const StyledButton = styled(Button)`
   border-radius: 100px;
 `;
 
+const smallToMedium = {
+  fontSize: '14px',
+  fontWeight: 500,
+  lineHeight: '20px',
+};
+const largeToXLarge = {
+  fontSize: '16px',
+  fontWeight: 500,
+  lineHeight: '23px',
+};
+
 const sizeToStyle = {
   xs: {
-    fontSize: '14px',
-    fontWeight: 500,
-    lineHeight: '20px',
+    ...smallToMedium,
     padding: '2px 8px',
+    height: 24,
   },
   sm: {
-    fontSize: '14px',
-    fontWeight: 500,
-    lineHeight: '20px',
+    ...smallToMedium,
     padding: '6px 16px',
+    height: 32,
   },
   md: {
-    fontSize: '14px',
-    fontWeight: 500,
-    lineHeight: '20px',
+    ...smallToMedium,
     padding: '10px 16px',
+    height: 40,
   },
   lg: {
-    fontSize: '16px',
-    fontWeight: 500,
-    lineHeight: '23px',
+    ...largeToXLarge,
     padding: '12px 24px',
+    height: 48,
   },
   xl: {
-    fontSize: '16px',
-    fontWeight: 500,
-    lineHeight: '23px',
+    ...largeToXLarge,
     padding: '16px 24px',
+    height: 56,
   },
 };
 
@@ -67,25 +73,30 @@ const MuiButton: React.FC<ButtonProps> = ({
   loading,
   children,
   icon,
+  startIcon,
   className = '',
   size,
   ...rest
 }) => {
   const variantColor = variantColorMap[color] ?? colors.NEUTRAL;
+  const isIconOnly = !children && (icon || startIcon);
+
+  const sizeStyle = sizeToStyle[size] ?? sizeToStyle.md;
 
   return (
     <StyledButton
       variant={variant}
       disableElevation
-      startIcon={!loading && icon}
+      startIcon={!loading && (icon || startIcon)}
       className={clsx(styles.buttonNew)}
       color={color}
-      // size={size}
       sx={{
-        ...sizeToStyle[size ?? 'md'],
-        backgroundColor: (theme) => theme.palette?.accent?.main,
-        '&:hover': {
-          backgroundColor: (theme) => theme.palette.primary.main,
+        ...sizeStyle,
+        ...(isIconOnly && { minWidth: sizeStyle.height, width: sizeStyle.height }),
+        '> .MuiButton-startIcon': {
+          marginRight: '4px',
+          ...((size === 'lg' || size === 'xl') && { marginLeft: '-8px' }),
+          ...(isIconOnly && { margin: 0 }),
         },
       }}
       {...rest}

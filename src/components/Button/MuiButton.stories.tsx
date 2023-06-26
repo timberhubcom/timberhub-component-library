@@ -2,13 +2,14 @@ import { Stack } from '@mui/material';
 import { StoryFn } from '@storybook/react';
 import React from 'react';
 import Button from './MuiButton';
+import ArrowForward from '@mui/icons-material/ArrowForward';
 
 export default {
   title: 'MUI/Components/Button',
   component: Button,
 };
 
-const Template: StoryFn<typeof Button> = (args) => <Button {...args}>Add product</Button>;
+const Template: StoryFn<typeof Button> = (args) => <ButtonWithSizes {...args} />;
 
 const icon = (
   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,12 +28,67 @@ const icon = (
   </svg>
 );
 
+const ButtonWithSizes = (props) => {
+  return (
+    <Stack direction="row" spacing={2} alignItems="center">
+      <div className="">
+        <Button size="xl" {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="lg" {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="md" {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="sm" {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="xs" {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="md" startIcon={<ArrowForward />} {...props}>
+          Button text
+        </Button>
+      </div>
+      <div className="">
+        <Button size="md" startIcon={<ArrowForward />} {...props} />
+      </div>
+    </Stack>
+  );
+};
+
 export const Primary = Template.bind({});
 Primary.args = {};
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   color: 'secondary',
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  color: 'error',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  color: 'warning',
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  color: 'success',
 };
 
 export const Outlined = Template.bind({});
@@ -45,31 +101,7 @@ Plain.args = {
   variant: 'text',
 };
 
-export const Negative = Template.bind({});
-Negative.args = {
-  color: 'error',
-};
-
-const MultipleSizes: StoryFn<typeof Button> = (args) => (
-  <Stack direction="row" spacing={2} alignItems="center">
-    <div className="">
-      <Button size="xl">Button text</Button>
-    </div>
-    <div className="">
-      <Button size="lg">Button text</Button>
-    </div>
-    <div className="">
-      <Button size="md">Button text</Button>
-    </div>
-    <div className="">
-      <Button size="sm">Button text</Button>
-    </div>
-    <div className="">
-      <Button size="xs">Button text</Button>
-    </div>
-  </Stack>
-);
-export const Sizes = MultipleSizes.bind({});
+export const Sizes = Template.bind({});
 
 export const Loading = Template.bind({});
 Loading.args = {

@@ -1,4 +1,5 @@
 import { Theme, createTheme } from '@mui/material/styles';
+import { tokens } from '../theme/tokens';
 
 const muiTheme = createTheme({
   typography: {
@@ -31,72 +32,72 @@ const muiTheme = createTheme({
   },
   palette: {
     primary: {
-      light: '#006646',
-      main: '#005238',
-      dark: '#00291C',
-      400: '#006646',
-      500: '#005238',
-      600: '#00291C',
-      contrastText: '#DCF53C',
+      shade: tokens.colors.shade,
+      light: tokens.colors.primary400,
+      main: tokens.colors.primary500,
+      dark: tokens.colors.primary600,
+      400: tokens.colors.primary400,
+      500: tokens.colors.primary500,
+      600: tokens.colors.primary600,
+      contrastText: tokens.colors.accent,
     },
     secondary: {
-      main: '#DCF53C',
-      contrastText: '#006646',
+      main: tokens.colors.black,
+      contrastText: tokens.colors.white,
     },
     accent: {
-      main: '#DCF53C',
-      contrastText: '#006646',
+      main: tokens.colors.accent,
+      contrastText: tokens.colors.primary500,
     },
     grey: {
-      50: '#00000008', // #F7F7F7
-      100: '#0000000D', // #F2F2F2
-      200: '#00000014', // #EBEBEB
-      300: '#00000021', // #DEDEDE
-      400: '#00000036', // #C9C9C9
-      500: '#00000057', // #A8A8A8
-      600: '#0000008F', // #707070
-      700: '#000000B0', // #505050
-      800: '#000000C4', // #3B3B3B
-      900: '#000000DE', // #212121
+      50: tokens.colors.grey50,
+      100: tokens.colors.grey100,
+      200: tokens.colors.grey200,
+      300: tokens.colors.grey300,
+      400: tokens.colors.grey400,
+      500: tokens.colors.grey500,
+      600: tokens.colors.grey600,
+      700: tokens.colors.grey700,
+      800: tokens.colors.grey800,
+      900: tokens.colors.grey900,
     },
     warning: {
-      100: '#FFF3EB',
-      200: '#FDC49B',
-      300: '#FC9F5B',
-      400: '#C45404',
-      500: '#B44D04',
-      600: '#783302',
-      700: '#3C1A01',
+      100: tokens.colors.warning100,
+      200: tokens.colors.warning200,
+      300: tokens.colors.warning300,
+      400: tokens.colors.warning400,
+      500: tokens.colors.warning500,
+      600: tokens.colors.warning600,
+      700: tokens.colors.warning700,
     },
     error: {
-      100: '#FDEEED',
-      200: '#F4A9A4',
-      300: '#EB5E55',
-      400: '#DB271A',
-      500: '#C92318',
-      600: '#921A11',
-      700: '#370A06',
+      100: tokens.colors.error100,
+      200: tokens.colors.error200,
+      300: tokens.colors.error300,
+      400: tokens.colors.error400,
+      500: tokens.colors.error500,
+      600: tokens.colors.error600,
+      700: tokens.colors.error700,
     },
     info: {
-      100: '#EDF3F9',
-      200: '#A6C6DE',
-      300: '#6A9FC8',
-      400: '#3D77A4',
-      500: '#376C95',
-      600: '#274C68',
-      700: '#11202D',
+      100: tokens.colors.info100,
+      200: tokens.colors.info200,
+      300: tokens.colors.info300,
+      400: tokens.colors.info400,
+      500: tokens.colors.info500,
+      600: tokens.colors.info600,
+      700: tokens.colors.info700,
     },
-
-    // whiteScale: {
-    //   100: '#0F0F0F',
-    //   200: '#1A1A1A',
-    //   300: '#262626',
-    //   400: '#3D3D3D',
-    //   500: '#616161',
-    //   600: '#9E9E9E',
-    //   700: '#C4C4C4',
-    //   800: '#DBDBDB',
-    // },
+    whiteScale: {
+      100: tokens.colors.white100,
+      200: tokens.colors.white200,
+      300: tokens.colors.white300,
+      400: tokens.colors.white400,
+      500: tokens.colors.white500,
+      600: tokens.colors.white600,
+      700: tokens.colors.white700,
+      800: tokens.colors.white800,
+    },
   },
   components: {
     MuiTypography: {
@@ -108,18 +109,80 @@ const muiTheme = createTheme({
       },
     },
     MuiButton: {
-      styleOverrides: {
-        // root: (props) => {
-        //   const size = props.theme.customSizes[props.size as keyof Theme['customSizes']];
-        //    const fontSize = size ? `${size}px` : '14px';
-        //   const padding = size ? size * 0.5 : 8; // Default padding if size not found
-        //   console.log('theme', size, padding)
-        //   return {
-        //     padding: `${padding}px 24px`,
-        //     fontSize
-        //   };
-        // },
-      },
+      variants: [
+        {
+          props: { variant: 'contained', color: 'primary' },
+          style: {
+            backgroundColor: tokens.colors.accent,
+            color: tokens.colors.primary400,
+            '&:hover': {
+              backgroundColor: tokens.colors.primary400,
+              color: tokens.colors.accent,
+            },
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'secondary' },
+          style: {
+            backgroundColor: tokens.colors.grey900,
+            '&:hover': {
+              backgroundColor: tokens.colors.black,
+            },
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'error' },
+          style: {
+            backgroundColor: tokens.colors.error100,
+            color: tokens.colors.error500,
+            '&:hover': {
+              backgroundColor: tokens.colors.error400,
+              color: tokens.colors.white,
+            },
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'warning' },
+          style: {
+            backgroundColor: tokens.colors.warning100,
+            color: tokens.colors.warning500,
+            '&:hover': {
+              backgroundColor: tokens.colors.warning400,
+              color: tokens.colors.white,
+            },
+          },
+        },
+        {
+          props: { variant: 'contained', color: 'success' },
+          style: {
+            backgroundColor: tokens.colors.shade,
+            color: tokens.colors.primary500,
+            '&:hover': {
+              backgroundColor: tokens.colors.primary400,
+              color: tokens.colors.white,
+            },
+          },
+        },
+        {
+          props: { variant: 'outlined' },
+          style: {
+            backgroundColor: tokens.colors.transparent,
+            color: tokens.colors.grey700,
+            borderColor: tokens.colors.grey500,
+            '&:hover': {
+              backgroundColor: tokens.colors.grey800,
+              color: tokens.colors.white,
+            },
+          },
+        },
+        {
+          props: { disabled: true },
+          style: {
+            backgroundColor: `${tokens.colors.grey100} !important`,
+            color: `${tokens.colors.grey400} !important`,
+          },
+        },
+      ],
     },
   },
   customSizes: {
