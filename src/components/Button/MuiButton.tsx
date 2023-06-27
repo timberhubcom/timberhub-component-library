@@ -1,12 +1,10 @@
-import clsx from 'clsx';
-import React from 'react';
 import Button, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import React from 'react';
 
-import styles from './Button.module.scss';
-import Loader from '../Icons/Loader';
-import LoaderWhite from '../Icons/LoaderWhite';
-import { colors } from '../../theme/colors.enum';
 import { styled } from '@mui/material';
+import Loader from '../Icons/Loader';
+import styles from './Button.module.scss';
+import { tokens } from '../../theme/tokens';
 
 export interface ButtonProps extends Omit<MuiButtonProps, 'size'> {
   loading?: boolean;
@@ -15,12 +13,6 @@ export interface ButtonProps extends Omit<MuiButtonProps, 'size'> {
   className?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
-
-const variantColorMap = {
-  primary: colors.POSITIVE,
-  error: colors.NEGATIVE,
-  neutral: colors.NEUTRAL,
-};
 
 const StyledButton = styled(Button)`
   font-family: 'Inter', sans-serif;
@@ -71,6 +63,7 @@ const MuiButton: React.FC<ButtonProps> = ({
   color = 'primary',
   variant = 'contained',
   loading,
+  disabled,
   children,
   icon,
   startIcon,
@@ -78,18 +71,17 @@ const MuiButton: React.FC<ButtonProps> = ({
   size,
   ...rest
 }) => {
-  const variantColor = variantColorMap[color] ?? colors.NEUTRAL;
-  const isIconOnly = !children && (icon || startIcon);
+  const isIconOnly = !children && (icon || startIcon) && !loading;
 
   const sizeStyle = sizeToStyle[size] ?? sizeToStyle.md;
 
   return (
     <StyledButton
       variant={variant}
-      disableElevation
       startIcon={!loading && (icon || startIcon)}
-      className={clsx(styles.buttonNew)}
       color={color}
+      disableElevation
+      disabled={disabled || loading}
       sx={{
         ...sizeStyle,
         ...(isIconOnly && { minWidth: sizeStyle.height, width: sizeStyle.height }),
@@ -103,10 +95,10 @@ const MuiButton: React.FC<ButtonProps> = ({
     >
       {loading ? (
         <div className={styles.loader}>
-          {variant === 'contained' ? <LoaderWhite /> : <Loader color={variantColor} />}
+          <Loader color={tokens.colors.grey400} />
         </div>
       ) : (
-        <>{children}</>
+        <span>{children}</span>
       )}
     </StyledButton>
   );
