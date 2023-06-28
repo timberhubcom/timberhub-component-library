@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { clsx } from 'clsx';
-import Button from '../Button';
+import { Button } from '../Button';
 
 import TimeIcon from '../../icons/time.svg';
 
@@ -15,8 +15,14 @@ export interface CampaignOfferProps {
   price?: number;
 }
 
-const CampaignOffer = ({ layout = 'flex', timeLeft = 0, price = 0, title, onClick, totalTrucks=0 }: CampaignOfferProps) => {
-
+const CampaignOffer = ({
+  layout = 'flex',
+  timeLeft = 0,
+  price = 0,
+  title,
+  onClick,
+  totalTrucks = 0,
+}: CampaignOfferProps) => {
   const dimensions = '10x12x12';
 
   return (
