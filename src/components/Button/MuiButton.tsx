@@ -1,4 +1,4 @@
-import Button, { ButtonProps as MuiButtonProps } from '@mui/material/Button';
+import Button, { ButtonProps as MuiBtnProps } from '@mui/material/Button';
 import React from 'react';
 
 import { styled } from '@mui/material';
@@ -6,7 +6,7 @@ import Loader from '../Icons/Loader';
 import styles from './Button.module.scss';
 import { tokens } from '../../theme/tokens';
 
-export interface ButtonProps extends Omit<MuiButtonProps, 'size'> {
+export interface MuiButtonProps extends Omit<MuiBtnProps, 'size'> {
   loading?: boolean;
   icon?: React.ReactNode;
   children?: React.ReactNode;
@@ -59,7 +59,7 @@ const sizeToStyle = {
   },
 };
 
-const MuiButton: React.FC<ButtonProps> = ({
+const MuiButton: React.FC<MuiButtonProps> = ({
   color = 'primary',
   variant = 'contained',
   loading,

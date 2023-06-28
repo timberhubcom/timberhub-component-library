@@ -1,5 +1,7 @@
 export { default as Alert } from './Alert';
-export { default as Button } from './Button';
+export * from './Button';
+// export { default as Button, MuiButton } from './Button';
+// export { default as MuiButton } from './Button/MuiButton';
 export { default as Checkbox } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as Chip } from './Chip';

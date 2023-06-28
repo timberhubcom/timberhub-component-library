@@ -11,7 +11,7 @@ export const parameters = {
 import React from "react"
 import { ThemeProvider } from "@mui/material/styles"
 
-import { muiTheme } from "../src/config/mui-theme"
+import { muiTheme } from "../src/config/theme/muiTheme"
 
 export const decorators = [
   (Story) => {

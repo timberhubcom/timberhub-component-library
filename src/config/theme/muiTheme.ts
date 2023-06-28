@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { tokens } from '../theme/tokens';
+import { tokens } from '../../theme/tokens';
 import { buttonVariants } from './button/variants';
 
 const muiTheme = createTheme({
