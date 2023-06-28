@@ -56,6 +56,17 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
     },
   },
   {
+    props: { variant: 'contained', color: 'grey' },
+    style: {
+      backgroundColor: tokens.colors.grey100,
+      color: tokens.colors.grey700,
+      '&:hover': {
+        backgroundColor: tokens.colors.grey300,
+        color: tokens.colors.grey900,
+      },
+    },
+  },
+  {
     props: { variant: 'outlined' },
     style: {
       backgroundColor: tokens.colors.transparent,

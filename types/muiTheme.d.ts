@@ -48,11 +48,13 @@ declare module '@mui/material/styles' {
   interface Palette {
     accent: Palette['primary'];
     whiteScale: Palette['primary'];
+    grey: Palette['primary'];
   }
 
   interface PaletteOptions {
     accent: PaletteOptions['primary'];
     whiteScale: PaletteOptions['primary'];
+    grey: Palette['primary'];
   }
 
   interface PaletteColor {
@@ -73,5 +75,12 @@ declare module '@mui/material/Typography' {
     body_S: true;
     caption: true;
     h3: false;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    grey: true;
+    accent: true;
   }
 }

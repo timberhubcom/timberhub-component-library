@@ -76,6 +76,16 @@ Secondary.args = {
   color: 'secondary',
 };
 
+export const Grey = Template.bind({});
+Grey.args = {
+  color: 'grey',
+};
+
+export const Accent = Template.bind({});
+Accent.args = {
+  color: 'accent',
+};
+
 export const Error = Template.bind({});
 Error.args = {
   color: 'error',

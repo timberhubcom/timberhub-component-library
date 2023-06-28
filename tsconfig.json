@@ -20,6 +20,6 @@
       "@assets/*": ["src/assets/*"]
     }
   },
-  "include": ["types/modules.d.ts", "types/svg.d.ts", "src/", "types/mui-theme.d.ts"],
+  "include": ["types/modules.d.ts", "types/svg.d.ts", "src/", "types/muiTheme.d.ts"],
   "exclude": ["node_modules/"]
 }

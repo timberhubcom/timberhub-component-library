@@ -12,6 +12,7 @@ export interface MuiButtonProps extends Omit<MuiBtnProps, 'size'> {
   children?: React.ReactNode;
   className?: string;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  color?: MuiBtnProps['color'] | 'grey' | 'accent';
 }
 
 const StyledButton = styled(Button)`
