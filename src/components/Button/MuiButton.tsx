@@ -70,6 +70,7 @@ const MuiButton: React.FC<MuiButtonProps> = ({
   startIcon,
   className = '',
   size,
+  sx = {},
   ...rest
 }) => {
   const isIconOnly = !children && (icon || startIcon) && !loading;
@@ -91,6 +92,7 @@ const MuiButton: React.FC<MuiButtonProps> = ({
           ...((size === 'lg' || size === 'xl') && { marginLeft: '-8px' }),
           ...(isIconOnly && { margin: 0 }),
         },
+        ...sx,
       }}
       {...rest}
     >
