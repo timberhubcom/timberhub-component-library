@@ -10,7 +10,7 @@ const textButtonVariants: ComponentsVariants['MuiButton'] = (
 ).map(({ color, active, hover }) => ({
   props: { variant: 'text', color },
   style: {
-    padding: '0px 0px 2px 0px !important',
+    padding: '0px 0px 0px 0px !important',
     minWidth: 'auto',
     height: 'auto !important',
     color: active,
