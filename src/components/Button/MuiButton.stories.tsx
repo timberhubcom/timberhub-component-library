@@ -106,9 +106,36 @@ Outlined.args = {
   variant: 'outlined',
 };
 
-export const Plain = Template.bind({});
-Plain.args = {
+const TextTemplate: StoryFn<typeof Button> = (args) => (
+  <Stack direction="row" spacing={2} alignItems="center">
+    <Button {...args}>Action Text</Button>
+    <Button {...args} size="xs">
+      Action Text
+    </Button>
+    <Button {...args} startIcon={<ArrowForward />}>
+      Action Text
+    </Button>
+    <Button {...args} startIcon={<ArrowForward />} size="xs">
+      Action Text
+    </Button>
+  </Stack>
+);
+export const PlainPrimary = TextTemplate.bind({});
+PlainPrimary.args = {
   variant: 'text',
+  color: 'primary',
+};
+
+export const PlainWarning = TextTemplate.bind({});
+PlainWarning.args = {
+  variant: 'text',
+  color: 'warning',
+};
+
+export const PlainError = TextTemplate.bind({});
+PlainError.args = {
+  variant: 'text',
+  color: 'error',
 };
 
 export const Sizes = Template.bind({});

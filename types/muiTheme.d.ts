@@ -25,26 +25,6 @@ declare module '@mui/material/styles' {
     caption?: React.CSSProperties;
   }
 
-  interface Theme {
-    customSizes: {
-      xs: number;
-      sm: number;
-      md: number;
-      lg: number;
-      xl: number;
-    };
-  }
-
-  interface ThemeOptions {
-    customSizes?: {
-      xs?: number;
-      sm?: number;
-      md?: number;
-      lg?: number;
-      xl?: number;
-    };
-  }
-
   interface Palette {
     accent: Palette['primary'];
     whiteScale: Palette['primary'];
