@@ -1,5 +1,5 @@
 import Button, { ButtonProps as MuiBtnProps } from '@mui/material/Button';
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { styled } from '@mui/material';
 import Loader from '../Icons/Loader';
@@ -60,59 +60,64 @@ const sizeToStyle = {
   },
 };
 
-const MuiButton: React.FC<MuiButtonProps> = ({
-  color = 'primary',
-  variant = 'contained',
-  loading,
-  disabled,
-  children,
-  icon,
-  startIcon,
-  className = '',
-  size,
-  sx = {},
-  ...rest
-}) => {
-  const isIconOnly = !children && (icon || startIcon) && !loading;
-  console.log('isIconOnly', isIconOnly, children);
+const MuiButton: React.FC<MuiButtonProps> = forwardRef(
+  (
+    {
+      color = 'primary',
+      variant = 'contained',
+      loading,
+      disabled,
+      children,
+      icon,
+      startIcon,
+      className = '',
+      size,
+      sx = {},
+      ...rest
+    },
+    ref,
+  ) => {
+    const isIconOnly = !children && (icon || startIcon) && !loading;
 
-  let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size] ?? sizeToStyle.md;
-  if (variant === 'text') {
-    if (size === 'xs') {
-      sizeStyle = smallToMedium;
-    } else {
-      sizeStyle = largeToXLarge;
+    let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size] ?? sizeToStyle.md;
+    if (variant === 'text') {
+      if (size === 'xs') {
+        sizeStyle = smallToMedium;
+      } else {
+        sizeStyle = largeToXLarge;
+      }
     }
-  }
 
-  return (
-    <StyledButton
-      variant={variant}
-      startIcon={!loading && (icon || startIcon)}
-      color={color}
-      disableElevation
-      disabled={disabled || loading}
-      sx={{
-        ...sizeStyle,
-        ...(isIconOnly && { minWidth: sizeStyle.height, width: sizeStyle.height }),
-        '> .MuiButton-startIcon': {
-          marginRight: '4px',
-          ...((size === 'lg' || size === 'xl') && { marginLeft: '-8px' }),
-          ...(isIconOnly && { margin: 0 }),
-        },
-        ...sx,
-      }}
-      {...rest}
-    >
-      {loading ? (
-        <div className={styles.loader}>
-          <Loader color={tokens.colors.grey400} />
-        </div>
-      ) : (
-        <span>{children}</span>
-      )}
-    </StyledButton>
-  );
-};
+    return (
+      <StyledButton
+        ref={ref}
+        variant={variant}
+        startIcon={!loading && (icon || startIcon)}
+        color={color}
+        disableElevation
+        disabled={disabled || loading}
+        sx={{
+          ...sizeStyle,
+          ...(isIconOnly && { minWidth: sizeStyle.height, width: sizeStyle.height }),
+          '> .MuiButton-startIcon': {
+            marginRight: '4px',
+            ...((size === 'lg' || size === 'xl') && { marginLeft: '-8px' }),
+            ...(isIconOnly && { margin: 0 }),
+          },
+          ...sx,
+        }}
+        {...rest}
+      >
+        {loading ? (
+          <div className={styles.loader}>
+            <Loader color={tokens.colors.grey400} />
+          </div>
+        ) : (
+          <span>{children}</span>
+        )}
+      </StyledButton>
+    );
+  },
+);
 
 export default MuiButton;
