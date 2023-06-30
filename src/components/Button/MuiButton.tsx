@@ -74,8 +74,16 @@ const MuiButton: React.FC<MuiButtonProps> = ({
   ...rest
 }) => {
   const isIconOnly = !children && (icon || startIcon) && !loading;
+  console.log('isIconOnly', isIconOnly, children);
 
-  const sizeStyle = sizeToStyle[size] ?? sizeToStyle.md;
+  let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size] ?? sizeToStyle.md;
+  if (variant === 'text') {
+    if (size === 'xs') {
+      sizeStyle = smallToMedium;
+    } else {
+      sizeStyle = largeToXLarge;
+    }
+  }
 
   return (
     <StyledButton

@@ -1,71 +1,95 @@
 import { tokens } from '../../../theme/tokens';
 import type { ComponentsVariants } from '@mui/material/styles/variants';
 
+const textButtonVariants: ComponentsVariants['MuiButton'] = (
+  [
+    { color: 'primary', active: tokens.colors.primary400, hover: tokens.colors.primary500 },
+    { color: 'warning', active: tokens.colors.warning400, hover: tokens.colors.warning500 },
+    { color: 'error', active: tokens.colors.error400, hover: tokens.colors.error500 },
+  ] as const
+).map(({ color, active, hover }) => ({
+  props: { variant: 'text', color },
+  style: {
+    padding: '0px 0px 2px 0px !important',
+    minWidth: 'auto',
+    height: 'auto !important',
+    color: active,
+    '&:hover': {
+      background: tokens.colors.transparent,
+      color: hover,
+    },
+  },
+}));
+
+const containedButtonVariants: ComponentsVariants['MuiButton'] = (
+  [
+    {
+      color: 'primary',
+      bgColor: tokens.colors.accent,
+      textColor: tokens.colors.primary400,
+      hoveredBgColor: tokens.colors.primary400,
+      textColor2: tokens.colors.accent,
+      clickedBgColor: tokens.colors.primary500,
+    },
+    {
+      color: 'error',
+      bgColor: tokens.colors.error100,
+      textColor: tokens.colors.error500,
+      hoveredBgColor: tokens.colors.error400,
+      textColor2: tokens.colors.white,
+      clickedBgColor: tokens.colors.error500,
+    },
+    {
+      color: 'warning',
+      bgColor: tokens.colors.warning100,
+      textColor: tokens.colors.warning500,
+      hoveredBgColor: tokens.colors.warning400,
+      textColor2: tokens.colors.white,
+      clickedBgColor: tokens.colors.warning500,
+    },
+    {
+      color: 'success',
+      bgColor: tokens.colors.shade,
+      textColor: tokens.colors.primary500,
+      hoveredBgColor: tokens.colors.primary400,
+      textColor2: tokens.colors.white,
+      clickedBgColor: tokens.colors.primary500,
+    },
+    {
+      color: 'grey',
+      bgColor: tokens.colors.grey100,
+      textColor: tokens.colors.grey700,
+      hoveredBgColor: tokens.colors.grey300,
+      textColor2: tokens.colors.grey900,
+      clickedBgColor: tokens.colors.grey400,
+    },
+    {
+      color: 'secondary',
+      bgColor: tokens.colors.grey900,
+      textColor: tokens.colors.white,
+      hoveredBgColor: tokens.colors.black,
+      textColor2: tokens.colors.white,
+      clickedBgColor: tokens.colors.grey800,
+    },
+  ] as const
+).map(({ color, bgColor, textColor, hoveredBgColor, textColor2, clickedBgColor }) => ({
+  props: { variant: 'contained', color },
+  style: {
+    backgroundColor: bgColor,
+    color: textColor,
+    '&:hover': {
+      backgroundColor: hoveredBgColor,
+      color: textColor2,
+    },
+    '&:focus': {
+      backgroundColor: clickedBgColor,
+      color: textColor2,
+    },
+  },
+}));
+
 export const buttonVariants: ComponentsVariants['MuiButton'] = [
-  {
-    props: { variant: 'contained', color: 'primary' },
-    style: {
-      backgroundColor: tokens.colors.accent,
-      color: tokens.colors.primary400,
-      '&:hover': {
-        backgroundColor: tokens.colors.primary400,
-        color: tokens.colors.accent,
-      },
-    },
-  },
-  {
-    props: { variant: 'contained', color: 'secondary' },
-    style: {
-      backgroundColor: tokens.colors.grey900,
-      '&:hover': {
-        backgroundColor: tokens.colors.black,
-      },
-    },
-  },
-  {
-    props: { variant: 'contained', color: 'error' },
-    style: {
-      backgroundColor: tokens.colors.error100,
-      color: tokens.colors.error500,
-      '&:hover': {
-        backgroundColor: tokens.colors.error400,
-        color: tokens.colors.white,
-      },
-    },
-  },
-  {
-    props: { variant: 'contained', color: 'warning' },
-    style: {
-      backgroundColor: tokens.colors.warning100,
-      color: tokens.colors.warning500,
-      '&:hover': {
-        backgroundColor: tokens.colors.warning400,
-        color: tokens.colors.white,
-      },
-    },
-  },
-  {
-    props: { variant: 'contained', color: 'success' },
-    style: {
-      backgroundColor: tokens.colors.shade,
-      color: tokens.colors.primary500,
-      '&:hover': {
-        backgroundColor: tokens.colors.primary400,
-        color: tokens.colors.white,
-      },
-    },
-  },
-  {
-    props: { variant: 'contained', color: 'grey' },
-    style: {
-      backgroundColor: tokens.colors.grey100,
-      color: tokens.colors.grey700,
-      '&:hover': {
-        backgroundColor: tokens.colors.grey300,
-        color: tokens.colors.grey900,
-      },
-    },
-  },
+  ...containedButtonVariants,
   {
     props: { variant: 'outlined' },
     style: {
@@ -76,8 +100,13 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
         backgroundColor: tokens.colors.grey800,
         color: tokens.colors.white,
       },
+      '&:focus': {
+        backgroundColor: tokens.colors.grey900,
+        color: tokens.colors.white,
+      },
     },
   },
+  ...textButtonVariants,
   {
     props: { disabled: true },
     style: {
