@@ -5,14 +5,14 @@ import { styled } from '@mui/material';
 import Loader from '../Icons/Loader';
 import styles from './Button.module.scss';
 import { tokens } from '../../theme/tokens';
+import { Size } from '../../types/size.type';
 
 export interface MuiButtonProps extends Omit<MuiBtnProps, 'size'> {
   loading?: boolean;
   icon?: React.ReactNode;
   children?: React.ReactNode;
-  className?: string;
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  color?: MuiBtnProps['color'] | 'grey' | 'accent';
+  size?: Size;
+  // color?: MuiBtnProps['color'] | 'grey' | 'accent';
 }
 
 const StyledButton = styled(Button)`
@@ -62,24 +62,12 @@ const sizeToStyle = {
 
 const MuiButton: React.FC<MuiButtonProps> = forwardRef(
   (
-    {
-      color = 'primary',
-      variant = 'contained',
-      loading,
-      disabled,
-      children,
-      icon,
-      startIcon,
-      className = '',
-      size,
-      sx = {},
-      ...rest
-    },
+    { color = 'primary', variant = 'contained', loading, disabled, children, icon, startIcon, size, sx = {}, ...rest },
     ref,
   ) => {
     const isIconOnly = !children && (icon || startIcon) && !loading;
 
-    let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size] ?? sizeToStyle.md;
+    let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size ?? 'md'] ?? sizeToStyle.md;
     if (variant === 'text') {
       if (size === 'xs') {
         sizeStyle = smallToMedium;
