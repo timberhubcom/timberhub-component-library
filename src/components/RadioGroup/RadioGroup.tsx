@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './RadioGroup.module.scss';
 import { RadioOptionType } from '../Radio/Radio';
 import Radio from '../Radio';
-import Button from '../Button';
+import { Button } from '../Button';
 
 type RadioGroupProps = {
   label?: string;

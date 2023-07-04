@@ -7,9 +7,7 @@ import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
 const url = require('postcss-url');
 import dts from 'rollup-plugin-dts';
-
 import copy from 'rollup-plugin-copy';
-
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');

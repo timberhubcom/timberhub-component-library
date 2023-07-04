@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Alert.module.scss';
 import clsx from 'clsx';
-import Button from '../Button';
+import { Button } from '../Button';
 
 export interface AlertProps {
   variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
@@ -20,18 +20,24 @@ const variantColorMap = {
   grey: styles['alert-text'],
 };
 
-const Alert: React.FC<AlertProps> = ({ variant = 'green', children, className = '', onClick, title = '', buttonTitle = '' }) => {
-
+const Alert: React.FC<AlertProps> = ({
+  variant = 'green',
+  children,
+  className = '',
+  onClick,
+  title = '',
+  buttonTitle = '',
+}) => {
   const variantStyle = variantColorMap[variant] ?? styles['alert-default'];
 
   return (
-    <div
-      className={clsx(styles.alert, className, variantStyle)}
-    >
+    <div className={clsx(styles.alert, className, variantStyle)}>
       <div className={styles['alert-title']}>{title || children}</div>
-     {buttonTitle && <div className={styles.alertAction}>
-        <Button onClick={onClick}>{buttonTitle}</Button>
-      </div>}
+      {buttonTitle && (
+        <div className={styles.alertAction}>
+          <Button onClick={onClick}>{buttonTitle}</Button>
+        </div>
+      )}
     </div>
   );
 };

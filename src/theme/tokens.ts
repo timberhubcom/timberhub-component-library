@@ -32,15 +32,42 @@ const sharedThemeValues = {
       lineHeight: '28px',
       letterSpacing: '-0.0075em',
     },
+    heading5: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 500,
+      fontSize: '18px',
+      lineHeight: '28px',
+      letterSpacing: '-0.0075em',
+    },
+    heading6: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 500,
+      fontSize: '16px',
+      lineHeight: '28px',
+      letterSpacing: '-0.0075em',
+    },
+    heading7: {
+      fontFamily: 'Inter',
+      fontStyle: 'normal',
+      fontWeight: 500,
+      fontSize: '14px',
+      lineHeight: '28px',
+      letterSpacing: '-0.0075em',
+    },
   },
   spacing: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64],
 };
 
-export type TTheme = typeof lightTheme;
+export type TTheme = typeof tokens;
 
 // THEMES
-export const lightTheme = {
+export const tokens = {
   colors: {
+    black: '#000000',
+    transparent: 'transparent',
+    white: '#ffffff',
     primary400: '#006646',
     primary500: '#005238',
     primary600: '#00291C',
@@ -94,4 +121,4 @@ export const lightTheme = {
     info700: '#11202D',
   },
   ...sharedThemeValues,
-};
+} as const;
