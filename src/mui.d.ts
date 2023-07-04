@@ -2,6 +2,13 @@ import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface TypographyVariants {
+    headline_ss_xxl: React.CSSProperties;
+    headline_ss_xl: React.CSSProperties;
+    headline_ss_l: React.CSSProperties;
+    headline_ss_m: React.CSSProperties;
+    headline_ss_s: React.CSSProperties;
+    headline_ss_xs: React.CSSProperties;
+    headline_ss_xxs: React.CSSProperties;
     body_Xl: React.CSSProperties;
     body_L: React.CSSProperties;
     body_M: React.CSSProperties;
@@ -9,6 +16,13 @@ declare module '@mui/material/styles' {
     caption: React.CSSProperties;
   }
   interface TypographyOptions {
+    headline_ss_xxl: React.CSSProperties;
+    headline_ss_xl: React.CSSProperties;
+    headline_ss_l: React.CSSProperties;
+    headline_ss_m: React.CSSProperties;
+    headline_ss_s: React.CSSProperties;
+    headline_ss_xs: React.CSSProperties;
+    headline_ss_xxs: React.CSSProperties;
     body_Xl?: React.CSSProperties;
     body_L?: React.CSSProperties;
     body_M?: React.CSSProperties;
@@ -18,6 +32,13 @@ declare module '@mui/material/styles' {
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
+    headline_ss_xxl: React.CSSProperties;
+    headline_ss_xl: React.CSSProperties;
+    headline_ss_l: React.CSSProperties;
+    headline_ss_m: React.CSSProperties;
+    headline_ss_s: React.CSSProperties;
+    headline_ss_xs: React.CSSProperties;
+    headline_ss_xxs: React.CSSProperties;
     body_Xl?: React.CSSProperties;
     body_L?: React.CSSProperties;
     body_M?: React.CSSProperties;
@@ -60,6 +81,13 @@ declare module '@mui/material/Typography' {
 
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
+    grey: true;
+    accent: true;
+  }
+}
+
+declare module '@mui/material' {
+    interface ButtonPropsColorOverrides {
     grey: true;
     accent: true;
   }

@@ -7,12 +7,14 @@ import styles from './Button.module.scss';
 import { tokens } from '../../theme/tokens';
 import { Size } from '../../types/size.type';
 
+export type BtnColorPropsColor = MuiBtnProps['color'] | 'grey' | 'accent';
+
 export interface MuiButtonProps extends Omit<MuiBtnProps, 'size'> {
   loading?: boolean;
   icon?: React.ReactNode;
   children?: React.ReactNode;
   size?: Size;
-  // color?: MuiBtnProps['color'] | 'grey' | 'accent';
+  color?: BtnColorPropsColor;
 }
 
 const StyledButton = styled(Button)`
