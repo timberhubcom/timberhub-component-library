@@ -14,7 +14,7 @@
     "dev": "npm-run-all --parallel build-watch start-playground"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/timberhubcom",
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "repository": {
