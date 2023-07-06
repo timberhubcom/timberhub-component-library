@@ -1,4 +1,4 @@
-export type CustomVariants =
+export type CustomTypographyVariants =
   | 'headline_ss_xxl'
   | 'headline_ss_xl'
   | 'headline_ss_l'
