@@ -108,19 +108,19 @@ const sharedThemeValues = {
     text_link_m: {
       ...interFontStyle,
       fontSize: '16px',
-      lineHeight: 23,
+      lineHeight: '23px',
       textDecorationLine: 'underline',
     },
     text_link_s: {
       ...interFontStyle,
       fontSize: 14,
-      lineHeight: 20,
+      lineHeight: '20px',
       textDecorationLine: 'underline',
     },
     caption: {
       ...interFontStyle,
       fontSize: 12,
-      lineHeight: 18,
+      lineHeight: '18px',
     },
   },
 };
