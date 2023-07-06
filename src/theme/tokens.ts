@@ -1,63 +1,128 @@
+const interFontStyle = {
+  fontFamily: 'Inter',
+  fontStyle: 'normal',
+  fontWeight: '400',
+};
+
+const interMediumFontStyle = {
+  ...interFontStyle,
+  fontWeight: '500',
+};
+
 const sharedThemeValues = {
   typography: {
-    heading1: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_xxl: {
+      ...interMediumFontStyle,
       fontSize: '48px',
       lineHeight: '56px',
-      letterSpacing: '-0.02em',
+      letterSpacing: '-0.96px',
     },
-    heading2: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_xl: {
+      ...interMediumFontStyle,
       fontSize: '40px',
       lineHeight: '47px',
-      letterSpacing: '-0.02em',
+      letterSpacing: '-0.8px',
     },
-    heading3: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_l: {
+      ...interMediumFontStyle,
       fontSize: '30px',
       lineHeight: '36px',
-      letterSpacing: '-0.015em',
+      letterSpacing: '-0.45px',
     },
-    heading4: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_m: {
       fontSize: '22px',
+      ...interMediumFontStyle,
       lineHeight: '28px',
-      letterSpacing: '-0.0075em',
+      letterSpacing: '-0.165px',
     },
-    heading5: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_s: {
+      ...interMediumFontStyle,
       fontSize: '18px',
-      lineHeight: '28px',
-      letterSpacing: '-0.0075em',
+      lineHeight: '22px',
     },
-    heading6: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_xs: {
+      ...interMediumFontStyle,
       fontSize: '16px',
-      lineHeight: '28px',
-      letterSpacing: '-0.0075em',
+      lineHeight: '23px',
     },
-    heading7: {
-      fontFamily: 'Inter',
-      fontStyle: 'normal',
-      fontWeight: 500,
+    headline_ss_xxs: {
+      ...interMediumFontStyle,
       fontSize: '14px',
+      lineHeight: '20px',
+    },
+    headline_xxl: {
+      ...interMediumFontStyle,
+      fontSize: '48px',
+      lineHeight: '56px',
+      letterSpacing: '-1.2px',
+      fontFamily: 'GT Super Text',
+    },
+    headline_xl: {
+      ...interMediumFontStyle,
+      fontSize: '40px',
+      lineHeight: '48px',
+      letterSpacing: '-1px',
+      fontFamily: 'GT Super Text',
+    },
+    headline_l: {
+      ...interMediumFontStyle,
+      fontSize: '30px',
+      lineHeight: '36px',
+      letterSpacing: '-0.75px',
+      fontFamily: 'GT Super Text',
+    },
+    headline_m: {
+      ...interMediumFontStyle,
+      fontSize: '22px',
+      lineHeight: '26px',
+      letterSpacing: '-0.55px',
+      fontFamily: 'GT Super Text',
+    },
+    headline_s: {
+      ...interMediumFontStyle,
+      fontSize: '18px',
+      lineHeight: '21px',
+      letterSpacing: '-0.36px',
+      fontFamily: 'GT Super Text',
+    },
+    body_xl: {
+      ...interFontStyle,
+      fontSize: '20px',
       lineHeight: '28px',
-      letterSpacing: '-0.0075em',
+    },
+    body_l: {
+      ...interFontStyle,
+      fontSize: '18px',
+      lineHeight: '26px',
+    },
+    body_m: {
+      ...interFontStyle,
+      fontSize: '16px',
+      lineHeight: '23px',
+    },
+    body_s: {
+      ...interFontStyle,
+      fontSize: '14px',
+      lineHeight: '20px',
+    },
+    text_link_m: {
+      ...interFontStyle,
+      fontSize: '16px',
+      lineHeight: 23,
+      textDecorationLine: 'underline',
+    },
+    text_link_s: {
+      ...interFontStyle,
+      fontSize: 14,
+      lineHeight: 20,
+      textDecorationLine: 'underline',
+    },
+    caption: {
+      ...interFontStyle,
+      fontSize: 12,
+      lineHeight: 18,
     },
   },
-  spacing: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64],
 };
 
 export type TTheme = typeof tokens;

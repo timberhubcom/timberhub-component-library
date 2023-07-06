@@ -9,25 +9,18 @@ declare module '@mui/material/styles' {
     headline_ss_s: React.CSSProperties;
     headline_ss_xs: React.CSSProperties;
     headline_ss_xxs: React.CSSProperties;
-    body_Xl: React.CSSProperties;
-    body_L: React.CSSProperties;
-    body_M: React.CSSProperties;
-    body_S: React.CSSProperties;
+    headline_xxl: React.CSSProperties;
+    headline_xl: React.CSSProperties;
+    headline_l: React.CSSProperties;
+    headline_m: React.CSSProperties;
+    headline_s: React.CSSProperties;
+    body_xl: React.CSSProperties;
+    body_l: React.CSSProperties;
+    body_m: React.CSSProperties;
+    body_s: React.CSSProperties;
+    text_link_m: React.CSSProperties;
+    text_link_s: React.CSSProperties;
     caption: React.CSSProperties;
-  }
-  interface TypographyOptions {
-    headline_ss_xxl: React.CSSProperties;
-    headline_ss_xl: React.CSSProperties;
-    headline_ss_l: React.CSSProperties;
-    headline_ss_m: React.CSSProperties;
-    headline_ss_s: React.CSSProperties;
-    headline_ss_xs: React.CSSProperties;
-    headline_ss_xxs: React.CSSProperties;
-    body_Xl?: React.CSSProperties;
-    body_L?: React.CSSProperties;
-    body_M?: React.CSSProperties;
-    body_S?: React.CSSProperties;
-    caption?: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
@@ -39,10 +32,17 @@ declare module '@mui/material/styles' {
     headline_ss_s: React.CSSProperties;
     headline_ss_xs: React.CSSProperties;
     headline_ss_xxs: React.CSSProperties;
-    body_Xl?: React.CSSProperties;
-    body_L?: React.CSSProperties;
-    body_M?: React.CSSProperties;
-    body_S?: React.CSSProperties;
+    headline_xxl: React.CSSProperties;
+    headline_xl: React.CSSProperties;
+    headline_l: React.CSSProperties;
+    headline_m: React.CSSProperties;
+    headline_s: React.CSSProperties;
+    body_xl?: React.CSSProperties;
+    body_l?: React.CSSProperties;
+    body_m?: React.CSSProperties;
+    body_s?: React.CSSProperties;
+    text_link_m?: React.CSSProperties;
+    text_link_s?: React.CSSProperties;
     caption?: React.CSSProperties;
   }
 
@@ -70,12 +70,37 @@ declare module '@mui/material/styles' {
 // Update the Typography's variant prop options
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
-    body_Xl: true;
-    body_L: true;
-    body_M: true;
-    body_S: true;
+    headline_ss_xxl: true;
+    headline_ss_xl: true;
+    headline_ss_l: true;
+    headline_ss_m: true;
+    headline_ss_s: true;
+    headline_ss_xs: true;
+    headline_ss_xxs: true;
+    headline_xxl: true;
+    headline_xl: true;
+    headline_l: true;
+    headline_m: true;
+    headline_s: true;
+    body_xl: true;
+    body_l: true;
+    body_m: true;
+    body_s: true;
+    text_link_m: true;
+    text_link_s: true;
     caption: true;
+    h1: false;
+    h2: false;
     h3: false;
+    h4: false;
+    h5: false;
+    h6: false;
+    subtitle1: false;
+    subtitle2: false;
+    body1: false;
+    body2: false;
+    button: false;
+    overline: false;
   }
 }
 
@@ -87,7 +112,7 @@ declare module '@mui/material/Button' {
 }
 
 declare module '@mui/material' {
-    interface ButtonPropsColorOverrides {
+  interface ButtonPropsColorOverrides {
     grey: true;
     accent: true;
   }

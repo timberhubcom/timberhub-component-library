@@ -4,6 +4,7 @@ export { default as Checkbox } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as Chip } from './Chip';
 export { default as ItemCard } from './ItemCard';
+export { Link } from './Link';
 export { default as Pagination } from './Pagination';
 export { default as Radio } from './Radio';
 export { default as RadioGroup } from './RadioGroup';

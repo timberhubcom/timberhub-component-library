@@ -23,40 +23,29 @@ const StyledButton = styled(Button)`
   border-radius: 100px;
 `;
 
-const smallToMedium = {
-  fontSize: '14px',
-  fontWeight: 500,
-  lineHeight: '20px',
-};
-const largeToXLarge = {
-  fontSize: '16px',
-  fontWeight: 500,
-  lineHeight: '23px',
-};
-
 const sizeToStyle = {
   xs: {
-    ...smallToMedium,
+    ...tokens.typography.headline_ss_xxs,
     padding: '2px 8px',
     height: 24,
   },
   sm: {
-    ...smallToMedium,
+    ...tokens.typography.headline_ss_xxs,
     padding: '6px 16px',
     height: 32,
   },
   md: {
-    ...smallToMedium,
+    ...tokens.typography.headline_ss_xxs,
     padding: '10px 16px',
     height: 40,
   },
   lg: {
-    ...largeToXLarge,
+    ...tokens.typography.headline_ss_xs,
     padding: '12px 24px',
     height: 48,
   },
   xl: {
-    ...largeToXLarge,
+    ...tokens.typography.headline_ss_xs,
     padding: '16px 24px',
     height: 56,
   },
@@ -72,9 +61,9 @@ const MuiButton: React.FC<MuiButtonProps> = forwardRef(
     let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size ?? 'md'] ?? sizeToStyle.md;
     if (variant === 'text') {
       if (size === 'xs') {
-        sizeStyle = smallToMedium;
+        sizeStyle = tokens.typography.headline_ss_xxs;
       } else {
-        sizeStyle = largeToXLarge;
+        sizeStyle = tokens.typography.headline_ss_xs;
       }
     }
 
