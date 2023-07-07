@@ -1,13 +1,20 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import Link from '@mui/material/Link';
+import { Link } from './Link';
 
 export default {
   title: 'MUI/Components/Link',
   component: Link,
 };
 
-const Template: StoryFn<typeof Link> = (args) => <Link {...args}>Go to request</Link>;
+const Template: StoryFn<typeof Link> = (args) => <Link {...args}>sales@timberhub.com</Link>;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Medium = Template.bind({});
+Medium.args = {
+  variant: 'text_link_m',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  variant: 'text_link_s',
+};
