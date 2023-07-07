@@ -89,7 +89,7 @@ const MuiButton: React.FC<MuiButtonProps> = forwardRef(
       >
         {loading ? (
           <div className={styles.loader}>
-            <Loader color={tokens.colors.grey400} />
+            <Loader color={tokens.colors.grey['400']} />
           </div>
         ) : (
           <span>{children}</span>
