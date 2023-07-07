@@ -14,4 +14,4 @@ export { default as Switch } from './Switch';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
 export { default as TextArea } from './TextArea';
-export { default as TextField } from './TextField';
+export { default as TextField, MuiTextField } from './TextField';
