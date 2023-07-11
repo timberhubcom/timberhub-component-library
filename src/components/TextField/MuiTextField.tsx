@@ -1,16 +1,14 @@
 import { Color } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { Palette } from '@mui/material/styles/createPalette';
-import TextField, { TextFieldProps } from '@mui/material/TextField';
+import TextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
 import React from 'react';
 
-export type ITextField = TextFieldProps;
+export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> {
+  variant?: TextFieldVariants;
+}
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   fontFamily: 'Inter',
-  // '& label.Mui-focused': {
-  //   color: '#A0AAB4',
-  // },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderRadius: 10,
@@ -28,9 +26,9 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       borderColor: theme.palette.grey['300'],
       background: theme.palette.grey['50'],
     },
-    '& .MuiInputBase-sizeSmall': {
-      height: 48,
-      maxHeight: 48,
+    '&.MuiInputBase-sizeSmall': {
+      height: '48px',
+      maxHeight: '48px',
     },
     '& .MuiInputBase-input': {
       ...theme.typography.body_m,
@@ -43,10 +41,16 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       color: (theme.palette.error as unknown as Color)['400'],
     },
   },
+  '& .MuiInputLabel-root': {
+    ...theme.typography.body_m,
+  },
+  '& .MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)': {
+    transform: 'translate(14px, 50%) scale(1)',
+  },
 }));
 
-const MuiTextField = ({ helperText = ' ', ...props }: ITextField) => {
-  return <StyledTextField variant="outlined" size="small" helperText={helperText} {...props} />;
+const MuiTextField = ({ helperText = ' ', variant = 'outlined', ...props }: TextFieldProps) => {
+  return <StyledTextField variant={variant} size="small" helperText={helperText} {...props} />;
 };
 
 export { MuiTextField };
