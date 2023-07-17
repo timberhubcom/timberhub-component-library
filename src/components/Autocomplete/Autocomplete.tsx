@@ -4,8 +4,8 @@ import MuiAutocomplete, {
   AutocompleteProps as MuiAutocompleteProps,
 } from '@mui/material/Autocomplete';
 import { MuiTextField } from '../TextField';
-import { tokens } from 'src/theme/tokens';
-import { TextField } from '@mui/material';
+import { tokens } from '../../theme/tokens';
+import { TextFieldProps } from '../TextField/MuiTextField';
 
 export interface AutocompleteProps<T> extends Omit<MuiAutocompleteProps<T, false, false, false, 'div'>, 'renderInput'> {
   label?: string;
@@ -14,6 +14,7 @@ export interface AutocompleteProps<T> extends Omit<MuiAutocompleteProps<T, false
   error?: boolean;
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   name?: string;
+  textFieldProps?: TextFieldProps;
 }
 
 const Autocomplete = <T extends {}>({
@@ -27,6 +28,7 @@ const Autocomplete = <T extends {}>({
   error,
   placeholder,
   isOptionEqualToValue,
+  textFieldProps = {},
   ...props
 }: AutocompleteProps<T>) => {
   return (
@@ -51,10 +53,7 @@ const Autocomplete = <T extends {}>({
             error={error}
             name={name}
             placeholder={placeholder}
-            inputProps={{
-              ...params.inputProps,
-              autoComplete: 'new-password', // disable autocomplete and autofill
-            }}
+            {...textFieldProps}
           />
         ))
       }

@@ -9,6 +9,7 @@ export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> 
 
 const StyledTextField = styled(TextField)(({ theme }) => ({
   fontFamily: 'Inter',
+  color: theme.palette.grey['900'],
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderRadius: 10,
@@ -49,7 +50,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const MuiTextField = ({ helperText = ' ', variant = 'outlined', ...props }: TextFieldProps) => {
+const MuiTextField = ({ helperText = null, variant = 'outlined', ...props }: TextFieldProps) => {
   return <StyledTextField variant={variant} size="small" helperText={helperText} {...props} />;
 };
 
