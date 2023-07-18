@@ -1,7 +1,6 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import { Autocomplete } from './AutoComplete';
-import { ArrowDropDown } from '@mui/icons-material';
+import { Autocomplete } from './Autocomplete';
 
 export default {
   title: 'MUI/Components/Autocomplete',
