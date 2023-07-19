@@ -7,7 +7,12 @@ import { MuiTextField } from '../TextField';
 import { tokens } from '../../theme/tokens';
 import { TextFieldProps } from '../TextField/MuiTextField';
 
-export interface AutocompleteProps<T> extends Omit<MuiAutocompleteProps<T, false, false, false, 'div'>, 'renderInput'> {
+interface OptionType {
+  label: string;
+}
+
+export interface AutocompleteProps<T>
+  extends Omit<MuiAutocompleteProps<T, false, boolean, boolean, 'div'>, 'renderInput'> {
   label?: string;
   helperText?: string;
   required?: boolean;
@@ -15,9 +20,10 @@ export interface AutocompleteProps<T> extends Omit<MuiAutocompleteProps<T, false
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   name?: string;
   textFieldProps?: TextFieldProps;
+  isOptionEqualToValue?: (option: T, value: T) => boolean;
 }
 
-const Autocomplete = <T extends {}>({
+const Autocomplete = <T extends OptionType | string>({
   renderInput,
   label = '',
   helperText,
@@ -61,9 +67,11 @@ const Autocomplete = <T extends {}>({
           />
         ))
       }
-      isOptionEqualToValue={(opt, val) => {
-        if (isOptionEqualToValue) return isOptionEqualToValue(opt, val);
-        // @ts-ignore
+      isOptionEqualToValue={(opt: T, val: T) => {
+        if (isOptionEqualToValue && typeof isOptionEqualToValue === 'function') {
+          return isOptionEqualToValue(opt, val);
+        }
+        if (typeof opt === 'string') return opt === val;
         if (typeof opt === 'object' && opt?.label) return opt?.label === val;
         return false;
       }}
