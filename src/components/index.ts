@@ -1,7 +1,7 @@
 export { default as Alert } from './Alert';
 export * from './Autocomplete';
 export * from './Button';
-export { default as Checkbox } from './Checkbox';
+export { default as Checkbox, MuiCheckbox } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as Chip } from './Chip';
 export { default as ItemCard } from './ItemCard';
