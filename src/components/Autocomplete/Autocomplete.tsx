@@ -11,8 +11,12 @@ interface OptionType {
   label: string;
 }
 
-export interface AutocompleteProps<T>
-  extends Omit<MuiAutocompleteProps<T, false, boolean, boolean, 'div'>, 'renderInput'> {
+export type AutocompleteProps<
+  T,
+  Multiple extends boolean | undefined,
+  DisableClearable extends boolean | undefined,
+  FreeSolo extends boolean | undefined = undefined,
+> = Omit<MuiAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>, 'renderInput'> & {
   label?: string;
   helperText?: string;
   required?: boolean;
@@ -20,10 +24,14 @@ export interface AutocompleteProps<T>
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   name?: string;
   textFieldProps?: TextFieldProps;
-  isOptionEqualToValue?: (option: T, value: T) => boolean;
-}
+};
 
-const Autocomplete = <T extends OptionType | string>({
+const Autocomplete = <
+  T extends OptionType,
+  Multiple extends boolean | undefined = false,
+  DisableClearable extends boolean | undefined = undefined,
+  FreeSolo extends boolean | undefined = undefined,
+>({
   renderInput,
   label = '',
   helperText,
@@ -36,7 +44,7 @@ const Autocomplete = <T extends OptionType | string>({
   isOptionEqualToValue,
   textFieldProps = {},
   ...props
-}: AutocompleteProps<T>) => {
+}: AutocompleteProps<T, Multiple, DisableClearable, FreeSolo>) => {
   return (
     <MuiAutocomplete
       size={size}
@@ -67,12 +75,12 @@ const Autocomplete = <T extends OptionType | string>({
           />
         ))
       }
-      isOptionEqualToValue={(opt: T, val: T) => {
+      isOptionEqualToValue={(opt, val) => {
         if (isOptionEqualToValue && typeof isOptionEqualToValue === 'function') {
-          return isOptionEqualToValue(opt, val);
+          return isOptionEqualToValue(opt as T, val as T);
         }
         if (typeof opt === 'string') return opt === val;
-        if (typeof opt === 'object' && opt?.label) return opt?.label === val;
+        if (typeof opt === 'object' && typeof val === 'object' && opt?.label) return opt?.label === val?.label;
         return false;
       }}
       {...props}
