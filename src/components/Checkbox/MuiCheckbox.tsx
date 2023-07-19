@@ -1,20 +1,11 @@
 import React from 'react';
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
-
-interface CustomCheckboxPropsSizeOverrides {
-  small: true;
-  medium: true;
-  large: true;
-}
-
-interface CustomCheckboxPropsColorOverrides {
-  accent: true;
-  grey: true;
-}
+import type { CustomColorOverrides } from 'src/types/color.type';
+import type { CustomCheckboxPropsSizeOverrides } from 'src/types/size.type';
 
 declare module '@mui/material/Checkbox' {
   interface CheckboxPropsSizeOverrides extends CustomCheckboxPropsSizeOverrides {}
-  interface CheckboxPropsColorOverrides extends CustomCheckboxPropsColorOverrides {}
+  interface CheckboxPropsColorOverrides extends CustomColorOverrides {}
 }
 
 export interface MuiCheckboxProps extends CheckboxProps {}
