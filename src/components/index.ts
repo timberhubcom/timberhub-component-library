@@ -9,6 +9,7 @@ export { Link } from './Link';
 export { default as Pagination } from './Pagination';
 export { default as Radio } from './Radio';
 export { default as RadioGroup } from './RadioGroup';
+export * from './Stepper';
 export { default as Switch } from './Switch';
 export { default as Table } from './Table';
 export { default as Tabs } from './Tabs';
