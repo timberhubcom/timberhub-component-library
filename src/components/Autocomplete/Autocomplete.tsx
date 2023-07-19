@@ -38,9 +38,13 @@ const Autocomplete = <T extends {}>({
         '& .MuiAutocomplete-popupIndicator path': {
           d: 'path("M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z")',
         },
-        '& .MuiAutocomplete-popupIndicatorOpen path': {
-          fill: tokens.colors.primary,
+        '& .MuiAutocomplete-popupIndicatorOpen svg': {
+          fill: tokens.colors.primary[400],
         },
+        '& .Mui-error .MuiAutocomplete-popupIndicator svg': {
+          fill: tokens.colors.error[400],
+        },
+        ...sx,
       }}
       renderInput={
         renderInput ||
