@@ -38,7 +38,7 @@ const sharedThemeValues = {
     headline_ss_s: {
       ...interMediumFontStyle,
       fontSize: '18px',
-      lineHeight: '22px',
+      lineHeight: '25px',
     },
     headline_ss_xs: {
       ...interMediumFontStyle,
@@ -81,7 +81,7 @@ const sharedThemeValues = {
     headline_s: {
       ...interMediumFontStyle,
       fontSize: '18px',
-      lineHeight: '21px',
+      lineHeight: '24px',
       letterSpacing: '-0.36px',
       fontFamily: 'GT Super Text',
     },
