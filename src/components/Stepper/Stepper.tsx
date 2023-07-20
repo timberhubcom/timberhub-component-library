@@ -6,10 +6,6 @@ import StepLabel from '@mui/material/StepLabel';
 import NavigateNext from '@mui/icons-material/NavigateNext';
 import { StepIconProps } from '@mui/material/StepIcon';
 
-const CustomStep = styled(Step)(({ theme }) => ({
-  padding: theme.spacing(1),
-}));
-
 const stepStateStyles = (theme: Theme) => ({
   ...theme.typography.headline_ss_xxs,
   color: `${theme.palette.grey['500']}`,
@@ -35,6 +31,9 @@ const Connector = () => {
           justifyContent: 'center',
           alignItems: 'center',
           color: theme.palette.grey['500'],
+        },
+        '& .MuiStepLabel-iconContainer': {
+          display: 'none',
         },
         ...stepStateStyles(theme),
       })}
@@ -78,11 +77,11 @@ const Stepper = ({ steps, onChange, activeStep = 0 }: IStepper) => {
   return (
     <MuiStepper activeStep={activeStep} connector={<Connector />}>
       {steps.map((label, index) => (
-        <CustomStep key={label}>
+        <Step key={label}>
           <CustomStepLabel onClick={() => onChange && onChange(index)} StepIconComponent={CustomStepConnector}>
             {label}
           </CustomStepLabel>
-        </CustomStep>
+        </Step>
       ))}
     </MuiStepper>
   );
