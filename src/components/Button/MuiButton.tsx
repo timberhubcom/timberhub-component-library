@@ -6,15 +6,17 @@ import Loader from '../Icons/Loader';
 import styles from './Button.module.scss';
 import { tokens } from '../../theme/tokens';
 import { Size } from '../../types/size.type';
+import { CustomColorOverrides } from 'src/types/color.type';
 
-export type BtnColorPropsColor = MuiBtnProps['color'] | 'grey' | 'accent';
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides extends CustomColorOverrides {}
+}
 
 export interface MuiButtonProps extends Omit<MuiBtnProps, 'size'> {
   loading?: boolean;
   icon?: React.ReactNode;
   children?: React.ReactNode;
   size?: Size;
-  color?: BtnColorPropsColor;
 }
 
 const StyledButton = styled(Button)`
