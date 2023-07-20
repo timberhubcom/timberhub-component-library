@@ -45,14 +45,16 @@ const CheckedIcon = (
   </Svg>
 );
 
-const MuiCheckbox = ({ size = 'medium', ...props }: MuiCheckboxProps) => {
+const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
   const svgSize = sizeMapper[size] ?? sizeMapper.medium;
   return (
     <Checkbox
       size={size}
       sx={{
         padding: 0,
+        marginInline: '9px',
         width: svgSize,
+        ...sx,
       }}
       {...props}
       disableRipple
