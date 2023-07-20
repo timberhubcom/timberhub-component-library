@@ -4,6 +4,7 @@ export * from './Button';
 export { default as Checkbox, MuiCheckbox } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as Chip } from './Chip';
+export * from './Form';
 export { default as ItemCard } from './ItemCard';
 export { Link } from './Link';
 export { default as Pagination } from './Pagination';
