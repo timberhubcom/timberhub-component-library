@@ -57,7 +57,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
           ))}
       </div>
       {resetText && (
-        <Button type={'plain'} onClick={onResetHandler}>
+        <Button variant={'text'} onClick={onResetHandler}>
           {resetText}
         </Button>
       )}

@@ -1,7 +1,7 @@
 import { Stack } from '@mui/material';
 import { StoryFn } from '@storybook/react';
 import React from 'react';
-import Button, { MuiButtonProps } from './MuiButton';
+import Button, { ButtonProps } from './Button';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 
 export default {
@@ -28,7 +28,7 @@ const icon = (
   </svg>
 );
 
-const ButtonWithSizes = (props: MuiButtonProps) => {
+const ButtonWithSizes = (props: ButtonProps) => {
   return (
     <Stack direction="row" spacing={2} alignItems="center">
       <div className="">
