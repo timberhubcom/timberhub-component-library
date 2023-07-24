@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import React, { useMemo } from 'react';
 
 import styles from './Pagination.module.scss';
@@ -36,8 +36,8 @@ const Pagination = ({
   }, [activePage, totalPages, visiblePages]);
 
   const onPageChange = (page?: number) => {
-   _onPageChange && _onPageChange(page)
-  }
+    _onPageChange && _onPageChange(page);
+  };
 
   return (
     <>

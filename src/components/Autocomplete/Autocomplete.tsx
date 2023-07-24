@@ -7,7 +7,7 @@ import { MuiTextField } from '../TextField';
 import { tokens } from '../../theme/tokens';
 import { TextFieldProps } from '../TextField/MuiTextField';
 
-interface OptionType {
+export interface OptionType {
   label: string;
 }
 
