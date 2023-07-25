@@ -9,6 +9,7 @@ export { default as ItemCard } from './ItemCard';
 export * from './Layout';
 export { Link } from './Link';
 export { default as Pagination } from './Pagination';
+export * from './Progress';
 export { default as Radio } from './Radio';
 export { default as RadioGroup } from './RadioGroup';
 export * from './Stepper';
