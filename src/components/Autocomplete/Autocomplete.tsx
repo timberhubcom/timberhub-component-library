@@ -80,6 +80,7 @@ const Autocomplete = <
           return isOptionEqualToValue(opt as T, val as T);
         }
         if (typeof opt === 'string') return opt === val;
+        if (typeof opt === 'object' && typeof val === 'string') return opt?.label === val;
         if (typeof opt === 'object' && typeof val === 'object' && opt?.label) return opt?.label === val?.label;
         return false;
       }}
