@@ -13,10 +13,10 @@ const textButtonVariants: ComponentsVariants['MuiButton'] = (
     padding: '0px 0px 0px 0px !important',
     minWidth: 'auto',
     height: 'auto !important',
-    color: active,
+    color: `${active}  !important`,
     '&:hover': {
       background: tokens.colors.transparent,
-      color: hover,
+      color: `${hover}  !important`,
     },
   },
 }));
@@ -76,14 +76,14 @@ const containedButtonVariants: ComponentsVariants['MuiButton'] = (
   props: { variant: 'contained', color },
   style: {
     backgroundColor: bgColor,
-    color: textColor,
+    color: `${textColor} !important`,
     '&:hover': {
       backgroundColor: hoveredBgColor,
-      color: textColor2,
+      color: `${textColor2} !important`,
     },
     '&:focus': {
       backgroundColor: clickedBgColor,
-      color: textColor2,
+      color: `${textColor2} !important`,
     },
   },
 }));
@@ -94,15 +94,15 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
     props: { variant: 'outlined' },
     style: {
       backgroundColor: tokens.colors.transparent,
-      color: tokens.colors.grey['700'],
+      color: `${tokens.colors.grey['700']} !important`,
       borderColor: tokens.colors.grey['500'],
       '&:hover': {
         backgroundColor: tokens.colors.grey['800'],
-        color: tokens.colors.white,
+        color: `${tokens.colors.white} !important`,
       },
       '&:focus': {
         backgroundColor: tokens.colors.grey['900'],
-        color: tokens.colors.white,
+        color: `${tokens.colors.white} !important`,
       },
     },
   },

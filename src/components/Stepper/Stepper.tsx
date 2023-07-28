@@ -8,12 +8,15 @@ import { StepIconProps } from '@mui/material/StepIcon';
 
 const stepStateStyles = (theme: Theme) => ({
   ...theme.typography.headline_ss_xxs,
-  color: `${theme.palette.grey['500']}`,
+  color: `${theme.palette.grey['500']} !important`,
   '& .MuiStepLabel-label.Mui-active': {
     color: theme.palette.secondary.main,
   },
   '& .MuiStepLabel-label.Mui-completed': {
     color: theme.palette.primary.light,
+  },
+  '& .MuiStepLabel-label.Mui-disabled': {
+    color: `${theme.palette.grey['500']}`,
   },
 });
 
@@ -47,8 +50,8 @@ const Connector = () => {
 const CustomStepIconRoot = styled('div')<{
   ownerState: { completed?: boolean; active?: boolean };
 }>(({ theme, ownerState }) => ({
-  color: theme.palette.grey['500'],
   ...theme.typography.headline_ss_xxs,
+  color: `${theme.palette.grey['500']} !important`,
   ...(ownerState.active && {
     color: theme.palette.secondary.main,
   }),

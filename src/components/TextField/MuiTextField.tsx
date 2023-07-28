@@ -7,7 +7,7 @@ export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> 
   variant?: TextFieldVariants;
 }
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
+const StyledTextField = styled(TextField)(({ theme, multiline }) => ({
   fontFamily: 'Inter',
   color: theme.palette.grey['900'],
   '& .MuiOutlinedInput-root': {
@@ -27,7 +27,7 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
       borderColor: theme.palette.grey['300'],
       background: theme.palette.grey['50'],
     },
-    '&.MuiInputBase-sizeSmall': {
+    '&.MuiInputBase-sizeSmall:not(.MuiInputBase-multiline)': {
       height: '48px',
       maxHeight: '48px',
     },
@@ -50,8 +50,8 @@ const StyledTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const MuiTextField = ({ helperText = null, variant = 'outlined', ...props }: TextFieldProps) => {
-  return <StyledTextField variant={variant} size="small" helperText={helperText} {...props} />;
+const MuiTextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
+  return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
 };
 
 export { MuiTextField };
