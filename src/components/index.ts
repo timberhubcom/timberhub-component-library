@@ -1,4 +1,4 @@
-export { default as Alert } from './Alert';
+export * from './Alert';
 export * from './Autocomplete';
 export * from './Button';
 export { default as Checkbox, MuiCheckbox } from './Checkbox';

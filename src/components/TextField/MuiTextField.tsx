@@ -39,7 +39,7 @@ const StyledTextField = styled(TextField)(({ theme, multiline }) => ({
       borderColor: (theme.palette.error as unknown as Color)['400'],
     },
     '&.Mui-error .MuiInputBase-input': {
-      color: (theme.palette.error as unknown as Color)['400'],
+      color: `${(theme.palette.error as unknown as Color)['400']} !important`,
     },
   },
   '& .MuiInputLabel-root': {
