@@ -6,6 +6,7 @@ import MuiAutocomplete, {
 import { MuiTextField } from '../TextField';
 import { tokens } from '../../theme/tokens';
 import { TextFieldProps } from '../TextField/MuiTextField';
+import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 export interface OptionType {
   label: string;
@@ -50,7 +51,7 @@ const Autocomplete = <
       size={size}
       sx={{
         '& .MuiAutocomplete-popupIndicator path': {
-          d: 'path("M7.41 8.59L12 13.17L16.59 8.59L18 10L12 16L6 10L7.41 8.59Z")',
+          d: `path(${dropdownIconPath})`,
         },
         '& .MuiAutocomplete-popupIndicatorOpen svg': {
           fill: tokens.colors.primary[400],
