@@ -22,7 +22,7 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
     ...outlinedInputStyles(theme),
   },
   '& .MuiSelect-icon path': {
-    d: `path(${dropdownIconPath})`,
+    d: `path("${dropdownIconPath}")`,
   },
 }));
 

@@ -51,7 +51,7 @@ const Autocomplete = <
       size={size}
       sx={{
         '& .MuiAutocomplete-popupIndicator path': {
-          d: `path(${dropdownIconPath})`,
+          d: `path("${dropdownIconPath}")`,
         },
         '& .MuiAutocomplete-popupIndicatorOpen svg': {
           fill: tokens.colors.primary[400],
