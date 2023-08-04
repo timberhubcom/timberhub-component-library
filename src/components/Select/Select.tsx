@@ -26,14 +26,17 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   },
 }));
 
-const ExtendedSelect = <T extends unknown = unknown>({ options, ...props }: ExtendedSelectProps<T>) => {
+const ExtendedSelect = <T extends unknown = unknown>({ options, children, ...props }: ExtendedSelectProps<T>) => {
+  const hasOptions = options?.length > 0;
   return (
     <StyledSelect {...props}>
-      {options?.map((option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label}
-        </MenuItem>
-      ))}
+      {hasOptions
+        ? options?.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))
+        : children}
     </StyledSelect>
   );
 };
