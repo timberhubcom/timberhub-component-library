@@ -4,7 +4,8 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     jsx: true,
     useJSXTextNode: true,
-    allowImportExportEverywhere: true
+    allowImportExportEverywhere: true,
+    sourceType: "module"
   },
   extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:storybook/recommended'],
   rules: {
