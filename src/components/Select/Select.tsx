@@ -18,6 +18,9 @@ export interface ExtendedSelectProps<T extends unknown> extends Omit<SelectProps
 const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...props} />)(({ theme }) => ({
   fontFamily: 'Inter',
   color: theme.palette.grey['900'],
+  '& .MuiSelect-select': {
+    padding: '12px 16px',
+  },
   '&.MuiOutlinedInput-root': {
     ...outlinedInputStyles(theme),
   },
@@ -26,7 +29,7 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   },
 }));
 
-const ExtendedSelect = <T extends unknown = unknown>({ options, children, ...props }: ExtendedSelectProps<T>) => {
+const ExtendedSelect = <T extends unknown = unknown>({ options = [], children, ...props }: ExtendedSelectProps<T>) => {
   const hasOptions = options?.length > 0;
   return (
     <StyledSelect {...props}>
