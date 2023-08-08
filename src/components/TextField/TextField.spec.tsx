@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('TextField', () => {
   it('should render the input properly', () => {
-    render(<TextField label={'label'} defaultValue={'test value'} description={'description'} />);
+    render(<TextField label={'label'} defaultValue={'test value'} helperText={'description'} />);
 
     expect(screen.getByText('label')).toBeVisible();
     expect(screen.getByText('description')).toBeVisible();
