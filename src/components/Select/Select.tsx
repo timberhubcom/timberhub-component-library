@@ -2,8 +2,7 @@ import React from 'react';
 import MuiSelect, { SelectProps } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { styled } from '@mui/material/styles';
-import { Color } from '@mui/material';
-import { outlinedInputStyles } from '../TextField/MuiTextField';
+import { outlinedInputStyles } from '../TextField/TextField';
 import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 interface Option {

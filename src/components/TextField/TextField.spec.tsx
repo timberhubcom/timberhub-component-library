@@ -6,7 +6,7 @@ describe('TextField', () => {
   it('should render the input properly', () => {
     render(<TextField label={'label'} defaultValue={'test value'} helperText={'description'} />);
 
-    expect(screen.getByText('label')).toBeVisible();
+    expect(screen.getByLabelText('label')).toBeVisible();
     expect(screen.getByText('description')).toBeVisible();
     expect(screen.getByRole('textbox')).toBeVisible();
     expect(screen.getByRole('textbox')).toHaveValue('test value');

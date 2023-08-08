@@ -1,25 +1,31 @@
 import React from 'react';
 import { Select } from '../index';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 
-describe('TextField', () => {
-  it('should render the input properly', () => {
-    render(<Select label={'label'} defaultValue={'test value'} />);
-
-    expect(screen.getByText('label')).toBeVisible();
-    expect(screen.getByRole('textbox')).toBeVisible();
-    expect(screen.getByRole('textbox')).toHaveValue('test value');
-  });
+describe('Select', () => {
   it('should trigger the on change function when input value is changed', () => {
     const onChangeMock = jest.fn();
+    render(
+      <>
+        <Select
+          label={'test'}
+          onChange={onChangeMock}
+          defaultValue={'myAccount'}
+          options={[
+            { label: 'My Account', value: 'myAccount' },
+            { label: 'Log Out', value: 'logOut' },
+          ]}
+        />
+      </>,
+    );
 
-    render(<Select label={'test'} defaultValue={'test value'} onChange={onChangeMock} />);
+    fireEvent.mouseDown(screen.getByRole('button'));
 
-    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'test change' } });
+    const listbox = within(screen.getByRole('listbox'));
+
+    fireEvent.click(listbox.getByText(/log out/i));
+
+    expect(screen.getByRole('button')).toHaveTextContent(/log out/i);
     expect(onChangeMock).toHaveBeenCalled();
-    expect(screen.getByRole('textbox')).toHaveValue('test change');
-    //  UserEvent.click(screen.getByRole(screen.getByTestId('country'), 'button'));
-    //  await waitFor(() => UserEvent.click(screen.getByText(/brazil/i)));
-    //  expect(screen.getByRole('heading')).toHaveTextContent(/brazil/i);
   });
 });
