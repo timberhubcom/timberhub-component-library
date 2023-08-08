@@ -1,6 +1,6 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
-import { MuiTextField } from './MuiTextField';
+import { MuiTextField } from '..';
 
 export default {
   title: 'MUI/Components/TextField',
