@@ -46,14 +46,14 @@ const colors = {
   },
   // whiteScale
   whiteScale: {
-    100: '#0F0F0F',
-    200: '#1A1A1A',
-    300: '#262626',
-    400: '#3D3D3D',
-    500: '#616161',
-    600: '#9E9E9E',
-    700: '#C4C4C4',
-    800: '#DBDBDB',
+    100: '#ffffff0F',
+    200: '#ffffff1A',
+    300: '#ffffff26',
+    400: '#ffffff3D',
+    500: '#FFFFFF61',
+    600: '#FFFFFF9E',
+    700: '#ffffffC4',
+    800: '#ffffffDB',
   },
   // info
   info: {

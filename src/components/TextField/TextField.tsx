@@ -1,94 +1,61 @@
-import clsx from 'clsx';
-import React, { HTMLInputTypeAttribute } from 'react';
-import styles from './TextField.module.scss';
+import { Color, Theme } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import MuiTextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import React from 'react';
 
-type TextFieldProps = {
-  name?: string;
-  id?: string;
-  label?: string;
-  placeholder?: string;
-  className?: string;
-  labelClass?: string;
-  description?: string;
-  defaultValue?: string;
-  value?: string;
-  disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: HTMLInputTypeAttribute;
-  min?: number;
-  max?: number;
-  required?: boolean;
-  error?: string;
+export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> {
+  variant?: TextFieldVariants;
+}
+
+export const outlinedInputStyles = (theme: Theme) => ({
+  '& fieldset': {
+    borderRadius: 10,
+    borderWidth: '1px !important',
+    borderStyle: 'solid !important',
+    borderColor: theme.palette.grey['400'],
+  },
+  '&:hover fieldset': {
+    borderColor: theme.palette.grey['700'],
+  },
+  '&.Mui-focused fieldset': {
+    borderColor: theme.palette.primary.light,
+  },
+  '&.Mui-disabled fieldset': {
+    borderColor: theme.palette.grey['300'],
+    background: theme.palette.grey['50'],
+  },
+  '& .MuiInputBase-input': {
+    ...theme.typography.body_m,
+    color: theme.palette.secondary.main,
+  },
+  '&.Mui-error:hover fieldset, &.Mui-error.Mui-focused fieldset': {
+    borderColor: (theme.palette.error as unknown as Color)['400'],
+  },
+  '&.Mui-error .MuiInputBase-input': {
+    color: `${(theme.palette.error as unknown as Color)['400']} !important`,
+  },
+});
+
+const StyledTextField = styled(MuiTextField)(({ theme }) => ({
+  fontFamily: 'Inter',
+  color: theme.palette.grey['900'],
+  '& .MuiOutlinedInput-root': {
+    ...outlinedInputStyles(theme),
+    '&.MuiInputBase-sizeSmall:not(.MuiInputBase-multiline)': {
+      height: '48px',
+      maxHeight: '48px',
+    },
+  },
+  '& .MuiInputLabel-root': {
+    ...theme.typography.body_m,
+  },
+  '& .MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)': {
+    transform: 'translate(14px, 50%) scale(1)',
+  },
+}));
+
+const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
+  return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
 };
 
-const TextField: React.FC<TextFieldProps> = ({
-  name,
-  id,
-  label,
-  placeholder,
-  className = '',
-  labelClass,
-  description = null,
-  defaultValue,
-  value,
-  disabled = false,
-  onChange,
-  onBlur,
-  type = 'text',
-  min,
-  max,
-  required = false,
-  error = '',
-}) => {
-  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (type === 'number' && min && min > 0) {
-      e.currentTarget.value = e.currentTarget.value.replace(/\D+/g, '');
-    }
-
-    if (onChange) onChange(e);
-  };
-
-  const onBlurHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (type === 'number' && min && min > 0) {
-      e.currentTarget.value = e.currentTarget.value.replace(/\D+/g, '');
-    }
-
-    if (onBlur) onBlur(e);
-  };
-
-  return (
-    <div className={styles['textFieldWrapper']}>
-      {label && (
-        <label className={`${labelClass ? labelClass : ''} ${styles['label']}`} htmlFor={name}>
-          <span dangerouslySetInnerHTML={{ __html: label }} />
-          {required && <span className={styles['required']}>*</span>}
-        </label>
-      )}
-      <input
-        className={clsx(
-          styles['input'],
-          disabled && styles['disabled'],
-          type === 'number' && styles['number'],
-          styles[className],
-        )}
-        type={type}
-        onChange={onChangeHandler}
-        onBlur={onBlurHandler}
-        id={id || name}
-        name={name}
-        placeholder={placeholder}
-        max={max}
-        min={min}
-        disabled={disabled}
-        required={required}
-        defaultValue={defaultValue}
-        value={value}
-      />
-      {error && <div className={styles['errorDescription']}>{error}</div>}
-      {description && <div className={styles['description']}>{description}</div>}
-    </div>
-  );
-};
-
-export default TextField;
+export { TextField };

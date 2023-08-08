@@ -1,53 +1,60 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
-import TextField from './TextField';
+import { StoryFn } from '@storybook/react';
+import { MuiTextField } from '..';
 
 export default {
-  title: 'Components/TextField',
-  component: TextField,
+  title: 'MUI/Components/TextField',
+  component: MuiTextField,
 };
 
-const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
+const Template: StoryFn<typeof MuiTextField> = (args) => <MuiTextField {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {
-  label: 'label',
+  label: 'Name',
   placeholder: 'placeholder',
 };
 
 export const Required = Template.bind({});
 Required.args = {
-  label: 'label',
+  label: 'Name',
   required: true,
   placeholder: 'placeholder',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
-  label: 'label',
+  label: 'Name',
   disabled: true,
   placeholder: 'placeholder',
 };
 
 export const Description = Template.bind({});
 Description.args = {
-  label: 'label',
-  description: 'This text describes the input',
+  label: 'Name',
   placeholder: 'placeholder',
 };
 
 export const Number = Template.bind({});
 Number.args = {
-  label: 'label',
+  label: 'Name',
   placeholder: 'placeholder',
   type: 'number',
-  min: 0,
-  max: 100,
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  label: 'label',
-  error: 'There was an error',
+  label: 'Name',
+  error: true,
+  helperText: 'There was an error',
   placeholder: 'placeholder',
+  defaultValue: 'default value',
+};
+
+export const Multiline = Template.bind({});
+Multiline.args = {
+  label: 'Multiline',
+  multiline: true,
+  placeholder: 'placeholder',
+  defaultValue: 'default value',
 };
