@@ -50,3 +50,11 @@ Error.args = {
   placeholder: 'placeholder',
   defaultValue: 'default value',
 };
+
+export const Multiline = Template.bind({});
+Multiline.args = {
+  label: 'Multiline',
+  multiline: true,
+  placeholder: 'placeholder',
+  defaultValue: 'default value',
+};
