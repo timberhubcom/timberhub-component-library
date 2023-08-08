@@ -97,6 +97,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.1",
     "@mui/material-next": "^6.0.0-alpha.93",
+    "@mui/x-data-grid": "^6.11.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@storybook/addons": "^7.0.7",
     "@storybook/theming": "^7.0.7",

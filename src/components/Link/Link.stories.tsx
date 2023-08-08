@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { Link } from './Link';
 
 export default {
-  title: 'MUI/Components/Link',
+  title: 'MUI/Link',
   component: Link,
 };
 

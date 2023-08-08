@@ -5,7 +5,7 @@ import { MuiCheckbox } from '../Checkbox';
 import { Box } from '@mui/material';
 
 export default {
-  title: 'MUI/Components/FormControlLabel',
+  title: 'MUI/FormControlLabel',
   component: FormControlLabel,
 };
 

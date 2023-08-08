@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { Stepper } from './Stepper';
 
 export default {
-  title: 'MUI/Components/Stepper',
+  title: 'MUI/Stepper',
   component: Stepper,
 };
 

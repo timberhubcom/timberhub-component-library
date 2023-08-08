@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { MuiTextField } from './MuiTextField';
 
 export default {
-  title: 'MUI/Components/TextField',
+  title: 'MUI/TextField',
   component: MuiTextField,
 };
 

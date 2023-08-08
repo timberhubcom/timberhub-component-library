@@ -2,21 +2,20 @@ import React from 'react';
 import { TableHeader } from './TableHeader';
 import { TableRow } from './TableRow';
 import { css } from '@emotion/css';
-import { createLayout } from './layout';
+import { createLayout, TableLayout } from './layout';
+import { TableRowProps } from './TableRow';
 
 interface TableProps {
-  text?: string;
+  layout: TableLayout;
+  renderRow: (props: TableRowProps) => React.ReactNode;
 }
 
-export const Table = ({}: TableProps) => {
-  const test = createLayout(['option 1', 'option 2']);
-  console.log(test);
+export const Table = ({ layout, renderRow }: TableProps) => {
+  // console.log(layout);
   return (
     <div className={styles.container}>
-      <TableHeader layout={test} />
-      {[0, 1, 2, 3, 4].map((el) => (
-        <TableRow />
-      ))}
+      <TableHeader layout={layout} />
+      {renderRow({ layout })}
     </div>
   );
 };
@@ -32,7 +31,7 @@ const styles = {
     overflow-y: auto;
     position: relative;
     will-change: scroll-position;
-    background: red;
+    //background: red;
     align-items: flex-start;
   `,
 };

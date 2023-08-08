@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { MuiCheckbox as Checkbox } from './MuiCheckbox';
 
 export default {
-  title: 'MUI/Components/Checkbox',
+  title: 'MUI/Checkbox',
   component: Checkbox,
 };
 

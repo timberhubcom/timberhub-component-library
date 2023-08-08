@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { Autocomplete } from './Autocomplete';
 
 export default {
-  title: 'MUI/Components/Autocomplete',
+  title: 'MUI/Autocomplete',
   component: Autocomplete,
 };
 

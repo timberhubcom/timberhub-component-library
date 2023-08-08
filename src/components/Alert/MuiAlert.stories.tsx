@@ -4,7 +4,7 @@ import { MuiAlert as Alert, IMuiAlertProps } from './MuiAlert';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 export default {
-  title: 'Mui/Components/Alert',
+  title: 'Mui/Alert',
   component: Alert,
 };
 

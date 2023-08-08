@@ -5,7 +5,7 @@ import Button, { ButtonProps } from './Button';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 
 export default {
-  title: 'MUI/Components/Button',
+  title: 'MUI/Button',
   component: Button,
 };
 

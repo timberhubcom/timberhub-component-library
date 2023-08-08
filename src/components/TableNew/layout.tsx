@@ -6,7 +6,7 @@ type TableDataProps = {
 export interface TableLayout {
   sections: TableLayoutSection[];
   renderHead: Record<string, React.FC | undefined>;
-  renderData: Record<string, React.FC<TableDataProps>>;
+  renderData: Record<string, React.FC | undefined>;
 }
 
 export interface TableLayoutSection {
@@ -22,27 +22,35 @@ export class TableColumn {
 }
 
 export function createLayout(header: string[]) {
+  const stickyHeader = header.slice(0, 1)[0];
+  const contentHeader = header.slice(1);
+
   const layout: TableLayout = {
     sections: [
       { id: 'sticky', children: [], sticky: true },
       { id: 'main', children: [] },
     ],
-    renderHead: { name: NameHead },
+    renderHead: {},
     renderData: {},
   };
 
   const [stickySection, variableSection] = layout.sections;
 
+  layout.renderHead[stickyHeader] = () => <TableHead name={stickyHeader} />;
+  layout.renderData[stickyHeader] = () => <div>This is a name</div>;
   stickySection.children.push({
-    id: 'name',
-    width: 297,
+    id: stickyHeader,
+    width: 300,
   });
 
-  for (const c of header) {
-    const id = `column-id-${c}`;
+  for (const c of contentHeader) {
+    const id = `column-${c.replace(' ', '-')}`;
     layout.renderHead[id] = () => <TableHead name={c} />;
-    variableSection.children.push({ id, width: 96 });
+    layout.renderData[id] = () => <div>{`Data for ${c}`}</div>;
+    variableSection.children.push({ id, width: 150 });
   }
+
+  variableSection.children.push({ id: 'column-actions', width: 100 });
 
   return layout;
 }
@@ -50,5 +58,4 @@ export function createLayout(header: string[]) {
 type TableHeadProps = {
   name: string;
 };
-const NameHead = () => <div>{'NameHead'}</div>;
 const TableHead = ({ name }: TableHeadProps) => <div>{name}</div>;
