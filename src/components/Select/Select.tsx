@@ -18,7 +18,9 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   fontFamily: 'Inter',
   color: theme.palette.grey['900'],
   '& .MuiSelect-select': {
-    padding: '12px 16px',
+    paddingTop: '12px',
+    paddingBottom: '12px',
+    paddingLeft: '16px',
   },
   '&.MuiOutlinedInput-root': {
     ...outlinedInputStyles(theme),
