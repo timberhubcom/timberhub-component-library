@@ -6,17 +6,15 @@ describe('Select', () => {
   it('should trigger the on change function when input value is changed', () => {
     const onChangeMock = jest.fn();
     render(
-      <>
-        <Select
-          label={'test'}
-          onChange={onChangeMock}
-          defaultValue={'myAccount'}
-          options={[
-            { label: 'My Account', value: 'myAccount' },
-            { label: 'Log Out', value: 'logOut' },
-          ]}
-        />
-      </>,
+      <Select
+        label={'test'}
+        onChange={onChangeMock}
+        defaultValue={'myAccount'}
+        options={[
+          { label: 'My Account', value: 'myAccount' },
+          { label: 'Log Out', value: 'logOut' },
+        ]}
+      />,
     );
 
     fireEvent.mouseDown(screen.getByRole('button'));

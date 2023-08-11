@@ -12,6 +12,7 @@ interface Option {
 
 export interface ExtendedSelectProps<T extends unknown> extends Omit<SelectProps<T>, 'ref'> {
   options?: Option[];
+  emptyOptionText?: React.ReactNode;
 }
 
 const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...props} />)(({ theme }) => ({
@@ -30,12 +31,30 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   },
 }));
 
-const ExtendedSelect = <T extends unknown = unknown>({ options = [], children, ...props }: ExtendedSelectProps<T>) => {
+const ExtendedSelect = <T extends unknown = unknown>({
+  options = [],
+  children,
+  required,
+  emptyOptionText,
+  ...props
+}: ExtendedSelectProps<T>) => {
   const hasOptions = options?.length > 0;
+  const showEmptyOption = !required && !!emptyOptionText;
+  const selectOptions = [
+    ...(showEmptyOption
+      ? [
+          {
+            label: emptyOptionText ?? '',
+            value: '',
+          },
+        ]
+      : []),
+    ...options,
+  ];
   return (
-    <StyledSelect {...props}>
+    <StyledSelect required={required} {...props}>
       {hasOptions
-        ? options?.map((option) => (
+        ? selectOptions?.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
