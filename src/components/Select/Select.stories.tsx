@@ -31,7 +31,7 @@ Default.args = {
 export const WithEmptyOption = Template.bind({});
 WithEmptyOption.args = {
   label: 'Select an option',
-  emptyOptionText: 'Select an option...',
+  emptyOptionText: 'None',
   options,
 };
 

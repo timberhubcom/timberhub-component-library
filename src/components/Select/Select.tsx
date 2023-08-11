@@ -45,7 +45,7 @@ const ExtendedSelect = <T extends unknown = unknown>({
       ? [
           {
             label: emptyOptionText ?? '',
-            value: '',
+            value: null,
           },
         ]
       : []),
@@ -54,8 +54,8 @@ const ExtendedSelect = <T extends unknown = unknown>({
   return (
     <StyledSelect required={required} {...props}>
       {hasOptions
-        ? selectOptions?.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+        ? selectOptions?.map((option, idx) => (
+            <MenuItem key={option.value ?? ''} value={option.value ?? ''}>
               {option.label}
             </MenuItem>
           ))
