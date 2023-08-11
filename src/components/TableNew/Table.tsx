@@ -1,17 +1,8 @@
 import React from 'react';
-import {
-  TableWrapper,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableHeader,
-  TableFooter,
-  TablePagination,
-} from './components';
+import { TableWrapper, TableCell, TableHead, TableBody, TableRow, TableHeader, TablePagination } from './components';
 import {
   ColumnDef,
+  ColumnResizeMode,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
@@ -20,8 +11,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import Pagination, { PaginationProps } from '../Pagination/Pagination';
-import Loader from '../Icons/Loader';
-import { colors } from '../../theme/colors.enum';
 import { css, cx } from '@emotion/css';
 import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
@@ -43,18 +32,18 @@ export const Table = <TData extends object>({
   pagination,
   renderEmpty = () => 'No results',
 }: TableProps<TData>) => {
+  const columnResizeMode: ColumnResizeMode = 'onChange';
+
   const table = useReactTable({
     data,
     columns,
+    columnResizeMode,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: !!pagination ? getPaginationRowModel() : undefined,
     // initialState: {
     //   pagination: { pageIndex: !!pagination ? (pagination()?.activePage ? pagination().activePage! - 1 : 0) : 0 },
     // },
   });
-
-  // console.log(pagination?.().activePage ? pagination().activePage - 1 : 0);
-  // console.log(table.getState().pagination.pageIndex + 1);
 
   if (isLoading) {
     return (
@@ -71,75 +60,19 @@ export const Table = <TData extends object>({
           ))}
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell colSpan={columns.length}>
-              <div className={styles.loading}>
-                <Loader color={colors.POSITIVE} />
-              </div>
-            </TableCell>
-          </TableRow>
+          {[...new Array(10)].map(() => (
+            <TableRow key={crypto.randomUUID()}>
+              {[...new Array(columns.length)].map(() => (
+                <TableCell key={crypto.randomUUID()}>
+                  <Skeleton variant="rectangular" />
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
         </TableBody>
       </TableWrapper>
     );
   }
-
-  // Skeleton with header names
-  // if (isLoading) {
-  //   return (
-  //     <TableWrapper>
-  //       <TableHeader>
-  //         {table.getHeaderGroups().map((headerGroup) => (
-  //           <TableRow key={headerGroup.id}>
-  //             {headerGroup.headers.map((header) => (
-  //               <TableHead key={header.id}>
-  //                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-  //               </TableHead>
-  //             ))}
-  //           </TableRow>
-  //         ))}
-  //       </TableHeader>
-  //       <TableBody>
-  //         {[...new Array(5)].map(() => (
-  //           <TableRow key={crypto.randomUUID()}>
-  //             {new Array(columns.length).fill(null).map(() => (
-  //               <TableCell key={crypto.randomUUID()}>
-  //                 <Skeleton variant="rectangular" />
-  //               </TableCell>
-  //             ))}
-  //           </TableRow>
-  //         ))}
-  //       </TableBody>
-  //     </TableWrapper>
-  //   );
-  // }
-
-  // Full Skeleton
-  // if (isLoading) {
-  //   return (
-  //     <TableWrapper>
-  //       <TableHeader>
-  //         <TableRow>
-  //           {[...new Array(columns.length)].map(() => (
-  //             <TableHead key={crypto.randomUUID()}>
-  //               <Skeleton variant="rectangular" />
-  //             </TableHead>
-  //           ))}
-  //         </TableRow>
-  //       </TableHeader>
-  //       <TableBody>
-  //         {[...new Array(5)].map(() => (
-  //           <TableRow>
-  //             {[...new Array(columns.length)].map(() => (
-  //               <TableCell key={crypto.randomUUID()}>
-  //                 <Skeleton variant="rectangular" />
-  //               </TableCell>
-  //             ))}
-  //           </TableRow>
-  //         ))}
-  //       </TableBody>
-  //     </TableWrapper>
-  //   );
-  // }
 
   return (
     <TableWrapper>
@@ -147,8 +80,17 @@ export const Table = <TData extends object>({
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id} className={styles.sticky}>
             {headerGroup.headers.map((header) => (
-              <TableHead key={header.id}>
+              <TableHead
+                key={header.id}
+                colSpan={header.colSpan}
+                style={{ width: header.getSize(), position: 'relative' }}
+              >
                 {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                <div
+                  onMouseDown={header.getResizeHandler()}
+                  onTouchStart={header.getResizeHandler()}
+                  className={styles.resizer(header.column.getIsResizing())}
+                />
               </TableHead>
             ))}
           </TableRow>
@@ -178,24 +120,20 @@ export const Table = <TData extends object>({
       </TableBody>
 
       {!!pagination ? (
-        <TablePagination currentPage={table.getState().pagination.pageIndex + 1} totalPages={table.getPageCount()} />
+        <TablePagination
+          currentPage={table.getState().pagination.pageIndex + 1}
+          totalPages={table.getPageCount()}
+          onChange={(page) => {
+            console.log('Page: ', page);
+            return table.setPageIndex(page - 1);
+          }}
+        />
       ) : null}
     </TableWrapper>
   );
 };
 
 const styles = {
-  loading: css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 24px;
-
-    svg {
-      width: 32px !important;
-      height: 32px !important;
-    }
-  `,
   row: css`
     &:first-of-type {
       td {
@@ -252,7 +190,7 @@ const styles = {
     th,
     td {
       &:first-of-type {
-        position: sticky;
+        position: sticky !important;
         left: 0;
         z-index: 10;
         background-color: ${tokens.colors.white};
@@ -261,11 +199,37 @@ const styles = {
   `,
   active: css`
     cursor: pointer;
+
     &:hover {
-      background-color: ${tokens.colors.grey[50]};
+      td {
+        background-color: #f7f7f7; // tokens.colors.grey[50] includes opacity, thus making it not work. Colors shouldn't have opacity
+      }
     }
   `,
   empty: css`
     text-align: center;
+  `,
+  resizer: (isActive: boolean) => css`
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: ${tokens.colors.grey[50]};
+    cursor: col-resize;
+    user-select: none;
+    touch-action: none;
+    transition: all 150ms ease 0ms;
+
+    &:hover {
+      transform: scaleX(2);
+      background-color: ${tokens.colors.primary[500]};
+    }
+
+    ${isActive &&
+    css`
+      transform: scaleX(2);
+      background-color: ${tokens.colors.primary[400]};
+    `}
   `,
 };

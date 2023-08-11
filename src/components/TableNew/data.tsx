@@ -10,12 +10,14 @@ type Payment = {
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    accessorKey: 'status',
-    header: 'Status',
-  },
-  {
     accessorKey: 'email',
     header: 'Email',
+    minSize: 200,
+    maxSize: 300,
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
   },
   {
     accessorKey: 'random',
@@ -40,7 +42,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-export const data: Payment[] = [...new Array(54)].map((_, index) => ({
+export const data: Payment[] = [...new Array(504)].map((_, index) => ({
   id: crypto.randomUUID(),
   amount: index + 100,
   email: `user${index}@email${index}.com`,

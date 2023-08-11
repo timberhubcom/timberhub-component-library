@@ -18,6 +18,7 @@ const styles = {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
+    table-layout: fixed;
   `,
 };
 
