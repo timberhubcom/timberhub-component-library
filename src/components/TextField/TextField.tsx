@@ -2,6 +2,7 @@ import { Color, Theme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MuiTextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
 import React from 'react';
+import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> {
   variant?: TextFieldVariants;
@@ -33,6 +34,9 @@ export const outlinedInputStyles = (theme: Theme) => ({
   },
   '&.Mui-error .MuiInputBase-input': {
     color: `${(theme.palette.error as unknown as Color)['400']} !important`,
+  },
+  '& .MuiSelect-icon path': {
+    d: `path("${dropdownIconPath}")`,
   },
 });
 
