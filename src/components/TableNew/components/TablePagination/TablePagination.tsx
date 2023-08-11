@@ -36,7 +36,7 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
       startPage = totalPages - visiblePages + 1;
     }
 
-    return Array.from({ length: visiblePages }, (_, i) => i + startPage);
+    return Array.from({ length: visiblePages - 1 }, (_, i) => i + startPage);
   }, [currentPage, totalPages, visiblePages]);
 
   console.log(pageRange);
