@@ -1,5 +1,14 @@
 import React from 'react';
-import { TableWrapper, TableCell, TableHead, TableBody, TableRow, TableHeader, TablePagination } from './components';
+import {
+  TableWrapper,
+  TableCell,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TablePagination,
+  TablePaginationProps,
+} from './components';
 import {
   ColumnDef,
   ColumnResizeMode,
@@ -10,7 +19,6 @@ import {
   Row,
   useReactTable,
 } from '@tanstack/react-table';
-import Pagination, { PaginationProps } from '../Pagination/Pagination';
 import { css, cx } from '@emotion/css';
 import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
@@ -21,7 +29,7 @@ interface TableProps<TData> {
   isLoading?: boolean;
   onClick?: (row: Row<TData>) => void;
   renderEmpty?: () => React.ReactNode;
-  pagination?: (data?: PaginationState) => PaginationProps;
+  pagination?: (data?: PaginationState) => TablePaginationProps;
 }
 
 export const Table = <TData extends object>({
@@ -40,9 +48,6 @@ export const Table = <TData extends object>({
     columnResizeMode,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: !!pagination ? getPaginationRowModel() : undefined,
-    // initialState: {
-    //   pagination: { pageIndex: !!pagination ? (pagination()?.activePage ? pagination().activePage! - 1 : 0) : 0 },
-    // },
   });
 
   if (isLoading) {
@@ -75,115 +80,110 @@ export const Table = <TData extends object>({
   }
 
   return (
-    <TableWrapper>
-      <TableHeader>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow key={headerGroup.id} className={styles.sticky}>
-            {headerGroup.headers.map((header) => (
-              <TableHead
-                key={header.id}
-                colSpan={header.colSpan}
-                style={{ width: header.getSize(), position: 'relative' }}
-              >
-                {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                <div
-                  onMouseDown={header.getResizeHandler()}
-                  onTouchStart={header.getResizeHandler()}
-                  className={styles.resizer(header.column.getIsResizing())}
-                />
-              </TableHead>
-            ))}
-          </TableRow>
-        ))}
-      </TableHeader>
-
-      <TableBody>
-        {table.getRowModel().rows?.length > 0 ? (
-          table.getRowModel().rows.map((row) => (
-            <TableRow
-              key={row.id}
-              onClick={!!onClick ? () => onClick(row) : undefined}
-              className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}
-            >
-              {row.getVisibleCells().map((cell) => (
-                <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+    <React.Fragment>
+      <TableWrapper>
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id} className={styles.sticky}>
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  style={{ width: header.getSize(), position: 'relative' }}
+                >
+                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+                  <div
+                    onMouseDown={header.getResizeHandler()}
+                    onTouchStart={header.getResizeHandler()}
+                    className={styles.resizer(header.column.getIsResizing())}
+                  />
+                </TableHead>
               ))}
             </TableRow>
-          ))
-        ) : (
-          <TableRow>
-            <TableCell colSpan={columns.length} className={styles.empty}>
-              {renderEmpty()}
-            </TableCell>
-          </TableRow>
-        )}
-      </TableBody>
+          ))}
+        </TableHeader>
 
+        <TableBody>
+          {table.getRowModel().rows?.length > 0 ? (
+            table.getRowModel().rows.map((row) => (
+              <TableRow
+                key={row.id}
+                onClick={!!onClick ? () => onClick(row) : undefined}
+                className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                ))}
+              </TableRow>
+            ))
+          ) : (
+            <TableRow>
+              <TableCell colSpan={columns.length} className={styles.empty}>
+                {renderEmpty()}
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </TableWrapper>
       {!!pagination ? (
         <TablePagination
           currentPage={table.getState().pagination.pageIndex + 1}
           totalPages={table.getPageCount()}
-          onChange={(page) => {
-            console.log('Page: ', page);
-            return table.setPageIndex(page - 1);
-          }}
+          onChange={table.setPageIndex}
+          // visiblePages={1}
         />
       ) : null}
-    </TableWrapper>
+    </React.Fragment>
   );
 };
+
+const rowTd = (type: 'first' | 'middle' | 'last') => css`
+  td {
+    border: 1px solid ${tokens.colors.grey[200]};
+    ${type !== 'last' &&
+    css`
+      border-bottom: 0 solid;
+    `};
+    border-style: solid none;
+
+    &:first-of-type {
+      border-left-style: solid;
+      ${type === 'first' &&
+      css`
+        border-top-left-radius: 10px;
+      `};
+      ${type === 'last' &&
+      css`
+        border-bottom-left-radius: 10px;
+      `};
+    }
+
+    &:last-of-type {
+      border-right-style: solid;
+      ${type === 'first' &&
+      css`
+        border-top-right-radius: 10px;
+      `};
+      ${type === 'last' &&
+      css`
+        border-bottom-right-radius: 10px;
+      `};
+    }
+  }
+`;
 
 const styles = {
   row: css`
     &:first-of-type {
-      td {
-        border: 1px solid ${tokens.colors.grey[200]};
-        border-bottom: 0 solid;
-        border-style: solid none;
-
-        &:first-of-type {
-          border-left-style: solid;
-          border-top-left-radius: 10px;
-        }
-
-        &:last-of-type {
-          border-right-style: solid;
-          border-top-right-radius: 10px;
-        }
-      }
+      ${rowTd('first')}
     }
 
     &:not(:first-of-type) {
-      td {
-        border: 1px solid ${tokens.colors.grey[200]};
-        border-bottom: 0 solid;
-        border-style: solid none;
-
-        &:first-of-type {
-          border-left-style: solid;
-        }
-
-        &:last-of-type {
-          border-right-style: solid;
-        }
-      }
+      ${rowTd('middle')}
     }
 
     &:last-of-type {
-      td {
-        border: 1px solid ${tokens.colors.grey[200]};
-        border-style: solid none;
-
-        &:first-of-type {
-          border-left-style: solid;
-          border-bottom-left-radius: 10px;
-        }
-
-        &:last-of-type {
-          border-right-style: solid;
-          border-bottom-right-radius: 10px;
-        }
-      }
+      ${rowTd('last')}
     }
   `,
   sticky: css`

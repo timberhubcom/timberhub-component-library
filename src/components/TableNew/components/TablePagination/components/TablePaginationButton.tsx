@@ -3,7 +3,7 @@ import { css, cx } from '@emotion/css';
 import { tokens } from '../../../../../theme/tokens';
 import { KeyboardArrowLeft, KeyboardDoubleArrowLeft } from '@mui/icons-material';
 
-interface TablePaginationArrowProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface TablePaginationArrowProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
   active?: boolean;
   onClick?: (page?: number) => void;
 }

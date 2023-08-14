@@ -42,7 +42,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-export const data: Payment[] = [...new Array(504)].map((_, index) => ({
+export const data: Payment[] = [...new Array(71)].map((_, index) => ({
   id: crypto.randomUUID(),
   amount: index + 100,
   email: `user${index}@email${index}.com`,
