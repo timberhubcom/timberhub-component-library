@@ -1,60 +1,51 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
-import Table from './Table';
-import { rows, structure } from './data';
+import { StoryFn } from '@storybook/react';
+import { Table } from './Table';
+import { columns, data, dataPagination } from './data';
 
 export default {
-  title: 'Components/Table',
+  title: 'MUI/Table',
   component: Table,
+  parameters: { actions: { argTypesRegex: null } },
 };
 
-const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
+const Template: StoryFn<typeof Table> = (args) => <Table {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {
-  structure,
-  rows,
+  columns,
+  data,
+  // onClick: undefined,
 };
 
 export const Empty = Template.bind({});
 Empty.args = {
-  structure,
-  rows: [],
+  columns,
+  data: [],
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-  structure,
-  loading: true,
-  rows,
-};
-
-
-export const HiddenHeader = Template.bind({});
-HiddenHeader.args = {
-  structure,
-  rows,
-  mobileHeader: 'hidden',
+  columns,
+  data,
+  isLoading: true,
 };
 
 export const ClickableRow = Template.bind({});
 ClickableRow.args = {
-  structure,
-  rows,
-  clickableRow: true,
+  columns,
+  data,
   onClick: (row) => console.log(row),
 };
 
 export const WithPagination = Template.bind({});
 WithPagination.args = {
-  structure,
-  rows,
-  clickableRow: true,
+  columns,
+  data: dataPagination,
   onClick: (row) => console.log(row),
-  pagination: true,
-  paginationData: {
-    activePage: 1,
-    totalPages: 10,
-    onPageChange: (page) => console.log(page),
+  pagination: {
+    onChange: (page) => {
+      console.log('Page: ', page);
+    },
   },
 };
