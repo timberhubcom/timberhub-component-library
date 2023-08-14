@@ -12,6 +12,7 @@ export { default as Pagination } from './Pagination';
 export * from './Progress';
 export { default as Radio } from './Radio';
 export { default as RadioGroup } from './RadioGroup';
+export * from './Select';
 export * from './Stepper';
 export { default as Switch } from './Switch';
 export { default as Table } from './Table';
@@ -22,3 +23,4 @@ export * from './Typography';
 
 // external components
 export {default as Divider} from '@mui/material/Divider'
+export {default as MenuItem} from '@mui/material/MenuItem'
