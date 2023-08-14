@@ -16,5 +16,3 @@ const styles = {
     color: ${tokens.colors.grey[600]};
   `,
 };
-
-TableHead.displayName = 'TableHead';

@@ -43,7 +43,7 @@ export const columns: ColumnDef<Payment>[] = [
 ];
 
 export const data: Payment[] = [...new Array(10)].map((_, index) => ({
-  id: `row-${index}`,
+  id: index.toString(),
   amount: index + 100,
   email: `user${index}@email${index}.com`,
   status: index === 0 ? 'pending' : index % 2 === 0 ? 'success' : 'failed',
@@ -52,7 +52,7 @@ export const data: Payment[] = [...new Array(10)].map((_, index) => ({
 }));
 
 export const dataPagination: Payment[] = [...new Array(1005)].map((_, index) => ({
-  id: `row-${index}`,
+  id: index.toString(),
   amount: index + 100,
   email: `user${index}@email${index}.com`,
   status: index === 0 ? 'pending' : index % 2 === 0 ? 'success' : 'failed',

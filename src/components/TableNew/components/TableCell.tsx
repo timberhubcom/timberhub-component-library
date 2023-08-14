@@ -11,5 +11,3 @@ const styles = {
     vertical-align: middle;
   `,
 };
-
-TableCell.displayName = 'TableCell';

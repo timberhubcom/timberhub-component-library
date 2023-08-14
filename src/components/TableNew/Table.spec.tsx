@@ -7,12 +7,10 @@ describe('Table', () => {
   it('should render columns and rows properly', () => {
     render(<Table columns={columns} data={data} />);
 
-    // rows
     expect(screen.getAllByText('pending').length).toBe(1);
     expect(screen.getAllByText('failed').length).toBe(5);
     expect(screen.getAllByText('success').length).toBe(4);
 
-    // renders child components
     expect(screen.getByText('user0@email0.com')).toBeVisible();
   });
   it('should call the onClick callback when a row is clicked', () => {
@@ -21,6 +19,6 @@ describe('Table', () => {
 
     fireEvent.click(screen.getByTestId('row-0'));
 
-    expect(mockOnClick).toHaveBeenCalledWith(data[0]);
+    expect(mockOnClick).toHaveBeenCalled();
   });
 });

@@ -103,12 +103,12 @@ export const Table = <TData extends object>({
             </TableRow>
           ))}
         </TableHeader>
-
         <TableBody>
           {table.getRowModel().rows?.length > 0 ? (
-            table.getRowModel().rows.map((row) => (
+            table.getRowModel().rows.map((row, index) => (
               <TableRow
                 key={row.id}
+                data-testid={`row-${index}`}
                 onClick={!!onClick ? () => onClick(row) : undefined}
                 className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}
               >
