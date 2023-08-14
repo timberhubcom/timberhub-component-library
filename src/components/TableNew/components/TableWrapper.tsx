@@ -21,5 +21,3 @@ const styles = {
     table-layout: fixed;
   `,
 };
-
-TableWrapper.displayName = 'TableWrapper';

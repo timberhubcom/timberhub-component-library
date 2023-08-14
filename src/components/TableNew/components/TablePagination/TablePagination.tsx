@@ -11,7 +11,7 @@ import {
 export interface TablePaginationProps {
   currentPage?: number;
   totalPages?: number;
-  visiblePages?: number; // Not counting the first & last page
+  visiblePages?: number;
   onChange?: (page: number) => void;
 }
 
