@@ -1,5 +1,5 @@
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Table } from './Table';
 import { columns, data, dataPagination } from './data';
 
@@ -7,7 +7,7 @@ export default {
   title: 'MUI/Table',
   component: Table,
   parameters: { actions: { argTypesRegex: null } },
-};
+} as Meta;
 
 const Template: StoryFn<typeof Table> = (args) => <Table {...args} />;
 

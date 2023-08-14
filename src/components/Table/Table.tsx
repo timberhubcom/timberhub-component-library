@@ -22,14 +22,14 @@ import { css, cx } from '@emotion/css';
 import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
 
-interface TableProps<TData> {
+export type TableProps<TData> = {
   columns: ColumnDef<TData>[];
   data: TData[];
   isLoading?: boolean;
   onClick?: (row: Row<TData>) => void;
   renderEmpty?: () => React.ReactNode;
   pagination?: TablePaginationProps;
-}
+};
 
 export const Table = <TData extends object>({
   columns,

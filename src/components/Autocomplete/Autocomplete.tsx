@@ -3,9 +3,8 @@ import MuiAutocomplete, {
   AutocompleteRenderInputParams,
   AutocompleteProps as MuiAutocompleteProps,
 } from '@mui/material/Autocomplete';
-import { MuiTextField } from '../TextField';
+import { MuiTextField, TextFieldProps } from '../TextField';
 import { tokens } from '../../theme/tokens';
-import { TextFieldProps } from '../TextField/MuiTextField';
 import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 export interface OptionType {
