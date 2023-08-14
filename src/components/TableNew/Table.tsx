@@ -15,7 +15,6 @@ import {
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
-  PaginationState,
   Row,
   useReactTable,
 } from '@tanstack/react-table';
@@ -29,7 +28,7 @@ interface TableProps<TData> {
   isLoading?: boolean;
   onClick?: (row: Row<TData>) => void;
   renderEmpty?: () => React.ReactNode;
-  pagination?: (data?: PaginationState) => TablePaginationProps;
+  pagination?: TablePaginationProps;
 }
 
 export const Table = <TData extends object>({
@@ -49,6 +48,8 @@ export const Table = <TData extends object>({
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: !!pagination ? getPaginationRowModel() : undefined,
   });
+
+  const paginationData = table.getState().pagination;
 
   if (isLoading) {
     return (
@@ -127,10 +128,12 @@ export const Table = <TData extends object>({
       </TableWrapper>
       {!!pagination ? (
         <TablePagination
-          currentPage={table.getState().pagination.pageIndex + 1}
-          totalPages={table.getPageCount()}
-          onChange={table.setPageIndex}
-          // visiblePages={1}
+          currentPage={pagination.currentPage || paginationData.pageIndex + 1}
+          totalPages={pagination.totalPages || table.getPageCount()}
+          onChange={(page) => {
+            table.setPageIndex(page);
+            pagination.onChange?.(page + 1);
+          }}
         />
       ) : null}
     </React.Fragment>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
 import { Table } from './Table';
-import { columns, data } from './data';
+import { columns, data, dataPagination } from './data';
 
 export default {
   title: 'MUI/TableNew',
@@ -41,11 +41,11 @@ ClickableRow.args = {
 export const WithPagination = Template.bind({});
 WithPagination.args = {
   columns,
-  data,
+  data: dataPagination,
   onClick: (row) => console.log(row),
-  pagination: () => ({
-    activePage: 2,
-    totalPages: 10,
-    onPageChange: (page) => console.log(page),
-  }),
+  pagination: {
+    onChange: (page) => {
+      console.log('Page: ', page);
+    },
+  },
 };

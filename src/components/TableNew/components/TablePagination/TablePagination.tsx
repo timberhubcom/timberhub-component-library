@@ -1,5 +1,4 @@
 import React from 'react';
-import { Updater } from '@tanstack/react-table';
 import { css } from '@emotion/css';
 import { TablePaginationButton } from './components/TablePaginationButton';
 import {
@@ -13,7 +12,7 @@ export interface TablePaginationProps {
   currentPage?: number;
   totalPages?: number;
   visiblePages?: number; // Not counting the first & last page
-  onChange?: (page: Updater<number>) => void;
+  onChange?: (page: number) => void;
 }
 
 export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 5 }: TablePaginationProps) => {
