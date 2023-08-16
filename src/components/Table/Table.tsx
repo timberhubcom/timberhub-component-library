@@ -58,7 +58,7 @@ export const Table = <TData extends object>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <TableHead key={header.id}>
+                <TableHead key={header.id} className={styles.head()}>
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </TableHead>
               ))}
@@ -90,7 +90,7 @@ export const Table = <TData extends object>({
                 <TableHead
                   key={header.id}
                   colSpan={header.colSpan}
-                  style={{ width: header.getSize(), position: 'relative' }}
+                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
                 >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   <div
@@ -113,7 +113,9 @@ export const Table = <TData extends object>({
                 className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}
               >
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
+                  <TableCell key={cell.id} className={styles.cell(cell.column.columnDef.enablePinning)}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
                 ))}
               </TableRow>
             ))
@@ -187,6 +189,34 @@ const styles = {
 
     &:last-of-type {
       ${rowTd('last')}
+    }
+  `,
+  head: (width?: number, isPinned?: boolean) => css`
+    position: relative;
+    ${{ width }};
+    padding: 8px 12px;
+    &:first-of-type {
+      padding-left: 8px;
+    }
+    &:last-of-type {
+      ${isPinned &&
+      css`
+        padding-left: 4px;
+      `};
+      padding-right: 8px;
+    }
+  `,
+  cell: (isPinned?: boolean) => css`
+    padding: 16px 12px;
+    &:first-of-type {
+      padding-left: 8px;
+    }
+    &:last-of-type {
+      ${isPinned &&
+      css`
+        padding-left: 4px;
+      `};
+      padding-right: 8px;
     }
   `,
   sticky: css`

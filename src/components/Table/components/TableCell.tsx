@@ -7,7 +7,6 @@ export const TableCell = React.forwardRef<HTMLTableCellElement, React.TdHTMLAttr
 
 const styles = {
   root: css`
-    padding: 16px 8px;
     vertical-align: middle;
   `,
 };

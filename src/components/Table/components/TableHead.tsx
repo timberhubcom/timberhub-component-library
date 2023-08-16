@@ -8,7 +8,6 @@ export const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttr
 
 const styles = {
   root: css`
-    padding: 8px;
     text-align: left;
     vertical-align: middle;
     cursor: default;

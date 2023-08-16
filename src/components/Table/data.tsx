@@ -1,5 +1,6 @@
 import { ColumnDef } from '@tanstack/react-table';
 import React from 'react';
+import { Button } from '../Button';
 
 type Payment = {
   id: string;
@@ -24,10 +25,6 @@ export const columns: ColumnDef<Payment>[] = [
     header: 'Random',
   },
   {
-    accessorKey: 'random2',
-    header: 'Random2',
-  },
-  {
     accessorKey: 'amount',
     header: () => <div>Amount</div>,
     cell: ({ row }) => {
@@ -40,6 +37,7 @@ export const columns: ColumnDef<Payment>[] = [
       return <div>{formatted}</div>;
     },
   },
+  { id: 'action', enablePinning: true, cell: () => <Button>View</Button> },
 ];
 
 export const data: Payment[] = [...new Array(10)].map((_, index) => ({
@@ -48,7 +46,6 @@ export const data: Payment[] = [...new Array(10)].map((_, index) => ({
   email: `user${index}@email${index}.com`,
   status: index === 0 ? 'pending' : index % 2 === 0 ? 'success' : 'failed',
   random: 'hola',
-  random2: 'hola',
 }));
 
 export const dataPagination: Payment[] = [...new Array(1005)].map((_, index) => ({
@@ -57,5 +54,4 @@ export const dataPagination: Payment[] = [...new Array(1005)].map((_, index) => 
   email: `user${index}@email${index}.com`,
   status: index === 0 ? 'pending' : index % 2 === 0 ? 'success' : 'failed',
   random: 'hola',
-  random2: 'hola',
 }));
