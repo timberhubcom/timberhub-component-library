@@ -58,7 +58,10 @@ export const Table = <TData extends object>({
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
-                <TableHead key={header.id} className={styles.head()}>
+                <TableHead
+                  key={header.id}
+                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
+                >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </TableHead>
               ))}
@@ -67,10 +70,10 @@ export const Table = <TData extends object>({
         </TableHeader>
         <TableBody>
           {[...new Array(10)].map(() => (
-            <TableRow key={crypto.randomUUID()}>
+            <TableRow key={crypto.randomUUID()} className={styles.row}>
               {[...new Array(columns.length)].map(() => (
-                <TableCell key={crypto.randomUUID()}>
-                  <Skeleton variant="rectangular" />
+                <TableCell key={crypto.randomUUID()} className={styles.cell()}>
+                  <Skeleton variant="rounded" />
                 </TableCell>
               ))}
             </TableRow>
@@ -93,11 +96,13 @@ export const Table = <TData extends object>({
                   className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
                 >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  <div
-                    onMouseDown={header.getResizeHandler()}
-                    onTouchStart={header.getResizeHandler()}
-                    className={styles.resizer(header.column.getIsResizing())}
-                  />
+                  {!header.column.columnDef.enablePinning && (
+                    <div
+                      onMouseDown={header.getResizeHandler()}
+                      onTouchStart={header.getResizeHandler()}
+                      className={styles.resizer(header.column.getIsResizing())}
+                    />
+                  )}
                 </TableHead>
               ))}
             </TableRow>
