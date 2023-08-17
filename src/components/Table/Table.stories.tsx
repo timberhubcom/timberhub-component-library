@@ -15,7 +15,6 @@ export const Base = Template.bind({});
 Base.args = {
   columns,
   data,
-  // onClick: undefined,
 };
 
 export const Empty = Template.bind({});
