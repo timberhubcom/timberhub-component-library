@@ -11,8 +11,11 @@ const styles = {
     text-align: left;
     vertical-align: middle;
     cursor: default;
-    text-transform: capitalize;
     ${tokens.typography.headline_ss_xxs};
     color: ${tokens.colors.grey[600]};
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
   `,
 };
