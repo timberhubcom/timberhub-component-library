@@ -1,50 +1,59 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { ComponentStory } from '@storybook/react';
 import { Table } from './Table';
-import { columns, data, dataPagination } from './data';
+import { rows, structure } from './data';
 
 export default {
-  title: 'MUI/Table',
+  title: 'Components/Table',
   component: Table,
-  parameters: { actions: { argTypesRegex: null } },
-} as Meta;
+};
 
-const Template: StoryFn<typeof Table> = (args) => <Table {...args} />;
+const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {
-  columns,
-  data,
+  structure,
+  rows,
 };
 
 export const Empty = Template.bind({});
 Empty.args = {
-  columns,
-  data: [],
+  structure,
+  rows: [],
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-  columns,
-  data,
-  isLoading: true,
+  structure,
+  loading: true,
+  rows,
+};
+
+export const HiddenHeader = Template.bind({});
+HiddenHeader.args = {
+  structure,
+  rows,
+  mobileHeader: 'hidden',
 };
 
 export const ClickableRow = Template.bind({});
 ClickableRow.args = {
-  columns,
-  data,
+  structure,
+  rows,
+  clickableRow: true,
   onClick: (row) => console.log(row),
 };
 
 export const WithPagination = Template.bind({});
 WithPagination.args = {
-  columns,
-  data: dataPagination,
+  structure,
+  rows,
+  clickableRow: true,
   onClick: (row) => console.log(row),
-  pagination: {
-    onChange: (page) => {
-      console.log('Page: ', page);
-    },
+  pagination: true,
+  paginationData: {
+    activePage: 1,
+    totalPages: 10,
+    onPageChange: (page) => console.log(page),
   },
 };
