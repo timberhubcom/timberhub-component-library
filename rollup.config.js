@@ -62,4 +62,15 @@ export default [
     ],
     external: [/\.(css|scss)$/],
   },
+  {
+    input: 'src/mui.d.ts',
+    output: [{ file: 'dist/mui.d.ts', format: 'esm' }],
+    plugins: [
+      dts({
+        compilerOptions: {
+          baseUrl: './',
+        },
+      }),
+    ],
+  },
 ];

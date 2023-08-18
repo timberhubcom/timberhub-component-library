@@ -5,7 +5,7 @@ import MuiAutocomplete, {
 } from '@mui/material/Autocomplete';
 import { MuiTextField } from '../TextField';
 import { tokens } from '../../theme/tokens';
-import { TextFieldProps } from '../TextField/MuiTextField';
+import { TextFieldProps } from '../TextField/TextField';
 import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 export interface OptionType {
