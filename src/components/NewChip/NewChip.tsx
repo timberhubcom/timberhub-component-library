@@ -4,14 +4,18 @@ import { tokens } from '../../theme/tokens';
 
 export const chipColors = ['primary', 'grey', 'error', 'warning', 'info'] as const;
 
+type ChipSize = 'small' | 'default';
+
 type NewChipProps = {
   label: string;
+  size?: ChipSize;
   addonStart?: React.ReactNode;
   color?: (typeof chipColors)[number];
+  onClick?: () => void;
 };
 
 export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function Chip(
-  { label, addonStart, color = 'grey', ...props },
+  { label, size = 'default', addonStart, color = 'grey', onClick, ...props },
   ref,
 ) {
   const colors = React.useMemo(() => {
@@ -38,10 +42,9 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
   return (
     <div
       ref={ref}
-      className={cx(
-        styles.root(!!addonStart),
-        styles.color(colors.text, colors.background, colors.hover.text, colors.hover.background),
-      )}
+      className={cx(styles.root(size, !!addonStart), styles.color(colors.text, colors.background), {
+        [styles.clickable(colors.hover.text, colors.hover.background)]: !!onClick,
+      })}
       {...props}
     >
       {addonStart}
@@ -51,20 +54,25 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
 });
 
 const styles = {
-  root: (addonStart: boolean) => css`
+  root: (size: ChipSize, addonStart: boolean) => css`
     display: grid;
     grid-template-columns: ${addonStart ? 'auto' : ''} 1fr;
+    align-items: center;
     gap: 4px;
     padding: 2px 8px;
+    height: ${size === 'default' ? '24px' : '16px'};
     width: fit-content;
     border-radius: 1px;
     ${tokens.typography.caption};
-    cursor: pointer;
+    cursor: default;
   `,
-  color: (textColor: string, bgColor: string, textHoverColor: string, bgHoverColor: string) => css`
+  color: (textColor: string, bgColor: string) => css`
     transition: all 150ms ease 0ms;
     color: ${textColor};
     background-color: ${bgColor};
+  `,
+  clickable: (textHoverColor: string, bgHoverColor: string) => css`
+    cursor: pointer;
     &:hover {
       color: ${textHoverColor};
       background-color: ${bgHoverColor};

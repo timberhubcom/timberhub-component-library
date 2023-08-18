@@ -1,13 +1,21 @@
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { NewChip } from './NewChip';
 
 export default {
   title: 'MUI/NewChip',
   component: NewChip,
-};
+  parameters: { actions: { argTypesRegex: null } },
+} as Meta;
 
 const Template: StoryFn<typeof NewChip> = (args) => <NewChip {...args} />;
+const MultipleSizes: StoryFn<any> = (args) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+    <NewChip {...args[0]} />
+    <NewChip {...args[1]} />
+  </div>
+);
+
 const MultipleTemplate: StoryFn<any> = (args) => (
   <div style={{ display: 'flex', gap: '20px' }}>
     <NewChip {...args[0]} />
@@ -22,6 +30,17 @@ export const Base = Template.bind({});
 Base.args = {
   label: 'offer',
 };
+
+export const Sizes = MultipleSizes.bind({});
+Sizes.args = [
+  {
+    label: 'Small',
+    size: 'small',
+  },
+  {
+    label: 'Default',
+  },
+];
 
 export const Color = MultipleTemplate.bind({});
 Color.args = [
