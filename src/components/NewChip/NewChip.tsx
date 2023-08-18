@@ -25,7 +25,7 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
   ref,
 ) {
   const colors = React.useMemo(() => {
-    if (color === 'grey') {
+    if (color === ChipColorEnum.GREY) {
       return {
         text: tokens.colors.grey[700],
         background: tokens.colors.grey[100],
