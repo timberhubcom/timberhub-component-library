@@ -2,7 +2,13 @@ import React from 'react';
 import { css, cx } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
 
-export const chipColors = ['primary', 'grey', 'error', 'warning', 'info'] as const;
+export const ChipColorEnum = {
+  PRIMARY: 'primary',
+  GREY: 'grey',
+  ERROR: 'error',
+  WARNING: 'warning',
+  INFO: 'info',
+} as const;
 
 type ChipSize = 'small' | 'default';
 
@@ -10,12 +16,12 @@ type NewChipProps = {
   label: string;
   size?: ChipSize;
   addonStart?: React.ReactNode;
-  color?: (typeof chipColors)[number];
+  color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
   onClick?: () => void;
 };
 
 export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function Chip(
-  { label, size = 'default', addonStart, color = 'grey', onClick, ...props },
+  { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, ...props },
   ref,
 ) {
   const colors = React.useMemo(() => {
@@ -32,7 +38,7 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
 
     return {
       text: tokens.colors[color][500],
-      background: color === 'primary' ? tokens.colors.shade : tokens.colors[color][100],
+      background: color === ChipColorEnum.PRIMARY ? tokens.colors.shade : tokens.colors[color][100],
       hover: {
         background: tokens.colors[color][400],
         text: tokens.colors.white,
