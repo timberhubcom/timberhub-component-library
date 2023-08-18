@@ -64,7 +64,6 @@ const styles = {
     width: fit-content;
     border-radius: 1px;
     ${tokens.typography.caption};
-    cursor: default;
   `,
   color: (textColor: string, bgColor: string) => css`
     transition: all 150ms ease 0ms;
