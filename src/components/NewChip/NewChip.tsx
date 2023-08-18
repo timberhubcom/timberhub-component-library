@@ -2,13 +2,13 @@ import React from 'react';
 import { css, cx } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
 
-export const ChipColorEnum = {
+export const ChipColorEnum = Object.freeze({
   PRIMARY: 'primary',
   GREY: 'grey',
   ERROR: 'error',
   WARNING: 'warning',
   INFO: 'info',
-} as const;
+});
 
 type ChipSize = 'small' | 'default';
 
