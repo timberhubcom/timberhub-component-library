@@ -26,3 +26,4 @@ export * from './Typography';
 // external components
 export { default as Divider } from '@mui/material/Divider';
 export { default as MenuItem } from '@mui/material/MenuItem';
+export { styled } from '@mui/material/styles'
