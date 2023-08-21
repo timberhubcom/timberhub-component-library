@@ -4,7 +4,7 @@ import { Box, MenuItem } from '@mui/material';
 import { ExtendedSelectProps, Select } from './Select';
 
 export default {
-  title: 'MUI/Components/Select',
+  title: 'MUI/Select',
   component: Select,
 };
 

@@ -3,7 +3,7 @@ import { StoryFn } from '@storybook/react';
 import { Typography, TypographyProps } from './Typography';
 
 export default {
-  title: 'MUI/Components/Typography',
+  title: 'MUI/Typography',
   component: Typography,
 };
 

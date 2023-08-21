@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import Table from './Table';
+import { Table } from './Table';
 import { rows, structure } from './data';
 
 export default {
@@ -28,7 +28,6 @@ Loading.args = {
   loading: true,
   rows,
 };
-
 
 export const HiddenHeader = Template.bind({});
 HiddenHeader.args = {

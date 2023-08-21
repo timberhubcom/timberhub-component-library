@@ -1,9 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-import Table from './Table';
+import { Table } from './Table';
 import { rows, structure } from './data';
 
-describe('Table', () => {
+describe('Table Deprecated', () => {
   it('should render columns and rows properly', () => {
     render(<Table rows={rows} structure={structure} />);
 

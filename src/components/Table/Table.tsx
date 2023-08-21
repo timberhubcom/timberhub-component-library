@@ -6,7 +6,7 @@ import { HeaderItem, TableProps, TableRowItem } from './types';
 import { colors } from '../../theme/colors.enum';
 import Pagination from '../Pagination/Pagination';
 
-const Table: React.FC<TableProps> = ({
+export const Table: React.FC<TableProps> = ({
   structure,
   loading = false,
   rows = [],
@@ -92,5 +92,3 @@ const Table: React.FC<TableProps> = ({
     </>
   );
 };
-
-export default Table;

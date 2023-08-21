@@ -15,13 +15,15 @@ export { default as RadioGroup } from './RadioGroup';
 export * from './Select';
 export * from './Stepper';
 export { default as Switch } from './Switch';
-export { default as Table } from './Table';
+export * from './Table/Table';
+export * from './NewTable/NewTable';
+export * from './NewChip/NewChip';
 export { default as Tabs } from './Tabs';
 export { default as TextArea } from './TextArea';
 export { TextField, MuiTextField } from './TextField';
 export * from './Typography';
 
 // external components
-export {default as Divider} from '@mui/material/Divider'
-export {default as MenuItem} from '@mui/material/MenuItem'
+export { default as Divider } from '@mui/material/Divider';
+export { default as MenuItem } from '@mui/material/MenuItem';
 export { styled } from '@mui/material/styles'

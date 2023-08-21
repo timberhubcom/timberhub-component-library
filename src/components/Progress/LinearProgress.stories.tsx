@@ -3,7 +3,7 @@ import { LinearProgress, LinearProgressProps } from './LinearProgress';
 import { StoryObj } from '@storybook/react';
 
 export default {
-  title: 'Mui/Components/LinearProgress',
+  title: 'Mui/LinearProgress',
   component: LinearProgress,
 };
 
