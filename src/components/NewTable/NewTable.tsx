@@ -26,6 +26,7 @@ export type NewTableProps<TData> = {
   columns: ColumnDef<TData>[];
   data: TData[];
   isLoading?: boolean;
+  loadingRows?: number;
   onClick?: (row: Row<TData>) => void;
   renderEmpty?: () => React.ReactNode;
   pagination?: TablePaginationProps;
@@ -35,6 +36,7 @@ export const NewTable = <TData extends object>({
   columns,
   data,
   isLoading,
+  loadingRows = 10,
   onClick,
   pagination,
   renderEmpty = () => 'No results',
@@ -69,11 +71,11 @@ export const NewTable = <TData extends object>({
           ))}
         </TableHeader>
         <TableBody>
-          {[...new Array(10)].map(() => (
+          {[...new Array(loadingRows)].map(() => (
             <TableRow key={crypto.randomUUID()} className={styles.row}>
               {[...new Array(columns.length)].map(() => (
                 <TableCell key={crypto.randomUUID()} className={styles.cell()}>
-                  <Skeleton variant="rounded" />
+                  <Skeleton variant={'rounded'} />
                 </TableCell>
               ))}
             </TableRow>
