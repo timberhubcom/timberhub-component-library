@@ -18,10 +18,11 @@ type NewChipProps = {
   addonStart?: React.ReactNode;
   color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
   onClick?: () => void;
+  className?: string;
 };
 
 export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function Chip(
-  { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, ...props },
+  { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, className, ...props },
   ref,
 ) {
   const colors = React.useMemo(() => {
@@ -48,9 +49,14 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
   return (
     <div
       ref={ref}
-      className={cx(styles.root(size, !!addonStart), styles.color(colors.text, colors.background), {
-        [styles.clickable(colors.hover.text, colors.hover.background)]: !!onClick,
-      })}
+      className={cx(
+        styles.root(size, !!addonStart),
+        styles.color(colors.text, colors.background),
+        {
+          [styles.clickable(colors.hover.text, colors.hover.background)]: !!onClick,
+        },
+        className,
+      )}
       {...props}
     >
       {addonStart}
