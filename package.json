@@ -1,6 +1,6 @@
 {
   "name": "@timberhubcom/timberhub-component-library",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
