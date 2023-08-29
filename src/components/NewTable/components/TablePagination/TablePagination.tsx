@@ -1,49 +1,55 @@
 import React from 'react';
 import { css } from '@emotion/css';
 import { TablePaginationButton } from './components/TablePaginationButton';
+import { muiTheme } from '../../../../config';
 import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
   KeyboardDoubleArrowLeft,
   KeyboardDoubleArrowRight,
 } from '@mui/icons-material';
+import { useMediaQuery } from '@mui/material';
 
-export interface TablePaginationProps {
+export type TablePaginationProps = {
   currentPage?: number;
   totalPages?: number;
   visiblePages?: number;
   onChange?: (page: number) => void;
-}
+};
 
 export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 5 }: TablePaginationProps) => {
+  const isSmallScreen = useMediaQuery(() => muiTheme.breakpoints.down('sm'));
+
+  const visiblePagesTransformed = isSmallScreen ? 3 : visiblePages;
+
   if (!totalPages || totalPages < 2) {
     return null;
   }
 
   const pages = React.useMemo(() => {
-    if (visiblePages === 1) {
+    if (visiblePagesTransformed === 1) {
       return [currentPage];
     }
 
-    if (totalPages <= visiblePages) {
+    if (totalPages <= visiblePagesTransformed) {
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    let startPage = currentPage - Math.floor(visiblePages / 2);
+    let startPage = currentPage - Math.floor(visiblePagesTransformed / 2);
 
     if (startPage < 1) {
       startPage = 1;
-    } else if (startPage + visiblePages > totalPages) {
-      startPage = totalPages - visiblePages + 1;
+    } else if (startPage + visiblePagesTransformed > totalPages) {
+      startPage = totalPages - visiblePagesTransformed + 1;
     }
 
-    const block = Array.from({ length: visiblePages }, (_, i) => i + startPage);
+    const block = Array.from({ length: visiblePagesTransformed }, (_, i) => i + startPage);
 
     const blockStart = !block.includes(1);
     const blockEnd = totalPages > block.length && !block.includes(totalPages);
 
     return [blockStart, ...block, blockEnd].filter((el) => !!el);
-  }, [currentPage, totalPages, visiblePages]);
+  }, [currentPage, totalPages, visiblePagesTransformed]);
 
   return (
     <div className={styles.root} data-testid={'pagination'}>
