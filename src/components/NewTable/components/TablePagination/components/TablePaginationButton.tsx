@@ -4,13 +4,24 @@ import { tokens } from '../../../../../theme/tokens';
 
 interface TablePaginationArrowProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
   active?: boolean;
+  background?: boolean;
   onClick?: (page?: number) => void;
 }
-export const TablePaginationButton = ({ active, children, onClick, ...props }: TablePaginationArrowProps) => {
+export const TablePaginationButton = ({
+  active,
+  background,
+  children,
+  onClick,
+  ...props
+}: TablePaginationArrowProps) => {
   return (
     <button
       onClick={!!onClick ? () => onClick() : undefined}
-      className={cx(styles.root, { [styles.clickable]: !!onClick, [styles.active]: !!active })}
+      className={cx(styles.root, {
+        [styles.background]: !!background,
+        [styles.clickable]: !!onClick,
+        [styles.active]: !!active,
+      })}
       {...props}
     >
       {children}
@@ -28,13 +39,13 @@ const styles = {
     justify-content: center;
     align-items: center;
     background-color: ${tokens.colors.white};
-    min-height: 34px;
-    max-height: 34px;
-    min-width: 34px;
-    max-width: 34px;
-    border-radius: 4px;
+    min-height: 24px;
+    max-height: 24px;
+    min-width: 24px;
+    max-width: 24px;
+    border-radius: 9999px;
     transition: background-color 150ms ease 0ms;
-    box-shadow: inset 0 0 0 1px ${tokens.colors.grey[50]};
+    ${tokens.typography.headline_ss_xxs};
 
     &:disabled {
       cursor: not-allowed;
@@ -43,13 +54,19 @@ const styles = {
       }
     }
   `,
+  background: css`
+    background-color: ${tokens.colors.grey[100]};
+  `,
   clickable: css`
     &:not(:disabled) {
       cursor: pointer;
 
       &:hover {
-        color: ${tokens.colors.primary[400]};
-        background-color: ${tokens.colors.grey[50]};
+        color: ${tokens.colors.white};
+        background-color: ${tokens.colors.grey[900]};
+        > svg {
+          color: ${tokens.colors.white};
+        }
       }
 
       &:active {
@@ -62,7 +79,7 @@ const styles = {
   `,
   active: css`
     pointer-events: none;
-    color: ${tokens.colors.primary[400]};
-    background-color: ${tokens.colors.grey[50]};
+    color: ${tokens.colors.white};
+    background-color: ${tokens.colors.grey[900]};
   `,
 };
