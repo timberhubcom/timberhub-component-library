@@ -45,11 +45,11 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
 
     const block = Array.from({ length: visiblePagesTransformed }, (_, i) => i + startPage);
 
-    const blockStart = !block.includes(1);
-    const blockEnd = totalPages > block.length && !block.includes(totalPages);
+    const blockStart = !isSmallScreen && !block.includes(1);
+    const blockEnd = !isSmallScreen && totalPages > block.length && !block.includes(totalPages);
 
     return [blockStart, ...block, blockEnd].filter((el) => !!el);
-  }, [currentPage, totalPages, visiblePagesTransformed]);
+  }, [currentPage, totalPages, visiblePagesTransformed, isSmallScreen]);
 
   return (
     <div className={styles.root} data-testid={'pagination'}>
