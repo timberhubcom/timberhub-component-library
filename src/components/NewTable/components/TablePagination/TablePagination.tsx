@@ -9,6 +9,7 @@ import {
   KeyboardDoubleArrowRight,
 } from '@mui/icons-material';
 import { useMediaQuery } from '@mui/material';
+import { tokens } from '../../../../theme/tokens';
 
 export type TablePaginationProps = {
   currentPage?: number;
@@ -17,7 +18,7 @@ export type TablePaginationProps = {
   onChange?: (page: number) => void;
 };
 
-export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 5 }: TablePaginationProps) => {
+export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 4 }: TablePaginationProps) => {
   const isSmallScreen = useMediaQuery(() => muiTheme.breakpoints.down('sm'));
 
   const visiblePagesTransformed = isSmallScreen ? 3 : visiblePages;
@@ -53,14 +54,15 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
 
   return (
     <div className={styles.root} data-testid={'pagination'}>
-      <TablePaginationButton disabled={currentPage === 1} onClick={onChange ? () => onChange(0) : undefined}>
-        <KeyboardDoubleArrowLeft className={styles.icon} />
+      <TablePaginationButton background disabled={currentPage === 1} onClick={onChange ? () => onChange(0) : undefined}>
+        <KeyboardDoubleArrowLeft fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
       <TablePaginationButton
+        background
         disabled={currentPage === 1}
         onClick={onChange ? () => onChange(currentPage - 2) : undefined}
       >
-        <KeyboardArrowLeft className={styles.icon} />
+        <KeyboardArrowLeft fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
 
       {pages.map((el) => (
@@ -73,16 +75,18 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
         </TablePaginationButton>
       ))}
       <TablePaginationButton
+        background
         disabled={currentPage === totalPages}
         onClick={onChange ? () => onChange(currentPage) : undefined}
       >
-        <KeyboardArrowRight className={styles.icon} />
+        <KeyboardArrowRight fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
       <TablePaginationButton
+        background
         disabled={currentPage === totalPages}
         onClick={onChange ? () => onChange(totalPages - 1) : undefined}
       >
-        <KeyboardDoubleArrowRight className={styles.icon} />
+        <KeyboardDoubleArrowRight fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
     </div>
   );
@@ -93,10 +97,11 @@ const styles = {
     display: flex;
     align-items: center;
     margin-top: 16px;
-    gap: 4px;
+    gap: 8px;
   `,
   icon: css`
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
+    color: ${tokens.colors.grey[700]};
   `,
 };
