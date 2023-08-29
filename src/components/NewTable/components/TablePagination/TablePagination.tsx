@@ -26,8 +26,6 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
     return null;
   }
 
-  console.log(isSmallScreen);
-
   const pages = React.useMemo(() => {
     if (visiblePagesTransformed === 1) {
       return [currentPage];
