@@ -1,6 +1,7 @@
 import React from 'react';
 import { css, cx } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
+import { Skeleton } from '@mui/material';
 
 export const ChipColorEnum = Object.freeze({
   PRIMARY: 'primary',
@@ -18,11 +19,12 @@ type NewChipProps = {
   addonStart?: React.ReactNode;
   color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
   onClick?: () => void;
+  isLoading?: boolean;
   className?: string;
 };
 
 export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function Chip(
-  { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, className, ...props },
+  { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, isLoading, className, ...props },
   ref,
 ) {
   const colors = React.useMemo(() => {
@@ -60,7 +62,7 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
       {...props}
     >
       {addonStart}
-      <div className={styles.label}>{label}</div>
+      {isLoading ? <Skeleton width={50} /> : <div className={styles.label}>{label}</div>}
     </div>
   );
 });

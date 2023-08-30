@@ -70,3 +70,9 @@ AddonStart.args = {
   label: 'offer',
   addonStart: '1',
 };
+
+export const isLoading = Template.bind({});
+isLoading.args = {
+  label: 'offer',
+  isLoading: true,
+};
