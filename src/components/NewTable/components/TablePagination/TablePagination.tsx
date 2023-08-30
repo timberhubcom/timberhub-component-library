@@ -23,34 +23,36 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
 
   const visiblePagesTransformed = isSmallScreen ? 3 : visiblePages;
 
-  if (!totalPages || totalPages < 2) {
-    return null;
-  }
-
   const pages = React.useMemo(() => {
     if (visiblePagesTransformed === 1) {
       return [currentPage];
     }
 
-    if (totalPages <= visiblePagesTransformed) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    if (totalPages && totalPages > 1) {
+      if (totalPages <= visiblePagesTransformed) {
+        return Array.from({ length: totalPages }, (_, i) => i + 1);
+      }
+
+      let startPage = currentPage - Math.floor(visiblePagesTransformed / 2);
+
+      if (startPage < 1) {
+        startPage = 1;
+      } else if (startPage + visiblePagesTransformed > totalPages) {
+        startPage = totalPages - visiblePagesTransformed + 1;
+      }
+
+      const block = Array.from({ length: visiblePagesTransformed }, (_, i) => i + startPage);
+
+      const blockStart = !isSmallScreen && !block.includes(1);
+      const blockEnd = !isSmallScreen && totalPages > block.length && !block.includes(totalPages);
+
+      return [blockStart, ...block, blockEnd].filter((el) => !!el);
     }
-
-    let startPage = currentPage - Math.floor(visiblePagesTransformed / 2);
-
-    if (startPage < 1) {
-      startPage = 1;
-    } else if (startPage + visiblePagesTransformed > totalPages) {
-      startPage = totalPages - visiblePagesTransformed + 1;
-    }
-
-    const block = Array.from({ length: visiblePagesTransformed }, (_, i) => i + startPage);
-
-    const blockStart = !isSmallScreen && !block.includes(1);
-    const blockEnd = !isSmallScreen && totalPages > block.length && !block.includes(totalPages);
-
-    return [blockStart, ...block, blockEnd].filter((el) => !!el);
   }, [currentPage, totalPages, visiblePagesTransformed, isSmallScreen]);
+
+  if (!totalPages || totalPages <= 1) {
+    return null;
+  }
 
   return (
     <div className={styles.root} data-testid={'pagination'}>
