@@ -50,7 +50,7 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
     }
   }, [currentPage, totalPages, visiblePagesTransformed, isSmallScreen]);
 
-  if (!totalPages || totalPages < 2) {
+  if (!totalPages || totalPages <= 1) {
     return null;
   }
 
