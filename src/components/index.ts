@@ -22,6 +22,7 @@ export { default as Tabs } from './Tabs';
 export { default as TextArea } from './TextArea';
 export { TextField, MuiTextField } from './TextField';
 export * from './Typography';
+export * from './Banner/Banner';
 
 // external components
 export { default as Divider } from '@mui/material/Divider';
