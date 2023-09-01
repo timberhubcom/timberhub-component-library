@@ -50,10 +50,11 @@ export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(fu
 const styles = {
   root: css`
     max-width: 288px;
+    max-height: 321px;
     background-color: ${tokens.colors.grey[50]};
     display: grid;
     justify-items: center;
-    padding: 48px 0;
+    padding: 48px;
   `,
   image: (src: string) => css`
     height: 54px;
