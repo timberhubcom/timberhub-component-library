@@ -1,4 +1,3 @@
-import { Palette } from '@mui/material';
 import Box, { BoxProps } from '@mui/material/Box';
 import React from 'react';
 import { tokens } from 'src/theme/tokens';
