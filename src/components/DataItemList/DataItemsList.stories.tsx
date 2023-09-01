@@ -32,3 +32,19 @@ ItemsList.args = {
     },
   ]
 }
+
+export const EmptyItemsList = Template.bind({});
+EmptyItemsList.args = {
+  items: [
+    {
+      title: '',
+      description: '',
+      icon: DeliveryIcon,
+    },
+    {
+      title: 'Middle item title',
+      description: 'Middle item description text',
+      icon: DeliveryIcon,
+    },
+  ]
+}

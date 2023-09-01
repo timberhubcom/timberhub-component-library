@@ -34,6 +34,7 @@ export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps
         description={item.description}
         className={getItemClass(index, items)}
         key={crypto.randomUUID()}
+        ref={ref}
       />
     ))
   )

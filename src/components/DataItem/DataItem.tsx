@@ -17,20 +17,17 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
   {icon, title, description, className, ...props},
 ref,
   ) {
-  console.log('className', className);
-
   return(
     <Paper
       variant="outlined"
       sx={{ display: 'flex' }}
       className={cx('mb-5', className)}
+      ref={ref}
     >
       <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
-        <div>
           <Typography variant="headline_ss_xxs">{title}</Typography>
           <Typography variant="body_s">{description}</Typography>
-        </div>
       </Box>
     </Paper>
   )
