@@ -17,6 +17,7 @@ export * from './Stepper';
 export { default as Switch } from './Switch';
 export * from './Table/Table';
 export * from './NewTable/NewTable';
+export * from './ContactCard/ContactCard';
 export * from './NewChip/NewChip';
 export { default as Tabs } from './Tabs';
 export { default as TextArea } from './TextArea';
@@ -30,4 +31,4 @@ export * from './SimpleList/SimpleList';
 // external components
 export { default as Divider } from '@mui/material/Divider';
 export { default as MenuItem } from '@mui/material/MenuItem';
-export { styled } from '@mui/material/styles'
+export { styled } from '@mui/material/styles';
