@@ -67,7 +67,7 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
         <KeyboardArrowLeft fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
 
-      {pages.map((el) => (
+      {pages?.map((el) => (
         <TablePaginationButton
           key={crypto.randomUUID()}
           active={currentPage === el}
