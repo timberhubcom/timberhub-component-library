@@ -4,20 +4,25 @@ import { tokens } from '../../theme/tokens';
 import { Typography } from '../Typography';
 import { Link } from '../Link';
 
-type ContactCardProps = {
+type ContactCardDetails = {
   src?: string;
-  title: string;
   fullName?: string;
   location?: string;
   telephone?: string;
   mail: string;
+};
+
+type ContactCardProps = {
+  title: string;
+  details: ContactCardDetails;
   className?: string;
 };
 
 export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(function ContactCard(
-  { src, title, fullName, location, telephone, mail, className },
+  { title, details, className },
   ref,
 ) {
+  const { src, fullName, location, telephone, mail } = details;
   return (
     <div ref={ref} className={cx(styles.root, className)}>
       {!!src && <div className={styles.image(src)} />}
@@ -53,7 +58,6 @@ const styles = {
   image: (src: string) => css`
     height: 54px;
     width: 54px;
-    background-color: greenyellow;
     margin-bottom: 24px;
     border-radius: 50%;
     background-image: url('${src}');
