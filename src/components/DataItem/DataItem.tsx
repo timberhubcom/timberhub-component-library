@@ -24,12 +24,10 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
       }}
-      className={cx(className)}
+      className={className}
       ref={ref}
     >
-      <Box display="flex">
-        <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
-      </Box>
+      <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
         <Typography variant="headline_ss_xxs">{title}</Typography>
         <Typography variant="body_s">{description}</Typography>
@@ -43,6 +41,7 @@ const styles = {
     background-color: ${bgColor};
     width: 74px;
     min-height: 79px;
+    height: 100%;
   `,
 };
 
