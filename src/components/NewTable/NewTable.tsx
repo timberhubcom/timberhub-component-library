@@ -21,6 +21,7 @@ import {
 import { css, cx } from '@emotion/css';
 import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
+import { nanoid } from 'nanoid/non-secure';
 
 export type NewTableProps<TData> = {
   columns: ColumnDef<TData>[];
@@ -72,9 +73,9 @@ export const NewTable = <TData extends object>({
         </TableHeader>
         <TableBody>
           {[...new Array(loadingRows)].map(() => (
-            <TableRow key={crypto.randomUUID()} className={styles.row}>
+            <TableRow key={nanoid()} className={styles.row}>
               {[...new Array(columns.length)].map(() => (
-                <TableCell key={crypto.randomUUID()} className={styles.cell()}>
+                <TableCell key={nanoid()} className={styles.cell()}>
                   <Skeleton variant={'rounded'} />
                 </TableCell>
               ))}

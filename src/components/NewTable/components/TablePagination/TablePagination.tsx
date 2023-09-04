@@ -10,6 +10,7 @@ import {
 } from '@mui/icons-material';
 import { useMediaQuery } from '@mui/material';
 import { tokens } from '../../../../theme/tokens';
+import { nanoid } from 'nanoid/non-secure';
 
 export type TablePaginationProps = {
   currentPage?: number;
@@ -69,7 +70,7 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
 
       {pages?.map((el) => (
         <TablePaginationButton
-          key={crypto.randomUUID()}
+          key={nanoid()}
           active={currentPage === el}
           onClick={typeof el === 'number' && onChange ? () => onChange(el - 1) : undefined}
         >
