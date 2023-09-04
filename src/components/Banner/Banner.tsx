@@ -21,6 +21,7 @@ export type BannerProps = {
   variant?: BannerVariant;
   title?: string;
   description?: string;
+  className?: string;
 }
 
 const IconComponents = {
@@ -40,13 +41,14 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
   variant= 'info',
   iconSize = 's',
   title,
-  description
+  description,
+  className,
 }, ref,) {
 
   const iconPath: string = IconComponents[`${variant}-${iconSize}`];
 
   return (
-    <MuiAlert variant={variant} icon={<img alt='' style={{ alignSelf: iconSize === 'xs' ? 'start' : 'center' }} src={iconPath} />}>
+    <MuiAlert variant={variant} icon={<img alt='' style={{ alignSelf: iconSize === 'xs' ? 'start' : 'center' }} src={iconPath} className={className} />}>
       {title && (
         <Typography variant="headline_ss_xxs">
           {title}

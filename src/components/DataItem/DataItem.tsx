@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
-import { cx, css } from '@emotion/css';
+import { css } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
 
 import { Typography } from '../Typography';
@@ -27,7 +27,9 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
       className={className}
       ref={ref}
     >
-      <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
+      <div className={styles.iconWrapper(tokens.colors.shade)}>
+        <img src={icon} alt="" className={styles.icon} />
+      </div>
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
         <Typography variant="headline_ss_xxs">{title}</Typography>
         <Typography variant="body_s">{description}</Typography>
@@ -37,12 +39,17 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
 });
 
 const styles = {
-  icon: (bgColor: string) => css`
-    background-color: ${bgColor};
-    width: 74px;
-    min-height: 79px;
-    height: 100%;
+  icon: css`
+    width: 35px;
+    min-height: 35px;
   `,
+    iconWrapper: (bgColor: string) => css`
+      background-color: ${bgColor};
+      width: 72px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+    `
 };
 
 export default DataItem;
