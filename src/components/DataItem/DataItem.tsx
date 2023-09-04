@@ -5,7 +5,6 @@ import { cx, css } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
 
 import { Typography } from '../Typography';
-import styled from '@emotion/styled';
 
 export type DataItemsProps = {
   icon: string;
@@ -14,17 +13,20 @@ export type DataItemsProps = {
   className?: string;
 };
 
-const DataItemWrapper = styled(Paper)`
-  display: grid;
-  grid-template-columns: auto 1fr;
-`;
-
 export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(function DataItem(
   { icon, title, description, className, ...props },
   ref,
 ) {
   return (
-    <DataItemWrapper variant="outlined" className={cx(className)} ref={ref}>
+    <Paper
+      variant="outlined"
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: 'auto 1fr',
+      }}
+      className={cx(className)}
+      ref={ref}
+    >
       <Box display="flex">
         <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
       </Box>
@@ -32,7 +34,7 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
         <Typography variant="headline_ss_xxs">{title}</Typography>
         <Typography variant="body_s">{description}</Typography>
       </Box>
-    </DataItemWrapper>
+    </Paper>
   );
 });
 
