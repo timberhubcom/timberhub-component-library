@@ -18,7 +18,15 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
   ref,
 ) {
   return (
-    <Paper variant="outlined" sx={{ display: 'flex' }} className={cx(className)} ref={ref}>
+    <Paper
+      variant="outlined"
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: 'auto 1fr',
+      }}
+      className={className}
+      ref={ref}
+    >
       <img src={icon} alt="" className={styles.icon(tokens.colors.shade)} />
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
         <Typography variant="headline_ss_xxs">{title}</Typography>
@@ -32,7 +40,8 @@ const styles = {
   icon: (bgColor: string) => css`
     background-color: ${bgColor};
     width: 74px;
-    height: 79px;
+    min-height: 79px;
+    height: 100%;
   `,
 };
 
