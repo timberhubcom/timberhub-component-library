@@ -17,6 +17,7 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
   { icon, title, description, className, ...props },
   ref,
 ) {
+  const IconElement = icon;
   return (
     <Paper
       variant="outlined"
@@ -28,7 +29,7 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
       ref={ref}
     >
       <div className={styles.iconWrapper(tokens.colors.shade)}>
-        <img src={icon} alt="" className={styles.icon} />
+        <IconElement />
       </div>
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
         <Typography variant="headline_ss_xxs">{title}</Typography>
@@ -39,16 +40,13 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
 });
 
 const styles = {
-  icon: css`
-    width: 35px;
-    min-height: 35px;
-  `,
     iconWrapper: (bgColor: string) => css`
       background-color: ${bgColor};
       width: 72px;
-      height: 80px;
+      min-height: 80px;
       display: flex;
       justify-content: center;
+      align-items: center;
     `
 };
 

@@ -21,7 +21,7 @@ ItemsList.args = {
       icon: DeliveryIcon,
     },
     {
-      title: 'Middle item title',
+      title: 'Quite a long text for this awesome middle item title, just lots of text here, shows an example how it goes to 2 rows. It\'s an awesome weather here in Amsterdam, don\'t you think so?',
       description: 'Middle item description text',
       icon: DeliveryIcon,
     },
