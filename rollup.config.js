@@ -13,7 +13,7 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 const packageJson = require('./package.json');
 const path = require('path');
 
-const copyPaths = ['esm', 'cjs'].map((basePath) => ({ src: 'src/assets/fonts', dest: path.join('dist', basePath) }));
+const copyPaths = ['esm', 'cjs'].map((basePath) => ({ src: ['src/assets/fonts', 'src/assets/icons'], dest: path.join('dist', basePath) }));
 
 export default [
   {
