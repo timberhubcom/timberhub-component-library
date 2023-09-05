@@ -1,4 +1,6 @@
 import React from 'react';
+import { css } from '@emotion/css';
+
 import { MuiAlert } from '../Alert';
 import { Typography } from '../Typography';
 
@@ -46,14 +48,10 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
   return (
     <MuiAlert
       variant={variant}
+      className={className}
+      ref={ref}
       icon={
-        <IconPath />
-        // <img
-        //   alt=""
-        //   style={{ alignSelf: iconSize === 'xs' ? 'start' : 'center' }}
-        //   src={iconPath}
-        //   className={className}
-        // />
+        <IconPath className={styles.icon(iconSize)} />
       }
     >
       {title && <Typography variant="headline_ss_xxs">{title}</Typography>}
@@ -61,5 +59,11 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
     </MuiAlert>
   );
 });
+
+const styles = {
+  icon: (iconSize: IconSize) => css`
+    align-self: ${iconSize === 'xs' ? 'start' : 'center'};
+  `
+}
 
 export default Banner;
