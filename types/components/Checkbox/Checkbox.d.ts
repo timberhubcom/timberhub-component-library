@@ -1,19 +1,22 @@
 import React from 'react';
-export declare type CheckboxOptionType = {
+export type CheckboxOptionType = {
     name: string;
     value: string;
     children?: React.ReactNode;
 };
-declare type CheckboxProps = {
+type CheckboxOptionTypeOptionalValue = Omit<CheckboxOptionType, 'value'> & {
+    value?: string;
+};
+type CheckboxProps = {
     name?: string;
     label?: string;
     labelClass?: string;
-    option?: CheckboxOptionType;
+    option?: CheckboxOptionTypeOptionalValue;
     description?: string;
     defaultValue?: boolean;
     value?: boolean;
     disabled?: boolean;
-    onClick?: React.MouseEventHandler<HTMLElement>;
+    onClick?: React.ChangeEventHandler<HTMLInputElement>;
     required?: boolean;
 };
 declare const Checkbox: React.FC<CheckboxProps>;

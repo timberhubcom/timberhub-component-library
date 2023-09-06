@@ -1,5 +1,6 @@
-import { tokens } from '../../../theme/tokens';
-import type { ComponentsVariants } from '@mui/material/styles/variants';
+import type { ComponentsVariants } from '@mui/material/styles/variants'
+
+import { tokens } from '../../../theme/tokens'
 
 const textButtonVariants: ComponentsVariants['MuiButton'] = (
   [
@@ -19,7 +20,7 @@ const textButtonVariants: ComponentsVariants['MuiButton'] = (
       color: `${hover}  !important`,
     },
   },
-}));
+}))
 
 const containedButtonVariants: ComponentsVariants['MuiButton'] = (
   [
@@ -86,7 +87,7 @@ const containedButtonVariants: ComponentsVariants['MuiButton'] = (
       color: `${textColor2} !important`,
     },
   },
-}));
+}))
 
 export const buttonVariants: ComponentsVariants['MuiButton'] = [
   ...containedButtonVariants,
@@ -114,4 +115,4 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
       color: `${tokens.colors.grey['400']} !important`,
     },
   },
-];
+]

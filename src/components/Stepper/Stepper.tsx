@@ -1,10 +1,10 @@
-import React from 'react';
-import { Theme, styled } from '@mui/material/styles';
-import MuiStepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import NavigateNext from '@mui/icons-material/NavigateNext';
-import { StepIconProps } from '@mui/material/StepIcon';
+import NavigateNext from '@mui/icons-material/NavigateNext'
+import Step from '@mui/material/Step'
+import { StepIconProps } from '@mui/material/StepIcon'
+import StepLabel from '@mui/material/StepLabel'
+import MuiStepper from '@mui/material/Stepper'
+import { styled, Theme } from '@mui/material/styles'
+import React from 'react'
 
 const stepStateStyles = (theme: Theme) => ({
   ...theme.typography.headline_ss_xxs,
@@ -18,12 +18,12 @@ const stepStateStyles = (theme: Theme) => ({
   '& .MuiStepLabel-label.Mui-disabled': {
     color: `${theme.palette.grey['500']}`,
   },
-});
+})
 
 const CustomStepLabel = styled(StepLabel)(({ theme }) => ({
   ...stepStateStyles(theme),
   cursor: 'pointer !important',
-}));
+}))
 
 const Connector = () => {
   return (
@@ -40,15 +40,14 @@ const Connector = () => {
         },
         ...stepStateStyles(theme),
       })}
-      icon={<span />}
-    >
-      <NavigateNext fontSize="small" />
+      icon={<span />}>
+      <NavigateNext fontSize={'small'} />
     </StepLabel>
-  );
-};
+  )
+}
 
 const CustomStepIconRoot = styled('div')<{
-  ownerState: { completed?: boolean; active?: boolean };
+  ownerState: { completed?: boolean; active?: boolean }
 }>(({ theme, ownerState }) => ({
   ...theme.typography.headline_ss_xxs,
   color: `${theme.palette.grey['500']} !important`,
@@ -58,22 +57,22 @@ const CustomStepIconRoot = styled('div')<{
   ...(ownerState.completed && {
     color: theme.palette.primary.light,
   }),
-}));
+}))
 
 function CustomStepConnector(props: StepIconProps) {
-  const { active, completed, className } = props;
+  const { active, completed, className } = props
 
   return (
     <CustomStepIconRoot ownerState={{ completed, active }} className={className}>
       {String(props.icon)}.
     </CustomStepIconRoot>
-  );
+  )
 }
 
 export interface IStepper {
-  activeStep?: number;
-  steps: string[];
-  onChange?: (val: number) => void;
+  activeStep?: number
+  steps: string[]
+  onChange?: (val: number) => void
 }
 
 const Stepper = ({ steps, onChange, activeStep = 0 }: IStepper) => {
@@ -87,7 +86,7 @@ const Stepper = ({ steps, onChange, activeStep = 0 }: IStepper) => {
         </Step>
       ))}
     </MuiStepper>
-  );
-};
+  )
+}
 
-export { Stepper };
+export { Stepper }

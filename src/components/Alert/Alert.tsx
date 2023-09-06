@@ -1,15 +1,16 @@
-import React from 'react';
-import styles from './Alert.module.scss';
-import clsx from 'clsx';
-import { Button } from '../Button';
+import clsx from 'clsx'
+import React from 'react'
+
+import { Button } from '../Button/Button'
+import styles from './Alert.module.scss'
 
 export interface AlertProps {
-  variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
-  className?: string;
-  title?: string;
-  children: React.ReactNode;
-  buttonTitle?: string;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey'
+  className?: string
+  title?: string
+  children: React.ReactNode
+  buttonTitle?: string
+  onClick?: React.MouseEventHandler<HTMLElement>
 }
 
 const variantColorMap = {
@@ -18,7 +19,7 @@ const variantColorMap = {
   yellow: styles['alert-warning'],
   red: styles['alert-error'],
   grey: styles['alert-text'],
-};
+}
 
 const Alert: React.FC<AlertProps> = ({
   variant = 'green',
@@ -28,7 +29,7 @@ const Alert: React.FC<AlertProps> = ({
   title = '',
   buttonTitle = '',
 }) => {
-  const variantStyle = variantColorMap[variant] ?? styles['alert-default'];
+  const variantStyle = variantColorMap[variant] ?? styles['alert-default']
 
   return (
     <div className={clsx(styles.alert, className, variantStyle)}>
@@ -39,7 +40,7 @@ const Alert: React.FC<AlertProps> = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Alert;
+export default Alert

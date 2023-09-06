@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
 export const TableBody = React.forwardRef<HTMLTableSectionElement, React.HTMLAttributes<HTMLTableSectionElement>>(
-  ({ className, ...props }, ref) => <tbody ref={ref} className={className} {...props} />,
-);
+  ({ className, ...props }, ref) => <tbody ref={ref} className={className} {...props} />
+)

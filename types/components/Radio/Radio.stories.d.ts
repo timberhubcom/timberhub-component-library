@@ -1,5 +1,4 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
@@ -10,15 +9,19 @@ declare const _default: {
     }>;
 };
 export default _default;
-export declare const Base: ComponentStory<React.FC<{
+export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     option: import("./Radio").RadioOptionType;
     checked?: boolean | undefined;
     disabled?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
-}>>;
-export declare const Disabled: ComponentStory<React.FC<{
+} & {
+    children?: React.ReactNode;
+}>;
+export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     option: import("./Radio").RadioOptionType;
     checked?: boolean | undefined;
     disabled?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
-}>>;
+} & {
+    children?: React.ReactNode;
+}>;

@@ -1,53 +1,52 @@
-import React from 'react';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import { css } from '@emotion/css';
-import { tokens } from '../../theme/tokens';
+import { css } from '@emotion/css'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import React from 'react'
 
-import { Typography } from '../Typography';
+import { tokens } from '../../theme/tokens'
+import { Typography } from '../Typography'
 
 export type DataItemsProps = {
-  icon: string;
-  title: string;
-  description?: string;
-  className?: string;
-};
+  icon: string
+  title: string
+  description?: string
+  className?: string
+}
 
 export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(function DataItem(
-  { icon, title, description, className, ...props },
-  ref,
+  { icon, title, description, className },
+  ref
 ) {
-  const IconElement = icon;
+  const IconElement = icon
   return (
     <Paper
-      variant="outlined"
+      variant={'outlined'}
       sx={{
         display: 'grid',
         gridTemplateColumns: 'auto 1fr',
       }}
       className={className}
-      ref={ref}
-    >
+      ref={ref}>
       <div className={styles.iconWrapper(tokens.colors.shade)}>
         <IconElement />
       </div>
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
-        <Typography variant="headline_ss_xxs">{title}</Typography>
-        <Typography variant="body_s">{description}</Typography>
+        <Typography variant={'headline_ss_xxs'}>{title}</Typography>
+        <Typography variant={'body_s'}>{description}</Typography>
       </Box>
     </Paper>
-  );
-});
+  )
+})
 
 const styles = {
-    iconWrapper: (bgColor: string) => css`
-      background-color: ${bgColor};
-      width: 72px;
-      min-height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `
-};
+  iconWrapper: (bgColor: string) => css`
+    background-color: ${bgColor};
+    width: 72px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+}
 
-export default DataItem;
+export default DataItem

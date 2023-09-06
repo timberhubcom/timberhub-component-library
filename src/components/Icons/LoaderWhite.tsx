@@ -1,34 +1,32 @@
-import React from 'react';
+import React from 'react'
 
 const LoaderWhite = () => {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="200px"
-      height="200px"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="xMidYMid"
-    >
+      xmlns={'http://www.w3.org/2000/svg'}
+      width={'200px'}
+      height={'200px'}
+      viewBox={'0 0 100 100'}
+      preserveAspectRatio={'xMidYMid'}>
       <circle
-        cx="50"
-        cy="50"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="10"
-        r="35"
-        strokeDasharray="164.93361431346415 56.97787143782138"
-      >
+        cx={'50'}
+        cy={'50'}
+        fill={'none'}
+        stroke={'#ffffff'}
+        strokeWidth={'10'}
+        r={'35'}
+        strokeDasharray={'164.93361431346415 56.97787143782138'}>
         <animateTransform
-          attributeName="transform"
-          type="rotate"
-          repeatCount="indefinite"
-          dur="1s"
-          values="0 50 50;360 50 50"
-          keyTimes="0;1"
-        ></animateTransform>
+          attributeName={'transform'}
+          type={'rotate'}
+          repeatCount={'indefinite'}
+          dur={'1s'}
+          values={'0 50 50;360 50 50'}
+          keyTimes={'0;1'}
+        />
       </circle>
     </svg>
-  );
-};
+  )
+}
 
-export default LoaderWhite;
+export default LoaderWhite

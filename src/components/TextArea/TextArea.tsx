@@ -1,25 +1,26 @@
-import React from 'react';
-import styles from './TextArea.module.scss';
+import React from 'react'
+
+import styles from './TextArea.module.scss'
 
 type TextAreaProps = {
-  name?: string;
-  label?: string;
-  placeholder?: string;
-  labelClass?: string;
-  description?: string;
-  defaultValue?: string;
-  disabled?: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onBlur?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  required?: boolean;
-  error?: string;
-};
+  name?: string
+  label?: string
+  placeholder?: string
+  labelClass?: string
+  description?: string
+  defaultValue?: string
+  disabled?: boolean
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  onBlur?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
+  required?: boolean
+  error?: string
+}
 
 const TextArea: React.FC<TextAreaProps> = ({
   label,
   name,
   placeholder,
-  labelClass='',
+  labelClass = '',
   description = null,
   defaultValue,
   disabled = false,
@@ -49,7 +50,7 @@ const TextArea: React.FC<TextAreaProps> = ({
       {error && <div className={styles['errorDescription']}>{error}</div>}
       {description && <div className={styles['description']}>{description}</div>}
     </div>
-  );
-};
+  )
+}
 
-export default TextArea;
+export default TextArea

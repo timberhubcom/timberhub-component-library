@@ -1,5 +1,6 @@
-import React from 'react';
-import styles from './Chip.module.scss';
+import React from 'react'
+
+import styles from './Chip.module.scss'
 
 export const ChipColorEnum = {
   GREEN: 'green',
@@ -7,17 +8,17 @@ export const ChipColorEnum = {
   GREY: 'grey',
   BLUE: 'blue',
   RED: 'red',
-} as const;
+} as const
 
 // intentionally naming the variable the same as the type
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-export type ChipColorEnum = (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
+export type ChipColorEnum = (typeof ChipColorEnum)[keyof typeof ChipColorEnum]
 
 type ChipProps = {
-  text: string;
-  color?: ChipColorEnum;
-  prefix?: string;
-};
+  text: string
+  color?: ChipColorEnum
+  prefix?: string
+}
 
 const Chip: React.FC<ChipProps> = ({ text, color = 'grey', prefix }) => {
   return (
@@ -25,7 +26,7 @@ const Chip: React.FC<ChipProps> = ({ text, color = 'grey', prefix }) => {
       {prefix && <span className={styles['prefix']}>{prefix}</span>}
       <span className={styles['text']}>{text}</span>
     </div>
-  );
-};
+  )
+}
 
-export default Chip;
+export default Chip

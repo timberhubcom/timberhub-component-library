@@ -1,7 +1,8 @@
-import React from 'react';
-import { css, cx } from '@emotion/css';
-import { tokens } from '../../theme/tokens';
-import { Skeleton } from '@mui/material';
+import { css, cx } from '@emotion/css'
+import { Skeleton } from '@mui/material'
+import React from 'react'
+
+import { tokens } from '../../theme/tokens'
 
 export const ChipColorEnum = Object.freeze({
   PRIMARY: 'primary',
@@ -9,23 +10,23 @@ export const ChipColorEnum = Object.freeze({
   ERROR: 'error',
   WARNING: 'warning',
   INFO: 'info',
-});
+})
 
-type ChipSize = 'small' | 'default';
+type ChipSize = 'small' | 'default'
 
 type NewChipProps = {
-  label: string;
-  size?: ChipSize;
-  addonStart?: React.ReactNode;
-  color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
-  onClick?: () => void;
-  isLoading?: boolean;
-  className?: string;
-};
+  label: string
+  size?: ChipSize
+  addonStart?: React.ReactNode
+  color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum]
+  onClick?: () => void
+  isLoading?: boolean
+  className?: string
+}
 
 export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function Chip(
   { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, isLoading, className, ...props },
-  ref,
+  ref
 ) {
   const colors = React.useMemo(() => {
     if (color === ChipColorEnum.GREY) {
@@ -36,7 +37,7 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
           background: tokens.colors.grey[900],
           text: tokens.colors.white,
         },
-      };
+      }
     }
 
     return {
@@ -46,8 +47,8 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
         background: tokens.colors[color][400],
         text: tokens.colors.white,
       },
-    };
-  }, [color]);
+    }
+  }, [color])
   return (
     <div
       ref={ref}
@@ -57,15 +58,14 @@ export const NewChip = React.forwardRef<HTMLDivElement, NewChipProps>(function C
         {
           [styles.clickable(colors.hover.text, colors.hover.background)]: !!onClick,
         },
-        className,
+        className
       )}
-      {...props}
-    >
+      {...props}>
       {addonStart}
       {isLoading ? <Skeleton width={50} /> : <div className={styles.label}>{label}</div>}
     </div>
-  );
-});
+  )
+})
 
 const styles = {
   root: (size: ChipSize, addonStart: boolean) => css`
@@ -96,4 +96,4 @@ const styles = {
     overflow: hidden;
     text-overflow: ellipsis;
   `,
-};
+}

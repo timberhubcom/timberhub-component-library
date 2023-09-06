@@ -1,42 +1,44 @@
-import React from 'react';
-import { css } from '@emotion/css';
-import DataItem, { DataItemsProps } from "../DataItem/DataItem";
+import { css, cx } from '@emotion/css'
+import React from 'react'
+
+import DataItem, { DataItemsProps } from '../DataItem/DataItem'
 
 export type DataItemsListProps = {
-  items: DataItemsProps[];
-  className?: string;
+  items: DataItemsProps[]
+  className?: string
 }
 
 const getItemClass = (itemIndex: number, items: DataItemsProps[]) => {
-  let itemClass;
+  let itemClass
 
   if (itemIndex === 0) {
-    itemClass = styles.first;
+    itemClass = styles.first
   } else if (itemIndex + 1 === items.length) {
-    itemClass = styles.last;
+    itemClass = styles.last
   } else {
-    itemClass = styles.middle;
+    itemClass = styles.middle
   }
 
-  return itemClass;
-};
+  return itemClass
+}
 
-export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps>(function DataItemList(
-  {items, className, ...props},
-  ref,
+export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps>(function DataItemsList(
+  { items, className },
+  ref
 ) {
-
-  return(
-    items.map((item, index) => (
-      <DataItem
-        icon={item.icon}
-        title={item.title}
-        description={item.description}
-        className={getItemClass(index, items)}
-        key={crypto.randomUUID()}
-        ref={ref}
-      />
-    ))
+  return (
+    <React.Fragment>
+      {items.map((item, index) => (
+        <DataItem
+          icon={item.icon}
+          title={item.title}
+          description={item.description}
+          className={cx(getItemClass(index, items), className)}
+          key={crypto.randomUUID()}
+          ref={ref}
+        />
+      ))}
+    </React.Fragment>
   )
 })
 
@@ -51,7 +53,7 @@ const styles = {
   middle: css`
     border-bottom: 0 !important;
     border-radius: 0 !important;
-  `
+  `,
 }
 
-export default DataItemsList;
+export default DataItemsList

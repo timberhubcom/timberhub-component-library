@@ -1,18 +1,19 @@
-import React from 'react';
-import Checkbox, { CheckboxOptionType } from '../Checkbox/Checkbox';
-import styles from './CheckboxGroup.module.scss';
+import React from 'react'
+
+import Checkbox, { CheckboxOptionType } from '../Checkbox/Checkbox'
+import styles from './CheckboxGroup.module.scss'
 
 type CheckboxGroupProps = {
-  name?: string;
-  label?: string;
-  labelClass?: string;
-  options: CheckboxOptionType[];
-  description?: string;
-  defaultValues?: { [key: string]: string };
-  disabled?: boolean;
-  required?: boolean;
-  error?: string;
-};
+  name?: string
+  label?: string
+  labelClass?: string
+  options: CheckboxOptionType[]
+  description?: string
+  defaultValues?: { [key: string]: string }
+  disabled?: boolean
+  required?: boolean
+  error?: string
+}
 
 const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   name,
@@ -47,7 +48,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
       {error && <div className={styles['errorDescription']}>{error}</div>}
       {description && <div className={styles['description']}>{description}</div>}
     </>
-  );
-};
+  )
+}
 
-export default CheckboxGroup;
+export default CheckboxGroup

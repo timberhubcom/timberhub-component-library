@@ -1,9 +1,12 @@
-import { styled } from '@mui/material';
-import MuiLinearProgress, { linearProgressClasses, LinearProgressProps } from '@mui/material/LinearProgress';
+import { styled } from '@mui/material'
+import MuiLinearProgress, {
+  linearProgressClasses,
+  LinearProgressProps as MuiLinearProgressProps,
+} from '@mui/material/LinearProgress'
 
-export { LinearProgressProps };
+export type LinearProgressProps = MuiLinearProgressProps
 
-const LinearProgress = styled(MuiLinearProgress)(({ theme }) => ({
+export const LinearProgress = styled(MuiLinearProgress)(() => ({
   height: 8,
   borderRadius: 4,
   [`&.${linearProgressClasses.root}`]: {
@@ -12,6 +15,4 @@ const LinearProgress = styled(MuiLinearProgress)(({ theme }) => ({
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 4,
   },
-}));
-
-export { LinearProgress };
+}))

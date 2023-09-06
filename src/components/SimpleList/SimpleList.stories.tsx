@@ -1,17 +1,16 @@
-import React from 'react';
-import { StoryFn } from '@storybook/react';
-import SimpleList, { SimpleListProps } from "./SimpleList";
+import { StoryFn } from '@storybook/react'
+import React from 'react'
+
+import SimpleList, { SimpleListProps } from './SimpleList'
 
 export default {
   title: 'MUI/SimpleList',
   component: SimpleList,
 }
 
-const Template: StoryFn<SimpleListProps> = (args) => (
-  <SimpleList {...args} />
-)
+const Template: StoryFn<SimpleListProps> = (args) => <SimpleList {...args} />
 
-export const ThreeCellsList = Template.bind({});
+export const ThreeCellsList = Template.bind({})
 ThreeCellsList.args = {
   items: [
     [
@@ -45,7 +44,7 @@ ThreeCellsList.args = {
   ],
 }
 
-export const TwoCellsList = Template.bind({});
+export const TwoCellsList = Template.bind({})
 TwoCellsList.args = {
   items: [
     [

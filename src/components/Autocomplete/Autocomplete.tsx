@@ -1,15 +1,15 @@
-import React from 'react';
 import MuiAutocomplete, {
-  AutocompleteRenderInputParams,
   AutocompleteProps as MuiAutocompleteProps,
-} from '@mui/material/Autocomplete';
-import { MuiTextField } from '../TextField';
-import { tokens } from '../../theme/tokens';
-import { TextFieldProps } from '../TextField/TextField';
-import { dropdownIconPath } from 'src/icons/dropdownIconPath';
+  AutocompleteRenderInputParams,
+} from '@mui/material/Autocomplete'
+import React from 'react'
+import { dropdownIconPath } from 'src/icons/dropdownIconPath'
+
+import { tokens } from '../../theme/tokens'
+import { TextField, TextFieldProps } from '../TextField/TextField'
 
 export interface OptionType {
-  label: string;
+  label: string
 }
 
 export type AutocompleteProps<
@@ -18,14 +18,14 @@ export type AutocompleteProps<
   DisableClearable extends boolean | undefined,
   FreeSolo extends boolean | undefined = undefined,
 > = Omit<MuiAutocompleteProps<T, Multiple, DisableClearable, FreeSolo>, 'renderInput'> & {
-  label?: string;
-  helperText?: string;
-  required?: boolean;
-  error?: boolean;
-  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
-  name?: string;
-  textFieldProps?: TextFieldProps;
-};
+  label?: string
+  helperText?: string
+  required?: boolean
+  error?: boolean
+  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode
+  name?: string
+  textFieldProps?: TextFieldProps
+}
 
 const Autocomplete = <
   T extends OptionType,
@@ -64,7 +64,7 @@ const Autocomplete = <
       renderInput={
         renderInput ||
         ((params) => (
-          <MuiTextField
+          <TextField
             {...params}
             label={label}
             helperText={helperText}
@@ -78,16 +78,22 @@ const Autocomplete = <
       }
       isOptionEqualToValue={(opt, val) => {
         if (isOptionEqualToValue && typeof isOptionEqualToValue === 'function') {
-          return isOptionEqualToValue(opt as T, val as T);
+          return isOptionEqualToValue(opt as T, val as T)
         }
-        if (typeof opt === 'string') return opt === val;
-        if (typeof opt === 'object' && typeof val === 'string') return opt?.label === val;
-        if (typeof opt === 'object' && typeof val === 'object' && opt?.label) return opt?.label === val?.label;
-        return false;
+        if (typeof opt === 'string') {
+          return opt === val
+        }
+        if (typeof opt === 'object' && typeof val === 'string') {
+          return opt?.label === val
+        }
+        if (typeof opt === 'object' && typeof val === 'object' && opt?.label) {
+          return opt?.label === val?.label
+        }
+        return false
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-export { Autocomplete };
+export { Autocomplete }

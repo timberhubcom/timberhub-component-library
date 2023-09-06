@@ -1,18 +1,19 @@
-import React from 'react';
-import MuiSelect, { SelectProps } from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import { styled } from '@mui/material/styles';
-import { outlinedInputStyles } from '../TextField/TextField';
-import { dropdownIconPath } from 'src/icons/dropdownIconPath';
+import MenuItem from '@mui/material/MenuItem'
+import MuiSelect, { SelectProps } from '@mui/material/Select'
+import { styled } from '@mui/material/styles'
+import React from 'react'
+import { dropdownIconPath } from 'src/icons/dropdownIconPath'
+
+import { outlinedInputStyles } from '../TextField/TextField'
 
 interface Option {
-  value: string;
-  label: React.ReactNode;
+  value: string
+  label: React.ReactNode
 }
 
-export interface ExtendedSelectProps<T extends unknown> extends Omit<SelectProps<T>, 'ref'> {
-  options?: Option[];
-  emptyOptionText?: React.ReactNode;
+export interface ExtendedSelectProps<T> extends Omit<SelectProps<T>, 'ref'> {
+  options?: Option[]
+  emptyOptionText?: React.ReactNode
 }
 
 const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...props} />)(({ theme }) => ({
@@ -29,17 +30,17 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   '& .MuiSelect-icon path': {
     d: `path("${dropdownIconPath}")`,
   },
-}));
+}))
 
-const ExtendedSelect = <T extends unknown = unknown>({
+const ExtendedSelect = <T = unknown,>({
   options = [],
   children,
   required,
   emptyOptionText,
   ...props
 }: ExtendedSelectProps<T>) => {
-  const hasOptions = options?.length > 0;
-  const showEmptyOption = !required && !!emptyOptionText;
+  const hasOptions = options?.length > 0
+  const showEmptyOption = !required && !!emptyOptionText
   const selectOptions = [
     ...(showEmptyOption
       ? [
@@ -50,18 +51,18 @@ const ExtendedSelect = <T extends unknown = unknown>({
         ]
       : []),
     ...options,
-  ];
+  ]
   return (
     <StyledSelect required={required} {...props}>
       {hasOptions
-        ? selectOptions?.map((option, idx) => (
+        ? selectOptions?.map((option) => (
             <MenuItem key={option.value ?? ''} value={option.value ?? ''}>
               {option.label}
             </MenuItem>
           ))
         : children}
     </StyledSelect>
-  );
-};
+  )
+}
 
-export { ExtendedSelect as Select };
+export { ExtendedSelect as Select }

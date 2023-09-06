@@ -1,13 +1,14 @@
-import React from 'react';
-import { ComponentStory } from '@storybook/react';
-import Chip from './Chip';
+import { ComponentStory } from '@storybook/react'
+import React from 'react'
+
+import Chip from './Chip'
 
 export default {
   title: 'Components/Chip',
   component: Chip,
-};
+}
 
-const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;
+const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />
 const MultipleTemplate: ComponentStory<any> = (args) => (
   <div style={{ display: 'flex', gap: '20px' }}>
     <Chip {...args[0]} />
@@ -16,14 +17,14 @@ const MultipleTemplate: ComponentStory<any> = (args) => (
     <Chip {...args[3]} />
     <Chip {...args[4]} />
   </div>
-);
+)
 
-export const Base = Template.bind({});
+export const Base = Template.bind({})
 Base.args = {
   text: 'offer',
-};
+}
 
-export const Color = MultipleTemplate.bind({});
+export const Color = MultipleTemplate.bind({})
 Color.args = [
   {
     text: 'pending',
@@ -44,10 +45,10 @@ Color.args = [
     text: 'rejected',
     color: 'red',
   },
-];
+]
 
-export const Prefix = Template.bind({});
+export const Prefix = Template.bind({})
 Prefix.args = {
   text: 'offer',
   prefix: '1',
-};
+}

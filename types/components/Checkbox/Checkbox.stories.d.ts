@@ -1,78 +1,99 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
         name?: string | undefined;
         label?: string | undefined;
         labelClass?: string | undefined;
-        option?: import("./Checkbox").CheckboxOptionType | undefined;
+        option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+            value?: string | undefined;
+        }) | undefined;
         description?: string | undefined;
         defaultValue?: boolean | undefined;
         value?: boolean | undefined;
         disabled?: boolean | undefined;
-        onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+        onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
         required?: boolean | undefined;
     }>;
 };
 export default _default;
-export declare const Base: ComponentStory<React.FC<{
+export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+        value?: string | undefined;
+    }) | undefined;
     description?: string | undefined;
     defaultValue?: boolean | undefined;
     value?: boolean | undefined;
     disabled?: boolean | undefined;
-    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     required?: boolean | undefined;
-}>>;
-export declare const Label: ComponentStory<React.FC<{
+} & {
+    children?: React.ReactNode;
+}>;
+export declare const Label: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+        value?: string | undefined;
+    }) | undefined;
     description?: string | undefined;
     defaultValue?: boolean | undefined;
     value?: boolean | undefined;
     disabled?: boolean | undefined;
-    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     required?: boolean | undefined;
-}>>;
-export declare const Disabled: ComponentStory<React.FC<{
+} & {
+    children?: React.ReactNode;
+}>;
+export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+        value?: string | undefined;
+    }) | undefined;
     description?: string | undefined;
     defaultValue?: boolean | undefined;
     value?: boolean | undefined;
     disabled?: boolean | undefined;
-    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     required?: boolean | undefined;
-}>>;
-export declare const Required: ComponentStory<React.FC<{
+} & {
+    children?: React.ReactNode;
+}>;
+export declare const Required: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+        value?: string | undefined;
+    }) | undefined;
     description?: string | undefined;
     defaultValue?: boolean | undefined;
     value?: boolean | undefined;
     disabled?: boolean | undefined;
-    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     required?: boolean | undefined;
-}>>;
-export declare const ChildComponent: ComponentStory<React.FC<{
+} & {
+    children?: React.ReactNode;
+}>;
+export declare const ChildComponent: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
-    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
+        value?: string | undefined;
+    }) | undefined;
     description?: string | undefined;
     defaultValue?: boolean | undefined;
     value?: boolean | undefined;
     disabled?: boolean | undefined;
-    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     required?: boolean | undefined;
-}>>;
+} & {
+    children?: React.ReactNode;
+}>;

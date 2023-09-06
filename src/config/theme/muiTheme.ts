@@ -1,8 +1,9 @@
-import { createTheme } from '@mui/material/styles';
-import { tokens } from '../../theme/tokens';
-import { buttonVariants } from './button/variants';
+import { createTheme } from '@mui/material/styles'
 
-const muiTheme = createTheme({
+import { tokens } from '../../theme/tokens'
+import { buttonVariants } from './button/variants'
+
+export const muiTheme = createTheme({
   typography: {
     fontFamily: ['Inter', 'GT Super Text', 'sans-serif'].join(','),
     // text
@@ -95,6 +96,4 @@ const muiTheme = createTheme({
       variants: buttonVariants,
     },
   },
-});
-
-export { muiTheme };
+})

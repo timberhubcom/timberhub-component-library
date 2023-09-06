@@ -1,0 +1,76 @@
+{
+  "env": {
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "ignorePatterns": ["build/", "dist/", "export/", "node_modules/"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react", "simple-import-sort"],
+  "rules": {
+    "@typescript-eslint/comma-spacing": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/func-call-spacing": "warn",
+    "@typescript-eslint/keyword-spacing": "warn",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-extra-semi": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-shadow": "off",
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/no-unused-vars": ["warn", { "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/quotes": "off",
+    "@typescript-eslint/semi": "off",
+    "arrow-spacing": "warn",
+    "block-spacing": "warn",
+    "computed-property-spacing": "warn",
+    "curly": "warn",
+    "generator-star-spacing": "warn",
+    "key-spacing": "warn",
+    "max-len": "off",
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-empty": "warn",
+    "no-mixed-requires": "error",
+    "no-multiple-empty-lines": [
+      "warn",
+      {
+        "max": 1
+      }
+    ],
+    "no-new-require": "error",
+    "no-shadow": "off",
+    "object-curly-spacing": ["warn", "always"],
+    "object-shorthand": "warn",
+    "prettier/prettier": "warn",
+    "react-hooks/exhaustive-deps": "off",
+    "react-native/no-inline-styles": "off",
+    "react/display-name": "off",
+    "react/jsx-closing-tag-location": "warn",
+    "react/jsx-curly-brace-presence": ["warn", { "props": "always", "children": "never" }],
+    "react/prop-types": "off",
+    "rest-spread-spacing": "warn",
+    "semi-spacing": "warn",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "switch-colon-spacing": "warn",
+    "template-curly-spacing": ["warn", "never"],
+    "template-tag-spacing": "warn",
+    "yield-star-spacing": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

@@ -1,11 +1,11 @@
-import { Color, Theme } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import MuiTextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
-import React from 'react';
-import { dropdownIconPath } from 'src/icons/dropdownIconPath';
+import { Color, Theme } from '@mui/material'
+import { styled } from '@mui/material/styles'
+import MuiTextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField'
+import React from 'react'
+import { dropdownIconPath } from 'src/icons/dropdownIconPath'
 
 export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> {
-  variant?: TextFieldVariants;
+  variant?: TextFieldVariants
 }
 
 export const outlinedInputStyles = (theme: Theme) => ({
@@ -38,7 +38,7 @@ export const outlinedInputStyles = (theme: Theme) => ({
   '& .MuiSelect-icon path': {
     d: `path("${dropdownIconPath}")`,
   },
-});
+})
 
 const StyledTextField = styled(MuiTextField)(({ theme }) => ({
   fontFamily: 'Inter',
@@ -56,10 +56,8 @@ const StyledTextField = styled(MuiTextField)(({ theme }) => ({
   '& .MuiInputLabel-sizeSmall:not(.MuiInputLabel-shrink)': {
     transform: 'translate(14px, 50%) scale(1)',
   },
-}));
+}))
 
-const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
-  return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
-};
-
-export { TextField };
+export const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
+  return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />
+}

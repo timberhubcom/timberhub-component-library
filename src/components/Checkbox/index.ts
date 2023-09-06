@@ -1,2 +1,2 @@
-export { default } from './Checkbox';
-export * from './MuiCheckbox';
+export { default } from './Checkbox'
+export * from './MuiCheckbox'

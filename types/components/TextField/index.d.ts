@@ -1,1 +1,1 @@
-export { default } from './TextField';
+export { TextField as MuiTextField, TextField, TextFieldProps } from './TextField';

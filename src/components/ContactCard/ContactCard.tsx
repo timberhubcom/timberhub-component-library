@@ -1,51 +1,46 @@
-import React from 'react';
-import { css, cx } from '@emotion/css';
-import { tokens } from '../../theme/tokens';
-import { Typography } from '../Typography';
-import { Link } from '../Link';
+import { css, cx } from '@emotion/css'
+import React from 'react'
+
+import { tokens } from '../../theme/tokens'
+import { Link } from '../Link'
+import { Typography } from '../Typography'
 
 type ContactCardDetails = {
-  src?: string;
-  fullName?: string;
-  location?: string;
-  telephone?: string;
-  mail: string;
-};
+  src?: string
+  fullName: string
+  location?: string
+  mail: string
+}
 
 type ContactCardProps = {
-  title: string;
-  details: ContactCardDetails;
-  className?: string;
-};
+  title: string
+  details: ContactCardDetails
+  className?: string
+}
 
 export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(function ContactCard(
   { title, details, className },
-  ref,
+  ref
 ) {
-  const { src, fullName, location, telephone, mail } = details;
+  const { src, fullName, location, mail } = details
   return (
     <div ref={ref} className={cx(styles.root, className)}>
       {!!src && <div className={styles.image(src)} />}
-      <Typography variant={'headline_s'} align={'center'} className={cx(styles.title, styles.marginBottom)}>
+      <Typography variant={'headline_s'} align={'center'} className={styles.title}>
         {title}
       </Typography>
-      {!!fullName && <Typography variant={'headline_ss_xxs'}>{fullName}</Typography>}
+      <Typography variant={'headline_ss_xxs'}>{fullName}</Typography>
       {!!location && (
-        <Typography variant={'body_s'} className={styles.marginBottom} color={'grey.600'}>
+        <Typography variant={'body_s'} color={'grey.600'}>
           {location}
         </Typography>
       )}
-      {!!telephone && (
-        <Link variant={'text_link_s'} href={`tel:${telephone}`} color={'grey.600'}>
-          {telephone}
-        </Link>
-      )}
-      <Link variant={'text_link_s'} href={`mailto:${mail}`} color={'grey.600'}>
+      <Link variant={'text_link_s'} href={`mailto:${mail}`} color={'grey.600'} className={styles.marginTop}>
         {mail}
       </Link>
     </div>
-  );
-});
+  )
+})
 
 const styles = {
   root: css`
@@ -66,9 +61,9 @@ const styles = {
   `,
   title: css`
     max-width: 161px;
-    margin-bottom: 8px !important;
+    margin-bottom: 16px !important;
   `,
-  marginBottom: css`
-    margin-bottom: 8px !important;
+  marginTop: css`
+    margin-top: 8px !important;
   `,
-};
+}

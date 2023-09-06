@@ -1,6 +1,6 @@
 import React from 'react';
 import { CheckboxOptionType } from '../Checkbox/Checkbox';
-declare type CheckboxGroupProps = {
+type CheckboxGroupProps = {
     name?: string;
     label?: string;
     labelClass?: string;

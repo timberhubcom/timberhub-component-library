@@ -1,2 +1,2 @@
-export { default } from './Chip';
-export { ChipColorEnum } from './Chip';
+export { default } from './Chip'
+export { ChipColorEnum } from './Chip'

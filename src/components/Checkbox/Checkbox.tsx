@@ -1,28 +1,29 @@
-import React from 'react';
-import styles from './Checkbox.module.scss';
+import React from 'react'
+
+import styles from './Checkbox.module.scss'
 
 export type CheckboxOptionType = {
-  name: string;
-  value: string;
-  children?: React.ReactNode;
-};
+  name: string
+  value: string
+  children?: React.ReactNode
+}
 
 type CheckboxOptionTypeOptionalValue = Omit<CheckboxOptionType, 'value'> & {
-  value?: string;
+  value?: string
 }
 
 type CheckboxProps = {
-  name?: string;
-  label?: string;
-  labelClass?: string;
-  option?: CheckboxOptionTypeOptionalValue;
-  description?: string;
-  defaultValue?: boolean;
-  value?: boolean;
-  disabled?: boolean;
-  onClick?: React.ChangeEventHandler<HTMLInputElement>;
-  required?: boolean;
-};
+  name?: string
+  label?: string
+  labelClass?: string
+  option?: CheckboxOptionTypeOptionalValue
+  description?: string
+  defaultValue?: boolean
+  value?: boolean
+  disabled?: boolean
+  onClick?: React.ChangeEventHandler<HTMLInputElement>
+  required?: boolean
+}
 const Checkbox: React.FC<CheckboxProps> = ({
   name,
   label,
@@ -39,7 +40,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       <label className={`${labelClass} ${styles['checkboxLabel']}`}>
         <div>{label && label}</div>
         <input
-          type="checkbox"
+          type={'checkbox'}
           name={name}
           onChange={onClick}
           required={required}
@@ -56,7 +57,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
         {option?.children && <>{option?.children}</>}
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default Checkbox;
+export default Checkbox
