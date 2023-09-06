@@ -16,7 +16,7 @@ const textButtonVariants: ComponentsVariants['MuiButton'] = (
     height: 'auto !important',
     color: `${active}  !important`,
     '&:hover': {
-      background: tokens.colors.transparent,
+      background: 'transparent',
       color: `${hover}  !important`,
     },
   },
@@ -94,7 +94,7 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
   {
     props: { variant: 'outlined' },
     style: {
-      backgroundColor: tokens.colors.transparent,
+      backgroundColor: 'transparent',
       color: `${tokens.colors.grey['700']} !important`,
       borderColor: tokens.colors.grey['500'],
       '&:hover': {
