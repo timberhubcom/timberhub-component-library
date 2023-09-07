@@ -48,6 +48,5 @@ injectGlobal`
         /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ url("./assets/fonts/Inter-v12-latin/inter-v12-latin-500.ttf")
       format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
     }
-
   }
 `
