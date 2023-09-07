@@ -3,7 +3,7 @@ declare const _default: import("@storybook/types").ComponentAnnotations<import("
 export default _default;
 export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     label: string;
-    size?: ("default" | "small") | undefined;
+    size?: ("small" | "default") | undefined;
     addonStart?: React.ReactNode;
     color?: "primary" | "error" | "info" | "warning" | "grey" | undefined;
     onClick?: (() => void) | undefined;
@@ -14,7 +14,7 @@ export declare const Sizes: import("@storybook/types").AnnotatedStoryFn<import("
 export declare const Color: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, any>;
 export declare const AddonStart: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     label: string;
-    size?: ("default" | "small") | undefined;
+    size?: ("small" | "default") | undefined;
     addonStart?: React.ReactNode;
     color?: "primary" | "error" | "info" | "warning" | "grey" | undefined;
     onClick?: (() => void) | undefined;
@@ -23,7 +23,7 @@ export declare const AddonStart: import("@storybook/types").AnnotatedStoryFn<imp
 } & React.RefAttributes<HTMLDivElement>>;
 export declare const isLoading: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     label: string;
-    size?: ("default" | "small") | undefined;
+    size?: ("small" | "default") | undefined;
     addonStart?: React.ReactNode;
     color?: "primary" | "error" | "info" | "warning" | "grey" | undefined;
     onClick?: (() => void) | undefined;

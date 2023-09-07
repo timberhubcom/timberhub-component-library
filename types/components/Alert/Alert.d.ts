@@ -1,11 +1,9 @@
+import { BoxProps } from '@mui/material/Box';
 import React from 'react';
-export interface AlertProps {
-    variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
-    className?: string;
-    title?: string;
+import { CustomColors } from 'src/types';
+export interface AlertProps extends BoxProps {
+    icon?: React.ReactNode;
     children: React.ReactNode;
-    buttonTitle?: string;
-    onClick?: React.MouseEventHandler<HTMLElement>;
+    variant?: Omit<CustomColors, 'accent' | 'secondary' | 'primary'>;
 }
-declare const Alert: React.FC<AlertProps>;
-export default Alert;
+export declare const Alert: ({ icon, children, variant, bgcolor, display, gap, p, ...props }: AlertProps) => React.JSX.Element;

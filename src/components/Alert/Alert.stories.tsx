@@ -1,49 +1,42 @@
-import { StoryFn } from '@storybook/react'
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
+import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import Alert from './Alert'
+import { Alert, AlertProps } from './Alert'
 
 export default {
-  title: 'Components/Alert',
+  title: 'MUI/Alert',
   component: Alert,
-}
+} as Meta
 
-const Template: StoryFn<typeof Alert> = (args) => (
-  <Alert title={'You have 5 offers available for review'} {...args}>
-    {args.children}
+const Template: StoryFn<AlertProps> = (args) => (
+  <Alert {...args} icon={<InfoOutlinedIcon />}>
+    You have 5 new offers and you have to click the button to able to accept them and also go to offers and download the
+    invoices
   </Alert>
 )
 
 export const Green = Template.bind({})
-Green.args = {}
+Green.args = {
+  variant: 'success',
+}
 
 export const Red = Template.bind({})
 Red.args = {
-  variant: 'red',
+  variant: 'error',
 }
 
 export const Blue = Template.bind({})
 Blue.args = {
-  variant: 'blue',
+  variant: 'info',
 }
 
 export const Yellow = Template.bind({})
 Yellow.args = {
-  variant: 'yellow',
+  variant: 'warning',
 }
 
 export const Grey = Template.bind({})
 Grey.args = {
   variant: 'grey',
-}
-
-export const WithButton = Template.bind({})
-WithButton.args = {
-  buttonTitle: 'Go to offers',
-}
-
-export const Multiline = Template.bind({})
-Multiline.args = {
-  title:
-    'You have 5 new offers and you have to click the button to able to accept them and also go to offers and download the invoices',
 }

@@ -1,4 +1,4 @@
-export * from './Alert'
+export * from './Alert/Alert'
 export * from './Autocomplete'
 export * from './Banner/Banner'
 export * from './Button/Button'

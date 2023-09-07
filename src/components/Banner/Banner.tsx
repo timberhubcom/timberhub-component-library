@@ -11,7 +11,7 @@ import SuccessS from '../../assets/icons/banner/success-s.svg'
 import SuccessXS from '../../assets/icons/banner/success-xs.svg'
 import WarningS from '../../assets/icons/banner/warning-s.svg'
 import WarningXS from '../../assets/icons/banner/warning-xs.svg'
-import { MuiAlert } from '../Alert'
+import { Alert } from '../Alert/Alert'
 import { Typography } from '../Typography'
 
 type IconSize = 's' | 'xs'
@@ -45,10 +45,10 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
   const IconPath = IconComponents[`${variant}-${iconSize}`]
 
   return (
-    <MuiAlert variant={variant} className={className} ref={ref} icon={<IconPath className={styles.icon(iconSize)} />}>
+    <Alert variant={variant} className={className} ref={ref} icon={<IconPath className={styles.icon(iconSize)} />}>
       {title && <Typography variant={'headline_ss_xxs'}>{title}</Typography>}
       {description && <Typography variant={'body_s'}>{description}</Typography>}
-    </MuiAlert>
+    </Alert>
   )
 })
 
