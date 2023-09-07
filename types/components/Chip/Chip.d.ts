@@ -1,16 +1,20 @@
 import React from 'react';
-export declare const ChipColorEnum: {
-    readonly GREEN: "green";
-    readonly ORANGE: "orange";
-    readonly GREY: "grey";
-    readonly BLUE: "blue";
-    readonly RED: "red";
-};
-export type ChipColorEnum = (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
+export declare const ChipColorEnum: Readonly<{
+    PRIMARY: "primary";
+    GREY: "grey";
+    ERROR: "error";
+    WARNING: "warning";
+    INFO: "info";
+}>;
+type ChipSize = 'small' | 'default';
 type ChipProps = {
-    text: string;
-    color?: ChipColorEnum;
-    prefix?: string;
+    label: string;
+    size?: ChipSize;
+    addonStart?: React.ReactNode;
+    color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
+    onClick?: () => void;
+    isLoading?: boolean;
+    className?: string;
 };
-declare const Chip: React.FC<ChipProps>;
-export default Chip;
+export declare const Chip: React.ForwardRefExoticComponent<ChipProps & React.RefAttributes<HTMLDivElement>>;
+export {};

@@ -1,99 +1,14 @@
 import React from 'react';
 declare const _default: {
     title: string;
-    component: React.FC<{
-        name?: string | undefined;
-        label?: string | undefined;
-        labelClass?: string | undefined;
-        option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-            value?: string | undefined;
-        }) | undefined;
-        description?: string | undefined;
-        defaultValue?: boolean | undefined;
-        value?: boolean | undefined;
-        disabled?: boolean | undefined;
-        onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-        required?: boolean | undefined;
-    }>;
+    component: ({ size, sx, ...props }: import("@mui/material").CheckboxProps) => React.JSX.Element;
 };
 export default _default;
-export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-        value?: string | undefined;
-    }) | undefined;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    value?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    required?: boolean | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Label: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-        value?: string | undefined;
-    }) | undefined;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    value?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    required?: boolean | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-        value?: string | undefined;
-    }) | undefined;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    value?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    required?: boolean | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Required: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-        value?: string | undefined;
-    }) | undefined;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    value?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    required?: boolean | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const ChildComponent: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
-    name?: string | undefined;
-    label?: string | undefined;
-    labelClass?: string | undefined;
-    option?: (Omit<import("./Checkbox").CheckboxOptionType, "value"> & {
-        value?: string | undefined;
-    }) | undefined;
-    description?: string | undefined;
-    defaultValue?: boolean | undefined;
-    value?: boolean | undefined;
-    disabled?: boolean | undefined;
-    onClick?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-    required?: boolean | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
+export declare const Small: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Medium: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Large: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Error: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Warning: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const accent: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const info: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;

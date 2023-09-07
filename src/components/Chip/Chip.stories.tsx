@@ -1,15 +1,23 @@
-import { ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 import React from 'react'
 
-import Chip from './Chip'
+import { Chip } from './Chip'
 
 export default {
-  title: 'Components/Chip',
+  title: 'MUI/Chip',
   component: Chip,
-}
+  parameters: { actions: { argTypesRegex: null } },
+} as Meta
 
-const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />
-const MultipleTemplate: ComponentStory<any> = (args) => (
+const Template: StoryFn<typeof Chip> = (args) => <Chip {...args} />
+const MultipleSizes: StoryFn<any> = (args) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+    <Chip {...args[0]} />
+    <Chip {...args[1]} />
+  </div>
+)
+
+const MultipleTemplate: StoryFn<any> = (args) => (
   <div style={{ display: 'flex', gap: '20px' }}>
     <Chip {...args[0]} />
     <Chip {...args[1]} />
@@ -21,34 +29,51 @@ const MultipleTemplate: ComponentStory<any> = (args) => (
 
 export const Base = Template.bind({})
 Base.args = {
-  text: 'offer',
+  label: 'offer',
 }
+
+export const Sizes = MultipleSizes.bind({})
+Sizes.args = [
+  {
+    label: 'Small',
+    size: 'small',
+  },
+  {
+    label: 'Default',
+  },
+]
 
 export const Color = MultipleTemplate.bind({})
 Color.args = [
   {
-    text: 'pending',
-    color: 'orange',
+    label: 'pending',
+    color: 'warning',
   },
   {
-    text: 'closed',
+    label: 'closed',
   },
   {
-    text: 'offer',
-    color: 'blue',
+    label: 'offer',
+    color: 'info',
   },
   {
-    text: 'approved',
-    color: 'green',
+    label: 'approved',
+    color: 'primary',
   },
   {
-    text: 'rejected',
-    color: 'red',
+    label: 'rejected',
+    color: 'error',
   },
 ]
 
-export const Prefix = Template.bind({})
-Prefix.args = {
-  text: 'offer',
-  prefix: '1',
+export const AddonStart = Template.bind({})
+AddonStart.args = {
+  label: 'offer',
+  addonStart: '1',
+}
+
+export const isLoading = Template.bind({})
+isLoading.args = {
+  label: 'offer',
+  isLoading: true,
 }

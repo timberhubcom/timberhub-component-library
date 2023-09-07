@@ -1,49 +1,56 @@
-import { ComponentStory } from '@storybook/react'
+import { StoryFn } from '@storybook/react'
 import React from 'react'
 
-import Checkbox from './Checkbox'
+import { Checkbox } from './Checkbox'
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'MUI/Checkbox',
   component: Checkbox,
 }
 
-const Template: ComponentStory<typeof Checkbox> = (args) => (
-  <Checkbox
-    {...args}
-    onClick={(e: any) => {
-      // eslint-disable-next-line no-console
-      console.log(e.target.checked)
-    }}
-  />
-)
+const Template: StoryFn<typeof Checkbox> = (args) => <Checkbox {...args} />
 
-export const Base = Template.bind({})
-Base.args = {
-  option: { name: '', value: 'checked' },
+export const Small = Template.bind({})
+Small.args = {
+  size: 'small',
 }
 
-export const Label = Template.bind({})
-Label.args = {
-  label: 'Final step',
-  option: { name: 'Agree with the t&cs' },
+export const Medium = Template.bind({})
+Medium.args = {
+  size: 'medium',
+}
+
+export const Large = Template.bind({})
+Large.args = {
+  size: 'large',
+}
+
+export const Error = Template.bind({})
+Error.args = {
+  color: 'error',
+  defaultChecked: true,
+}
+
+export const Warning = Template.bind({})
+Warning.args = {
+  color: 'warning',
+  defaultChecked: true,
 }
 
 export const Disabled = Template.bind({})
 Disabled.args = {
-  defaultValue: true,
-  option: { name: 'Disabled', value: 'Disabled' },
   disabled: true,
+  defaultChecked: true,
 }
 
-export const Required = Template.bind({})
-Required.args = {
-  defaultValue: true,
-  option: { name: 'Option', value: 'Option' },
-  required: true,
+export const accent = Template.bind({})
+accent.args = {
+  color: 'accent',
+  defaultChecked: true,
 }
 
-export const ChildComponent = Template.bind({})
-ChildComponent.args = {
-  option: { name: 'Option', value: 'Option', children: <div>child</div> },
+export const info = Template.bind({})
+info.args = {
+  color: 'info',
+  defaultChecked: true,
 }

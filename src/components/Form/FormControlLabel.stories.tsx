@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import { StoryFn } from '@storybook/react'
 import React from 'react'
 
-import { MuiCheckbox } from '../Checkbox'
+import { Checkbox } from '../Checkbox/Checkbox'
 import { FormControlLabel, FormControlLabelProps } from './FormControlLabel'
 
 export default {
@@ -17,7 +17,7 @@ const Template: StoryFn<FormControlLabelProps> = (args) => {
       <FormControlLabel
         {...args}
         control={
-          <MuiCheckbox
+          <Checkbox
             checked={checked}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setChecked(event.target.checked)}
             name={'form'}
