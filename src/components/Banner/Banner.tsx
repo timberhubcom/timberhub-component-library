@@ -50,9 +50,8 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
       variant={variant}
       className={className}
       ref={ref}
-      icon={
-        <IconPath className={styles.icon(iconSize)} />
-      }
+      icon={<IconPath className={styles.icon(iconSize)} />}
+      p="16px"
     >
       {title && <Typography variant="headline_ss_xxs">{title}</Typography>}
       {description && <Typography variant="body_s">{description}</Typography>}
@@ -63,7 +62,7 @@ export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Ban
 const styles = {
   icon: (iconSize: IconSize) => css`
     align-self: ${iconSize === 'xs' ? 'start' : 'center'};
-  `
-}
+  `,
+};
 
 export default Banner;

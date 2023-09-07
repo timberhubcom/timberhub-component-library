@@ -32,7 +32,7 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
         <IconElement />
       </div>
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
-        <Typography variant="headline_ss_xxs">{title}</Typography>
+        <Typography variant="headline_ss_xs">{title}</Typography>
         <Typography variant="body_s">{description}</Typography>
       </Box>
     </Paper>
@@ -40,14 +40,14 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
 });
 
 const styles = {
-    iconWrapper: (bgColor: string) => css`
-      background-color: ${bgColor};
-      width: 72px;
-      min-height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    `
+  iconWrapper: (bgColor: string) => css`
+    background-color: ${bgColor};
+    width: 72px;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
 };
 
 export default DataItem;
