@@ -16,7 +16,8 @@
     "dev": "npm-run-all --parallel build-watch start-playground",
     "prepare": "husky install",
     "format": "prettier --write",
-    "lint": "eslint --cache --fix"
+    "lint": "eslint --cache --fix",
+    "tsc": "tsc --noEmit"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
