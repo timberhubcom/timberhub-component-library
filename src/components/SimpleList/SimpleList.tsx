@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Paper, Stack } from '@mui/material';
+import { Paper, TableContainer, TableBody, TableRow, TableCell, Table } from '@mui/material';
 import { Typography } from '../Typography';
 
 type SimpleItem = {
@@ -16,20 +16,38 @@ export const SimpleList = React.forwardRef<HTMLDivElement, SimpleListProps>(func
   { items, className, ...props },
   ref,
 ) {
+  type TableCellProps = 'center' | 'left' | 'right' | 'inherit' | 'justify';
+  const getAlignment = (itemIndex: number, itemsLength: number) => {
+    let alignment = 'center';
+    if (itemIndex === 0) {
+      alignment = 'left';
+    } else if (itemIndex+1 === itemsLength) {
+      alignment = 'right';
+    }
+    return alignment as TableCellProps;
+  }
+
   return (
-    <Paper variant="outlined" className={className} ref={ref}>
-      <Stack divider={<Divider />}>
+    <TableContainer component={Paper} variant="outlined" className={className} ref={ref}>
+      <Table sx={{width: '100%'}}>
+      <TableBody>
         {items.map((item) => (
-          <Stack direction="row" justifyContent="space-between" key={crypto.randomUUID()} p={2} pr={1.5}>
-            {item.map((cell: SimpleItem) => (
-              <Typography variant={cell?.style === 'bold' ? 'headline_ss_xs' : 'body_s'} key={crypto.randomUUID()}>
-                {cell.text}
-              </Typography>
+          <TableRow
+            key={crypto.randomUUID()}
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            {item.map((cell: SimpleItem, index) => (
+              <TableCell key={crypto.randomUUID()} align={getAlignment(index, item.length)}>
+                <Typography variant={cell?.style === 'bold' ? 'headline_ss_xs' : 'body_s'}>
+                  {cell.text}
+                </Typography>
+              </TableCell>
             ))}
-          </Stack>
-        ))}
-      </Stack>
-    </Paper>
+          </TableRow>
+          ))}
+      </TableBody>
+      </Table>
+    </TableContainer>
   )
 })
 
