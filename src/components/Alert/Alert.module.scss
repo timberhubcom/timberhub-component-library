@@ -1,6 +1,6 @@
-@import "./src/theme/pallete";
-@import "./src/theme/functions";
-@import "./src/theme/typography";
+@import "../../../src/theme/old-tokens/pallete";
+@import "../../../src/theme/old-tokens/functions";
+@import "../../../src/theme/old-tokens/typography";
 
 $alerts: (
   "default": (

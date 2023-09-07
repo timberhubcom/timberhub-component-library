@@ -1,6 +1,6 @@
 import type { ComponentsVariants } from '@mui/material/styles/variants'
 
-import { tokens } from '../../../theme/tokens'
+import { tokens } from '../../tokens'
 
 const textButtonVariants: ComponentsVariants['MuiButton'] = (
   [

@@ -1,2 +1,2 @@
-export * from './muiTheme'
+export * from './theme'
 export { ThemeProvider } from '@mui/material/styles'

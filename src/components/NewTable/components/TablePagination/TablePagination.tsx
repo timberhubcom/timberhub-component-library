@@ -8,7 +8,7 @@ import {
 import { useMediaQuery } from '@mui/material'
 import React from 'react'
 
-import { muiTheme } from '../../../../config'
+import { theme } from '../../../../theme'
 import { tokens } from '../../../../theme/tokens'
 import { TablePaginationButton } from './components/TablePaginationButton'
 
@@ -20,7 +20,7 @@ export type TablePaginationProps = {
 }
 
 export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 4 }: TablePaginationProps) => {
-  const isSmallScreen = useMediaQuery(() => muiTheme.breakpoints.down('sm'))
+  const isSmallScreen = useMediaQuery(() => theme.breakpoints.down('sm'))
 
   const visiblePagesTransformed = isSmallScreen ? 3 : visiblePages
 

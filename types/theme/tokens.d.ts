@@ -167,7 +167,6 @@ export declare const tokens: {
     };
     readonly colors: {
         black: string;
-        transparent: string;
         white: string;
         primary: {
             400: string;

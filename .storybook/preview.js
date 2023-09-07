@@ -2,9 +2,9 @@ import React from 'react'
 import { ThemeProvider } from '@mui/material/styles'
 import './globalStyles'
 
-import { muiTheme } from '../src'
+import { theme } from '../src'
 
-export const decorators = [(storyFn) => <ThemeProvider theme={muiTheme}>{storyFn()}</ThemeProvider>]
+export const decorators = [(storyFn) => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>]
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

@@ -1,4 +1,4 @@
-@import "./src/theme/pallete";
+@import "../../../src/theme/old-tokens/pallete";
 
 @mixin required() {
   color: $green;
