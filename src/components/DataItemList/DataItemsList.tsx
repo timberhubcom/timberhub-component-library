@@ -1,11 +1,11 @@
 import React from 'react';
 import { css } from '@emotion/css';
-import DataItem, { DataItemsProps } from "../DataItem/DataItem";
+import DataItem, { DataItemsProps } from '../DataItem/DataItem';
 
 export type DataItemsListProps = {
   items: DataItemsProps[];
   className?: string;
-}
+};
 
 const getItemClass = (itemIndex: number, items: DataItemsProps[]) => {
   let itemClass;
@@ -22,23 +22,22 @@ const getItemClass = (itemIndex: number, items: DataItemsProps[]) => {
 };
 
 export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps>(function DataItemList(
-  {items, className, ...props},
+  { items, className, ...props },
   ref,
 ) {
+  const isSingle = items?.length === 1;
 
-  return(
-    items.map((item, index) => (
-      <DataItem
-        icon={item.icon}
-        title={item.title}
-        description={item.description}
-        className={getItemClass(index, items)}
-        key={crypto.randomUUID()}
-        ref={ref}
-      />
-    ))
-  )
-})
+  return items.map((item, index) => (
+    <DataItem
+      icon={item.icon}
+      title={item.title}
+      description={item.description}
+      className={isSingle ? '' : getItemClass(index, items)}
+      key={crypto.randomUUID()}
+      ref={ref}
+    />
+  ));
+});
 
 const styles = {
   first: css`
@@ -51,7 +50,7 @@ const styles = {
   middle: css`
     border-bottom: 0 !important;
     border-radius: 0 !important;
-  `
-}
+  `,
+};
 
 export default DataItemsList;
