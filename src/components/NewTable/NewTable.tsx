@@ -1,5 +1,5 @@
-import { css, cx } from '@emotion/css'
-import { Skeleton } from '@mui/material'
+import { css, cx } from '@emotion/css';
+import { Skeleton } from '@mui/material';
 import {
   ColumnDef,
   ColumnResizeMode,
@@ -8,10 +8,10 @@ import {
   getPaginationRowModel,
   Row,
   useReactTable,
-} from '@tanstack/react-table'
-import React from 'react'
+} from '@tanstack/react-table';
+import React from 'react';
 
-import { tokens } from '../../theme/tokens'
+import { tokens } from '../../theme/tokens';
 import {
   TableBody,
   TableCell,
@@ -21,17 +21,17 @@ import {
   TablePaginationProps,
   TableRow,
   TableWrapper,
-} from './components'
+} from './components';
 
 export type NewTableProps<TData> = {
-  columns: ColumnDef<TData>[]
-  data: TData[]
-  isLoading?: boolean
-  loadingRows?: number
-  onClick?: (row: Row<TData>) => void
-  renderEmpty?: () => React.ReactNode
-  pagination?: TablePaginationProps
-}
+  columns: ColumnDef<TData>[];
+  data: TData[];
+  isLoading?: boolean;
+  loadingRows?: number;
+  onClick?: (row: Row<TData>) => void;
+  renderEmpty?: () => React.ReactNode;
+  pagination?: TablePaginationProps;
+};
 
 export const NewTable = <TData extends object>({
   columns,
@@ -42,7 +42,7 @@ export const NewTable = <TData extends object>({
   pagination,
   renderEmpty = () => 'No results',
 }: NewTableProps<TData>) => {
-  const columnResizeMode: ColumnResizeMode = 'onChange'
+  const columnResizeMode: ColumnResizeMode = 'onChange';
 
   const table = useReactTable({
     data,
@@ -50,9 +50,9 @@ export const NewTable = <TData extends object>({
     columnResizeMode,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: !!pagination ? getPaginationRowModel() : undefined,
-  })
+  });
 
-  const paginationData = table.getState().pagination
+  const paginationData = table.getState().pagination;
 
   if (isLoading) {
     return (
@@ -82,7 +82,7 @@ export const NewTable = <TData extends object>({
           ))}
         </TableBody>
       </TableWrapper>
-    )
+    );
   }
 
   return (
@@ -138,14 +138,14 @@ export const NewTable = <TData extends object>({
           currentPage={pagination.currentPage || paginationData.pageIndex + 1}
           totalPages={pagination.totalPages || table.getPageCount()}
           onChange={(page) => {
-            table.setPageIndex(page)
-            pagination.onChange?.(page + 1)
+            table.setPageIndex(page);
+            pagination.onChange?.(page + 1);
           }}
         />
       ) : null}
     </React.Fragment>
-  )
-}
+  );
+};
 
 const rowTd = (type: 'first' | 'middle' | 'last') => css`
   td {
@@ -180,7 +180,7 @@ const rowTd = (type: 'first' | 'middle' | 'last') => css`
       `};
     }
   }
-`
+`;
 
 const styles = {
   row: css`
@@ -270,4 +270,4 @@ const styles = {
       background-color: ${tokens.colors.primary[400]};
     `}
   `,
-}
+};

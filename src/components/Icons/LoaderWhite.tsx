@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const LoaderWhite = () => {
   return (
@@ -26,7 +26,7 @@ const LoaderWhite = () => {
         />
       </circle>
     </svg>
-  )
-}
+  );
+};
 
-export default LoaderWhite
+export default LoaderWhite;

@@ -64,19 +64,19 @@ const colors = {
     600: '#274C68',
     700: '#11202D',
   },
-}
+};
 
 const interFontStyle = {
   fontFamily: 'Inter',
   fontStyle: 'normal',
   fontWeight: '400',
   color: colors.grey['900'],
-}
+};
 
 const interMediumFontStyle = {
   ...interFontStyle,
   fontWeight: '500',
-}
+};
 
 const sharedThemeValues = {
   typography: {
@@ -199,12 +199,12 @@ const sharedThemeValues = {
       lineHeight: '18px',
     },
   },
-}
+};
 
-export type TTheme = typeof tokens
+export type TTheme = typeof tokens;
 
 // THEMES
 export const tokens = {
   colors,
   ...sharedThemeValues,
-} as const
+} as const;

@@ -1,14 +1,14 @@
-import { clsx } from 'clsx'
-import React, { useMemo } from 'react'
+import { clsx } from 'clsx';
+import React, { useMemo } from 'react';
 
-import styles from './Pagination.module.scss'
+import styles from './Pagination.module.scss';
 
 export interface PaginationProps {
-  activePage?: number
-  totalPages?: number
-  visiblePages?: number // Number of visible page buttons
-  ellipsisThreshold?: number // Minimum number of pages required to display ellipses
-  onPageChange?: (page?: number) => void
+  activePage?: number;
+  totalPages?: number;
+  visiblePages?: number; // Number of visible page buttons
+  ellipsisThreshold?: number; // Minimum number of pages required to display ellipses
+  onPageChange?: (page?: number) => void;
 }
 
 const Pagination = ({
@@ -20,24 +20,24 @@ const Pagination = ({
 }: PaginationProps) => {
   const pageRange = useMemo(() => {
     if (totalPages <= visiblePages) {
-      return Array.from({ length: totalPages }, (_, i) => i + 1)
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    const currentPage = activePage || 1
-    let startPage = currentPage - Math.floor(visiblePages / 2)
+    const currentPage = activePage || 1;
+    let startPage = currentPage - Math.floor(visiblePages / 2);
 
     if (startPage < 1) {
-      startPage = 1
+      startPage = 1;
     } else if (startPage + visiblePages > totalPages) {
-      startPage = totalPages - visiblePages + 1
+      startPage = totalPages - visiblePages + 1;
     }
 
-    return Array.from({ length: visiblePages }, (_, i) => i + startPage)
-  }, [activePage, totalPages, visiblePages])
+    return Array.from({ length: visiblePages }, (_, i) => i + startPage);
+  }, [activePage, totalPages, visiblePages]);
 
   const onPageChange = (page?: number) => {
-    _onPageChange?.(page)
-  }
+    _onPageChange?.(page);
+  };
 
   return (
     <>
@@ -160,7 +160,7 @@ const Pagination = ({
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default Pagination
+export default Pagination;

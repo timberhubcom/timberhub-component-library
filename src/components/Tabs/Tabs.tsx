@@ -1,21 +1,21 @@
-import { clsx } from 'clsx'
-import React from 'react'
+import { clsx } from 'clsx';
+import React from 'react';
 
-import styles from './Tabs.module.scss'
+import styles from './Tabs.module.scss';
 
 type TabsItem = {
-  title: string
-  value: string
-  name: string
-  disabled?: boolean
-}
+  title: string;
+  value: string;
+  name: string;
+  disabled?: boolean;
+};
 
 export type TabsProp = {
-  items: TabsItem[]
-  activeTab: string | string[]
-  counts?: any
-  onClick: (value: string) => void
-}
+  items: TabsItem[];
+  activeTab: string | string[];
+  counts?: any;
+  onClick: (value: string) => void;
+};
 
 const Tabs: React.FC<TabsProp> = ({ items, activeTab, counts, onClick }) => {
   return (
@@ -40,7 +40,7 @@ const Tabs: React.FC<TabsProp> = ({ items, activeTab, counts, onClick }) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Tabs
+export default Tabs;

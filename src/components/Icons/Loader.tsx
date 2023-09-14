@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Loader = ({ color }: { color: string }) => {
   return (
@@ -21,7 +21,7 @@ const Loader = ({ color }: { color: string }) => {
         />
       </circle>
     </svg>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

@@ -1,11 +1,11 @@
-import clsx from 'clsx'
-import React from 'react'
+import clsx from 'clsx';
+import React from 'react';
 
-import { colors } from '../../theme/old-tokens/colors.enum'
-import Loader from '../Icons/Loader'
-import Pagination from '../Pagination/Pagination'
-import styles from './Table.module.scss'
-import { HeaderItem, TableProps, TableRowItem } from './types'
+import { colors } from '../../theme/old-tokens/colors.enum';
+import Loader from '../Icons/Loader';
+import Pagination from '../Pagination/Pagination';
+import styles from './Table.module.scss';
+import { HeaderItem, TableProps, TableRowItem } from './types';
 
 export const Table: React.FC<TableProps> = ({
   structure,
@@ -20,9 +20,9 @@ export const Table: React.FC<TableProps> = ({
 }) => {
   const handleRowClick = (row: TableRowItem) => {
     if (onClick) {
-      onClick(row)
+      onClick(row);
     }
-  }
+  };
 
   return (
     <>
@@ -90,5 +90,5 @@ export const Table: React.FC<TableProps> = ({
       </div>
       {pagination ? <Pagination {...paginationData} /> : null}
     </>
-  )
-}
+  );
+};

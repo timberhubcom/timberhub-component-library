@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { TableStructure } from './types'
+import { TableStructure } from './types';
 
 export const structure: TableStructure = {
   header: [
@@ -41,7 +41,7 @@ export const structure: TableStructure = {
       show_on_hover: false,
     },
   ],
-}
+};
 
 export const rows = [
   { key: '1', col_1: <div>React node</div>, col_3: 'data 3' },
@@ -50,4 +50,4 @@ export const rows = [
   { key: '4', col_1: 'data 1', col_3: 'data 3' },
   { key: '5', col_1: 'data 1', col_4: 'data 4' },
   { key: '6', col_1: 'data 1', col_2: 'data 2' },
-]
+];

@@ -17,38 +17,38 @@ export type CustomTypographyVariants =
   | 'body_s'
   | 'text_link_m'
   | 'text_link_s'
-  | 'caption'
+  | 'caption';
 
 export interface TypographyVariantOverrides {
-  headline_ss_xxl: true
-  headline_ss_xl: true
-  headline_ss_l: true
-  headline_ss_m: true
-  headline_ss_s: true
-  headline_ss_xs: true
-  headline_ss_xxs: true
-  headline_xxl: true
-  headline_xl: true
-  headline_l: true
-  headline_m: true
-  headline_s: true
-  body_xl: true
-  body_l: true
-  body_m: true
-  body_s: true
-  text_link_m: true
-  text_link_s: true
-  caption: true
-  h1: false
-  h2: false
-  h3: false
-  h4: false
-  h5: false
-  h6: false
-  subtitle1: false
-  subtitle2: false
-  body1: false
-  body2: false
-  button: false
-  overline: false
+  headline_ss_xxl: true;
+  headline_ss_xl: true;
+  headline_ss_l: true;
+  headline_ss_m: true;
+  headline_ss_s: true;
+  headline_ss_xs: true;
+  headline_ss_xxs: true;
+  headline_xxl: true;
+  headline_xl: true;
+  headline_l: true;
+  headline_m: true;
+  headline_s: true;
+  body_xl: true;
+  body_l: true;
+  body_m: true;
+  body_s: true;
+  text_link_m: true;
+  text_link_s: true;
+  caption: true;
+  h1: false;
+  h2: false;
+  h3: false;
+  h4: false;
+  h5: false;
+  h6: false;
+  subtitle1: false;
+  subtitle2: false;
+  body1: false;
+  body2: false;
+  button: false;
+  overline: false;
 }

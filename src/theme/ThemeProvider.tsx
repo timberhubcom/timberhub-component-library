@@ -1,9 +1,9 @@
-import { css } from '@emotion/css'
-import { Global } from '@emotion/react'
-import { ThemeProvider as MuiThemeProvider } from '@mui/material'
-import React from 'react'
+import { css } from '@emotion/css';
+import { Global } from '@emotion/react';
+import { ThemeProvider as MuiThemeProvider } from '@mui/material';
+import React from 'react';
 
-import { theme } from './theme'
+import { theme } from './theme';
 
 const CSSReset = () => {
   return (
@@ -58,13 +58,13 @@ const CSSReset = () => {
           }
       `}
     />
-  )
-}
+  );
+};
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <MuiThemeProvider theme={theme}>
       <CSSReset />
       {children}
     </MuiThemeProvider>
-  )
-}
+  );
+};

@@ -1,16 +1,16 @@
-import { css } from '@emotion/css'
-import { Divider } from '@mui/material'
-import { Meta } from '@storybook/react'
-import React from 'react'
-import { Button, Typography } from 'src/components'
-import { tokens } from 'src/theme/tokens'
+import { css } from '@emotion/css';
+import { Divider } from '@mui/material';
+import { Meta } from '@storybook/react';
+import React from 'react';
+import { Button, Typography } from 'src/components';
+import { tokens } from 'src/theme/tokens';
 
-import { CustomTypographyVariants } from '../../types'
-import { copyTextToClipboard } from '../../utils'
+import { CustomTypographyVariants } from '../../types';
+import { copyTextToClipboard } from '../../utils';
 
 export default {
   title: 'Design System/Typography',
-} as Meta
+} as Meta;
 
 export const TypographyVariants = () => (
   <div className={styles.root}>
@@ -29,7 +29,7 @@ export const TypographyVariants = () => (
             color={'grey'}
             size={'xs'}
             onClick={async () => {
-              await copyTextToClipboard(`tokens.typography.${key}`)
+              await copyTextToClipboard(`tokens.typography.${key}`);
             }}>
             Copy token
           </Button>
@@ -38,7 +38,7 @@ export const TypographyVariants = () => (
       </React.Fragment>
     ))}
   </div>
-)
+);
 
 const styles = {
   root: css`
@@ -57,4 +57,4 @@ const styles = {
     justify-content: center;
     gap: 16px;
   `,
-}
+};

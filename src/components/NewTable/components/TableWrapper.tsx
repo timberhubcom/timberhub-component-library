@@ -1,5 +1,5 @@
-import { css, cx } from '@emotion/css'
-import React from 'react'
+import { css, cx } from '@emotion/css';
+import React from 'react';
 
 export const TableWrapper = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
@@ -7,7 +7,7 @@ export const TableWrapper = React.forwardRef<HTMLTableElement, React.HTMLAttribu
       <table ref={ref} className={cx(styles.container, className)} {...props} />
     </div>
   )
-)
+);
 
 const styles = {
   root: css`
@@ -20,4 +20,4 @@ const styles = {
     border-spacing: 0;
     table-layout: fixed;
   `,
-}
+};

@@ -1,13 +1,13 @@
-import { Checkbox as MuiCheckbox, CheckboxProps as MuiCheckboxProps } from '@mui/material'
-import React from 'react'
+import { Checkbox as MuiCheckbox, CheckboxProps as MuiCheckboxProps } from '@mui/material';
+import React from 'react';
 
-export type CheckboxProps = MuiCheckboxProps
+export type CheckboxProps = MuiCheckboxProps;
 
 const sizeMapper = {
   small: 14,
   medium: 16,
   large: 24,
-}
+};
 
 const Svg: React.FC = ({ children }) => (
   <svg
@@ -19,13 +19,13 @@ const Svg: React.FC = ({ children }) => (
     preserveAspectRatio={'xMidYMid meet'}>
     {children}
   </svg>
-)
+);
 
 const UncheckedIcon = (
   <Svg>
     <rect x={'0.5'} y={'0.5'} width={'13'} height={'13'} rx={'2.5'} stroke={'black'} strokeOpacity={'0.13'} />
   </Svg>
-)
+);
 
 const CheckedIcon = (
   <Svg>
@@ -35,10 +35,10 @@ const CheckedIcon = (
       fill={'white'}
     />
   </Svg>
-)
+);
 
 export const Checkbox = ({ size = 'medium', sx, ...props }: CheckboxProps) => {
-  const svgSize = sizeMapper[size] ?? sizeMapper.medium
+  const svgSize = sizeMapper[size] ?? sizeMapper.medium;
   return (
     <MuiCheckbox
       size={size}
@@ -53,5 +53,5 @@ export const Checkbox = ({ size = 'medium', sx, ...props }: CheckboxProps) => {
       checkedIcon={CheckedIcon}
       {...props}
     />
-  )
-}
+  );
+};

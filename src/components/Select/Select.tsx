@@ -1,19 +1,19 @@
-import MenuItem from '@mui/material/MenuItem'
-import MuiSelect, { SelectProps } from '@mui/material/Select'
-import { styled } from '@mui/material/styles'
-import React from 'react'
-import { dropdownIconPath } from 'src/icons/dropdownIconPath'
+import MenuItem from '@mui/material/MenuItem';
+import MuiSelect, { SelectProps } from '@mui/material/Select';
+import { styled } from '@mui/material/styles';
+import React from 'react';
+import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
-import { outlinedInputStyles } from '../TextField/TextField'
+import { outlinedInputStyles } from '../TextField/TextField';
 
 interface Option {
-  value: string
-  label: React.ReactNode
+  value: string;
+  label: React.ReactNode;
 }
 
 export interface ExtendedSelectProps<T> extends Omit<SelectProps<T>, 'ref'> {
-  options?: Option[]
-  emptyOptionText?: React.ReactNode
+  options?: Option[];
+  emptyOptionText?: React.ReactNode;
 }
 
 const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...props} />)(({ theme }) => ({
@@ -30,7 +30,7 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   '& .MuiSelect-icon path': {
     d: `path("${dropdownIconPath}")`,
   },
-}))
+}));
 
 const ExtendedSelect = <T = unknown,>({
   options = [],
@@ -39,8 +39,8 @@ const ExtendedSelect = <T = unknown,>({
   emptyOptionText,
   ...props
 }: ExtendedSelectProps<T>) => {
-  const hasOptions = options?.length > 0
-  const showEmptyOption = !required && !!emptyOptionText
+  const hasOptions = options?.length > 0;
+  const showEmptyOption = !required && !!emptyOptionText;
   const selectOptions = [
     ...(showEmptyOption
       ? [
@@ -51,7 +51,7 @@ const ExtendedSelect = <T = unknown,>({
         ]
       : []),
     ...options,
-  ]
+  ];
   return (
     <StyledSelect required={required} {...props}>
       {hasOptions
@@ -62,7 +62,7 @@ const ExtendedSelect = <T = unknown,>({
           ))
         : children}
     </StyledSelect>
-  )
-}
+  );
+};
 
-export { ExtendedSelect as Select }
+export { ExtendedSelect as Select };

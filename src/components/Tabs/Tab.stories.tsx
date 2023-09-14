@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import Tabs, { TabsProp } from './Tabs'
+import Tabs, { TabsProp } from './Tabs';
 
 export default {
   title: 'Layouts/Tabs',
   component: Tabs,
-}
+};
 
 const items = [
   {
@@ -26,14 +26,14 @@ const items = [
     name: 'draft',
     disabled: false,
   },
-]
+];
 
 export const WithoutCounter = {
   args: {
     items,
     activeTab: 'open',
   },
-}
+};
 
 export const WithCounter = {
   args: {
@@ -44,20 +44,20 @@ export const WithCounter = {
       draft: 3,
     },
   },
-}
+};
 
 const TabWithHandler = (args: Pick<TabsProp, 'items' | 'counts'>) => {
-  const [activeTab, setActiveTab] = useState('open')
+  const [activeTab, setActiveTab] = useState('open');
 
   const handleOnChange = (value: string) => {
-    setActiveTab(items.find((item) => item.value === value)?.name || '')
-  }
-  return <Tabs {...args} activeTab={activeTab} onClick={handleOnChange} />
-}
+    setActiveTab(items.find((item) => item.value === value)?.name || '');
+  };
+  return <Tabs {...args} activeTab={activeTab} onClick={handleOnChange} />;
+};
 
 export const WithOnClick = {
   render: () => <TabWithHandler {...{ ...WithoutCounter.args }} />,
-}
+};
 
 export const WithDisabled = {
   render: () => (
@@ -73,4 +73,4 @@ export const WithDisabled = {
       ]}
     />
   ),
-}
+};

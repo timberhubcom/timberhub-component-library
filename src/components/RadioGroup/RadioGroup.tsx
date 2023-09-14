@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Button } from '../Button/Button'
-import Radio from '../Radio'
-import { RadioOptionType } from '../Radio/Radio'
-import styles from './RadioGroup.module.scss'
+import { Button } from '../Button/Button';
+import Radio from '../Radio';
+import { RadioOptionType } from '../Radio/Radio';
+import styles from './RadioGroup.module.scss';
 
 type RadioGroupProps = {
-  label?: string
-  labelClass?: string
-  options: RadioOptionType[]
-  defaultValue?: string
-  disabled?: boolean
-  required?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  resetText?: string
-}
+  label?: string;
+  labelClass?: string;
+  options: RadioOptionType[];
+  defaultValue?: string;
+  disabled?: boolean;
+  required?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  resetText?: string;
+};
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
   label,
@@ -26,18 +26,18 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   onChange,
   resetText,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null)
+  const [selectedValue, setSelectedValue] = useState<string | null>(defaultValue || null);
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(e.currentTarget.value)
+    setSelectedValue(e.currentTarget.value);
     if (onChange) {
-      onChange(e)
+      onChange(e);
     }
-  }
+  };
 
   const onResetHandler = () => {
-    setSelectedValue(null)
-  }
+    setSelectedValue(null);
+  };
 
   return (
     <>
@@ -65,7 +65,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
         </Button>
       )}
     </>
-  )
-}
+  );
+};
 
-export default RadioGroup
+export default RadioGroup;

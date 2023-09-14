@@ -1,17 +1,17 @@
-import { StoryFn } from '@storybook/react'
-import React from 'react'
+import { StoryFn } from '@storybook/react';
+import React from 'react';
 
-import DeliveryIcon from '../../icons/Delivery.svg'
-import DataItemsList, { DataItemsListProps } from './DataItemsList'
+import DeliveryIcon from '../../icons/Delivery.svg';
+import DataItemsList, { DataItemsListProps } from './DataItemsList';
 
 export default {
   title: 'MUI/DataItemsList',
   component: DataItemsList,
-}
+};
 
-const Template: StoryFn<DataItemsListProps> = (args) => <DataItemsList {...args} />
+const Template: StoryFn<DataItemsListProps> = (args) => <DataItemsList {...args} />;
 
-export const ItemsList = Template.bind({})
+export const ItemsList = Template.bind({});
 ItemsList.args = {
   items: [
     {
@@ -31,9 +31,9 @@ ItemsList.args = {
       icon: DeliveryIcon,
     },
   ],
-}
+};
 
-export const EmptyItemsList = Template.bind({})
+export const EmptyItemsList = Template.bind({});
 EmptyItemsList.args = {
   items: [
     {
@@ -47,4 +47,4 @@ EmptyItemsList.args = {
       icon: DeliveryIcon,
     },
   ],
-}
+};

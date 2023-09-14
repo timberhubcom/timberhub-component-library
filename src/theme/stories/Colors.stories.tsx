@@ -1,24 +1,24 @@
-import { css } from '@emotion/css'
-import { Meta } from '@storybook/react'
-import React from 'react'
-import { Button, Typography } from 'src/components'
-import { tokens } from 'src/theme/tokens'
+import { css } from '@emotion/css';
+import { Meta } from '@storybook/react';
+import React from 'react';
+import { Button, Typography } from 'src/components';
+import { tokens } from 'src/theme/tokens';
 
-import { copyTextToClipboard } from '../../utils'
+import { copyTextToClipboard } from '../../utils';
 
 export default {
   title: 'Design System/Colors',
-} as Meta
+} as Meta;
 
 const Color = ({ color = '', name = '' }: { color: string; name: string }) => {
   const parsedName = React.useMemo(() => {
-    const isObject = name.includes('.')
+    const isObject = name.includes('.');
     if (isObject) {
-      const path = name.split('.')
-      return `${path[0]}[${path[1]}]`
+      const path = name.split('.');
+      return `${path[0]}[${path[1]}]`;
     }
-    return name
-  }, [name])
+    return name;
+  }, [name]);
 
   return (
     <div className={styles.root}>
@@ -39,22 +39,22 @@ const Color = ({ color = '', name = '' }: { color: string; name: string }) => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Colors = ({ colors = tokens.colors, path = '' }: { colors: any; path: string }) => (
   <React.Fragment>
     {Object.entries(colors).map(([key, value]) => {
       if (typeof value === 'object') {
-        return <Colors key={key} path={key + '.'} colors={value} />
+        return <Colors key={key} path={key + '.'} colors={value} />;
       }
       if (typeof value === 'string') {
-        return <Color key={key} name={path + key} color={value} />
+        return <Color key={key} name={path + key} color={value} />;
       }
-      return null
+      return null;
     })}
   </React.Fragment>
-)
+);
 
 const styles = {
   root: css`
@@ -71,4 +71,4 @@ const styles = {
     justify-content: center;
     gap: 16px;
   `,
-}
+};

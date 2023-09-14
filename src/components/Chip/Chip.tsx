@@ -1,8 +1,8 @@
-import { css, cx } from '@emotion/css'
-import { Skeleton } from '@mui/material'
-import React from 'react'
+import { css, cx } from '@emotion/css';
+import { Skeleton } from '@mui/material';
+import React from 'react';
 
-import { tokens } from '../../theme/tokens'
+import { tokens } from '../../theme/tokens';
 
 export const ChipColorEnum = Object.freeze({
   PRIMARY: 'primary',
@@ -10,19 +10,19 @@ export const ChipColorEnum = Object.freeze({
   ERROR: 'error',
   WARNING: 'warning',
   INFO: 'info',
-})
+});
 
-type ChipSize = 'small' | 'default'
+type ChipSize = 'small' | 'default';
 
 type ChipProps = {
-  label: string
-  size?: ChipSize
-  addonStart?: React.ReactNode
-  color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum]
-  onClick?: () => void
-  isLoading?: boolean
-  className?: string
-}
+  label: string;
+  size?: ChipSize;
+  addonStart?: React.ReactNode;
+  color?: (typeof ChipColorEnum)[keyof typeof ChipColorEnum];
+  onClick?: () => void;
+  isLoading?: boolean;
+  className?: string;
+};
 
 export const Chip = React.forwardRef<HTMLDivElement, ChipProps>(function Chip(
   { label, size = 'default', addonStart, color = ChipColorEnum.GREY, onClick, isLoading, className, ...props },
@@ -37,7 +37,7 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>(function Chip(
           background: tokens.colors.grey[900],
           text: tokens.colors.white,
         },
-      }
+      };
     }
 
     return {
@@ -47,8 +47,8 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>(function Chip(
         background: tokens.colors[color][400],
         text: tokens.colors.white,
       },
-    }
-  }, [color])
+    };
+  }, [color]);
   return (
     <div
       ref={ref}
@@ -64,8 +64,8 @@ export const Chip = React.forwardRef<HTMLDivElement, ChipProps>(function Chip(
       {addonStart}
       {isLoading ? <Skeleton width={50} /> : <div className={styles.label}>{label}</div>}
     </div>
-  )
-})
+  );
+});
 
 const styles = {
   root: (size: ChipSize, addonStart: boolean) => css`
@@ -96,4 +96,4 @@ const styles = {
     overflow: hidden;
     text-overflow: ellipsis;
   `,
-}
+};

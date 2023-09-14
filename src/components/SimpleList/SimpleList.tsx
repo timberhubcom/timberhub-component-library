@@ -1,17 +1,17 @@
-import { Divider, Paper, Stack } from '@mui/material'
-import React from 'react'
+import { Divider, Paper, Stack } from '@mui/material';
+import React from 'react';
 
-import { Typography } from '../Typography'
+import { Typography } from '../Typography';
 
 type SimpleItem = {
-  text: string
-  style?: 'default' | 'bold'
-}
+  text: string;
+  style?: 'default' | 'bold';
+};
 
 export type SimpleListProps = {
-  items: SimpleItem[][]
-  className?: string
-}
+  items: SimpleItem[][];
+  className?: string;
+};
 
 export const SimpleList = React.forwardRef<HTMLDivElement, SimpleListProps>(function List({ items, className }, ref) {
   return (
@@ -28,7 +28,7 @@ export const SimpleList = React.forwardRef<HTMLDivElement, SimpleListProps>(func
         ))}
       </Stack>
     </Paper>
-  )
-})
+  );
+});
 
-export default SimpleList
+export default SimpleList;

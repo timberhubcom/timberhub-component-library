@@ -1,28 +1,28 @@
-import { css, cx } from '@emotion/css'
-import React from 'react'
+import { css, cx } from '@emotion/css';
+import React from 'react';
 
-import { tokens } from '../../theme/tokens'
-import { Link } from '../Link'
-import { Typography } from '../Typography'
+import { tokens } from '../../theme/tokens';
+import { Link } from '../Link';
+import { Typography } from '../Typography';
 
 type ContactCardDetails = {
-  src?: string
-  fullName: string
-  location?: string
-  mail: string
-}
+  src?: string;
+  fullName: string;
+  location?: string;
+  mail: string;
+};
 
 type ContactCardProps = {
-  title: string
-  details: ContactCardDetails
-  className?: string
-}
+  title: string;
+  details: ContactCardDetails;
+  className?: string;
+};
 
 export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(function ContactCard(
   { title, details, className },
   ref
 ) {
-  const { src, fullName, location, mail } = details
+  const { src, fullName, location, mail } = details;
   return (
     <div ref={ref} className={cx(styles.root, className)}>
       {!!src && <div className={styles.image(src)} />}
@@ -39,8 +39,8 @@ export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(fu
         {mail}
       </Link>
     </div>
-  )
-})
+  );
+});
 
 const styles = {
   root: css`
@@ -66,4 +66,4 @@ const styles = {
   marginTop: css`
     margin-top: 8px !important;
   `,
-}
+};

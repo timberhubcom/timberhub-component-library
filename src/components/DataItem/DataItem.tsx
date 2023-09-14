@@ -1,23 +1,23 @@
-import { css } from '@emotion/css'
-import Box from '@mui/material/Box'
-import Paper from '@mui/material/Paper'
-import React from 'react'
+import { css } from '@emotion/css';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import React from 'react';
 
-import { tokens } from '../../theme/tokens'
-import { Typography } from '../Typography'
+import { tokens } from '../../theme/tokens';
+import { Typography } from '../Typography';
 
 export type DataItemsProps = {
-  icon: string
-  title: string
-  description?: string
-  className?: string
-}
+  icon: string;
+  title: string;
+  description?: string;
+  className?: string;
+};
 
 export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(function DataItem(
   { icon, title, description, className },
   ref
 ) {
-  const IconElement = icon
+  const IconElement = icon;
   return (
     <Paper
       variant={'outlined'}
@@ -35,8 +35,8 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
         <Typography variant={'body_s'}>{description}</Typography>
       </Box>
     </Paper>
-  )
-})
+  );
+});
 
 const styles = {
   iconWrapper: (bgColor: string) => css`
@@ -47,6 +47,6 @@ const styles = {
     justify-content: center;
     align-items: center;
   `,
-}
+};
 
-export default DataItem
+export default DataItem;

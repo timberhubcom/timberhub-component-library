@@ -1,23 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-import styles from './Switch.module.scss'
+import styles from './Switch.module.scss';
 
 type SwitchOptionType = {
-  name: string
-  children?: React.ReactNode
-}
+  name: string;
+  children?: React.ReactNode;
+};
 
 type SwitchProps = {
-  label?: string
-  name?: string
-  option: SwitchOptionType
-  labelClass?: string
-  defaultValue?: boolean
-  disabled?: boolean
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  required?: boolean
-  error?: string
-}
+  label?: string;
+  name?: string;
+  option: SwitchOptionType;
+  labelClass?: string;
+  defaultValue?: boolean;
+  disabled?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  error?: string;
+};
 
 const Switch: React.FC<SwitchProps> = ({
   label,
@@ -49,7 +49,7 @@ const Switch: React.FC<SwitchProps> = ({
         {error && <div className={styles['errorDescription']}>{error}</div>}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Switch
+export default Switch;

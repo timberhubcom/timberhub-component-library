@@ -1,12 +1,12 @@
-import { css, cx } from '@emotion/css'
-import React from 'react'
+import { css, cx } from '@emotion/css';
+import React from 'react';
 
-import { tokens } from '../../../../../theme/tokens'
+import { tokens } from '../../../../../theme/tokens';
 
 interface TablePaginationArrowProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
-  active?: boolean
-  background?: boolean
-  onClick?: (page?: number) => void
+  active?: boolean;
+  background?: boolean;
+  onClick?: (page?: number) => void;
 }
 export const TablePaginationButton = ({
   active,
@@ -26,8 +26,8 @@ export const TablePaginationButton = ({
       {...props}>
       {children}
     </button>
-  )
-}
+  );
+};
 
 const styles = {
   root: css`
@@ -82,4 +82,4 @@ const styles = {
     color: ${tokens.colors.white};
     background-color: ${tokens.colors.grey[900]};
   `,
-}
+};

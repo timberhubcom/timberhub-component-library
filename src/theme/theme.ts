@@ -1,7 +1,7 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material/styles';
 
-import { buttonVariants } from './config/button/variants'
-import { tokens } from './tokens'
+import { buttonVariants } from './config/button/variants';
+import { tokens } from './tokens';
 
 export const theme = createTheme({
   typography: {
@@ -96,4 +96,4 @@ export const theme = createTheme({
       variants: buttonVariants,
     },
   },
-})
+});

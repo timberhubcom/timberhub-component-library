@@ -1,21 +1,21 @@
-import { StoryFn } from '@storybook/react'
-import React from 'react'
+import { StoryFn } from '@storybook/react';
+import React from 'react';
 
-import { Link } from './Link'
+import { Link } from './Link';
 
 export default {
   title: 'MUI/Link',
   component: Link,
-}
+};
 
-const Template: StoryFn<typeof Link> = (args) => <Link {...args}>sales@timberhub.com</Link>
+const Template: StoryFn<typeof Link> = (args) => <Link {...args}>sales@timberhub.com</Link>;
 
-export const Medium = Template.bind({})
+export const Medium = Template.bind({});
 Medium.args = {
   variant: 'text_link_m',
-}
+};
 
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
   variant: 'text_link_s',
-}
+};

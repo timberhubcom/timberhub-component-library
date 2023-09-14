@@ -1,12 +1,12 @@
-import Box, { BoxProps } from '@mui/material/Box'
-import React from 'react'
-import { tokens } from 'src/theme/tokens'
-import { CustomColors } from 'src/types'
+import Box, { BoxProps } from '@mui/material/Box';
+import React from 'react';
+import { tokens } from 'src/theme/tokens';
+import { CustomColors } from 'src/types';
 
 export interface AlertProps extends BoxProps {
-  icon?: React.ReactNode
-  children: React.ReactNode
-  variant?: Omit<CustomColors, 'accent' | 'secondary' | 'primary'>
+  icon?: React.ReactNode;
+  children: React.ReactNode;
+  variant?: Omit<CustomColors, 'accent' | 'secondary' | 'primary'>;
 }
 
 const variantToColorMapper = {
@@ -30,7 +30,7 @@ const variantToColorMapper = {
     bg: tokens.colors.info[100],
     color: tokens.colors.info[400],
   },
-}
+};
 export const Alert = ({
   icon,
   children,
@@ -41,9 +41,9 @@ export const Alert = ({
   p = '8px 16px',
   ...props
 }: AlertProps) => {
-  const validVariant = variantToColorMapper[variant as keyof typeof variantToColorMapper] ?? variantToColorMapper.grey
-  const bgColor = bgcolor || validVariant.bg
-  const svgColor = validVariant.color
+  const validVariant = variantToColorMapper[variant as keyof typeof variantToColorMapper] ?? variantToColorMapper.grey;
+  const bgColor = bgcolor || validVariant.bg;
+  const svgColor = validVariant.color;
 
   return (
     <Box bgcolor={bgColor} role={'alert'} display={display} gap={gap} p={p} {...props}>
@@ -59,5 +59,5 @@ export const Alert = ({
       </Box>
       <Box alignSelf={'center'}>{children}</Box>
     </Box>
-  )
-}
+  );
+};

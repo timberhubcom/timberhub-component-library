@@ -1,23 +1,23 @@
-import { styled } from '@mui/material'
-import { Button as MuiButton, ButtonProps as MuiBtnProps } from '@mui/material'
-import React from 'react'
+import { styled } from '@mui/material';
+import { Button as MuiButton, ButtonProps as MuiBtnProps } from '@mui/material';
+import React from 'react';
 
-import { tokens } from '../../theme/tokens'
-import { Size } from '../../types'
-import Loader from '../Icons/Loader'
+import { tokens } from '../../theme/tokens';
+import { Size } from '../../types';
+import Loader from '../Icons/Loader';
 
 export interface ButtonProps extends Omit<MuiBtnProps, 'size' | 'content' | 'rel' | 'rev'> {
-  loading?: boolean
-  icon?: React.ReactNode
-  children?: React.ReactNode
-  size?: Size
+  loading?: boolean;
+  icon?: React.ReactNode;
+  children?: React.ReactNode;
+  size?: Size;
 }
 
 const StyledButton = styled(MuiButton)`
   font-family: 'Inter', sans-serif;
   text-transform: none;
   border-radius: 100px;
-`
+`;
 
 const LoaderWrapper = styled('div')`
   width: 100%;
@@ -29,7 +29,7 @@ const LoaderWrapper = styled('div')`
     height: 18px;
     margin-right: 0;
   }
-`
+`;
 
 const sizeToStyle = {
   xs: {
@@ -57,21 +57,21 @@ const sizeToStyle = {
     padding: '16px 24px',
     height: 56,
   },
-}
+};
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { color = 'primary', variant = 'contained', loading, disabled, children, icon, startIcon, size, sx = {}, ...rest },
     ref
   ) => {
-    const isIconOnly = !children && (icon || startIcon) && !loading
+    const isIconOnly = !children && (icon || startIcon) && !loading;
 
-    let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size ?? 'md'] ?? sizeToStyle.md
+    let sizeStyle: Partial<typeof sizeToStyle.xs> = sizeToStyle[size ?? 'md'] ?? sizeToStyle.md;
     if (variant === 'text') {
       if (size === 'xs') {
-        sizeStyle = tokens.typography.headline_ss_xxs
+        sizeStyle = tokens.typography.headline_ss_xxs;
       } else {
-        sizeStyle = tokens.typography.headline_ss_xs
+        sizeStyle = tokens.typography.headline_ss_xs;
       }
     }
 
@@ -102,6 +102,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           <span>{children}</span>
         )}
       </StyledButton>
-    )
+    );
   }
-)
+);
