@@ -1,4 +1,4 @@
-import { injectGlobal } from '@emotion/css'
+import { injectGlobal } from '@emotion/css';
 
 injectGlobal`
   html,
@@ -49,4 +49,4 @@ injectGlobal`
       format("truetype"); /* Chrome 4+, Firefox 3.5+, IE 9+, Safari 3.1+, iOS 4.2+, Android Browser 2.2+ */
     }
   }
-`
+`;

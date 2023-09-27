@@ -32,6 +32,7 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   },
 }));
 
+// eslint-disable-next-line @typescript-eslint/comma-dangle
 const ExtendedSelect = <T = unknown,>({
   options = [],
   children,

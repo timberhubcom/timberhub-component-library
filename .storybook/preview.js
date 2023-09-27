@@ -1,10 +1,10 @@
-import React from 'react'
-import { ThemeProvider } from '@mui/material/styles'
-import './globalStyles'
+import React from 'react';
+import { ThemeProvider } from '@mui/material/styles';
+import './globalStyles';
 
-import { theme } from '../src'
+import { theme } from '../src';
 
-export const decorators = [(storyFn) => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>]
+export const decorators = [(storyFn) => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>];
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -19,4 +19,4 @@ export const parameters = {
       order: ['Design System', 'MUI', 'Components'],
     },
   },
-}
+};
