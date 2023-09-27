@@ -81,7 +81,7 @@ const containedButtonVariants: ComponentsVariants['MuiButton'] = (
       backgroundColor: hoveredBgColor,
       color: `${textColor2} !important`,
     },
-    '&:focus': {
+    '&:active': {
       backgroundColor: clickedBgColor,
       color: `${textColor2} !important`,
     },
@@ -100,7 +100,7 @@ export const buttonVariants: ComponentsVariants['MuiButton'] = [
         backgroundColor: tokens.colors.grey['800'],
         color: `${tokens.colors.white} !important`,
       },
-      '&:focus': {
+      '&:active': {
         backgroundColor: tokens.colors.grey['900'],
         color: `${tokens.colors.white} !important`,
       },
