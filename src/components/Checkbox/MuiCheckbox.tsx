@@ -49,14 +49,13 @@ const CheckedIcon = (
 const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
   const svgSize = sizeMapper[size] ?? sizeMapper.medium;
 
-  const getColor = useCallback((color: typeof props.color = 'grey') => {
-    const defaultColor = tokens.colors.grey[400];
-    // if a color is not in the tokens color palette, return grey 400 as default
-    if (color === 'default' || color === 'secondary' || color === 'success') {
-      return { color: defaultColor, strokeOpacity: 0.13 };
+  const getColor = useCallback((_color: typeof props.color = 'grey') => {
+    if (_color === 'error') {
+      return { color: tokens.colors.error[400], strokeOpacity: 1 };
     }
-    return { color: tokens.colors[color][400] ?? defaultColor, strokeOpacity: 1 };
+    return { color: '', strokeOpacity: '' };
   }, []);
+  const { color, strokeOpacity } = getColor(props.color);
 
   return (
     <Checkbox
@@ -65,12 +64,13 @@ const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
         padding: 0,
         marginInline: '9px',
         width: svgSize,
-        color: `${getColor(props.color).color} !important`,
+        color: color ? `${color} !important` : '',
         rect: {
-          strokeOpacity: getColor(props.color).strokeOpacity,
+          strokeOpacity: strokeOpacity,
         },
         ...sx,
       }}
+      // color={color}
       {...props}
       disableRipple
       icon={UncheckedIcon}
