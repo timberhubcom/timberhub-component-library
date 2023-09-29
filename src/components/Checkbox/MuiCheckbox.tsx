@@ -70,7 +70,6 @@ const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
         },
         ...sx,
       }}
-      // color={color}
       {...props}
       disableRipple
       icon={UncheckedIcon}
