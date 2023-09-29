@@ -13,7 +13,7 @@ const textButtonVariants: ComponentsVariants['MuiButton'] = (
     padding: '0px 0px 0px 0px !important',
     minWidth: 'auto',
     height: 'auto !important',
-    color: `${active}  !important`,
+    color: `${active} !important`,
     '&:hover': {
       background: tokens.colors.transparent,
       color: `${hover}  !important`,
