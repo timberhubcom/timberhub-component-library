@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
 import type { CustomColorOverrides } from 'src/types/color.type';
 import type { CustomCheckboxPropsSizeOverrides } from 'src/types/size.type';
+import { tokens } from 'src/theme/tokens';
 
 declare module '@mui/material/Checkbox' {
   interface CheckboxPropsSizeOverrides extends CustomCheckboxPropsSizeOverrides {}
@@ -31,7 +32,7 @@ const Svg: React.FC = ({ children }) => (
 
 const UncheckedIcon = (
   <Svg>
-    <rect x="0.5" y="0.5" width="13" height="13" rx="2.5" stroke="black" strokeOpacity="0.13" />
+    <rect x="0.5" y="0.5" width="13" height="13" rx="2.5" stroke="currentColor" strokeOpacity="0.13" />
   </Svg>
 );
 
@@ -47,6 +48,15 @@ const CheckedIcon = (
 
 const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
   const svgSize = sizeMapper[size] ?? sizeMapper.medium;
+
+  const getColor = useCallback((_color: typeof props.color = 'grey') => {
+    if (_color === 'error') {
+      return { color: tokens.colors.error[400], strokeOpacity: 1 };
+    }
+    return { color: '', strokeOpacity: '' };
+  }, []);
+  const { color, strokeOpacity } = getColor(props.color);
+
   return (
     <Checkbox
       size={size}
@@ -54,6 +64,10 @@ const MuiCheckbox = ({ size = 'medium', sx, ...props }: MuiCheckboxProps) => {
         padding: 0,
         marginInline: '9px',
         width: svgSize,
+        color: color ? `${color} !important` : '',
+        rect: {
+          strokeOpacity: strokeOpacity,
+        },
         ...sx,
       }}
       {...props}
