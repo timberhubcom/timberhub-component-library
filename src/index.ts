@@ -1,7 +1,6 @@
 import './assets/fonts.scss';
 
 export * from './components';
-export * from './config';
 import './mui';
 export * from './theme';
 export { tokens as designTokens } from './theme/tokens';
