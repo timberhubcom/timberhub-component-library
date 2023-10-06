@@ -22,10 +22,12 @@ const getItemClass = (itemIndex: number, items: DataItemsProps[]) => {
   return itemClass;
 };
 
-export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps>(function DataItemsList(
-  { items, className },
-  ref
+export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps>(function DataItemList(
+  { items, className, ...props },
+  ref,
 ) {
+  const isSingle = items?.length === 1;
+
   return (
     <React.Fragment>
       {items.map((item, index) => (
@@ -33,7 +35,7 @@ export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps
           icon={item.icon}
           title={item.title}
           description={item.description}
-          className={cx(getItemClass(index, items), className)}
+          className={cx({ [getItemClass(index, items)]: isSingle }, className)}
           key={crypto.randomUUID()}
           ref={ref}
         />

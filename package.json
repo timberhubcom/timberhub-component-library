@@ -1,6 +1,6 @@
 {
   "name": "@timberhubcom/timberhub-component-library",
-  "version": "1.8.4",
+  "version": "1.8.8",
   "description": "Timberhub Component Library",
   "scripts": {
     "rollup": "rollup -c",

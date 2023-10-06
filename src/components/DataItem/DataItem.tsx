@@ -15,7 +15,7 @@ export type DataItemsProps = {
 
 export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(function DataItem(
   { icon, title, description, className },
-  ref
+  ref,
 ) {
   const IconElement = icon;
   return (
@@ -31,7 +31,7 @@ export const DataItem = React.forwardRef<HTMLDivElement, DataItemsProps>(functio
         <IconElement />
       </div>
       <Box sx={{ flex: '1 0 auto', p: 2, pb: 2.25 }}>
-        <Typography variant={'headline_ss_xxs'}>{title}</Typography>
+        <Typography variant={'headline_ss_xs'}>{title}</Typography>
         <Typography variant={'body_s'}>{description}</Typography>
       </Box>
     </Paper>

@@ -40,7 +40,7 @@ const IconComponents = {
 
 export const Banner = React.forwardRef<HTMLDivElement, BannerProps>(function Banner(
   { variant = 'info', iconSize = 's', title, description, className },
-  ref
+  ref,
 ) {
   const IconPath = IconComponents[`${variant}-${iconSize}`];
 
