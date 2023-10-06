@@ -10,7 +10,7 @@ export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> 
 
 export const outlinedInputStyles = (theme: Theme) => ({
   '& fieldset': {
-    borderRadius: 10,
+    borderRadius: 2,
     borderWidth: '1px !important',
     borderStyle: 'solid !important',
     borderColor: theme.palette.grey['400'],
