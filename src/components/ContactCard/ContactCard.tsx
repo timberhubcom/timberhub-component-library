@@ -63,6 +63,7 @@ const styles = {
     background-image: url('${src}');
     user-select: none;
     background-size: contain;
+    background-position: center;
   `,
   title: css`
     max-width: 161px;
