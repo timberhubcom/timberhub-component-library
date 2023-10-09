@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './Switch.module.scss';
 
 type SwitchOptionType = {
@@ -42,7 +43,7 @@ const Switch: React.FC<SwitchProps> = ({
 
       <div className={`${styles['toggle']}`}>
         <label>
-          <input type="checkbox" name={name} onChange={onChange} defaultChecked={defaultValue} disabled={disabled} />
+          <input type={'checkbox'} name={name} onChange={onChange} defaultChecked={defaultValue} disabled={disabled} />
           <span>{option.name}</span>
         </label>
         {error && <div className={styles['errorDescription']}>{error}</div>}

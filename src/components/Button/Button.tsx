@@ -1,24 +1,19 @@
-import Button, { ButtonProps as MuiBtnProps } from '@mui/material/Button';
-import React, { forwardRef } from 'react';
-
 import { styled } from '@mui/material';
-import Loader from '../Icons/Loader';
+import { Button as MuiButton, ButtonProps as MuiBtnProps } from '@mui/material';
+import React from 'react';
+
 import { tokens } from '../../theme/tokens';
-import { Size } from '../../types/size.type';
-import { CustomColorOverrides } from 'src/types/color.type';
+import { Size } from '../../types';
+import Loader from '../Icons/Loader';
 
-declare module '@mui/material/Button' {
-  interface ButtonPropsColorOverrides extends CustomColorOverrides {}
-}
-
-export interface ButtonProps extends Omit<MuiBtnProps, 'size'> {
+export interface ButtonProps extends Omit<MuiBtnProps, 'size' | 'content' | 'rel' | 'rev'> {
   loading?: boolean;
   icon?: React.ReactNode;
   children?: React.ReactNode;
   size?: Size;
 }
 
-const StyledButton = styled(Button)`
+const StyledButton = styled(MuiButton)`
   font-family: 'Inter', sans-serif;
   text-transform: none;
   border-radius: 100px;
@@ -64,10 +59,10 @@ const sizeToStyle = {
   },
 };
 
-const MuiButton: React.FC<ButtonProps> = forwardRef(
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { color = 'primary', variant = 'contained', loading, disabled, children, icon, startIcon, size, sx = {}, ...rest },
-    ref,
+    ref
   ) => {
     const isIconOnly = !children && (icon || startIcon) && !loading;
 
@@ -98,8 +93,7 @@ const MuiButton: React.FC<ButtonProps> = forwardRef(
           },
           ...sx,
         }}
-        {...rest}
-      >
+        {...rest}>
         {loading ? (
           <LoaderWrapper>
             <Loader color={tokens.colors.grey['400']} />
@@ -109,7 +103,5 @@ const MuiButton: React.FC<ButtonProps> = forwardRef(
         )}
       </StyledButton>
     );
-  },
+  }
 );
-
-export default MuiButton;

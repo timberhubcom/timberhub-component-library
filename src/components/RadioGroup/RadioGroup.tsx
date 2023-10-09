@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import styles from './RadioGroup.module.scss';
-import { RadioOptionType } from '../Radio/Radio';
+
+import { Button } from '../Button/Button';
 import Radio from '../Radio';
-import { Button } from '../Button';
+import { RadioOptionType } from '../Radio/Radio';
+import styles from './RadioGroup.module.scss';
 
 type RadioGroupProps = {
   label?: string;
@@ -29,7 +30,9 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(e.currentTarget.value);
-    if (onChange) onChange(e);
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   const onResetHandler = () => {

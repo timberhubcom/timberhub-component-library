@@ -58,8 +58,6 @@ const StyledTextField = styled(MuiTextField)(({ theme }) => ({
   },
 }));
 
-const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
+export const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
   return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
 };
-
-export { TextField };

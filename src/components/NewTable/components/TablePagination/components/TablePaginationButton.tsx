@@ -1,5 +1,6 @@
-import React from 'react';
 import { css, cx } from '@emotion/css';
+import React from 'react';
+
 import { tokens } from '../../../../../theme/tokens';
 
 interface TablePaginationArrowProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
@@ -22,8 +23,7 @@ export const TablePaginationButton = ({
         [styles.clickable]: !!onClick,
         [styles.active]: !!active,
       })}
-      {...props}
-    >
+      {...props}>
       {children}
     </button>
   );

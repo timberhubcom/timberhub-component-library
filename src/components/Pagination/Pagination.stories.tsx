@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Pagination, { PaginationProps } from './Pagination';
 
 export default {
@@ -31,7 +32,7 @@ export const WithEllipseFourVisible = {
   args: {
     activePage: 1,
     totalPages: 40,
-    visiblePages: 4
+    visiblePages: 4,
   },
   render: (args: PaginationProps) => <PaginationWithState {...args} />,
 };
@@ -40,7 +41,7 @@ export const WithEllipseTenVisible = {
   args: {
     activePage: 1,
     totalPages: 40,
-    visiblePages: 10
+    visiblePages: 10,
   },
   render: (args: PaginationProps) => <PaginationWithState {...args} />,
 };

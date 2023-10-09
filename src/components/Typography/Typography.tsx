@@ -1,9 +1,5 @@
 import MuiTypography, { TypographyProps as MuiTypographyProps } from '@mui/material/Typography';
-import { TypographyVariantOverrides } from '../../types/typography.types';
-
-declare module '@mui/material/Typography' {
-  export interface TypographyPropsVariantOverrides extends TypographyVariantOverrides {}
-}
+import React from 'react';
 
 export interface TypographyProps extends MuiTypographyProps {
   /**
@@ -13,6 +9,4 @@ export interface TypographyProps extends MuiTypographyProps {
   variant?: MuiTypographyProps['variant'];
 }
 
-const Typography = MuiTypography as React.FC<TypographyProps>;
-
-export { Typography };
+export const Typography = MuiTypography as React.FC<TypographyProps>;

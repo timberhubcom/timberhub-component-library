@@ -1,7 +1,4 @@
-import React from 'react';
 import { css } from '@emotion/css';
-import { TablePaginationButton } from './components/TablePaginationButton';
-import { muiTheme } from '../../../../config';
 import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
@@ -9,7 +6,11 @@ import {
   KeyboardDoubleArrowRight,
 } from '@mui/icons-material';
 import { useMediaQuery } from '@mui/material';
+import React from 'react';
+
+import { theme } from '../../../../theme';
 import { tokens } from '../../../../theme/tokens';
+import { TablePaginationButton } from './components/TablePaginationButton';
 
 export type TablePaginationProps = {
   currentPage?: number;
@@ -19,7 +20,7 @@ export type TablePaginationProps = {
 };
 
 export const TablePagination = ({ currentPage = 1, totalPages, onChange, visiblePages = 4 }: TablePaginationProps) => {
-  const isSmallScreen = useMediaQuery(() => muiTheme.breakpoints.down('sm'));
+  const isSmallScreen = useMediaQuery(() => theme.breakpoints.down('sm'));
 
   const visiblePagesTransformed = isSmallScreen ? 3 : visiblePages;
 
@@ -48,6 +49,8 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
 
       return [blockStart, ...block, blockEnd].filter((el) => !!el);
     }
+
+    return [];
   }, [currentPage, totalPages, visiblePagesTransformed, isSmallScreen]);
 
   if (!totalPages || totalPages <= 1) {
@@ -62,8 +65,7 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
       <TablePaginationButton
         background
         disabled={currentPage === 1}
-        onClick={onChange ? () => onChange(currentPage - 2) : undefined}
-      >
+        onClick={onChange ? () => onChange(currentPage - 2) : undefined}>
         <KeyboardArrowLeft fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
 
@@ -71,23 +73,20 @@ export const TablePagination = ({ currentPage = 1, totalPages, onChange, visible
         <TablePaginationButton
           key={crypto.randomUUID()}
           active={currentPage === el}
-          onClick={typeof el === 'number' && onChange ? () => onChange(el - 1) : undefined}
-        >
+          onClick={typeof el === 'number' && onChange ? () => onChange(el - 1) : undefined}>
           {typeof el === 'number' ? el : '...'}
         </TablePaginationButton>
       ))}
       <TablePaginationButton
         background
         disabled={currentPage === totalPages}
-        onClick={onChange ? () => onChange(currentPage) : undefined}
-      >
+        onClick={onChange ? () => onChange(currentPage) : undefined}>
         <KeyboardArrowRight fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
       <TablePaginationButton
         background
         disabled={currentPage === totalPages}
-        onClick={onChange ? () => onChange(totalPages - 1) : undefined}
-      >
+        onClick={onChange ? () => onChange(totalPages - 1) : undefined}>
         <KeyboardDoubleArrowRight fontSize={'small'} className={styles.icon} />
       </TablePaginationButton>
     </div>
