@@ -1,14 +1,13 @@
-import { StoryFn } from '@storybook/react';
 import React from 'react';
-
-import { TextField } from './TextField';
+import { StoryFn } from '@storybook/react';
+import { MuiTextField } from '..';
 
 export default {
   title: 'MUI/TextField',
-  component: TextField,
+  component: MuiTextField,
 };
 
-const Template: StoryFn<typeof TextField> = (args) => <TextField {...args} />;
+const Template: StoryFn<typeof MuiTextField> = (args) => <MuiTextField {...args} />;
 
 export const Base = Template.bind({});
 Base.args = {

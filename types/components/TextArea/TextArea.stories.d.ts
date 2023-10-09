@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
@@ -16,7 +17,7 @@ declare const _default: {
     }>;
 };
 export default _default;
-export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+export declare const Base: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
@@ -28,10 +29,8 @@ export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@
     onBlur?: ((e: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Required: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Required: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
@@ -43,10 +42,8 @@ export declare const Required: import("@storybook/types").AnnotatedStoryFn<impor
     onBlur?: ((e: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Disabled: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
@@ -58,10 +55,8 @@ export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<impor
     onBlur?: ((e: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Description: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Description: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
@@ -73,10 +68,8 @@ export declare const Description: import("@storybook/types").AnnotatedStoryFn<im
     onBlur?: ((e: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Error: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Error: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     placeholder?: string | undefined;
@@ -88,6 +81,4 @@ export declare const Error: import("@storybook/types").AnnotatedStoryFn<import("
     onBlur?: ((e: React.ChangeEvent<HTMLTextAreaElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
+}>>;

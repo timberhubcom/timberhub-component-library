@@ -1,6 +1,5 @@
-import { ComponentStory } from '@storybook/react';
 import React from 'react';
-
+import { ComponentStory } from '@storybook/react';
 import Radio from './Radio';
 
 export default {

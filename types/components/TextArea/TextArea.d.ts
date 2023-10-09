@@ -1,5 +1,5 @@
 import React from 'react';
-type TextAreaProps = {
+declare type TextAreaProps = {
     name?: string;
     label?: string;
     placeholder?: string;

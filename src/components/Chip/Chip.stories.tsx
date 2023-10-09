@@ -1,23 +1,14 @@
-import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
-
-import { Chip } from './Chip';
+import { ComponentStory } from '@storybook/react';
+import Chip from './Chip';
 
 export default {
-  title: 'MUI/Chip',
+  title: 'Components/Chip',
   component: Chip,
-  parameters: { actions: { argTypesRegex: null } },
-} as Meta;
+};
 
-const Template: StoryFn<typeof Chip> = (args) => <Chip {...args} />;
-const MultipleSizes: StoryFn<any> = (args) => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-    <Chip {...args[0]} />
-    <Chip {...args[1]} />
-  </div>
-);
-
-const MultipleTemplate: StoryFn<any> = (args) => (
+const Template: ComponentStory<typeof Chip> = (args) => <Chip {...args} />;
+const MultipleTemplate: ComponentStory<any> = (args) => (
   <div style={{ display: 'flex', gap: '20px' }}>
     <Chip {...args[0]} />
     <Chip {...args[1]} />
@@ -29,51 +20,34 @@ const MultipleTemplate: StoryFn<any> = (args) => (
 
 export const Base = Template.bind({});
 Base.args = {
-  label: 'offer',
+  text: 'offer',
 };
-
-export const Sizes = MultipleSizes.bind({});
-Sizes.args = [
-  {
-    label: 'Small',
-    size: 'small',
-  },
-  {
-    label: 'Default',
-  },
-];
 
 export const Color = MultipleTemplate.bind({});
 Color.args = [
   {
-    label: 'pending',
-    color: 'warning',
+    text: 'pending',
+    color: 'orange',
   },
   {
-    label: 'closed',
+    text: 'closed',
   },
   {
-    label: 'offer',
-    color: 'info',
+    text: 'offer',
+    color: 'blue',
   },
   {
-    label: 'approved',
-    color: 'primary',
+    text: 'approved',
+    color: 'green',
   },
   {
-    label: 'rejected',
-    color: 'error',
+    text: 'rejected',
+    color: 'red',
   },
 ];
 
-export const AddonStart = Template.bind({});
-AddonStart.args = {
-  label: 'offer',
-  addonStart: '1',
-};
-
-export const isLoading = Template.bind({});
-isLoading.args = {
-  label: 'offer',
-  isLoading: true,
+export const Prefix = Template.bind({});
+Prefix.args = {
+  text: 'offer',
+  prefix: '1',
 };

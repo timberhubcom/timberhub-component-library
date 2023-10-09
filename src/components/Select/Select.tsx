@@ -1,17 +1,16 @@
-import MenuItem from '@mui/material/MenuItem';
-import MuiSelect, { SelectProps } from '@mui/material/Select';
-import { styled } from '@mui/material/styles';
 import React from 'react';
-import { dropdownIconPath } from 'src/icons/dropdownIconPath';
-
+import MuiSelect, { SelectProps } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { styled } from '@mui/material/styles';
 import { outlinedInputStyles } from '../TextField/TextField';
+import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 interface Option {
   value: string;
   label: React.ReactNode;
 }
 
-export interface ExtendedSelectProps<T> extends Omit<SelectProps<T>, 'ref'> {
+export interface ExtendedSelectProps<T extends unknown> extends Omit<SelectProps<T>, 'ref'> {
   options?: Option[];
   emptyOptionText?: React.ReactNode;
 }
@@ -32,8 +31,7 @@ const StyledSelect = styled((props: ExtendedSelectProps<any>) => <MuiSelect {...
   },
 }));
 
-// eslint-disable-next-line @typescript-eslint/comma-dangle
-const ExtendedSelect = <T = unknown,>({
+const ExtendedSelect = <T extends unknown = unknown>({
   options = [],
   children,
   required,
@@ -56,7 +54,7 @@ const ExtendedSelect = <T = unknown,>({
   return (
     <StyledSelect required={required} {...props}>
       {hasOptions
-        ? selectOptions?.map((option) => (
+        ? selectOptions?.map((option, idx) => (
             <MenuItem key={option.value ?? ''} value={option.value ?? ''}>
               {option.label}
             </MenuItem>

@@ -1,14 +1,14 @@
-import { css, cx } from '@emotion/css';
 import React from 'react';
-
+import { css, cx } from '@emotion/css';
 import { tokens } from '../../theme/tokens';
-import { Link } from '../Link';
 import { Typography } from '../Typography';
+import { Link } from '../Link';
 
 type ContactCardDetails = {
   src?: string;
-  fullName: string;
+  fullName?: string;
   location?: string;
+  telephone?: string;
   mail: string;
 };
 
@@ -20,22 +20,27 @@ type ContactCardProps = {
 
 export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(function ContactCard(
   { title, details, className },
-  ref
+  ref,
 ) {
-  const { src, fullName, location, mail } = details;
+  const { src, fullName, location, telephone, mail } = details;
   return (
     <div ref={ref} className={cx(styles.root, className)}>
       {!!src && <div className={styles.image(src)} />}
-      <Typography variant={'headline_s'} align={'center'} className={styles.title}>
+      <Typography variant={'headline_s'} align={'center'} className={cx(styles.title, styles.marginBottom)}>
         {title}
       </Typography>
-      <Typography variant={'headline_ss_xxs'}>{fullName}</Typography>
+      {!!fullName && <Typography variant={'headline_ss_xxs'}>{fullName}</Typography>}
       {!!location && (
-        <Typography variant={'body_s'} color={'grey.600'}>
+        <Typography variant={'body_s'} className={styles.marginBottom} color={'grey.600'}>
           {location}
         </Typography>
       )}
-      <Link variant={'text_link_s'} href={`mailto:${mail}`} color={'grey.600'} className={styles.marginTop}>
+      {!!telephone && (
+        <Link variant={'text_link_s'} href={`tel:${telephone}`} color={'grey.600'}>
+          {telephone}
+        </Link>
+      )}
+      <Link variant={'text_link_s'} href={`mailto:${mail}`} color={'grey.600'}>
         {mail}
       </Link>
     </div>
@@ -62,9 +67,9 @@ const styles = {
   `,
   title: css`
     max-width: 161px;
-    margin-bottom: 16px !important;
+    margin-bottom: 8px !important;
   `,
-  marginTop: css`
-    margin-top: 8px !important;
+  marginBottom: css`
+    margin-bottom: 8px !important;
   `,
 };

@@ -1,10 +1,10 @@
-import NavigateNext from '@mui/icons-material/NavigateNext';
-import Step from '@mui/material/Step';
-import { StepIconProps } from '@mui/material/StepIcon';
-import StepLabel from '@mui/material/StepLabel';
-import MuiStepper from '@mui/material/Stepper';
-import { styled, Theme } from '@mui/material/styles';
 import React from 'react';
+import { Theme, styled } from '@mui/material/styles';
+import MuiStepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import NavigateNext from '@mui/icons-material/NavigateNext';
+import { StepIconProps } from '@mui/material/StepIcon';
 
 const stepStateStyles = (theme: Theme) => ({
   ...theme.typography.headline_ss_xxs,
@@ -40,8 +40,9 @@ const Connector = () => {
         },
         ...stepStateStyles(theme),
       })}
-      icon={<span />}>
-      <NavigateNext fontSize={'small'} />
+      icon={<span />}
+    >
+      <NavigateNext fontSize="small" />
     </StepLabel>
   );
 };

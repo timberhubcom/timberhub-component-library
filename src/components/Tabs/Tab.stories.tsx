@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import Tabs, { TabsProp } from './Tabs';
 
 export default {

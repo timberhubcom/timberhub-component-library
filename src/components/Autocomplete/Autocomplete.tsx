@@ -1,12 +1,12 @@
-import MuiAutocomplete, {
-  AutocompleteProps as MuiAutocompleteProps,
-  AutocompleteRenderInputParams,
-} from '@mui/material/Autocomplete';
 import React from 'react';
-import { dropdownIconPath } from 'src/icons/dropdownIconPath';
-
+import MuiAutocomplete, {
+  AutocompleteRenderInputParams,
+  AutocompleteProps as MuiAutocompleteProps,
+} from '@mui/material/Autocomplete';
+import { MuiTextField } from '../TextField';
 import { tokens } from '../../theme/tokens';
-import { TextField, TextFieldProps } from '../TextField/TextField';
+import { TextFieldProps } from '../TextField/TextField';
+import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
 export interface OptionType {
   label: string;
@@ -64,7 +64,7 @@ const Autocomplete = <
       renderInput={
         renderInput ||
         ((params) => (
-          <TextField
+          <MuiTextField
             {...params}
             label={label}
             helperText={helperText}
@@ -80,15 +80,9 @@ const Autocomplete = <
         if (isOptionEqualToValue && typeof isOptionEqualToValue === 'function') {
           return isOptionEqualToValue(opt as T, val as T);
         }
-        if (typeof opt === 'string') {
-          return opt === val;
-        }
-        if (typeof opt === 'object' && typeof val === 'string') {
-          return opt?.label === val;
-        }
-        if (typeof opt === 'object' && typeof val === 'object' && opt?.label) {
-          return opt?.label === val?.label;
-        }
+        if (typeof opt === 'string') return opt === val;
+        if (typeof opt === 'object' && typeof val === 'string') return opt?.label === val;
+        if (typeof opt === 'object' && typeof val === 'object' && opt?.label) return opt?.label === val?.label;
         return false;
       }}
       {...props}

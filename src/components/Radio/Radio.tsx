@@ -1,5 +1,4 @@
 import React from 'react';
-
 import styles from './Radio.module.scss';
 
 export type RadioOptionType = {
@@ -21,7 +20,7 @@ const Radio: React.FC<RadioProps> = ({ option, checked, disabled = false, onChan
       <div className={`${styles['radio']} ${disabled && styles['disabled']}`}>
         <label>
           <input
-            type={'radio'}
+            type="radio"
             name={option.name}
             value={option.value}
             onChange={onChange}

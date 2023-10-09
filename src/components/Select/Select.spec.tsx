@@ -1,7 +1,6 @@
-import { fireEvent, render, screen, within } from '@testing-library/react';
 import React from 'react';
-
 import { Select } from '../index';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 
 describe('Select', () => {
   it('should trigger the on change function when input value is changed', () => {
@@ -15,7 +14,7 @@ describe('Select', () => {
           { label: 'My Account', value: 'myAccount' },
           { label: 'Log Out', value: 'logOut' },
         ]}
-      />
+      />,
     );
 
     fireEvent.mouseDown(screen.getByRole('button'));
