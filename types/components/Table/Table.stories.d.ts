@@ -1,11 +1,24 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<import("./types").TableProps>;
 };
 export default _default;
-export declare const Base: ComponentStory<React.FC<import("./types").TableProps>>;
-export declare const Empty: ComponentStory<React.FC<import("./types").TableProps>>;
-export declare const Loading: ComponentStory<React.FC<import("./types").TableProps>>;
-export declare const ClickableRow: ComponentStory<React.FC<import("./types").TableProps>>;
+export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;
+export declare const Empty: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;
+export declare const Loading: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;
+export declare const HiddenHeader: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;
+export declare const ClickableRow: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;
+export declare const WithPagination: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("./types").TableProps & {
+    children?: React.ReactNode;
+}>;

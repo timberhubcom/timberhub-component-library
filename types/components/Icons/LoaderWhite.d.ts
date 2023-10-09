@@ -1,3 +1,3 @@
-/// <reference types="react" />
-declare const LoaderWhite: () => JSX.Element;
+import React from 'react';
+declare const LoaderWhite: () => React.JSX.Element;
 export default LoaderWhite;

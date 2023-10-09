@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './TextArea.module.scss';
 
 type TextAreaProps = {
@@ -19,7 +20,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   label,
   name,
   placeholder,
-  labelClass='',
+  labelClass = '',
   description = null,
   defaultValue,
   disabled = false,

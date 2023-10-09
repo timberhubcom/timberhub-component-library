@@ -1,7 +1,8 @@
-import React from 'react';
 import { ComponentStory } from '@storybook/react';
-import { Table } from './Table';
+import React from 'react';
+
 import { rows, structure } from './data';
+import { Table } from './Table';
 
 export default {
   title: 'Components/Table',
@@ -41,6 +42,7 @@ ClickableRow.args = {
   structure,
   rows,
   clickableRow: true,
+  // eslint-disable-next-line no-console
   onClick: (row) => console.log(row),
 };
 
@@ -49,11 +51,13 @@ WithPagination.args = {
   structure,
   rows,
   clickableRow: true,
+  // eslint-disable-next-line no-console
   onClick: (row) => console.log(row),
   pagination: true,
   paginationData: {
     activePage: 1,
     totalPages: 10,
+    // eslint-disable-next-line no-console
     onPageChange: (page) => console.log(page),
   },
 };

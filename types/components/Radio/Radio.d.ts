@@ -1,10 +1,10 @@
 import React from 'react';
-export declare type RadioOptionType = {
+export type RadioOptionType = {
     name: string;
     value: string;
     children?: React.ReactNode;
 };
-declare type RadioProps = {
+type RadioProps = {
     option: RadioOptionType;
     checked?: boolean;
     disabled?: boolean;

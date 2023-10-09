@@ -1,9 +1,10 @@
+import { css, cx } from '@emotion/css';
 import React from 'react';
-import { cx, css } from '@emotion/css';
+
 import { tokens } from '../../../theme/tokens';
 
 export const TableHead = React.forwardRef<HTMLTableCellElement, React.ThHTMLAttributes<HTMLTableCellElement>>(
-  ({ className, ...props }, ref) => <th ref={ref} className={cx(styles.root, className)} {...props} />,
+  ({ className, ...props }, ref) => <th ref={ref} className={cx(styles.root, className)} {...props} />
 );
 
 const styles = {

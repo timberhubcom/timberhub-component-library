@@ -1,9 +1,10 @@
-import { ContactCard } from './ContactCard';
 import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 
+import { ContactCard } from './ContactCard';
+
 export default {
-  title: 'Mui/ContactCard',
+  title: 'MUI/ContactCard',
   component: ContactCard,
 } as Meta;
 
@@ -15,7 +16,6 @@ Card.args = {
   details: {
     fullName: 'Joe Doe',
     location: 'Berlin, Germany',
-    telephone: '00339284822',
     mail: 'joe@doe.com',
     src: 'https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50',
   },
