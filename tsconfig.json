@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "isolatedModules": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "baseUrl": "./",
     "target": "es5",
     "esModuleInterop": true,
@@ -15,7 +20,7 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["types/modules.d.ts", "types/svg.d.ts", "src/"],
   "exclude": ["node_modules/"]

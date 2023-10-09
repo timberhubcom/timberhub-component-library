@@ -1,5 +1,4 @@
 import React from 'react';
-import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
@@ -18,7 +17,7 @@ declare const _default: {
     }>;
 };
 export default _default;
-export declare const Base: ComponentStory<React.FC<{
+export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
     label?: string | undefined;
     name?: string | undefined;
     option: {
@@ -31,4 +30,6 @@ export declare const Base: ComponentStory<React.FC<{
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-}>>;
+} & {
+    children?: React.ReactNode;
+}>;

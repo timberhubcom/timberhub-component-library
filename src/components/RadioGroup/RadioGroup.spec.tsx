@@ -1,6 +1,7 @@
-import React from 'react';
-import { RadioGroup } from '../index';
 import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
+
+import { RadioGroup } from '../index';
 
 const options = [
   { name: 'option 1', value: 'option 1' },

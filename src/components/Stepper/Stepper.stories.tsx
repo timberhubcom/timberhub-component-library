@@ -1,5 +1,6 @@
-import React from 'react';
 import { StoryFn } from '@storybook/react';
+import React from 'react';
+
 import { Stepper } from './Stepper';
 
 export default {

@@ -1,9 +1,9 @@
 import React from 'react';
-declare type SwitchOptionType = {
+type SwitchOptionType = {
     name: string;
     children?: React.ReactNode;
 };
-declare type SwitchProps = {
+type SwitchProps = {
     label?: string;
     name?: string;
     option: SwitchOptionType;

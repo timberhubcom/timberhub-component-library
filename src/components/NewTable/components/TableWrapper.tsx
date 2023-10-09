@@ -1,12 +1,12 @@
-import React from 'react';
 import { css, cx } from '@emotion/css';
+import React from 'react';
 
 export const TableWrapper = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
     <div className={styles.root}>
       <table ref={ref} className={cx(styles.container, className)} {...props} />
     </div>
-  ),
+  )
 );
 
 const styles = {

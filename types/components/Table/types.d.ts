@@ -1,26 +1,29 @@
 import React, { ReactNode } from 'react';
-export declare type TableRowItem = {
+import { PaginationProps } from '../Pagination/Pagination';
+export type TableRowItem = {
     [key: string]: string | React.ReactNode;
 };
-export declare type HeaderItem = {
-    title: string;
+export type HeaderItem = {
+    title: ReactNode;
     name: string;
-    key: string;
+    key?: string;
     width: number;
     mobile_width?: number;
     show_title: boolean;
     show_on_hover?: boolean;
 };
-export declare type TableStructure = {
+export type TableStructure = {
     header: HeaderItem[];
 };
-export declare type TableProps = {
+export type TableProps = {
     structure: TableStructure;
     loading?: boolean;
     rows: TableRowItem[];
     clickableRow?: boolean;
     size?: 'default' | 'small';
-    mobileHeader?: string;
+    mobileHeader?: 'visible' | 'hidden';
     onClick?: (row: TableRowItem) => void;
     emptyText?: ReactNode;
+    pagination?: boolean;
+    paginationData?: PaginationProps;
 };

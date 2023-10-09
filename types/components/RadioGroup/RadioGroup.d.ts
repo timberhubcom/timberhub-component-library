@@ -1,6 +1,6 @@
 import React from 'react';
 import { RadioOptionType } from '../Radio/Radio';
-declare type RadioGroupProps = {
+type RadioGroupProps = {
     label?: string;
     labelClass?: string;
     options: RadioOptionType[];

@@ -1,10 +1,6 @@
 import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
-import { TypographyVariantOverrides } from '../../types/typography.types';
 import { TypographyProps } from '@mui/material/Typography';
-
-declare module '@mui/material/Typography' {
-  export interface TypographyPropsVariantOverrides extends TypographyVariantOverrides {}
-}
+import React from 'react';
 
 export interface LinkProps extends MuiLinkProps {
   /**
@@ -14,6 +10,4 @@ export interface LinkProps extends MuiLinkProps {
   variant?: TypographyProps['variant'];
 }
 
-const Link = MuiLink as React.FC<LinkProps>;
-
-export { Link };
+export const Link = MuiLink as React.FC<LinkProps>;
