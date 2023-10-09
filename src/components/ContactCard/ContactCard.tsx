@@ -57,7 +57,8 @@ const styles = {
     border-radius: 50%;
     background-image: url('${src}');
     user-select: none;
-    background-size: contain;
+    background-size: cover;
+    background-position: center;
   `,
   title: css`
     max-width: 161px;
