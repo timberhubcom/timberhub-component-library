@@ -63,8 +63,7 @@ export const NewTable = <TData extends object>({
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={crypto.randomUUID()}
-                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
-                >
+                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}>
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </TableHead>
               ))}
