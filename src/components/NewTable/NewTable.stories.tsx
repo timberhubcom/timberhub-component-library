@@ -1,9 +1,8 @@
-import { Meta, StoryFn } from '@storybook/react';
-import { ColumnDef } from '@tanstack/react-table';
 import React from 'react';
-
-import { Button } from '../Button/Button';
+import { Meta, StoryFn } from '@storybook/react';
 import { NewTable } from './NewTable';
+import { ColumnDef } from '@tanstack/react-table';
+import { Button } from '../Button';
 
 type Payment = {
   id: string;
@@ -12,7 +11,7 @@ type Payment = {
   email: string;
 };
 
-const columns: ColumnDef<Payment | object>[] = [
+const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'email',
     header: 'email',
@@ -89,7 +88,6 @@ export const ClickableRow = Template.bind({});
 ClickableRow.args = {
   columns,
   data,
-  // eslint-disable-next-line no-console
   onClick: (row) => console.log(row),
 };
 
@@ -97,11 +95,9 @@ export const WithPagination = Template.bind({});
 WithPagination.args = {
   columns,
   data: dataPagination,
-  // eslint-disable-next-line no-console
   onClick: (row) => console.log(row),
   pagination: {
     onChange: (page) => {
-      // eslint-disable-next-line no-console
       console.log('Page: ', page);
     },
   },

@@ -1,11 +1,3 @@
-import React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import './globalStyles';
-
-import { theme } from '../src';
-
-export const decorators = [(storyFn) => <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>];
-
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -14,9 +6,19 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  options: {
-    storySort: {
-      order: ['Design System', 'MUI', 'Components'],
-    },
-  },
 };
+
+import React from "react"
+import { ThemeProvider } from "@mui/material/styles"
+
+import { muiTheme } from "../src/config/theme/muiTheme"
+
+export const decorators = [
+  (Story) => {
+  return (
+    <ThemeProvider theme={muiTheme}>
+      <Story />
+    </ThemeProvider>
+  )
+  }
+]

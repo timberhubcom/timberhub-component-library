@@ -1,6 +1,5 @@
-import { StoryFn } from '@storybook/react';
 import React from 'react';
-
+import { StoryFn } from '@storybook/react';
 import { Autocomplete } from './Autocomplete';
 
 export default {
@@ -18,6 +17,6 @@ const options = [
 export const Base = Template.bind({});
 Base.args = {
   label: 'Movie',
-  options,
+  options: options,
   sx: { width: 300 },
 };

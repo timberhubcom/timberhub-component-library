@@ -1,11 +1,10 @@
 import clsx from 'clsx';
 import React from 'react';
-
-import { colors } from '../../theme/old-tokens/colors.enum';
-import Loader from '../Icons/Loader';
-import Pagination from '../Pagination/Pagination';
 import styles from './Table.module.scss';
+import Loader from '../Icons/Loader';
 import { HeaderItem, TableProps, TableRowItem } from './types';
+import { colors } from '../../theme/colors.enum';
+import Pagination from '../Pagination/Pagination';
 
 export const Table: React.FC<TableProps> = ({
   structure,
@@ -19,9 +18,7 @@ export const Table: React.FC<TableProps> = ({
   paginationData,
 }) => {
   const handleRowClick = (row: TableRowItem) => {
-    if (onClick) {
-      onClick(row);
-    }
+    if (onClick) onClick(row);
   };
 
   return (
@@ -34,10 +31,11 @@ export const Table: React.FC<TableProps> = ({
                 className={clsx(
                   styles.tableColumn,
                   styles[`col-${column.width}`],
-                  styles[`sm-col-${column.mobile_width}`]
+                  styles[`sm-col-${column.mobile_width}`],
                 )}
                 data-key={column.name}
-                key={`header-${column.name}-${index}`}>
+                key={`header-${column.name}-${index}`}
+              >
                 <span className={styles['tableHeaderText']}>{column.show_title && column.title}</span>
               </div>
             ))}
@@ -60,17 +58,19 @@ export const Table: React.FC<TableProps> = ({
                     <div
                       className={clsx(styles.cols, styles.tableRow, clickableRow && styles.tableRowClickable)}
                       onClick={() => handleRowClick(row)}
-                      data-testid={`row-${position}`}>
+                      data-testid={`row-${position}`}
+                    >
                       {structure.header.map((column, index) => (
                         <div
                           className={clsx(
                             styles.tableColumn,
                             styles[`col-${column.width}`],
                             styles[`sm-col-${column.mobile_width}`],
-                            column.show_on_hover && styles.showOnHover
+                            column.show_on_hover && styles.showOnHover,
                           )}
                           data-key={column.name}
-                          key={`row-${row[column.name] ?? ''}-${index}`}>
+                          key={`row-${row[column.name] ?? ''}-${index}`}
+                        >
                           {row[column.name] && row[column.name]}
                         </div>
                       ))}

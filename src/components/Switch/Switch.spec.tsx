@@ -1,7 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
-
 import { Switch } from '../index';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('Switch', () => {
   it('should render the input properly', () => {

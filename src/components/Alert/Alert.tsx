@@ -1,63 +1,45 @@
-import Box, { BoxProps } from '@mui/material/Box';
 import React from 'react';
-import { tokens } from 'src/theme/tokens';
-import { CustomColors } from 'src/types';
+import styles from './Alert.module.scss';
+import clsx from 'clsx';
+import { Button } from '../Button';
 
-export interface AlertProps extends BoxProps {
-  icon?: React.ReactNode;
+export interface AlertProps {
+  variant?: 'green' | 'blue' | 'yellow' | 'red' | 'grey';
+  className?: string;
+  title?: string;
   children: React.ReactNode;
-  variant?: Omit<CustomColors, 'accent' | 'secondary' | 'primary'>;
+  buttonTitle?: string;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
-const variantToColorMapper = {
-  success: {
-    bg: tokens.colors.shade,
-    color: tokens.colors.primary[500],
-  },
-  grey: {
-    bg: tokens.colors.grey[100],
-    color: tokens.colors.grey[400],
-  },
-  error: {
-    bg: tokens.colors.error[100],
-    color: tokens.colors.error[400],
-  },
-  warning: {
-    bg: tokens.colors.warning[100],
-    color: tokens.colors.warning[400],
-  },
-  info: {
-    bg: tokens.colors.info[100],
-    color: tokens.colors.info[400],
-  },
+const variantColorMap = {
+  green: styles['alert-default'],
+  blue: styles['alert-info'],
+  yellow: styles['alert-warning'],
+  red: styles['alert-error'],
+  grey: styles['alert-text'],
 };
-export const Alert = ({
-  icon,
+
+const Alert: React.FC<AlertProps> = ({
+  variant = 'green',
   children,
-  variant = 'grey',
-  bgcolor,
-  display = 'flex',
-  gap = '16px',
-  p = '8px 16px',
-  ...props
-}: AlertProps) => {
-  const validVariant = variantToColorMapper[variant as keyof typeof variantToColorMapper] ?? variantToColorMapper.grey;
-  const bgColor = bgcolor || validVariant.bg;
-  const svgColor = validVariant.color;
+  className = '',
+  onClick,
+  title = '',
+  buttonTitle = '',
+}) => {
+  const variantStyle = variantColorMap[variant] ?? styles['alert-default'];
 
   return (
-    <Box bgcolor={bgColor} role={'alert'} display={display} gap={gap} p={p} {...props}>
-      <Box
-        display={'flex'}
-        flexShrink={'0'}
-        sx={{
-          svg: {
-            color: svgColor,
-          },
-        }}>
-        {icon}
-      </Box>
-      <Box alignSelf={'center'}>{children}</Box>
-    </Box>
+    <div className={clsx(styles.alert, className, variantStyle)}>
+      <div className={styles['alert-title']}>{title || children}</div>
+      {buttonTitle && (
+        <div className={styles.alertAction}>
+          <Button onClick={onClick}>{buttonTitle}</Button>
+        </div>
+      )}
+    </div>
   );
 };
+
+export default Alert;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
@@ -16,7 +17,7 @@ declare const _default: {
     }>;
 };
 export default _default;
-export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+export declare const Base: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
@@ -28,10 +29,8 @@ export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@
     disabled?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Label: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Label: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
@@ -43,10 +42,8 @@ export declare const Label: import("@storybook/types").AnnotatedStoryFn<import("
     disabled?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Disabled: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
@@ -58,10 +55,8 @@ export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<impor
     disabled?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Required: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Required: ComponentStory<React.FC<{
     name?: string | undefined;
     label?: string | undefined;
     labelClass?: string | undefined;
@@ -73,6 +68,4 @@ export declare const Required: import("@storybook/types").AnnotatedStoryFn<impor
     disabled?: boolean | undefined;
     required?: boolean | undefined;
     error?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
+}>>;

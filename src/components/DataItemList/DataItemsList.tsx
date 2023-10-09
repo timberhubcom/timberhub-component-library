@@ -1,6 +1,5 @@
-import { css, cx } from '@emotion/css';
 import React from 'react';
-
+import { css } from '@emotion/css';
 import DataItem, { DataItemsProps } from '../DataItem/DataItem';
 
 export type DataItemsListProps = {
@@ -28,20 +27,16 @@ export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps
 ) {
   const isSingle = items?.length === 1;
 
-  return (
-    <React.Fragment>
-      {items.map((item, index) => (
-        <DataItem
-          icon={item.icon}
-          title={item.title}
-          description={item.description}
-          className={cx({ [getItemClass(index, items)]: isSingle }, className)}
-          key={crypto.randomUUID()}
-          ref={ref}
-        />
-      ))}
-    </React.Fragment>
-  );
+  return items.map((item, index) => (
+    <DataItem
+      icon={item.icon}
+      title={item.title}
+      description={item.description}
+      className={isSingle ? '' : getItemClass(index, items)}
+      key={crypto.randomUUID()}
+      ref={ref}
+    />
+  ));
 });
 
 const styles = {

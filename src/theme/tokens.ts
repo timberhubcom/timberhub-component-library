@@ -1,5 +1,6 @@
 const colors = {
   black: '#000000',
+  transparent: 'transparent',
   white: '#ffffff',
   primary: {
     400: '#006646',

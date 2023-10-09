@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { TableStructure } from './types';
 
 export const structure: TableStructure = {

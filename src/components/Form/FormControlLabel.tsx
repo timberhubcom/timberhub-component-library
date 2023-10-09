@@ -1,12 +1,18 @@
 import MuiFormControlLabel, { FormControlLabelProps as MuiFormControlLabelProps } from '@mui/material/FormControlLabel';
+import { TypographyVariantOverrides } from '../../types/typography.types';
 import { styled } from '@mui/material/styles';
-import React from 'react';
 
-export type FormControlLabelProps = MuiFormControlLabelProps;
+declare module '@mui/material/Typography' {
+  export interface TypographyPropsVariantOverrides extends TypographyVariantOverrides {}
+}
+
+export interface FormControlLabelProps extends MuiFormControlLabelProps {}
 
 const StyledControlLabel = styled(MuiFormControlLabel)`
   gap: 8px;
-  margin-left: 0;
+  margin-left: 0px;
 `;
 
-export const FormControlLabel = StyledControlLabel as React.FC<FormControlLabelProps>;
+const FormControlLabel = StyledControlLabel as React.FC<FormControlLabelProps>;
+
+export { FormControlLabel };

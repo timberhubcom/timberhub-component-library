@@ -1,5 +1,14 @@
-import { css, cx } from '@emotion/css';
-import { Skeleton } from '@mui/material';
+import React from 'react';
+import {
+  TableWrapper,
+  TableCell,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TablePagination,
+  TablePaginationProps,
+} from './components';
 import {
   ColumnDef,
   ColumnResizeMode,
@@ -9,19 +18,9 @@ import {
   Row,
   useReactTable,
 } from '@tanstack/react-table';
-import React from 'react';
-
+import { css, cx } from '@emotion/css';
+import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
-import {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TablePagination,
-  TablePaginationProps,
-  TableRow,
-  TableWrapper,
-} from './components';
 
 export type NewTableProps<TData> = {
   columns: ColumnDef<TData>[];
@@ -63,7 +62,8 @@ export const NewTable = <TData extends object>({
               {headerGroup.headers.map((header) => (
                 <TableHead
                   key={crypto.randomUUID()}
-                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}>
+                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
+                >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </TableHead>
               ))}
@@ -95,7 +95,8 @@ export const NewTable = <TData extends object>({
                 <TableHead
                   key={header.id}
                   colSpan={header.colSpan}
-                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}>
+                  className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
+                >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   {!header.column.columnDef.enablePinning && (
                     <div
@@ -116,7 +117,8 @@ export const NewTable = <TData extends object>({
                 key={row.id}
                 data-testid={`row-${index}`}
                 onClick={!!onClick ? () => onClick(row) : undefined}
-                className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}>
+                className={cx(styles.row, styles.sticky, { [styles.active]: !!onClick })}
+              >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id} className={styles.cell(cell.column.columnDef.enablePinning)}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}

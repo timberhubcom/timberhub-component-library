@@ -1,0 +1,14 @@
+@import "./src/theme/pallete";
+
+@mixin required() {
+  color: $green;
+  margin-left: 3px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-align-center {
+  align-items: center;
+}

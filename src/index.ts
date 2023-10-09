@@ -1,8 +1,7 @@
-import './assets/fonts.scss';
+import './assets/fonts.scss'
 
 export * from './components';
-import './mui';
-export * from './theme';
-export { tokens as designTokens } from './theme/tokens';
+export * from './config';
 export * from './types';
-export * from './utils';
+export {tokens as designTokens} from './theme/tokens';
+import './mui'

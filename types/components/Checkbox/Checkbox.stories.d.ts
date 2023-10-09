@@ -1,14 +1,78 @@
 import React from 'react';
+import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
-    component: ({ size, sx, ...props }: import("@mui/material").CheckboxProps) => React.JSX.Element;
+    component: React.FC<{
+        name?: string | undefined;
+        label?: string | undefined;
+        labelClass?: string | undefined;
+        option?: import("./Checkbox").CheckboxOptionType | undefined;
+        description?: string | undefined;
+        defaultValue?: boolean | undefined;
+        value?: boolean | undefined;
+        disabled?: boolean | undefined;
+        onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+        required?: boolean | undefined;
+    }>;
 };
 export default _default;
-export declare const Small: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const Medium: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const Large: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const Error: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const Warning: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const accent: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
-export declare const info: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, import("@mui/material").CheckboxProps>;
+export declare const Base: ComponentStory<React.FC<{
+    name?: string | undefined;
+    label?: string | undefined;
+    labelClass?: string | undefined;
+    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    description?: string | undefined;
+    defaultValue?: boolean | undefined;
+    value?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    required?: boolean | undefined;
+}>>;
+export declare const Label: ComponentStory<React.FC<{
+    name?: string | undefined;
+    label?: string | undefined;
+    labelClass?: string | undefined;
+    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    description?: string | undefined;
+    defaultValue?: boolean | undefined;
+    value?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    required?: boolean | undefined;
+}>>;
+export declare const Disabled: ComponentStory<React.FC<{
+    name?: string | undefined;
+    label?: string | undefined;
+    labelClass?: string | undefined;
+    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    description?: string | undefined;
+    defaultValue?: boolean | undefined;
+    value?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    required?: boolean | undefined;
+}>>;
+export declare const Required: ComponentStory<React.FC<{
+    name?: string | undefined;
+    label?: string | undefined;
+    labelClass?: string | undefined;
+    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    description?: string | undefined;
+    defaultValue?: boolean | undefined;
+    value?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    required?: boolean | undefined;
+}>>;
+export declare const ChildComponent: ComponentStory<React.FC<{
+    name?: string | undefined;
+    label?: string | undefined;
+    labelClass?: string | undefined;
+    option?: import("./Checkbox").CheckboxOptionType | undefined;
+    description?: string | undefined;
+    defaultValue?: boolean | undefined;
+    value?: boolean | undefined;
+    disabled?: boolean | undefined;
+    onClick?: React.MouseEventHandler<HTMLElement> | undefined;
+    required?: boolean | undefined;
+}>>;

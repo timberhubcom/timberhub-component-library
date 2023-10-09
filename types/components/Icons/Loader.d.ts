@@ -1,5 +1,5 @@
-import React from 'react';
+/// <reference types="react" />
 declare const Loader: ({ color }: {
     color: string;
-}) => React.JSX.Element;
+}) => JSX.Element;
 export default Loader;

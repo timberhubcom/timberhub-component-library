@@ -1,7 +1,6 @@
-import { Box, MenuItem } from '@mui/material';
-import { StoryFn } from '@storybook/react';
 import React from 'react';
-
+import { StoryFn } from '@storybook/react';
+import { Box, MenuItem } from '@mui/material';
 import { ExtendedSelectProps, Select } from './Select';
 
 export default {
@@ -57,9 +56,9 @@ WithChildren.args = {
   label: 'Select an option',
   children: (
     <>
-      <MenuItem value={'option1'}>Option 1</MenuItem>
-      <MenuItem value={'option2'}>Option 2</MenuItem>
-      <MenuItem value={'option3'}>Option 3</MenuItem>
+      <MenuItem value="option1">Option 1</MenuItem>
+      <MenuItem value="option2">Option 2</MenuItem>
+      <MenuItem value="option3">Option 3</MenuItem>
     </>
   ),
 };

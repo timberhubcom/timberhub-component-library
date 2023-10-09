@@ -1,0 +1,47 @@
+@import "./src/theme/shared";
+@import "./src/theme/pallete";
+@import "./src/theme/functions";
+@import "./src/theme/typography";
+
+.chip {
+  @include text-12;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 5px 10px;
+  border-radius: 10 * $border_radius;
+}
+
+.grey {
+  background-color: $back_grey;
+  color: $grey_700;
+}
+
+.green {
+  background-color: $light_green;
+  color: $dark_green;
+}
+
+.orange {
+  background-color: $light_orange;
+  color: $orange_500;
+}
+
+.red {
+  background-color: $red_100;
+  color: $red_500;
+}
+
+.blue {
+  background-color: $info_100;
+  color: $info_500;
+}
+
+.text {
+  @include text-10;
+}
+
+.prefix {
+  padding-right: 6px;
+  color: $light_grey;
+  opacity: 0.3;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentStory } from '@storybook/react';
 declare const _default: {
     title: string;
     component: React.FC<{
@@ -13,7 +14,7 @@ declare const _default: {
     }>;
 };
 export default _default;
-export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+export declare const Base: ComponentStory<React.FC<{
     label?: string | undefined;
     labelClass?: string | undefined;
     options: import("../Radio/Radio").RadioOptionType[];
@@ -22,10 +23,8 @@ export declare const Base: import("@storybook/types").AnnotatedStoryFn<import("@
     required?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     resetText?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Required: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Required: ComponentStory<React.FC<{
     label?: string | undefined;
     labelClass?: string | undefined;
     options: import("../Radio/Radio").RadioOptionType[];
@@ -34,10 +33,8 @@ export declare const Required: import("@storybook/types").AnnotatedStoryFn<impor
     required?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     resetText?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Default: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Default: ComponentStory<React.FC<{
     label?: string | undefined;
     labelClass?: string | undefined;
     options: import("../Radio/Radio").RadioOptionType[];
@@ -46,10 +43,8 @@ export declare const Default: import("@storybook/types").AnnotatedStoryFn<import
     required?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     resetText?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Reset: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Reset: ComponentStory<React.FC<{
     label?: string | undefined;
     labelClass?: string | undefined;
     options: import("../Radio/Radio").RadioOptionType[];
@@ -58,10 +53,8 @@ export declare const Reset: import("@storybook/types").AnnotatedStoryFn<import("
     required?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     resetText?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
-export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<import("@storybook/react/dist/types-0a347bb9").R, {
+}>>;
+export declare const Disabled: ComponentStory<React.FC<{
     label?: string | undefined;
     labelClass?: string | undefined;
     options: import("../Radio/Radio").RadioOptionType[];
@@ -70,6 +63,4 @@ export declare const Disabled: import("@storybook/types").AnnotatedStoryFn<impor
     required?: boolean | undefined;
     onChange?: ((e: React.ChangeEvent<HTMLInputElement>) => void) | undefined;
     resetText?: string | undefined;
-} & {
-    children?: React.ReactNode;
-}>;
+}>>;

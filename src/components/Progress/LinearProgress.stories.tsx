@@ -1,10 +1,9 @@
-import { StoryObj } from '@storybook/react';
 import React from 'react';
-
 import { LinearProgress, LinearProgressProps } from './LinearProgress';
+import { StoryObj } from '@storybook/react';
 
 export default {
-  title: 'MUI/LinearProgress',
+  title: 'Mui/LinearProgress',
   component: LinearProgress,
 };
 
