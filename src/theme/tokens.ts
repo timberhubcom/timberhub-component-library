@@ -208,4 +208,11 @@ export type TTheme = typeof tokens;
 export const tokens = {
   colors,
   ...sharedThemeValues,
+  breakpoints: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+  },
 } as const;
