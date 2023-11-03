@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/css';
 import DataItem, { DataItemsProps } from '../DataItem/DataItem';
+import { getRandomInt } from '../../utils/utils';
 
 export type DataItemsListProps = {
   items: DataItemsProps[];
@@ -33,7 +34,7 @@ export const DataItemsList = React.forwardRef<HTMLDivElement, DataItemsListProps
       title={item.title}
       description={item.description}
       className={isSingle ? '' : getItemClass(index, items)}
-      key={crypto.randomUUID()}
+      key={getRandomInt()}
       ref={ref}
     />
   ));

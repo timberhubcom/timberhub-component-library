@@ -21,6 +21,7 @@ import {
 import { css, cx } from '@emotion/css';
 import { Skeleton } from '@mui/material';
 import { tokens } from '../../theme/tokens';
+import { getRandomInt } from '../../utils/utils';
 
 export type NewTableProps<TData> = {
   columns: ColumnDef<TData>[];
@@ -61,7 +62,7 @@ export const NewTable = <TData extends object>({
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <TableHead
-                  key={crypto.randomUUID()}
+                  key={getRandomInt()}
                   className={styles.head(header.getSize(), header.column.columnDef.enablePinning)}
                 >
                   {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
@@ -72,9 +73,9 @@ export const NewTable = <TData extends object>({
         </TableHeader>
         <TableBody>
           {[...new Array(loadingRows)].map(() => (
-            <TableRow key={crypto.randomUUID()} className={styles.row}>
+            <TableRow key={getRandomInt()} className={styles.row}>
               {[...new Array(columns.length)].map(() => (
-                <TableCell key={crypto.randomUUID()} className={styles.cell()}>
+                <TableCell key={getRandomInt()} className={styles.cell()}>
                   <Skeleton variant={'rounded'} />
                 </TableCell>
               ))}

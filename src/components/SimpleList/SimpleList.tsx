@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, TableContainer, TableBody, TableRow, TableCell, Table } from '@mui/material';
 import { Typography } from '../Typography';
+import { getRandomInt } from '../../utils/utils';
 
 type SimpleItem = {
   text: string;
@@ -33,11 +34,11 @@ export const SimpleList = React.forwardRef<HTMLDivElement, SimpleListProps>(func
       <TableBody>
         {items.map((item) => (
           <TableRow
-            key={crypto.randomUUID()}
+            key={getRandomInt()}
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             {item.map((cell: SimpleItem, index) => (
-              <TableCell key={crypto.randomUUID()} align={getAlignment(index, item.length)}>
+              <TableCell key={getRandomInt()} align={getAlignment(index, item.length)}>
                 <Typography variant={cell?.style === 'bold' ? 'headline_ss_xs' : 'body_s'}>
                   {cell.text}
                 </Typography>
