@@ -58,9 +58,12 @@ const StyledTextField = styled(MuiTextField)(({ theme }) => ({
   },
 }));
 
-const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+// const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
+//   return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
+// };
+const TextField = forwardRef<any, TextFieldProps>(
   ({ helperText = null, variant = 'outlined', size = 'small', ...props }, ref) => {
-    return <StyledTextField variant={variant} size={size} helperText={helperText} inputRef={ref} {...props} />;
+    return <StyledTextField variant={variant} size={size} helperText={helperText} ref={ref} {...props} />;
   },
 );
 
