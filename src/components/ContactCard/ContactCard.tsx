@@ -49,7 +49,7 @@ export const ContactCard = React.forwardRef<HTMLDivElement, ContactCardProps>(fu
 
 const styles = {
   root: css`
-    max-height: 321px;
+    height: fit-content;
     background-color: ${tokens.colors.grey[50]};
     display: grid;
     justify-items: center;
