@@ -1,12 +1,12 @@
 import { Color, Theme } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import MuiTextField, { OutlinedTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
-import React from 'react';
+import MuiTextField, { TextFieldProps as MuiTextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import React, { forwardRef } from 'react';
 import { dropdownIconPath } from 'src/icons/dropdownIconPath';
 
-export interface TextFieldProps extends Omit<OutlinedTextFieldProps, 'variant'> {
+export type TextFieldProps = {
   variant?: TextFieldVariants;
-}
+} & Omit<MuiTextFieldProps<'outlined'>, 'variant'>;
 
 export const outlinedInputStyles = (theme: Theme) => ({
   '& fieldset': {
@@ -58,8 +58,10 @@ const StyledTextField = styled(MuiTextField)(({ theme }) => ({
   },
 }));
 
-const TextField = ({ helperText = null, variant = 'outlined', size = 'small', ...props }: TextFieldProps) => {
-  return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} />;
-};
+const TextField = forwardRef<HTMLDivElement, TextFieldProps>(
+  ({ helperText = null, variant = 'outlined', size = 'small', ...props }, ref) => {
+    return <StyledTextField variant={variant} size={size} helperText={helperText} {...props} ref={ref} />;
+  },
+);
 
 export { TextField };
