@@ -60,7 +60,7 @@ jobs:
         with:
           token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
           unprotect_reviews: true
-      - run: npm run build
+      - run: npm run rollup
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
