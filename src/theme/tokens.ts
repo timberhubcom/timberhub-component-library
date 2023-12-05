@@ -8,7 +8,6 @@ const colors = {
     600: '#00291C',
   },
   accent: '#DCF53C',
-  // shade
   shade: '#E9F7EE',
   // gray
   grey: {
