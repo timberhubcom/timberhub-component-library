@@ -7,26 +7,14 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "publish-version:major": "npm run rollup && npm version major && npm publish",
-    "publish-version:minor": "npm run rollup && npm version minor && npm publish",
-    "publish-version:patch": "npm run rollup && npm version patch && npm publish",
     "build-watch": "rollup -c -w",
     "start-playground": "cd playground && npm run start",
     "i-all": "npm i && cd playground && npm i",
     "dev": "npm-run-all --parallel build-watch start-playground"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/timberhubcom/timberhub-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/timberhubcom/timberhub-component-library/issues"
-  },
-  "homepage": "https://github.com/timberhubcom/timberhub-component-library#readme",
   "author": "timberhubcom",
   "license": "ISC",
   "devDependencies": {
