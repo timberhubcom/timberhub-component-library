@@ -9,7 +9,6 @@ const colors = {
   },
   accent: '#DCF53C',
   shade: '#E9F7EE',
-  // gray
   grey: {
     50: '#00000008', // #F7F7F7
     100: '#0000000D', // #F2F2F2
