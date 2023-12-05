@@ -1,6 +1,6 @@
 {
   "name": "@timberhubcom/timberhub-component-library",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "description": "A simple template for a custom React component library",
   "scripts": {
     "rollup": "rollup -c",
@@ -16,17 +16,8 @@
     "dev": "npm-run-all --parallel build-watch start-playground"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/timberhubcom/timberhub-component-library.git"
-  },
-  "bugs": {
-    "url": "https://github.com/timberhubcom/timberhub-component-library/issues"
-  },
-  "homepage": "https://github.com/timberhubcom/timberhub-component-library#readme",
   "author": "timberhubcom",
   "license": "ISC",
   "devDependencies": {
