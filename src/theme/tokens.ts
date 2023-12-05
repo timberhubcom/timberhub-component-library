@@ -7,7 +7,6 @@ const colors = {
     500: '#005238',
     600: '#00291C',
   },
-  // accent
   accent: '#DCF53C',
   // shade
   shade: '#E9F7EE',
@@ -209,10 +208,10 @@ export const tokens = {
   colors,
   ...sharedThemeValues,
   breakpoints: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
+    xs: 0,
+    sm: 600,
+    md: 900,
+    lg: 1200,
+    xl: 1536,
   },
 } as const;
