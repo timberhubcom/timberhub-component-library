@@ -1,0 +1,66 @@
+name: Release and publish package
+
+on:
+  push:
+    branches:
+      - main
+      - push-action/**
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.0
+      - uses: auguwu/node-pm-action@v1.0.1
+        id: node-cache
+      - if: steps.node-cache.outputs.cache-hit != 'true'
+        run: npm ci
+  lint:
+    runs-on: ubuntu-latest
+    needs: install-dependencies
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.0
+      - uses: auguwu/node-pm-action@v1.0.1
+      - run: npm run lint
+  publish:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4.0.0
+        with:
+          registry-url: https://npm.pkg.github.com/
+          scope: '@timberhubcom'
+      - uses: auguwu/node-pm-action@v1.0.1
+      - uses: haya14busa/action-bumpr@v1.9.0
+        id: bumpr
+      - run: npm version --git-tag-version=false ${{ steps.bumpr.outputs.next_version }}
+      - name: Update version in 'package.json'
+        id: packageJson
+        uses: RadovanPelka/github-action-json@v1.0.1
+        with:
+          path: package.json
+          replaceWith: |
+            {
+              "version": ${{ steps.bumpr.outputs.next_version }}
+            }
+      - run: cat package.json
+      - name: Commit changes
+        run: |
+          sudo chmod -R ugo+rwX .
+          git config --global user.name "cingopablo"
+          git config --global user.email "cingopablo@gmail.com"
+
+          git add package.json
+          git commit -m "Updated to version v${{ steps.packageJson.outputs.version }} [skip ci]"
+      - name: Push changes to 'main'
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PUSH_TO_PROTECTED_BRANCH }}
+          unprotect_reviews: true
+      - run: npm run build
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
